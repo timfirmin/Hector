@@ -1,0 +1,1545 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{D76EC550-FBFD-4363-9FA9-55BA9C240FE4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Clean REP_SampleDays"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="207"
+  DTS:VersionGUID="{EA9D4482-B8EB-4D3F-82DC-EE27A410AB94}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{3A938FD4-DE09-4061-BCDA-910A7EA265BF}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{75548A4B-25E2-47EC-9AE2-A72BCC9347FE}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{602AFE50-C3E7-4080-9F36-0B5531629F6D}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">STG2CLN</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A0158064-337A-407B-B0F1-426FDBB889D0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99F40DDF-AA54-41A4-954A-0D3566C80E5B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{28C085BF-662C-462A-9E79-591008E87C19}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B1D3154-C4B8-43E0-BFF6-00021E2F9697}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D59DADFF-6C13-4A18-9743-86FF97500156}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE39613C-F1B8-4911-8955-10AF04722317}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A0A3EB95-4FAC-4E6B-8A7D-CC772C03D385}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3DE8DDBF-8FB9-496C-87A4-6A7F353E468B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4E3C13F8-A17A-4C88-98C1-4C99BD80F2A0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AB4DADF7-23AC-403E-A683-AC122706B509}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5588F54E-FFB3-4FB6-A899-ECDA8621EDB5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{94B4D794-EC18-4D45-9176-3BEE435485BA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F558758-997E-418C-89F8-9CE200536FD3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Clean_SampleDays</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A037DFF-8CA3-41A5-A26F-62AC2A00F5BE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F982AD8-D758-4348-8158-1C2919F04D8C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">RepWarehouseSource</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6BC8CE54-9727-4490-AE84-9F7430A85DD9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1DAFB239-8927-4E27-8A67-A7405CBD6332}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C75A14B-4F8D-4B0C-8D53-C2324FA5DFC0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">STG2CLN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{38C1AC52-9356-44BF-9A3E-69445AAD0983}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">STG2CLN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CC7687D9-0775-4C96-AC1B-2AFBA64F6F6D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{738E3416-9A02-463D-A481-6A548B90C171}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strFileName] + &quot;_&quot; +  (DT_STR,4,1252)DATEPART( &quot;yyyy&quot; , getdate() ) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;mm&quot; , getdate() ), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;dd&quot; , getdate() ), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">RepWarehouseSource_20190306</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F7D6B2A-4D1D-4BB7-AD55-E01293A89740}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.SampleDays</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7892CE9D-BA8E-4709-924C-A90050C243A7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Clean.SampleDays</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{9D30A278-C15F-4D90-9573-4C40C669FE21}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{208937AA-DD65-42A3-ACE0-CBE7A7FA855E}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load SampleDays"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3C2AA400-6DD3-4268-9C28-A72FAAA2EBD0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load SampleDays"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load SampleDays.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{F81CC188-A301-4340-B734-D65DFFC99438}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{709AF4F2-0DA5-40C8-BC9E-4EC686918FF2}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load SampleDays.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{8559E8FB-6D66-41B2-9C5D-C87BA7C20DD5}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load SampleDays\Adatis Data Cleansing"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Generic Data Cleansing Routine, that removes Leading and Trailing spaces, tabs and new lines."
+              name="Adatis Data Cleansing">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Adatis.SSIS.Tasks.DataCleaning, Adatis.SSIS.PipelineComponents, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load SampleDays\Adatis Data Cleansing.Inputs[Input]"
+                  name="Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load SampleDays\Adatis Data Cleansing.Outputs[Output]"
+                  name="Output"
+                  synchronousInputId="Package\DFT - Load SampleDays\Adatis Data Cleansing.Inputs[Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load SampleDays\ADO - SampleDays"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - SampleDays"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Clean"."SampleDays"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load SampleDays\ADO - SampleDays.Connections[IDbConnection]"
+                  connectionManagerID="{5A008FB4-12C0-4875-8D36-B92B341D9245}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[StationId]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="StationId"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[StationId]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[StationId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[BroadcasterName]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="BroadcasterName"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterName]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[BroadcasterName]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[UsedForPurpose]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="UsedForPurpose"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[UsedForPurpose]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[UsedForPurpose]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[DateMonthKey]"
+                      cachedDataType="i4"
+                      cachedName="DateMonthKey"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[DateMonthKey]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[DateMonthKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[SampleDays]"
+                      cachedDataType="numeric"
+                      cachedName="SampleDays"
+                      cachedPrecision="38"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[SampleDays]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[SampleDays]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].Columns[RejectRow_YN]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="RejectRow_YN"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[RejectRow_YN]"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[StationId]"
+                      dataType="wstr"
+                      length="250"
+                      name="StationId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterName]"
+                      dataType="wstr"
+                      length="250"
+                      name="BroadcasterName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[UsedForPurpose]"
+                      dataType="wstr"
+                      length="20"
+                      name="UsedForPurpose" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[DateMonthKey]"
+                      dataType="i4"
+                      name="DateMonthKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[SampleDays]"
+                      dataType="numeric"
+                      name="SampleDays"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input].ExternalColumns[RejectRow_YN]"
+                      dataType="wstr"
+                      length="1"
+                      name="RejectRow_YN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load SampleDays\ADO - SampleDays.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\ADO - SampleDays.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - SampleDays.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\ADO - SampleDays.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO - Staging Broadcasters"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT distinct [StationId]
+      ,[BroadcasterName]
+      ,[UsedForPurpose]
+      ,[DateMonthKey]
+      ,[SampleDays]
+
+
+  FROM [Staging].[BroadcastSampleDays] bsd
+  --Removed Because we now want an initial load - before just delta reporting
+  --JOIN [Staging].[MDS_MasterStation] ms on bsd.[StationId] = ms.Code
+  where [DateMonthKey] &lt;&gt; 299912</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Broadcaster_MCPS_Licence_Types"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Connections[IDbConnection]"
+                  connectionManagerID="{5A008FB4-12C0-4875-8D36-B92B341D9245}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[StationId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[StationId]"
+                      length="250"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[StationId]"
+                      name="StationId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[BroadcasterName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterName]"
+                      length="250"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[BroadcasterName]"
+                      name="BroadcasterName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[UsedForPurpose]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[UsedForPurpose]"
+                      length="20"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[UsedForPurpose]"
+                      name="UsedForPurpose"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[DateMonthKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[DateMonthKey]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[DateMonthKey]"
+                      name="DateMonthKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[SampleDays]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[SampleDays]"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].Columns[SampleDays]"
+                      name="SampleDays"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[StationId]"
+                      dataType="wstr"
+                      length="250"
+                      name="StationId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterName]"
+                      dataType="wstr"
+                      length="250"
+                      name="BroadcasterName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[UsedForPurpose]"
+                      dataType="wstr"
+                      length="20"
+                      name="UsedForPurpose" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[DateMonthKey]"
+                      dataType="i4"
+                      name="DateMonthKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output].ExternalColumns[SampleDays]"
+                      dataType="numeric"
+                      name="SampleDays"
+                      precision="38"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[StationId]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[StationId]"
+                      name="StationId" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[BroadcasterName]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[BroadcasterName]"
+                      name="BroadcasterName" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[UsedForPurpose]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[UsedForPurpose]"
+                      name="UsedForPurpose" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[DateMonthKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[DateMonthKey]"
+                      name="DateMonthKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[SampleDays]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[SampleDays]"
+                      name="SampleDays"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]"
+                      name="RejectRow_YN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"N"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load SampleDays.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load SampleDays\Adatis Data Cleansing.Inputs[Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load SampleDays\ADO - Staging Broadcasters.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT - Load SampleDays.Paths[Derived Column Output]"
+              endId="Package\DFT - Load SampleDays\ADO - SampleDays.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load SampleDays.Paths[Output]"
+              endId="Package\DFT - Load SampleDays\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="Output"
+              startId="Package\DFT - Load SampleDays\Adatis Data Cleansing.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST- Insert or Obtain SourceFileId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{ad26c0a6-25ae-4b1a-aef3-780c29448c07}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST- Insert or Obtain SourceFileId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+          SQLTask:SqlStatementSource="EXEC [Control].[InsertSourceFile] @FileName , @LoadId , @ApplicationCode , @Source , @SourceFileId OUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@ApplicationCode"
+            SQLTask:DtsVariableName="$Project::strApplicationCode"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@FileName"
+            SQLTask:DtsVariableName="User::strSourceFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="User::intSourceFileId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@Source"
+            SQLTask:DtsVariableName="User::strSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{676720C6-8CA1-4310-B865-84E91758C57D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="User::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate CleanTable"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AF73D699-B513-4455-89CF-7FE8890BCB3A}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate CleanTable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"truncate table " +  @[User::strTargetTable]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5A008FB4-12C0-4875-8D36-B92B341D9245}"
+          SQLTask:SqlStatementSource="truncate table Clean.SampleDays" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{22DFD1AE-B48F-4E50-99FF-2BE378A67775}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment != &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EST- Insert or Obtain SourceFileId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4E763336-C7CE-4C4D-B67A-39F44E524874}"
+      DTS:From="Package\DFT - Load SampleDays"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{96D40BF6-3A88-45C7-9BC4-8A4BBBB77C88}"
+      DTS:From="Package\SQL - Truncate CleanTable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load SampleDays" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9C23CCEE-3FBE-41F7-AF28-7D9EE21E62A7}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate CleanTable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{32B3D94A-568F-4224-A97A-B22F825C9698}"
+      DTS:From="Package\EST- Insert or Obtain SourceFileId"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{46F738C2-9FF4-406C-B0FD-04C6AF8E70D1}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment == &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQL - Truncate CleanTable" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F8CB20BE-0C00-4BA1-8CE2-3D6DDD7A2A6B}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{644A5550-CF2A-4155-A83F-C1A1770430BE}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{4BA9DE9F-257F-4364-AA92-97C765FE9943}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="200.25,513.5" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\DFT - Load SampleDays"
+          TopLeft="214.25,423.916666666667" />
+        <NodeLayout
+          Size="241,43"
+          Id="Package\EST- Insert or Obtain SourceFileId"
+          TopLeft="194,159" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="205,252" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SQL - Truncate CleanTable"
+          TopLeft="225.25,337.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="325.25,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-10.75,41.25"
+              Start="0,0"
+              End="-10.75,33.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.625"
+                    Point2="0,20.625"
+                    Point3="-4,20.625" />
+                  <mssgle:LineSegment
+                    End="-6.75,20.625" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.75,20.625"
+                    Point2="-10.75,20.625"
+                    Point3="-10.75,24.625" />
+                  <mssgle:LineSegment
+                    End="-10.75,33.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-13.375,25.625,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="310.25,465.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="19,47.583333333333"
+              Start="0,0"
+              End="19,40.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7916666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.7916666666665"
+                    Point2="0,23.7916666666665"
+                    Point3="4,23.7916666666665" />
+                  <mssgle:LineSegment
+                    End="15,23.7916666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15,23.7916666666665"
+                    Point2="19,23.7916666666665"
+                    Point3="19,27.7916666666665" />
+                  <mssgle:LineSegment
+                    End="19,40.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="327.75,379.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-17.5,44.583333333334"
+              Start="0,0"
+              End="-17.5,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.291666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.291666666667"
+                    Point2="0,22.291666666667"
+                    Point3="-4,22.291666666667" />
+                  <mssgle:LineSegment
+                    End="-13.5,22.291666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,22.291666666667"
+                    Point2="-17.5,22.291666666667"
+                    Point3="-17.5,26.291666666667" />
+                  <mssgle:LineSegment
+                    End="-17.5,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="294.5,294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="33.25,43.333333333333"
+              Start="0,0"
+              End="33.25,35.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6666666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.6666666666665"
+                    Point2="0,21.6666666666665"
+                    Point3="4,21.6666666666665" />
+                  <mssgle:LineSegment
+                    End="29.25,21.6666666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.25,21.6666666666665"
+                    Point2="33.25,21.6666666666665"
+                    Point3="33.25,25.6666666666665" />
+                  <mssgle:LineSegment
+                    End="33.25,35.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="314.5,202">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-20,50"
+              Start="0,0"
+              End="-20,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="-4,25" />
+                  <mssgle:LineSegment
+                    End="-16,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-16,25"
+                    Point2="-20,25"
+                    Point3="-20,29" />
+                  <mssgle:LineSegment
+                    End="-20,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="363.75,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,219.583333333333"
+              Start="0,0"
+              End="0,212.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,212.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,98.0416666666665,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Clean data from Staging to MDSIntegration DB"
+          ParentId="Package"
+          Size="348,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="EXEC [Control].[InsertSourceFile] @FileName , @LoadId , @ApplicationCode , @Source , @SourceFileId OUT&#xA;&#xA;@ApplicationCode = Project::strApplicationCode&#xA;@FileName = User::strSourceFileName&#xA;@LoadId = User::intLoadId&#xA;(output) @SourceFileId = User::strSourceFileId&#xA;@Source = User::strSource&#xA;&#xA;add User::sstrFileName  and  User::strSourceFileName    and User::intSourceFileId&#xA;make sure Obtain Entity Id using local User not Package level variable"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="598,184"
+          Id="b22575d4-4d49-4e4e-9298-2df0ea6e6433"
+          TopLeft="467.75,133.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load SampleDays">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\DFT - Load SampleDays\ADO - SampleDays"
+          TopLeft="375,345" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load SampleDays\DC - Add Integration Metadata"
+          TopLeft="350,268" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT - Load SampleDays\Adatis Data Cleansing"
+          TopLeft="371,198" />
+        <NodeLayout
+          Size="210,42"
+          Id="Package\DFT - Load SampleDays\ADO - Staging Broadcasters"
+          TopLeft="352,127" />
+        <EdgeLayout
+          Id="Package\DFT - Load SampleDays.Paths[Output]"
+          TopLeft="461.75,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load SampleDays.Paths[Derived Column Output]"
+          TopLeft="460.5,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35"
+              Start="0,0"
+              End="0,27.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load SampleDays.Paths[ADO NET Source Output]"
+          TopLeft="459.25,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load SampleDays.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load SampleDays.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load SampleDays\ADO - SampleDays">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load SampleDays\ADO - Staging Broadcasters">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

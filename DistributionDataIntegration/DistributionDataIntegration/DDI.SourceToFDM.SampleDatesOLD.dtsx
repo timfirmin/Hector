@@ -1,0 +1,3346 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2016 9:51:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GR2-W8-POW035"
+  DTS:CreatorName="PRS\TFirmin"
+  DTS:Description="TM1 Planning File Integration Processing"
+  DTS:DTSID="{8649DA01-190D-4A0D-A9D8-236EC5ABCA33}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="DDI SourceToFDM SampleDates"
+  DTS:PackageType="5"
+  DTS:VersionBuild="557"
+  DTS:VersionGUID="{F08E92D2-6529-4D1B-8015-C2D71FD00F38}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[connSourceFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{5139A5D5-E582-41B5-9D12-E6A5310A3EDE}"
+      DTS:ObjectName="connSourceFlatFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[$Package::strWorkingProcessPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="M:\Data\SourceFiles\DDI\D181_PRS_ILR_Forecasts.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Station ID"
+              DTS:DTSID="{347245F4-E839-423A-8EA7-E7022E58E092}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Station Name"
+              DTS:DTSID="{6F4A63DB-CA35-4E9C-9013-B01C9C175935}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Songs Forecast"
+              DTS:DTSID="{E034F3DA-FA1B-4506-8117-CBC8CE088FC1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Non Song Forecast"
+              DTS:DTSID="{CA771AEC-5785-4F36-B333-75E89B5140CC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Commercial Forecast"
+              DTS:DTSID="{D1F0966A-637B-4A80-9A08-9E590352C73D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Late Data Forecast"
+              DTS:DTSID="{AC16DE5A-0D9C-444B-86B3-12DC1CF329A8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Total Forecast"
+              DTS:DTSID="{0621A1C2-050B-4B72-8DB9-4B3619C619EE}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{2191FD9B-71BB-47A8-8E91-F055201C5E21}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">62939</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="0 = Normal Run Mode, 1 = Retry Mode"
+      DTS:DTSID="{7D7FA2B4-6250-4FCE-A39C-0BB42EC85206}"
+      DTS:ObjectName="intSetRunMode">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AB6CB581-B9A8-4352-B08C-D373DBFF2A85}"
+      DTS:ObjectName="strFileTypeValueCheckColumn">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TotalForecast</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7D7A466B-CF6C-44F3-B427-3B53F0D06EF9}"
+      DTS:ObjectName="strWorkingCompanyCode">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">PRS</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{AB11CE6B-9940-434D-8433-FAAB7763E74D}"
+      DTS:ObjectName="strWorkingDistributionCode">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D181</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DA49D7DD-16A1-43D7-BB7B-48E9E1F477D4}"
+      DTS:ObjectName="strWorkingDistributionGroupCode">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">ILR</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FCCCB762-BA6E-40AF-B0D4-79F50703B039}"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">29</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{94DDE310-B314-4C9A-9706-7EEB9BAD8404}"
+      DTS:ObjectName="strWorkingFileTypeKey">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{1C2D937C-71BD-41D9-9A45-2958CF7F0637}"
+      DTS:ObjectName="strWorkingProcessPath">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">M:\Data\SourceFiles\DDI\D181_PRS_ILR_Forecasts.csv</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7F199075-3CD5-4491-B346-3642713B6CF9}"
+      DTS:ObjectName="strWorkingSourceTable">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">D181_PRS_ILR_Forecasts</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{7B0D38D3-3286-4C8C-ACE1-84BBB61E23F2}"
+      DTS:ObjectName="strWorkingSourceType">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">MusicMinutes</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{EC829806-9236-4485-A032-C295E21B299F}"
+      DTS:ObjectName="strWorkingStagingTable">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">DDIstaging.DistributionMusicMinutes</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0DE1219-186E-42C1-AB44-3079F25156E4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileCheckValue">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8A94A809-CD35-4B94-96BD-557605BC647E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E22CE6B8-4DB0-4B30-94C0-4552ABC4E9EC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBatchFileRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CEB26E29-67B0-43B4-82F7-9CF8611405B0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DDE9410-3704-48E8-AA0C-62030B0D4020}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A43AF2C1-5F81-4149-8BCB-C8D5DC38BED9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intErrorMailSent">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{537924A3-9178-4429-B262-1A92B01778B7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5F0D8F5F-0DE2-48F0-9E4C-04F788C71C72}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{89F6F39C-1F72-4550-A886-FFE4E1FEB6FF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34C2C777-DD28-4A28-BAAC-EC45D5B30713}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA295924-C2A0-495C-8BD8-BA3288A00CDA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CC85BA25-818B-4EB7-B96D-CD2D49155F61}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::intParentLoadId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">62939</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{00C60228-AA45-42F1-849D-09DACB81377C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3DDC9A66-BBF2-4943-87EE-94E183CD70CE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{043A836D-042A-4AD7-ABE6-EBFE81F31B4A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSSISErrorCheckMins">
+      <DTS:VariableValue
+        DTS:DataType="3">90</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{754A993B-9EEF-496A-B197-89724813B719}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9A11515-36EC-43EB-A555-AD08200F5BE4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="objTableName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DAA95B41-7DB4-44D4-BC4F-3BC053EF2DC2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstFilesToMove">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C13CD4A0-E584-4DA4-BAD8-C5D87531CA19}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstFilesToStaging">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{30C5903B-29B6-4050-936E-018A1ECBA62F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstImportFolderList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8B78EBFC-0B1C-45AB-914A-1C1789CEB664}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchLandingLogTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITcontrol.LandedFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBB9B1BE-2FBE-4F57-9B0A-BB7294E2C1A0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{065E3657-7CD5-4D26-9F69-84CEE345A3F1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentTableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4B2DC2CF-A0BD-47E9-AF47-E55C3B833BDE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITLandingFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B97307B3-E2D1-44F9-9050-01ACD3C7078A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">FilesToLanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8CB18865-AE6C-40EE-951B-5FA8114DEA8B}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strObtainFileId">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{439863D0-1333-468B-B6EF-78BD3F2F8DAD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">FILE2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FE0B581B-BA7C-4935-AF62-18489C08CF60}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSchemaName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITlanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1522C07A-9C48-4E97-AABF-CCBD4D41F2FF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strCurrentFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50B0B26E-E13B-4B33-B569-57C9267EFABD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSSISFirstFail">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;H3&gt;H2PlanningTM1&lt;br&gt;H2PlanningTM1.GlobalProcess.dtsx&lt;br&gt;&lt;br&gt;Error During SSIS ETL - Manual Investigation Required&lt;/H3&gt;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CCB1BB24-6556-4CB0-92D2-C2898C8671EB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingDestinationTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITstaging.StagedDistribution</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{002948AB-8F20-44E0-8431-742CD3523892}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileEndPerSeq">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A5F3821-A2FE-4F6A-93AE-76B873EDECA6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F3BC016-76D3-473B-B86E-3EE23E9F3EFD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileMetadataSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [FileMappingSourceRow] as SelectFromRows        ,[FileMappingDestinationRow] as InsertToRows ,[FileMappingOrder] as SortOrder    FROM [BITcontrol].[FileMappings]    WHERE [FileEnvironment] = 'DEV'    AND [FileTypeName] = 'Distribution'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DAEE453D-1240-4B6F-9806-DBF466EFA0B3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileStartPerSeq">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{39E5937A-786C-4314-B053-79CC968891E1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileType">
+      <DTS:VariableValue
+        DTS:DataType="8">Distribution</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0FB91A3E-A7A3-40A8-81AB-235433C5838E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileTypeKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B7E7FC4-1FD9-4186-95A2-31A10E4A6C04}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingLandingKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B6B82AE6-EC24-4E6F-B105-848B9285F7AA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingMoveFile">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{68AB0782-1599-4792-A8B5-D62DB635648A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="replace(@[User::strWorkingMoveFile] ,&quot;c:&quot;,&quot;C:&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingMoveFileAdjusted">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{99376987-4660-4D65-BD54-163562620135}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingMoveReason">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5962D3B3-1FE7-4509-A7C3-A94FEA724B98}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingProcessPath">
+      <DTS:VariableValue
+        DTS:DataType="8">M:\Data\SourceFiles\DDI\D181_PRS_ILR_Forecasts.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20E4D547-72B1-4308-8A81-67ED781AE7E2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRawPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Temp\SourceFiles\Landing\Cash_PRS_04082017_018.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D13ED5A1-A314-414B-85C5-09830F96C062}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRowCheckField">
+      <DTS:VariableValue
+        DTS:DataType="8">TotalAmount</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C55EBFC-DCCD-46C1-9213-5FA171334E29}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceDestinationFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">Processed\ProcessedCashFiles\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B96366F7-FADE-462C-94E5-8BEF538A861E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::strSourceFileFolder]  +  @[User::strWorkingSourceType]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\FPV\Dev\InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE534830-7709-48BF-A350-AC0D10B1B1B7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolderBit">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\CashFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{308D40B8-2EF9-46DD-9100-91BACA0054A9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B70708CC-60EF-488E-A2DD-1C39774357F1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Invoice_PRS_27072017_032</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{573214B1-E193-411D-9667-388EE6828C30}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceType">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8C18AAF7-1B3B-4E69-BC8F-94277C8FA042}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceValid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A97244E-E977-45D0-AC7C-10A1E12F2B25}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="replace(@[$Package::strWorkingStagingTable], &quot;staging.&quot;, &quot;staging.v&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingStagingView">
+      <DTS:VariableValue
+        DTS:DataType="8">DDIstaging.vDistributionMusicMinutes</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{73A206E6-B3AF-46D4-967D-EB49F7E7FAFB}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{11670A09-832D-46FB-93D4-03F17EB3B68C}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SCR100 Determine Working Metadata"
+      DTS:CreationName="Microsoft.ScriptTask"
+      DTS:Description="Script Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{97A12B0B-5E30-4863-B7B1-E99575EBACE4}"
+      DTS:ExecutableType="Microsoft.ScriptTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SCR100 Determine Working Metadata"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ScriptProject
+          Name="ST_d15d0fb9ed0c4c84acc5ba9ce2eddc19"
+          VSTAMajorVersion="14"
+          VSTAMinorVersion="0"
+          Language="CSharp"
+          ReadOnlyVariables="$Package::strWorkingFileLogKey,$Package::strWorkingProcessPath,$Package::strWorkingSourceTable,$Package::strWorkingSourceType,$Package::strWorkingStagingTable">
+          <ProjectItem
+            Name="Properties\Settings.settings"
+            Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.resx"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+          <ProjectItem
+            Name="ST_d15d0fb9ed0c4c84acc5ba9ce2eddc19.csproj"
+            Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><ProductVersion>8.0.30703</ProductVersion><SchemaVersion>2.0</SchemaVersion><ProjectGuid>{c4752a15-c80a-4f37-9280-409cdb761ec2}</ProjectGuid><OutputType>Library</OutputType><AppDesignerFolder>Properties</AppDesignerFolder><RootNamespace>ST_28929d722a0947d88e6cdaed73f4cf9a</RootNamespace><AssemblyName>ST_d15d0fb9ed0c4c84acc5ba9ce2eddc19</AssemblyName><TargetFrameworkVersion>v4.5</TargetFrameworkVersion><FileAlignment>512</FileAlignment><ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DebugSymbols>true</DebugSymbols><DebugType>full</DebugType><Optimize>false</Optimize><OutputPath>.\bin\Debug\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>DEBUG;TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>.\bin\Release\</OutputPath><EnableUnmanagedDebugging>false</EnableUnmanagedDebugging><DefineConstants>TRACE</DefineConstants><ErrorReport>prompt</ErrorReport><WarningLevel>4</WarningLevel></PropertyGroup><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.ManagedDTS, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /><Reference Include="Microsoft.SqlServer.ScriptTask, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" /></ItemGroup><ItemGroup><AppDesigner Include="Properties\" /><Compile Include="Properties\AssemblyInfo.cs"><SubType>Code</SubType></Compile><EmbeddedResource Include="Properties\Resources.resx"><Generator>ResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.cs</LastGenOutput></EmbeddedResource><Compile Include="Properties\Resources.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Resources.resx</DependentUpon></Compile><None Include="Properties\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.cs</LastGenOutput></None><Compile Include="Properties\Settings.Designer.cs"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon></Compile><Compile Include="ScriptMain.cs"><SubType>Code</SubType></Compile></ItemGroup><!-- Include the build rules for a C# project.--><Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" /><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="ScriptTask" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" DebugInfoCommandLine="" DebugInfoWorkingDir="" IconImageList="" /><Host Name="ScriptTask" GeneratedNamespace="$safeprojectname" IconIndex=""></Host><ProjectClient><HostIdentifier>SSIS_ST130</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></ProjectItem>
+          <ProjectItem
+            Name="ScriptMain.cs"
+            Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.IO;
+using System.Linq;
+#endregion
+
+namespace ST_28929d722a0947d88e6cdaed73f4cf9a
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+		/// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+		public void Main()
+		{
+            // $Package::strWorkingFileLogKey,$Package::strWorkingProcessPath,$Package::strWorkingSourceTable,$Package::strWorkingSourceType,$Package::strWorkingStagingTable
+            string strTestMsg = "WorkingFileLogKey is " + Dts.Variables["$Package::strWorkingFileLogKey"].Value.ToString();
+            strTestMsg += " | WorkingProcessPath is " + Dts.Variables["$Package::strWorkingProcessPath"].Value.ToString();
+            strTestMsg += " | Destination Table is " + Dts.Variables["$Package::strWorkingStagingTable"].Value.ToString();
+            // Console.WriteLine("Contained Result = " + EmptyResult.ToString());
+            // Console.Read();
+            MessageBox.Show("Running Section = " + strTestMsg);
+            Dts.TaskResult = (int)ScriptResults.Success;
+		}
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+	}
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Project"
+            Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="3.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:Language>msBuild</msb:Language>
+		<msb:CodeName>ST_28929d722a0947d88e6cdaed73f4cf9a</msb:CodeName>
+		<msb:DisplayName>ST_28929d722a0947d88e6cdaed73f4cf9a</msb:DisplayName>
+		<msb:ProjectId>{E75911AE-3B37-4252-996D-BB16E3CC56B8}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="ST_d15d0fb9ed0c4c84acc5ba9ce2eddc19.csproj"/>
+		<msb:File Include="Properties\Settings.settings"/>
+		<msb:File Include="Properties\AssemblyInfo.cs"/>
+		<msb:File Include="Properties\Resources.resx"/>
+		<msb:File Include="Properties\Resources.Designer.cs"/>
+		<msb:File Include="Properties\Settings.Designer.cs"/>
+		<msb:File Include="ScriptMain.cs"/>
+	</msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_28929d722a0947d88e6cdaed73f4cf9a.Properties.Settings.get_Default():ST_28929d722a0947d88e6cdaed73f4cf9a.Properties.Sett" +
+    "ings")]
+
+namespace ST_28929d722a0947d88e6cdaed73f4cf9a.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_28929d722a0947d88e6cdaed73f4cf9a")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_28929d722a0947d88e6cdaed73f4cf9a")]
+[assembly: AssemblyCopyright("Copyright @  2017")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
+            Name="Properties\Resources.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_28929d722a0947d88e6cdaed73f4cf9a.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_28929d722a0947d88e6cdaed73f4cf9a.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_28929d722a0947d88e6cdaed73f4cf9a.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_28929d722a0947d88e6cdaed73f4cf9a.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_28929d722a0947d88e6cdaed73f4cf9a.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+          <BinaryItem
+            Name="ST_d15d0fb9ed0c4c84acc5ba9ce2eddc19.dll">TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAGtAMlsAAAAAAAAAAOAAIiALATAAABAAAAAIAAAAAAAA9i8A
+AAAgAAAAQAAAAAAAEAAgAAAAAgAABAAAAAAAAAAGAAAAAAAAAACAAAAAAgAAAAAAAAMAYIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAKQvAABPAAAAAEAAAHgEAAAAAAAAAAAAAAAAAAAA
+AAAAAGAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAA/A8AAAAgAAAAEAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAHgEAAAAQAAAAAYAAAASAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAGAAAAACAAAAGAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAADY
+LwAAAAAAAEgAAAACAAUAYCEAAIwNAAABAAAAAAAAAOwuAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAABMwBACeAAAAAQAAEXIBAABwAigQAAAKbxEAAApyLQAAcG8S
+AAAKbxMAAApvFAAACigVAAAKCgZyawAAcAIoEAAACm8RAAAKcp8AAHBvEgAACm8TAAAKbxQAAAoo
+FgAACgoGct8AAHACKBAAAApvEQAACnIRAQBwbxIAAApvEwAACm8UAAAKKBYAAAoKclMBAHAGKBUA
+AAooFwAACiYCKBAAAAoWbxgAAAoqHgIoGQAACioeAigaAAAKKq5+AQAABC0ecnkBAHDQAwAAAigb
+AAAKbxwAAApzHQAACoABAAAEfgEAAAQqGn4CAAAEKh4CgAIAAAQqGn4DAAAEKh4CKB4AAAoqLnMI
+AAAGgAMAAAQqQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAA9AMAACN+AABgBAAA
+uAUAACNTdHJpbmdzAAAAABgKAADsAQAAI1VTAAQMAAAQAAAAI0dVSUQAAAAUDAAAeAEAACNCbG9i
+AAAAAAAAAAIAAAFXHaIBCQMAAAD6ATMAFgAAAQAAACAAAAAFAAAABgAAAAkAAAABAAAAHgAAAAIA
+AAAQAAAAAQAAAAIAAAADAAAABAAAAAEAAAAFAAAAAQAAAAEAAAAAAJkDAQAAAAAABgBJAmkEBgDY
+AmkEBgCVAVYEDwDdBAAABgDCARcEBgAsAhcEBgANAhcEBgC/AhcEBgBpAhcEBgCCAhcEBgDZARcE
+BgD0AQYDCgCdAkgDCgAUAUgDBgDRA8oDBgB4AVYEBgBsBcoDBgA5BIkEBgApBAIEDgBIAYMDDgCp
+AYMDDgAwAe0DBgBdAWkECgBxA0gDEgAfBb8AEgCSAL8ABgAiA8oDFgCgBTIFFgB/BTIFBgDfAMoD
+BgCbAMoDBgCvBRcEAAAAACUAAAAAAAEAAQABABAA4gNVADkAAQABAAAAEACQBOwERQABAAMAAAEQ
+ACkF7ARZAAMABwADAQAAVwUAAD0ABAAKABEA1gN7ABEABAF/ABEAggCDAAYGTQCHAFaARwWKAFaA
+5ACKAFAgAAAAAIYA6AMGAAEA+iAAAAAAhhhJBAYAAQACIQAAAACDGEkEBgABAAohAAAAAJMINQSO
+AAEANiEAAAAAkwjsAJMAAQA9IQAAAACTCPgAmAABAEUhAAAAAJYIcwWeAAIATCEAAAAAhhhJBAYA
+AgBUIQAAAACRGE8EowACAAAAAQAAAwkASQQBABEASQQGABkASQQKACkASQQQADEASQQQADkASQQQ
+AEEASQQQAEkASQQQAFEASQQQAFkASQQQAGEASQQQAGkASQQGAIEASQQGAKkASQQVALkASQQGAHEA
+TwUfAMEAGwUkAMkAwQMpANEA9gIvAIkAIAMzANkAZQU3ANkAZQU9AOEAmwVEAMEAjAUBAHEASQQG
+AIkASQQGAPEArQBKAPEAqwVRAJEASQRXALEASQQGAAgAFABxAAgAGAB2ACkAcwDeAC4ACwC2AC4A
+EwC/AC4AGwDeAC4AIwDnAC4AKwAQAS4AMwAQAS4AOwAQAS4AQwDnAC4ASwAWAS4AUwAQAS4AWwAt
+AUMAYwB2AEkAcwDeAGEAewB2AGMAawB2ABsAAwABAAQAAwAAADkEpwAAAAwBrAAAAHcFsQACAAQA
+AwACAAUABQABAAYABQACAAcABwAEgAAAAQAAAF8aPWYAAAAAAAABAAAABAAAAAAAAAAAAAAAXwB5
+AAAAAAANAAAAAAAAAAAAAABoACkDAAAAAAQAAAAAAAAAAAAAAF8AygMAAAAADQAAAAAAAAAAAAAA
+aAAuAAAAAAAEAAAAAAAAAAAAAABfADIFAAAAAAAAAAABAAAAmgQAAAUAAgAAAABTVF9kMTVkMGZi
+OWVkMGM0Yzg0YWNjNWJhOWNlMmVkZGMxOQA8TW9kdWxlPgBNaWNyb3NvZnQuU3FsU2VydmVyLk1h
+bmFnZWREVFMAdmFsdWVfXwBTVF8yODkyOWQ3MjJhMDk0N2Q4OGU2Y2RhZWQ3M2Y0Y2Y5YQBtc2Nv
+cmxpYgBkZWZhdWx0SW5zdGFuY2UAVmFyaWFibGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZy
+b21IYW5kbGUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBUeXBlAEZhaWx1cmUAZ2V0
+X0N1bHR1cmUAc2V0X0N1bHR1cmUAcmVzb3VyY2VDdWx0dXJlAFZTVEFSVFNjcmlwdE9iamVjdE1v
+ZGVsQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb21w
+aWxlckdlbmVyYXRlZEF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmlidXRlAERlYnVn
+Z2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAEFzc2VtYmx5VGl0bGVBdHRy
+aWJ1dGUAQXNzZW1ibHlUcmFkZW1hcmtBdHRyaWJ1dGUAVGFyZ2V0RnJhbWV3b3JrQXR0cmlidXRl
+AEFzc2VtYmx5Q29uZmlndXJhdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2NyaXB0aW9uQXR0cmli
+dXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQcm9kdWN0QXR0cmli
+dXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAFNTSVNTY3JpcHRUYXNrRW50cnlQb2ludEF0
+dHJpYnV0ZQBBc3NlbWJseUNvbXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRy
+aWJ1dGUAZ2V0X1ZhbHVlAHZhbHVlAFN5c3RlbS5SdW50aW1lLlZlcnNpb25pbmcAVG9TdHJpbmcA
+TWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlRh
+c2tzLlNjcmlwdFRhc2sAU2NyaXB0T2JqZWN0TW9kZWwAU3lzdGVtLkNvbXBvbmVudE1vZGVsAFNU
+X2QxNWQwZmI5ZWQwYzRjODRhY2M1YmE5Y2UyZWRkYzE5LmRsbABnZXRfSXRlbQBTeXN0ZW0ARW51
+bQByZXNvdXJjZU1hbgBTY3JpcHRNYWluAFN5c3RlbS5Db25maWd1cmF0aW9uAFN5c3RlbS5HbG9i
+YWxpemF0aW9uAFN5c3RlbS5SZWZsZWN0aW9uAEN1bHR1cmVJbmZvAGdldF9SZXNvdXJjZU1hbmFn
+ZXIALmN0b3IALmNjdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBTeXN0ZW0uUnVudGltZS5Db21waWxl
+clNlcnZpY2VzAFN5c3RlbS5SZXNvdXJjZXMAU1RfMjg5MjlkNzIyYTA5NDdkODhlNmNkYWVkNzNm
+NGNmOWEuUHJvcGVydGllcy5SZXNvdXJjZXMucmVzb3VyY2VzAERlYnVnZ2luZ01vZGVzAFNUXzI4
+OTI5ZDcyMmEwOTQ3ZDg4ZTZjZGFlZDczZjRjZjlhLlByb3BlcnRpZXMAZ2V0X1ZhcmlhYmxlcwBT
+ZXR0aW5ncwBTeXN0ZW0uV2luZG93cy5Gb3JtcwBTdWNjZXNzAGdldF9EdHMAU2NyaXB0UmVzdWx0
+cwBDb25jYXQAT2JqZWN0AGdldF9EZWZhdWx0AERpYWxvZ1Jlc3VsdABzZXRfVGFza1Jlc3VsdABT
+aG93AE1lc3NhZ2VCb3gAZ2V0X0Fzc2VtYmx5AAArVwBvAHIAawBpAG4AZwBGAGkAbABlAEwAbwBn
+AEsAZQB5ACAAaQBzACAAAD0kAFAAYQBjAGsAYQBnAGUAOgA6AHMAdAByAFcAbwByAGsAaQBuAGcA
+RgBpAGwAZQBMAG8AZwBLAGUAeQAAMyAAfAAgAFcAbwByAGsAaQBuAGcAUAByAG8AYwBlAHMAcwBQ
+AGEAdABoACAAaQBzACAAAD8kAFAAYQBjAGsAYQBnAGUAOgA6AHMAdAByAFcAbwByAGsAaQBuAGcA
+UAByAG8AYwBlAHMAcwBQAGEAdABoAAAxIAB8ACAARABlAHMAdABpAG4AYQB0AGkAbwBuACAAVABh
+AGIAbABlACAAaQBzACAAAEEkAFAAYQBjAGsAYQBnAGUAOgA6AHMAdAByAFcAbwByAGsAaQBuAGcA
+UwB0AGEAZwBpAG4AZwBUAGEAYgBsAGUAACVSAHUAbgBuAGkAbgBnACAAUwBlAGMAdABpAG8AbgAg
+AD0AIAAAcVMAVABfADIAOAA5ADIAOQBkADcAMgAyAGEAMAA5ADQANwBkADgAOABlADYAYwBkAGEA
+ZQBkADcAMwBmADQAYwBmADkAYQAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBj
+AGUAcwAAAETlMO4LS6xKlKwtchroE+wABCABAQgDIAABBSABARERBCABAQ4FIAEBEVEDBwEOBCAA
+EmEEIAASZQUgARJpHAMgABwDIAAOBQACDg4OBgADDg4ODgUAARF1DgYAARJ5EX0FIAASgIEHIAIB
+DhKAgQi3elxWGTTgiQiJhF3NgIDMkQQAAAAABAEAAAADBhJJAwYSTQMGEhACBggDBhEUBAAAEkkE
+AAASTQUAAQESTQQAABIQAwAAAQQIABJJBAgAEk0ECAASEAgBAAgAAAAAAB4BAAEAVAIWV3JhcE5v
+bkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfMjg5MjlkNzIyYTA5NDdkODhlNmNkYWVk
+NzNmNGNmOWEAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAxNwAASQEAGi5ORVRGcmFtZXdvcmss
+VmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVUIEZyYW1ld29yayA0LjUA
+tAAAAM7K774BAAAAkQAAAGxTeXN0ZW0uUmVzb3VyY2VzLlJlc291cmNlUmVhZGVyLCBtc2Nvcmxp
+YiwgVmVyc2lvbj00LjAuMC4wLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1
+YzU2MTkzNGUwODkjU3lzdGVtLlJlc291cmNlcy5SdW50aW1lUmVzb3VyY2VTZXQCAAAAAAAAAAAA
+AABQQURQQURQtAAAAMwvAAAAAAAAAAAAAOYvAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAADYLwAA
+AAAAAAAAAAAAAF9Db3JEbGxNYWluAG1zY29yZWUuZGxsAAAAAAD/JQAgABAAAAAAAAAAAAAAAAAA
+AAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAA
+AABIAAAAWEAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBP
+AAAAAAC9BO/+AAABAAAAAQA9Zl8aAAABAD1mXxo/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAA
+RAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBv
+AG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABWAwAAAQAwADAA
+MAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAAIgABAAEAQwBvAG0AcABh
+AG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4A
+AAAAAFMAVABfADIAOAA5ADIAOQBkADcAMgAyAGEAMAA5ADQANwBkADgAOABlADYAYwBkAGEAZQBk
+ADcAMwBmADQAYwBmADkAYQAAAD4ADwABAEYAaQBsAGUAVgBlAHIAcwBpAG8AbgAAAAAAMQAuADAA
+LgA2ADcANQAxAC4AMgA2ADEANwAzAAAAAABwACgAAQBJAG4AdABlAHIAbgBhAGwATgBhAG0AZQAA
+AFMAVABfAGQAMQA1AGQAMABmAGIAOQBlAGQAMABjADQAYwA4ADQAYQBjAGMANQBiAGEAOQBjAGUA
+MgBlAGQAZABjADEAOQAuAGQAbABsAAAASAASAAEATABlAGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0
+AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAAMQA3AAAAKgABAAEATABlAGcAYQBsAFQA
+cgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBPAHIAaQBnAGkAbgBhAGwARgBpAGwAZQBu
+AGEAbQBlAAAAUwBUAF8AZAAxADUAZAAwAGYAYgA5AGUAZAAwAGMANABjADgANABhAGMAYwA1AGIA
+YQA5AGMAZQAyAGUAZABkAGMAMQA5AC4AZABsAGwAAABoACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBt
+AGUAAAAAAFMAVABfADIAOAA5ADIAOQBkADcAMgAyAGEAMAA5ADQANwBkADgAOABlADYAYwBkAGEA
+ZQBkADcAMwBmADQAYwBmADkAYQAAAEIADwABAFAAcgBvAGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAA
+ADEALgAwAC4ANgA3ADUAMQAuADIANgAxADcAMwAAAAAARgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAA
+VgBlAHIAcwBpAG8AbgAAADEALgAwAC4ANgA3ADUAMQAuADIANgAxADcAMwAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAwAAAD4PwAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</BinaryItem>
+        </ScriptProject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC100 - BI System Logging"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{95CC9CE6-AC11-4B86-A85F-74088122A14F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:ExecValue="1"
+      DTS:ExecValueType="3"
+      DTS:ForceExecutionResult="0"
+      DTS:ForceExecValue="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC100 - BI System Logging">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 - BI System Logging\SQL101 Log BI System SourceFile"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{CECCADDD-0824-4292-A7C4-98554B7BFC8E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="1"
+          DTS:ExecValueType="3"
+          DTS:ForceExecutionResult="0"
+          DTS:ForceExecValue="True"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL101 Log BI System SourceFile"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+ DECLARE @FileName VARCHAR(250) = '" +  @[User::strWorkingSourceTable]  + "'
+ DECLARE @LoadId int = " +  (DT_WSTR, 10) @[$Package::intParentLoadId] + "
+ DECLARE @ApplicationCode VARCHAR(80) = '" + @[$Project::strApplicationCode]  + "'
+ DECLARE @Source VARCHAR(80) = '" + @[$Package::strWorkingProcessPath]  + "'
+
+ DECLARE @ApplicationId int
+
+ SET @ApplicationId = 
+ (SELECT TOP 1 ApplicationId from
+	 (SELECT 1 as OrderMe, [ApplicationId] FROM [Control].[Application] WHERE Code = @ApplicationCode
+	 UNION
+	 SELECT 2, [ApplicationId] FROM [Control].[Application] WHERE [Code] = 'FDM') sel
+ ORDER BY 1)
+ 
+ IF NOT EXISTS (SELECT (1) FROM [Control].[SourceFile] WHERE [SourceFileName]= @FileName AND ApplicationId = @ApplicationId)
+  BEGIN
+    INSERT INTO [Control].[SourceFile] (
+										[SourceFileName],
+										[SourceFileTypeId],
+										[ModifiedDate],
+										[FileSizeBytes],
+										[IsCompressed],
+										[Source],
+										[UnloadFile],
+										[LoadId],
+										[ApplicationId]
+									   )
+       SELECT    @FileName
+				,1
+				,SYSDATETIME()
+				,0 
+				,0 
+				,@Source
+				,0 
+				,@LoadId
+				,@ApplicationId
+
+  END
+
+SELECT TOP(1) SourceFileId 
+					   FROM [Control].[SourceFile] 
+					  WHERE [SourceFileName]= @FileName
+					    AND [ApplicationId] = @ApplicationId
+
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA0FED51-F9C6-4358-9C1D-756C991BFA3A}"
+              SQLTask:SqlStatementSource="&#xA; DECLARE @FileName VARCHAR(250) = 'Invoice_PRS_27072017_032'&#xA; DECLARE @LoadId int = 62939&#xA; DECLARE @ApplicationCode VARCHAR(80) = 'DDI'&#xA; DECLARE @Source VARCHAR(80) = 'M:\Data\SourceFiles\DDI\D181_PRS_ILR_Forecasts.csv'&#xA;&#xA; DECLARE @ApplicationId int&#xA;&#xA; SET @ApplicationId = &#xA; (SELECT TOP 1 ApplicationId from&#xA;&#x9; (SELECT 1 as OrderMe, [ApplicationId] FROM [Control].[Application] WHERE Code = @ApplicationCode&#xA;&#x9; UNION&#xA;&#x9; SELECT 2, [ApplicationId] FROM [Control].[Application] WHERE [Code] = 'FDM') sel&#xA; ORDER BY 1)&#xA; &#xA; IF NOT EXISTS (SELECT (1) FROM [Control].[SourceFile] WHERE [SourceFileName]= @FileName AND ApplicationId = @ApplicationId)&#xA;  BEGIN&#xA;    INSERT INTO [Control].[SourceFile] (&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[SourceFileName],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[SourceFileTypeId],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[ModifiedDate],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[FileSizeBytes],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[IsCompressed],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[Source],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[UnloadFile],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[LoadId],&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;[ApplicationId]&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   )&#xA;       SELECT    @FileName&#xA;&#x9;&#x9;&#x9;&#x9;,1&#xA;&#x9;&#x9;&#x9;&#x9;,SYSDATETIME()&#xA;&#x9;&#x9;&#x9;&#x9;,0 &#xA;&#x9;&#x9;&#x9;&#x9;,0 &#xA;&#x9;&#x9;&#x9;&#x9;,@Source&#xA;&#x9;&#x9;&#x9;&#x9;,0 &#xA;&#x9;&#x9;&#x9;&#x9;,@LoadId&#xA;&#x9;&#x9;&#x9;&#x9;,@ApplicationId&#xA;&#xA;  END&#xA;&#xA;SELECT TOP(1) SourceFileId &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;   FROM [Control].[SourceFile] &#xA;&#x9;&#x9;&#x9;&#x9;&#x9;  WHERE [SourceFileName]= @FileName&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;    AND [ApplicationId] = @ApplicationId&#xA;&#xA;"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::intSourceFileId" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 - BI System Logging\SQL902 Update FileLog with SourceFile Info"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{67BE882F-0192-4F4C-83CC-329180C5D8E4}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="1"
+          DTS:ExecValueType="3"
+          DTS:ForceExecutionResult="0"
+          DTS:ForceExecValue="True"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL902 Update FileLog with SourceFile Info"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"UPDATE [DDIstaging].[FileLog]  
+SET
+SourceFileInsertTimeStamp = getdate(),
+SourceFileID = " 
++ (DT_WSTR, 8) @[User::intSourceFileId]  + "
+  where [LoadId] = " 
++  (DT_WSTR, 8)  @[User::intParentLoadId]   
++ "
+  and FileLogUniqueKey = '"   
++ (DT_WSTR, 8) @[User::strWorkingFileLogKey]  +  "'"</DTS:PropertyExpression>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SEQC100 - BI System Logging\SQL902 Update FileLog with SourceFile Info.EventHandlers[OnPostExecute]"
+              DTS:CreationName="OnPostExecute"
+              DTS:DTSID="{0CA3F5EF-0990-46D7-9337-F9D84E1E3E03}"
+              DTS:EventID="0"
+              DTS:EventName="OnPostExecute"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{011463FC-0E23-48F7-993F-D0DBFD6837C2}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA0FED51-F9C6-4358-9C1D-756C991BFA3A}"
+              SQLTask:SqlStatementSource="UPDATE [DDIstaging].[FileLog]  &#xA;SET&#xA;SourceFileInsertTimeStamp = getdate(),&#xA;SourceFileID = 0&#xA;  where [LoadId] = 62939&#xA;  and FileLogUniqueKey = '0'"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::rstImportFolderList" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 - BI System Logging\SQL903 - Stamp BISystem Source File As Staged"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2F1AD711-AC15-4F48-8BD4-22C84F2BD0AF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="1"
+          DTS:ExecValueType="3"
+          DTS:ForceExecutionResult="0"
+          DTS:ForceExecValue="True"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL903 - Stamp BISystem Source File As Staged"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [Control].[UpdateSourceFile] " + (DT_WSTR, 10) @[User::intSourceFileId]  +  ",'EXT2STG',"+ (DT_WSTR, 10)@[User::intLoadId]
++
+
+"
+GO
+EXEC [Control].[UpdateSourceFile] " + (DT_WSTR, 10) @[User::intSourceFileId]  +  ",'STG2CLN',"+ (DT_WSTR, 10)@[User::intLoadId]
++
+
+"
+GO
+EXEC [Control].[UpdateSourceFile] " + (DT_WSTR, 10) @[User::intSourceFileId]  +  ",'SRC2FILE',"+ (DT_WSTR, 10)@[User::intParentLoadId]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA0FED51-F9C6-4358-9C1D-756C991BFA3A}"
+              SQLTask:SqlStatementSource="EXEC [Control].[UpdateSourceFile] 0,'EXT2STG',4444&#xA;GO&#xA;EXEC [Control].[UpdateSourceFile] 0,'STG2CLN',4444&#xA;GO&#xA;EXEC [Control].[UpdateSourceFile] 0,'SRC2FILE',62939" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 - BI System Logging.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{CD0B7DE3-BF8C-4112-84A5-297F16A4460A}"
+          DTS:From="Package\SEQC100 - BI System Logging\SQL101 Log BI System SourceFile"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC100 - BI System Logging\SQL902 Update FileLog with SourceFile Info"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 - BI System Logging.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{709A3D8C-C583-4B30-A63D-87787D2B7D58}"
+          DTS:From="Package\SEQC100 - BI System Logging\SQL902 Update FileLog with SourceFile Info"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC100 - BI System Logging\SQL903 - Stamp BISystem Source File As Staged"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC200 - Staging Load"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{297667DD-E730-49DA-820D-73A6C6DE52B6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:ExecValue="1"
+      DTS:ExecValueType="3"
+      DTS:ForceExecutionResult="0"
+      DTS:ForceExecValue="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC200 - Staging Load">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DTSID="{E5159CF6-5B31-4147-B223-FD8F34380FEC}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT210 Revenue Stage to Transform"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="[ADO NET Transform Destination].[TableOrViewName]">@[$Package::strWorkingStagingTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <pipeline
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Derived Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Songs Forecast]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Songs Forecast"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Songs Forecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Non Song Forecast]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Non Song Forecast"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Non Song Forecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Commercial Forecast]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Commercial Forecast"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Commercial Forecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Late Data Forecast]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Late Data Forecast"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Late Data Forecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Total Forecast]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Total Forecast"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Total Forecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Station ID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Station ID"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station ID]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input].Columns[Station Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="100"
+                          cachedName="Station Name"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intParentLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intParentLoadId]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[FileLogKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[FileLogKey]"
+                          name="FileLogKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)@[$Package::strWorkingFileLogKey]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)@[$Package::strWorkingFileLogKey]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[SongsProgrammeForecast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[SongsProgrammeForecast]"
+                          name="SongsProgrammeForecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Songs Forecast]},",",""),"","0.000")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(REPLACE([Songs Forecast],",",""),"","0.000")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[NonSongProgrammeForecast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[NonSongProgrammeForecast]"
+                          name="NonSongProgrammeForecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Non Song Forecast]},",",""),"","0.000")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(REPLACE([Non Song Forecast],",",""),"","0.000")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[CommercialForecast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[CommercialForecast]"
+                          name="CommercialForecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Commercial Forecast]},",",""),"","0.000")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(REPLACE([Commercial Forecast],",",""),"","0.000")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[LateDataForecast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[LateDataForecast]"
+                          name="LateDataForecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Late Data Forecast]},",",""),"","0.000")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(REPLACE([Late Data Forecast],",",""),"","0.000")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[TotalForecast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[TotalForecast]"
+                          name="TotalForecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[REPLACE]([REPLACE](#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Total Forecast]},",",""),"","0.000")</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">REPLACE(REPLACE([Total Forecast],",",""),"","0.000")</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[DistributionGroupCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[DistributionGroupCode]"
+                          name="DistributionGroupCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)@[$Package::strWorkingDistributionGroupCode]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)@[$Package::strWorkingDistributionGroupCode]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[DistributionCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[DistributionCode]"
+                          name="DistributionCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)@[$Package::strWorkingDistributionCode]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)@[$Package::strWorkingDistributionCode]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[CompanyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[CompanyCode]"
+                          name="CompanyCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)@[$Package::strWorkingCompanyCode]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)@[$Package::strWorkingCompanyCode]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[StationCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[StationCode]"
+                          name="StationCode"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,50)#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station ID]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,50)[Station ID]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[StationName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          length="100"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[StationName]"
+                          name="StationName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_WSTR,100)#{Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station Name]}</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_WSTR,100)[Station Name]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Transform Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">DDIstaging.DistributionMusicMinutes</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Connections[IDbConnection]"
+                      connectionManagerID="{69A6A162-6A37-42BB-BD9C-BEF90A7B1ACB}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BITStageADOnet]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[FileLogKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FileLogKey"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[FileLogKey]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[FileLogKey]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[SongsProgrammeForecast]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="SongsProgrammeForecast"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[SongsProgrammeForecast]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[SongsProgrammeForecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[NonSongProgrammeForecast]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="NonSongProgrammeForecast"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[NonSongProgrammeForecast]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[NonSongProgrammeForecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[CommercialForecast]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CommercialForecast"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[CommercialForecast]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[CommercialForecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[LateDataForecast]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LateDataForecast"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[LateDataForecast]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[LateDataForecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[TotalForecast]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="TotalForecast"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalForecast]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[TotalForecast]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[DistributionGroupCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DistributionGroupCode"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[DistributionGroupCode]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[DistributionGroupCode]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[DistributionCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="DistributionCode"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[DistributionCode]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[DistributionCode]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[CompanyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CompanyCode"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[CompanyCode]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[CompanyCode]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[StationCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="StationCode"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationCode]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[StationCode]" />
+                        <inputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].Columns[StationName]"
+                          cachedDataType="wstr"
+                          cachedLength="100"
+                          cachedName="StationName"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationName]"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output].Columns[StationName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[DistributionGroupCode]"
+                          dataType="wstr"
+                          length="150"
+                          name="DistributionGroupCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[DistributionCode]"
+                          dataType="wstr"
+                          length="150"
+                          name="DistributionCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[CompanyCode]"
+                          dataType="wstr"
+                          length="150"
+                          name="CompanyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationCode]"
+                          dataType="wstr"
+                          length="150"
+                          name="StationCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationName]"
+                          dataType="wstr"
+                          length="150"
+                          name="StationName" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[SongsProgrammeForecast]"
+                          dataType="wstr"
+                          length="150"
+                          name="SongsProgrammeForecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[NonSongProgrammeForecast]"
+                          dataType="wstr"
+                          length="150"
+                          name="NonSongProgrammeForecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[CommercialForecast]"
+                          dataType="wstr"
+                          length="150"
+                          name="CommercialForecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[LateDataForecast]"
+                          dataType="wstr"
+                          length="150"
+                          name="LateDataForecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalForecast]"
+                          dataType="wstr"
+                          length="150"
+                          name="TotalForecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[StagingRowValidFlag]"
+                          dataType="wstr"
+                          length="1"
+                          name="StagingRowValidFlag" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[FileLogKey]"
+                          dataType="i4"
+                          name="FileLogKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertTimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="InsertTimeStamp" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intInsertedRows</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="2057"
+                  name="Source - Staging CSV"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[connSourceFlatFile]"
+                      connectionManagerRefId="Package.ConnectionManagers[connSourceFlatFile]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station ID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Station ID]"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station ID]"
+                          name="Station ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Songs Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Songs Forecast]"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Songs Forecast]"
+                          name="Songs Forecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Non Song Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Non Song Forecast]"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Non Song Forecast]"
+                          name="Non Song Forecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Commercial Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Commercial Forecast]"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Commercial Forecast]"
+                          name="Commercial Forecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Late Data Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Late Data Forecast]"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Late Data Forecast]"
+                          name="Late Data Forecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Total Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Total Forecast]"
+                          length="50"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Total Forecast]"
+                          name="Total Forecast"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Station Name]"
+                          length="100"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].Columns[Station Name]"
+                          name="Station Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Station ID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Station ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Songs Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Songs Forecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Non Song Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Non Song Forecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Commercial Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Commercial Forecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Late Data Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Late Data Forecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Total Forecast]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Total Forecast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output].ExternalColumns[Station Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="100"
+                          name="Station Name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform.Paths[Derived Column Output]"
+                  endId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform.Paths[Flat File Source Output]"
+                  endId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns.Inputs[Derived Column Input]"
+                  name="Flat File Source Output"
+                  startId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform.Paths[Row Count Output 1]"
+                  endId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination.Inputs[ADO NET Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 - Staging Load\SQL205 - Prepare Staging Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{FCE7A214-A6B0-4D9B-AA0C-03BD00006DD2}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="1"
+          DTS:ExecValueType="3"
+          DTS:ForceExecutionResult="0"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL205 - Prepare Staging Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">" DELETE FROM " + @[$Package::strWorkingStagingTable]  + "
+ WHERE [DistributionGroupCode] = '" + @[$Package::strWorkingDistributionGroupCode]   + "'
+ AND [DistributionCode] = '" + @[$Package::strWorkingDistributionCode]   + "'
+ AND [CompanyCode] = '" + @[$Package::strWorkingCompanyCode]   + "'
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{69A6A162-6A37-42BB-BD9C-BEF90A7B1ACB}"
+              SQLTask:SqlStatementSource=" DELETE FROM DDIstaging.DistributionMusicMinutes&#xA; WHERE [DistributionGroupCode] = 'ILR'&#xA; AND [DistributionCode] = 'D181'&#xA; AND [CompanyCode] = 'PRS'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 - Staging Load\SQL215 - Update Log Metadata"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{1E3B9405-787A-4205-9CAC-5D865B9A2291}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="1"
+          DTS:ExecValueType="3"
+          DTS:ForceExecutionResult="0"
+          DTS:ForceExecValue="True"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL215 - Update Log Metadata"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"UPDATE fl
+SET
+ StagingTotalRows = sm.StagedRowCount
+,StagingValidValue = sm.StagedCheckValue
+,StagingTimeStamp = GetDate()
+FROM [DDIstaging].[FileLog] fl 
+JOIN 
+(SELECT 
+	  [FileLogKey] as StagedFileLogKey
+      ,sum(" + @[$Package::strFileTypeValueCheckColumn] + ") as StagedCheckValue
+      ,count(*) as StagedRowCount
+  FROM " +  @[User::strWorkingStagingView]  + "
+  where [InsertLoadId] = " + (DT_WSTR, 7)@[$Package::intParentLoadId]    + " and StagingRowValidFlag = 'Y'
+  group by [FileLogKey]) sm ON fl.[FileLogUniqueKey] = sm.StagedFileLogKey"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{69A6A162-6A37-42BB-BD9C-BEF90A7B1ACB}"
+              SQLTask:SqlStatementSource="UPDATE fl&#xA;SET&#xA; StagingTotalRows = sm.StagedRowCount&#xA;,StagingValidValue = sm.StagedCheckValue&#xA;,StagingTimeStamp = GetDate()&#xA;FROM [DDIstaging].[FileLog] fl &#xA;JOIN &#xA;(SELECT &#xA;&#x9;  [FileLogKey] as StagedFileLogKey&#xA;      ,sum(TotalForecast) as StagedCheckValue&#xA;      ,count(*) as StagedRowCount&#xA;  FROM DDIstaging.vDistributionMusicMinutes&#xA;  where [InsertLoadId] = 62939 and StagingRowValidFlag = 'Y'&#xA;  group by [FileLogKey]) sm ON fl.[FileLogUniqueKey] = sm.StagedFileLogKey" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 - Staging Load\SQL230 Log Throughput BI System"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A806F95E-D428-4DFB-B8F2-EADDDD11F24A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL230 Log Throughput BI System"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+DECLARE @ApplicationId SMALLINT = 0
+ SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = '"+  @[$Project::strApplicationCode] + "'
+
+	INSERT INTO [Audit].[RowThroughput]
+			   ( ExecutionId	
+			    ,ExecutableId	
+			    ,EnvironmentId	
+				,EntityId	
+				,LoadProcess	
+				,TaskName	
+				,ProcessStream	
+				,LoadId	
+				,ApplicationId	
+				,SourceFileName	
+				,InsertedRows	
+				,ExtractedRows
+				,UpdatedRows	
+				,DeletedRows	
+				,FailedRows	
+				,ArchivedRows	
+				,BadRows	
+			   )
+		 VALUES
+			   ( " + (DT_WSTR, 10) @[System::ServerExecutionID]  + "-- ExecutionId	
+				,-1 -- EntityId	
+			   	,-1
+				,-1
+				,'"  +  @[User::strProcessStream]  + "' --LoadProcess	
+				,'" + @[System::TaskName]  + "'	--TaskName
+				, '" + @[System::PackageName] + " Load" + "'
+				," + (DT_WSTR, 10)@[User::intParentLoadId] + "	
+				,@ApplicationId	
+				,'" + @[$Package::strWorkingStagingTable]   + "' 
+				," + (DT_WSTR, 10) @[User::intInsertedRows] + "
+				,0,0,0,0,0,0
+			   )
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{DA0FED51-F9C6-4358-9C1D-756C991BFA3A}"
+              SQLTask:SqlStatementSource="&#xA;DECLARE @ApplicationId SMALLINT = 0&#xA; SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = 'DDI'&#xA;&#xA;&#x9;INSERT INTO [Audit].[RowThroughput]&#xA;&#x9;&#x9;&#x9;   ( ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;    ,ExecutableId&#x9;&#xA;&#x9;&#x9;&#x9;    ,EnvironmentId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,EntityId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,TaskName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ProcessStream&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,SourceFileName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,InsertedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ExtractedRows&#xA;&#x9;&#x9;&#x9;&#x9;,UpdatedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,DeletedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,FailedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ArchivedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,BadRows&#x9;&#xA;&#x9;&#x9;&#x9;   )&#xA;&#x9;&#x9; VALUES&#xA;&#x9;&#x9;&#x9;   ( 0-- ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,-1 -- EntityId&#x9;&#xA;&#x9;&#x9;&#x9;   &#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,'FILE2STG' --LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'SQL230 Log Throughput BI System'&#x9;--TaskName&#xA;&#x9;&#x9;&#x9;&#x9;, 'DDI SourceToFDM SampleDates Load'&#xA;&#x9;&#x9;&#x9;&#x9;,62939&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,@ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'DDIstaging.DistributionMusicMinutes' &#xA;&#x9;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;&#x9;,0,0,0,0,0,0&#xA;&#x9;&#x9;&#x9;   )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC200 - Staging Load.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{6A284A14-476B-406E-806A-1D618B58D298}"
+          DTS:From="Package\SEQC200 - Staging Load\SQL205 - Prepare Staging Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC200 - Staging Load.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{A648FF2E-D5BB-412C-B5BF-374475E48845}"
+          DTS:From="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC200 - Staging Load\SQL215 - Update Log Metadata" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC200 - Staging Load.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{CF74EEDD-7AEF-4CD9-B9D4-83CC3A3104DC}"
+          DTS:From="Package\SEQC200 - Staging Load\SQL215 - Update Log Metadata"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC200 - Staging Load\SQL230 Log Throughput BI System" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC300 - FDM Merge"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{8EA8F282-5740-4DF6-BBF2-FD30EB6AB090}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:ExecValue="1"
+      DTS:ExecValueType="3"
+      DTS:ForceExecutionResult="0"
+      DTS:ForceExecValue="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC300 - FDM Merge">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL228 Validate Staged File"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{478CA637-E200-403E-8A7B-E03810F7A011}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL228 Validate Staged File"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"SELECT  
+      [StagingValidStatus]
+  FROM [DDIstaging].[FileLog]
+  WHERE [FileLogUniqueKey] = '" + (DT_WSTR, 7)  @[$Package::strWorkingFileLogKey]  +  "'"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{69A6A162-6A37-42BB-BD9C-BEF90A7B1ACB}"
+          SQLTask:SqlStatementSource="SELECT  &#xA;      [StagingValidStatus]&#xA;  FROM [DDIstaging].[FileLog]&#xA;  WHERE [FileLogUniqueKey] = '29'"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::strWorkingSourceValid" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E68AC66B-89C4-4ADA-9B9A-6416F57F9509}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SCR100 Determine Working Metadata" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A183B7B-E347-4AF9-A3B5-381933D4E744}"
+      DTS:From="Package\SCR100 Determine Working Metadata"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQC100 - BI System Logging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{94653CBC-D0A8-4D04-BE34-2EA58A735060}"
+      DTS:From="Package\SEQC100 - BI System Logging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SEQC200 - Staging Load" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{EB4D0B19-43B7-4996-9149-87EB1C39945A}"
+      DTS:From="Package\SEQC200 - Staging Load"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL228 Validate Staged File" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{884FB443-070D-44F5-B61D-E7FD2972064C}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::strWorkingSourceValid] == &quot;Y&quot;"
+      DTS:From="Package\SQL228 Validate Staged File"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SEQC300 - FDM Merge" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{1225527E-E00E-4FD7-9563-737D85A254F0}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{0669E515-D4DF-43E5-B6F5-B2EBA3CE994B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="893,392" />
+        <NodeLayout
+          Size="213,47"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="915.166666666667,1951.16666666667" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\SCR100 Determine Working Metadata"
+          TopLeft="856.555555555555,475" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\SEQC100 - BI System Logging\SQL101 Log BI System SourceFile"
+          TopLeft="80.9218975468973,23" />
+        <NodeLayout
+          Size="286,42"
+          Id="Package\SEQC100 - BI System Logging\SQL902 Update FileLog with SourceFile Info"
+          TopLeft="63.9218975468973,112.648388648389" />
+        <NodeLayout
+          Size="309,42"
+          Id="Package\SEQC100 - BI System Logging\SQL903 - Stamp BISystem Source File As Staged"
+          TopLeft="51,204.811928811929" />
+        <EdgeLayout
+          Id="Package\SEQC100 - BI System Logging.PrecedenceConstraints[Constraint]"
+          TopLeft="203.421897546897,65">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.648388648389"
+              Start="0,0"
+              End="0,40.148388648389">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.148388648389" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,14.2695068241945,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 - BI System Logging.PrecedenceConstraints[Constraint 1]"
+          TopLeft="206.210948773449,154.648388648389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,50.1635401635399"
+              Start="0,0"
+              End="0,42.6635401635399">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.6635401635399" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,15.5270825817699,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="470,305"
+          Size="470,348"
+          Id="Package\SEQC100 - BI System Logging"
+          TopLeft="758,549.111111111111" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform"
+          TopLeft="102.428571428571,122.642857142858" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\SEQC200 - Staging Load\SQL205 - Prepare Staging Table"
+          TopLeft="113.619047619048,43.3174603174602" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\SEQC200 - Staging Load\SQL215 - Update Log Metadata"
+          TopLeft="119.959595959596,199.484848484848" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\SEQC200 - Staging Load\SQL230 Log Throughput BI System"
+          TopLeft="106.277777777778,278.16666666667" />
+        <EdgeLayout
+          Id="Package\SEQC200 - Staging Load.PrecedenceConstraints[Constraint]"
+          TopLeft="229.023809523809,85.3174603174602">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.3253968253976"
+              Start="0,0"
+              End="0,29.8253968253976">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.8253968253976" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC200 - Staging Load.PrecedenceConstraints[Constraint 1]"
+          TopLeft="231.444083694084,164.642857142858">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.8419913419907"
+              Start="0,0"
+              End="0,27.3419913419907">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3419913419907" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC200 - Staging Load.PrecedenceConstraints[Constraint 2]"
+          TopLeft="231.118686868687,241.484848484848">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,36.6818181818217"
+              Start="0,0"
+              End="0,29.1818181818217">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1818181818217" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="470,378"
+          Size="470,421"
+          Id="Package\SEQC200 - Staging Load"
+          TopLeft="764.027777777778,984.41666666667" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="470,203"
+          Size="470,246"
+          Id="Package\SEQC300 - FDM Merge"
+          TopLeft="762.5,1605" />
+        <NodeLayout
+          Size="211,42"
+          Id="Package\SQL228 Validate Staged File"
+          TopLeft="892.063492063492,1478.16666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="988.777777777778,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="989.027777777778,517">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32.1111111111111"
+              Start="0,0"
+              End="0,24.6111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.6111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="996.013888888889,897.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,87.305555555559"
+              Start="0,0"
+              End="0,79.805555555559">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.805555555559" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="998.295634920635,1405.41666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,72.7499999999998"
+              Start="0,0"
+              End="0,65.2499999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.2499999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="997.531746031746,1520.16666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,84.8333333333303"
+              Start="0,0"
+              End="0,77.3333333333303">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,77.3333333333303" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,30.6666666666652,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="-DDI Distribution Data Acquisition -&#xA;            Music Minutes Loader"
+          ParentId="Package"
+          Size="309,67"
+          Id="b21bc39b-4b54-4943-b9e0-945644773b2c"
+          TopLeft="815.555555555555,302.103174603176">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="fl.[FileLogUniqueKey] --strWorkingFileLogKey&#xA;      ,fl.[FileName] --strWorkingSourceTable&#xA;      ,fl.[DerivedFileType] --strWorkingSourceType&#xA;   ,fl.[FileProcessPath] --strWorkingProcessPath&#xA;,ft[FileTypeStagingTable]-- User::strWorkingStagingType&#xA;,ft.WorkingFileTypeKey --strWorkingFileTypeKey &#xA;[DerivedDistributionCode] --strWorkingDistributionCode&#xA;[DerivedCompany]  --strWorkingCompanyCode&#xA;[DerivedDistributionGroupCode] --strWorkingDistributionGroupCode&#xA;[FileTypeValueCheckColumn]  ,strWorkingRowCheckField"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="395,184"
+          Id="55e61931-868d-47dc-92d9-eaf73e9d6641"
+          TopLeft="302.063492063492,309.68253968254" />
+        <AnnotationLayout
+          Text="@[User::strWorkingSourceValid] == 'Y'"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="233,40"
+          Id="d2285284-c9c0-49e9-807a-83e7d076b2f7"
+          TopLeft="825,1422.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="{23D8B98A-374E-4855-B9F8-C3BBA34F81C9}"
+          TopLeft="143,337" />
+        <NodeLayout
+          Size="284,42"
+          Id="{8877516D-3B6B-4ABB-8778-BE5768424842}"
+          TopLeft="111.460317460318,50.5714285714284" />
+        <NodeLayout
+          Size="284,42"
+          Id="{981AB717-2046-4D39-8E9C-2D00D48EBBD6}"
+          TopLeft="111.460317460318,127" />
+        <NodeLayout
+          Size="275,42"
+          Id="{DEFDD87C-20E6-4A3B-B61A-E67C7159801A}"
+          TopLeft="111.460317460318,197.916666666667" />
+        <NodeLayout
+          Size="219,42"
+          Id="{F582E603-793A-45AA-9E0E-E409618E3538}"
+          TopLeft="145,267" />
+        <EdgeLayout
+          Id="{69E90E2A-ADD0-4FD3-9A08-A95E1F0417ED}"
+          TopLeft="253.460317460318,92.5714285714284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.4285714285716"
+              Start="0,0"
+              End="0,26.9285714285716">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.9285714285716" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.46428571428581,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="{627C874A-1974-4893-898F-790B0E9B7D3C}"
+          TopLeft="251.210317460318,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.916666666667"
+              Start="0,0"
+              End="0,21.416666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.416666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="{0F6DCB82-BF6A-411D-972D-D731CDAAF62E}"
+          TopLeft="251.730158730159,239.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.083333333333"
+              Start="0,0"
+              End="0,19.583333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.583333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="{21CB0A20-7136-4EBC-809C-34EA868FC527}"
+          TopLeft="252,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="@[User::intBatchFileRows] &gt; 0 &amp;&amp; @[User::intErrorMailSent]==0"
+          ParentId="{472799FA-581A-4360-8146-5D57ACBD9D3A}"
+          FontInfo="{x:Null}"
+          Size="369,NaN"
+          Id="67b275e0-73aa-404a-b84d-b88ee7733a63"
+          TopLeft="277,95" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="651,434"
+          Size="651,477"
+          Id="{472799FA-581A-4360-8146-5D57ACBD9D3A}"
+          TopLeft="119,102" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\SEQC100 - BI System Logging\SQL902 Update FileLog with SourceFile Info.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="{ad278976-ecb6-46a5-be8f-241fd6432dd2}"
+          TopLeft="202,87" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Add Derived Columns"
+          TopLeft="263,138" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Row Count"
+          TopLeft="291,339" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination"
+          TopLeft="245,430" />
+        <EdgeLayout
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform.Paths[Row Count Output 1]"
+          TopLeft="358.25,381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Error Handling To Follow"
+          ParentId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform"
+          FontInfo="{x:Null}"
+          Size="160,40"
+          Id="ecde0c5c-56c1-4c9c-ab0c-fead14d22ad4"
+          TopLeft="619,405" />
+        <AnnotationLayout
+          Text="Not Using This Yet"
+          ParentId="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform"
+          FontInfo="{x:Null}"
+          Size="127,40"
+          Id="b324e52b-40e0-4255-b227-fe63eb2ce3d6"
+          TopLeft="468,335" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\Source - Staging CSV"
+          TopLeft="267,32" />
+        <EdgeLayout
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform.Paths[Flat File Source Output]"
+          TopLeft="354.75,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform.Paths[Derived Column Output]"
+          TopLeft="354.5,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,159"
+              Start="0,0"
+              End="0,151.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,151.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC200 - Staging Load\DFT210 Revenue Stage to Transform\ADO NET Transform Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

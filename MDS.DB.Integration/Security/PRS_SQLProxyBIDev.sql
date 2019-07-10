@@ -1,0 +1,4 @@
+﻿CREATE USER [PRS\SQLProxyBIDev] FOR LOGIN [PRS\SQLProxyBIDev];
+
+
+

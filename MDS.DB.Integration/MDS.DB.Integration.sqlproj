@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>MDS.DB.Integration</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{da76bf7a-c7c1-4a6f-8a03-631166d386b3}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>MDS.DB.Integration</RootNamespace>
+    <AssemblyName>MDS.DB.Integration</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'UAT|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Staging\" />
+    <Folder Include="Staging\Tables\" />
+    <Folder Include="Clean\" />
+    <Folder Include="Clean\Tables\" />
+    <Folder Include="Transform\" />
+    <Folder Include="Transform\Tables\" />
+    <Folder Include="Clean\Views\" />
+    <Folder Include="Transform\Views\" />
+    <Folder Include="Reporting\" />
+    <Folder Include="Reporting\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="Reporting\Stored Procedures\" />
+    <Folder Include="Transform\Stored Procedures" />
+    <Folder Include="Transform\User Defined Functions" />
+    <Folder Include="Config" />
+    <Folder Include="Config\Tables" />
+    <Folder Include="Project" />
+    <Folder Include="Project\Scripts" />
+    <Folder Include="Project\Scripts\PostDeployment" />
+    <Folder Include="Compare" />
+    <Folder Include="Transform\Functions\" />
+    <Folder Include="Config\Functions\" />
+    <Folder Include="Config\Stored Procedures\" />
+    <Folder Include="Project\Scripts\NonBuildScript" />
+    <Folder Include="Publish" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Transform\Tables\Territory.sql" />
+    <Build Include="Transform\Tables\MCPSLicenceType.sql" />
+    <Build Include="Transform\Tables\RightType.sql" />
+    <Build Include="Transform\Tables\Domain.sql" />
+    <Build Include="Transform\Tables\MasterStationAlerts.sql" />
+    <Build Include="Transform\Tables\Broadcaster.sql" />
+    <Build Include="Clean\Views\v_Domains.sql" />
+    <Build Include="Clean\Views\v_MasterStationData.sql" />
+    <Build Include="Clean\Views\v_MCPSLicenceTypes.sql" />
+    <Build Include="Clean\Views\v_RightType.sql" />
+    <Build Include="Clean\Views\v_Territory.sql" />
+    <Build Include="Transform\Views\v_MasterStationNew.sql" />
+    <Build Include="Transform\Views\v_MCPSLicenceType.sql" />
+    <Build Include="Transform\Views\v_RightType.sql" />
+    <Build Include="Transform\Views\v_Territory.sql" />
+    <Build Include="Transform\Views\v_Domains.sql" />
+    <Build Include="Reporting\Views\vChaningStationParameters.sql" />
+    <Build Include="Security\Clean.sql" />
+    <Build Include="Security\Reporting.sql" />
+    <Build Include="Security\Staging.sql" />
+    <Build Include="Security\Transform.sql" />
+    <Build Include="Clean\Tables\Broadcaster_MCPS_Licence_Types.sql" />
+    <Build Include="Clean\Tables\Broadcaster_Right_Types.sql" />
+    <Build Include="Clean\Tables\Broadcaster_UDCS.sql" />
+    <Build Include="Clean\Tables\Broadcasters.sql" />
+    <Build Include="Clean\Tables\CG_Ref_Codes.sql" />
+    <Build Include="Clean\Tables\Domains.sql" />
+    <Build Include="Clean\Tables\Elementary_Territories.sql" />
+    <Build Include="Clean\Tables\MCPS_Licence_Types.sql" />
+    <Build Include="Clean\Tables\Usage_Distribution_Codes.sql" />
+    <Build Include="Staging\Tables\Broadcaster_MCPS_Licence_Types.sql" />
+    <Build Include="Staging\Tables\Broadcaster_Right_Types.sql" />
+    <Build Include="Staging\Tables\Broadcaster_UDCS.sql" />
+    <Build Include="Staging\Tables\Broadcasters.sql" />
+    <Build Include="Staging\Tables\CG_Ref_Codes.sql" />
+    <Build Include="Staging\Tables\Domains.sql" />
+    <Build Include="Staging\Tables\Elementary_Territories.sql" />
+    <Build Include="Staging\Tables\MCPS_Licence_Types.sql" />
+    <Build Include="Staging\Tables\Usage_Distribution_Codes.sql" />
+    <Build Include="Staging\Tables\BATCH_CONTROL.sql" />
+    <Build Include="Transform\Tables\SuppliedStationData.sql" />
+    <Build Include="Transform\Tables\CodaCustomerCodes.sql" />
+    <Build Include="Transform\Tables\CodaAccountEL2Codes.sql" />
+    <Build Include="Transform\Tables\AlertsSuppliedStationData.sql" />
+    <Build Include="Transform\Tables\AlertsCodaCustomerCode.sql" />
+    <Build Include="Clean\Tables\SuppliedStationData.sql" />
+    <Build Include="Transform\Views\v_SuppliedStationDetails.sql" />
+    <Build Include="Transform\Views\v_CodaCustomerCode.sql" />
+    <Build Include="Transform\Views\v_CodaCustomerAccount.sql" />
+    <Build Include="Transform\Views\v_CodaCodeAlerts.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainChangingFinCodesNotificationSummary.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainChagingStationReportSummary.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainFinanceCodesReport.sql" />
+    <Build Include="Transform\Tables\AnalogyStation.sql" />
+    <Build Include="Transform\Stored Procedures\spValidateMDSMasterStation.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateBroadcasterName.sql" />
+    <Build Include="Transform\Tables\MDSMasterStationValidated.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateCommercialSampleDays.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateInceptionDate.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateLowRevenueFlag.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainMDSValidationNotificationSummary.sql" />
+    <Build Include="Staging\Tables\MDS_MasterStation.sql" />
+    <Build Include="Transform\Tables\AnalogyStationAlerts.sql" />
+    <Build Include="Transform\Tables\MDS_MasterStation.sql" />
+    <Build Include="Reporting\Views\vAnalogyStationParameters.sql" />
+    <Build Include="Transform\Views\v_AnalogyStation.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainAnalogyStationDetails.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainAnalogyStationNotificationSummary.sql" />
+    <Build Include="Config\Tables\MDSBusinessRules.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateAudioPolicySampleDays.sql" />
+    <Build Include="Transform\Stored Procedures\spMergeMDSStationChanges.sql" />
+    <Build Include="Config\Functions\udfGetStationIDFromBank.sql" />
+    <Build Include="Config\Stored Procedures\spMaintainStationIDBank.sql" />
+    <Build Include="Config\Stored Procedures\spStationIDRequestInitialise.sql" />
+    <Build Include="Config\Tables\StationID_Bank.sql" />
+    <Build Include="Config\Tables\ExistingStationID.sql" />
+    <Build Include="Staging\Tables\Usage_Distribution_Groups.sql" />
+    <Build Include="Staging\Tables\Third_Parties.sql" />
+    <Build Include="Staging\Tables\Peak_Bands.sql" />
+    <Build Include="Transform\Views\v_UsageDistributionCodes.sql" />
+    <Build Include="Transform\Views\v_UDCBroadcasters.sql" />
+    <Build Include="Config\Functions\udfGetNums.sql" />
+    <Build Include="Transform\Tables\BroadcasterUDCMapping.sql" />
+    <Build Include="Clean\Tables\Usage_Distribution_Groups.sql" />
+    <Build Include="Clean\Tables\Third_Parties.sql" />
+    <Build Include="Clean\Tables\Peak_Bands.sql" />
+    <Build Include="Transform\Views\v_Latest_UDC_UDG.sql" />
+    <Build Include="Transform\Views\v_BroadcasterUDCMapping.sql" />
+    <Build Include="Config\Tables\MDSDataSourceConfiguration.sql" />
+    <None Include="Project\Scripts\PostDeployment\Config.MDSDataSourceConfiguration.sql" />
+    <Build Include="Transform\Tables\BroadcasterUDCDeltas.sql" />
+    <Build Include="Clean\Views\v_SuppliedStationData.sql" />
+    <Build Include="Transform\Tables\BroadcasterUDCAlerts.sql" />
+    <Build Include="Transform\Views\v_UDCInvalidDate.sql" />
+    <Build Include="Transform\Views\v_MasterUDCNew.sql" />
+    <Build Include="Transform\Tables\MasterUDCAlerts.sql" />
+    <Build Include="Transform\Tables\MasterUDC.sql" />
+    <Build Include="Transform\Views\v_StationUDCNew.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainUDCStationDetails.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainUDCChangeNotificationSummary.sql" />
+    <Build Include="Staging\Tables\BroadcastSampleDays.sql" />
+    <Build Include="Transform\Stored Procedures\spMergeSampleDaysToBroadcast.sql" />
+    <Build Include="Transform\Tables\SampleDaysAudioPolicy.sql" />
+    <Build Include="Transform\Views\v_SampleDays.sql" />
+    <Build Include="Transform\Views\v_SampleDaysAudioPolicy.sql" />
+    <Build Include="Clean\Tables\SampleDays.sql" />
+    <Build Include="Security\Config.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateBroadcasterDomain.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateDistributionGroup.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateMusicReportingGroup.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateLicenceGroup.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateMCPSLicenceType.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateLicencedStatus.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateTerritory.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateCodaCustomerCode.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateRightType.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateDiversity.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateStationAdminRate.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidatePublicReceptionAdminRate.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateCodaAccountCodeEl2.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateEffectiveDate.sql" />
+    <Build Include="Security\prs_subscribed_application.sql" />
+    <PostDeploy Include="Project\Scripts\Script.PostDeployment1.sql" />
+    <Build Include="Security\prs_reporting_application.sql" />
+    <Build Include="Transform\Functions\udfCheckLicenceGroupChange.sql" />
+    <Build Include="Transform\Functions\udfCheckAudioPolicyChange.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainStationChangeNotificationSummary.sql" />
+    <Build Include="Transform\Stored Procedures\spGetMDSValidationTemplateList.sql" />
+    <None Include="Transform\Views\v_MDSMasterStationValidation.sql" />
+    <None Include="Project\Scripts\PostDeployment\Transform.v_MDSMasterStationValidation.sql" />
+    <Build Include="Transform\Functions\udfValidateStationUDC.sql" />
+    <Build Include="Staging\Tables\BroadcasterAttributes.sql" />
+    <Build Include="Transform\Functions\udfValidateSampleDays.sql" />
+    <Build Include="Transform\Tables\MusicReportingGroup.sql" />
+    <Build Include="Transform\Views\v_MusicReportingGroup.sql" />
+    <Build Include="Clean\Views\v_MusicReportingGroup.sql" />
+    <Build Include="Clean\Views\v_BroadcasterAttributes.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainMDSMasterStationValidationReport.sql" />
+    <Build Include="Transform\Views\v_MDSMasterStationValidation_2.sql" />
+    <Build Include="Transform\Stored Procedures\spUpdateMasterStationMDSValidation.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainMDSValidationSDMReport_1.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainMDSValidationLicencingReport_1.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainMDSValidationBIReport_1.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainChagingStationDetails_1.sql" />
+    <Build Include="Transform\Views\v_BroadcasterAlerts.sql" />
+    <Build Include="Transform\Functions\udfValidateMinimumFee.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainMDSMasterStationValidationSummary.sql" />
+    <Build Include="Transform\User Defined Functions\udfValidateBR3Licence.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Transform\User Defined Functions\udfCheckAudioPolicyChange.sql" />
+    <None Include="Transform\User Defined Functions\udfCheckLicenceGroupChange.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainSuppliedStationNotificationSummary.sql" />
+    <None Include="Project\Scripts\PostDeployment\Config.MDSBusinessRules.sql" />
+    <None Include="Compare\SchemaCompare_DevToTFS.scmp" />
+    <None Include="Project\Scripts\NonBuildScript\StationID_Bank_Test.sql" />
+    <None Include="Compare\SchemaCompare_DevToTest.scmp" />
+    <None Include="Publish\SysTest.DB.MDSIntegration.publish.publish.xml" />
+    <None Include="Publish\UAT.DB.MDSIntegration.publish.publish.xml" />
+    <None Include="Compare\SchemaCompare_TFStoUAT.scmp" />
+    <None Include="Publish\PRD.DB.MDSIntegration.publish.publish.publish.xml" />
+    <None Include="Publish\Dev.DB.MDSIntegration.publish.publish.xml" />
+    <None Include="Compare\SchemaCompare_SysTestToTFS.scmp" />
+    <None Include="Compare\SchemaCompare_SysTestToUAT.scmp" />
+    <None Include="Compare\SchemaCompare_DevToSysTest.scmp" />
+    <None Include="Compare\SchemaCompare_DevToUAT.scmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="AudienceMart">
+      <DefaultValue>AudienceMart</DefaultValue>
+      <Value>$(SqlCmdVar__10)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="MDS">
+      <DefaultValue>MDS</DefaultValue>
+      <Value>$(SqlCmdVar__11)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="References\DB.AudienceMart.dacpac">
+      <HintPath>References\DB.AudienceMart.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>AudienceMart</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+    <ArtifactReference Include="References\MDS.dacpac">
+      <HintPath>References\MDS.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseSqlCmdVariable>MDS</DatabaseSqlCmdVariable>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB.Abacus</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{28c581c8-1e6d-46c8-a738-07ac54cd2e48}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DB.Abacus</RootNamespace>
+    <AssemblyName>DB.Abacus</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Latin1_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Security\" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Data" />
+    <Folder Include="Snapshots" />
+    <Folder Include="FPV\" />
+    <Folder Include="FPV\Tables\" />
+    <Folder Include="Scripts\Migrations" />
+    <Folder Include="FPV\Views\" />
+    <Folder Include="FPV\Stored Procedures\" />
+    <Folder Include="FPV\Functions\" />
+    <Folder Include="staging\" />
+    <Folder Include="staging\Tables\" />
+    <Folder Include="staging\Views\" />
+    <Folder Include="staging\Stored Procedures\" />
+    <Folder Include="admin\" />
+    <Folder Include="admin\Stored Procedures\" />
+    <Folder Include="FPV_Public\" />
+    <Folder Include="FPV_Public\Stored Procedures\" />
+    <Folder Include="Test" />
+    <Folder Include="Test\Stored Procedures" />
+    <Folder Include="Test\Views" />
+    <Folder Include="Compare" />
+    <Folder Include="Config\" />
+    <Folder Include="Config\Tables\" />
+    <Folder Include="staging\Functions\" />
+    <Folder Include="Publish" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\FPV.sql" />
+    <Build Include="FPV\Tables\ReferenceDataHistory.sql" />
+    <Build Include="FPV\Tables\ReferenceData.sql" />
+    <Build Include="FPV\Tables\ApplicationResponse.sql" />
+    <Build Include="FPV\Views\vApplicationResponse.sql" />
+    <Build Include="FPV\Stored Procedures\uspValidateRequest.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetStations.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutStations.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetSocieties.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetDistributions.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetDistributionGroups.sql" />
+    <Build Include="staging\Views\vStation.sql" />
+    <Build Include="admin\Stored Procedures\uspApplyDataRetentionPolicy.sql" />
+    <Build Include="Security\staging.sql" />
+    <Build Include="Security\admin.sql" />
+    <Build Include="FPV\Views\vReferenceData.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutCalculationGroups.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetConfig.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetCalculationGroups.sql" />
+    <Build Include="FPV\Tables\Society.sql" />
+    <Build Include="FPV\Tables\MasterStationHistory.sql" />
+    <Build Include="FPV\Tables\MasterStation.sql" />
+    <Build Include="FPV\Views\vMasterStation.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeMasterStations.sql" />
+    <Build Include="FPV_Public\Stored Procedures\uspApplicationRequestHandler.sql" />
+    <Build Include="Security\FPV_Public.sql" />
+    <Build Include="FPV\Functions\udfStationData.sql" />
+    <Build Include="FPV\Functions\udfSocietyData.sql" />
+    <Build Include="FPV\Functions\udfDistributionGroupData.sql" />
+    <Build Include="FPV\Functions\udfDistributionData.sql" />
+    <Build Include="FPV\Functions\udfCalculationGroupData.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutDistributionGroups.sql" />
+    <Build Include="FPV\Views\vRequestFilters.sql" />
+    <Build Include="FPV\Functions\udfReferenceData.sql" />
+    <Build Include="FPV\Tables\MasterRevenueHistory.sql" />
+    <Build Include="FPV\Tables\MasterRevenue.sql" />
+    <Build Include="FPV\Tables\CalculationGroupRevenueHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupRevenue.sql" />
+    <Build Include="FPV\Views\vMasterRevenue.sql" />
+    <Build Include="FPV\Views\vCalculationGroupRevenue.sql" />
+    <Build Include="FPV\Views\vApplicationRevenueView.sql" />
+    <Build Include="FPV\Functions\udfRevenueData.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetRevenue.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutRevenue.sql" />
+    <Build Include="FPV\Tables\MasterMusicMinutes.sql" />
+    <Build Include="FPV\Tables\MasterMissingMinutesHistory.sql" />
+    <Build Include="FPV\Tables\MasterMissingMinutes.sql" />
+    <Build Include="FPV\Tables\CalculationGroupMusicMinutesHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupMusicMinutes.sql" />
+    <Build Include="FPV\Tables\CalculationGroupMissingMinutesHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupMissingMinutes.sql" />
+    <Build Include="FPV\Views\vMasterMissingMinutes.sql" />
+    <Build Include="FPV\Views\vCalculationGroupMusicMinutes.sql" />
+    <Build Include="FPV\Views\vCalculationGroupMissingMinutes.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetMusicMinutes.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetMissingMinutes.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutMusicMinutes.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutMissingMinutes.sql" />
+    <Build Include="staging\Tables\MasterStation.sql" />
+    <Build Include="staging\Tables\MasterDistributionPeriod.sql" />
+    <Build Include="staging\Tables\MasterDistributionGroup.sql" />
+    <Build Include="staging\Tables\DistributionPlanningRevenue.sql" />
+    <Build Include="staging\Views\vDistributionGroupCodeStartEnd.sql" />
+    <Build Include="staging\Tables\MasterPlanningScenario.sql" />
+    <Build Include="FPV\Stored Procedures\uspDistributionGroup.sql" />
+    <Build Include="FPV\Stored Procedures\uspDistribution.sql" />
+    <Build Include="FPV\Views\vCalculationGroupMasterStation.sql" />
+    <Build Include="FPV\Tables\MasterPlanningRevenueHistory.sql" />
+    <Build Include="FPV\Tables\DistributionRevenueCalendar.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetRevenue.sql" />
+    <Build Include="FPV\Stored Procedures\uspDistributionRevenueCalendar.sql" />
+    <Build Include="staging\Tables\DistributionMusicMinutes.sql" />
+    <Build Include="staging\Views\vMasterRevenueByScenario.sql" />
+    <Build Include="FPV\Views\vApplicationFPVCalculationView.sql" />
+    <Build Include="FPV\Functions\udfFPVCalculationData.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutFPVCalculations.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetFPVCalculations.sql" />
+    <Build Include="staging\Views\vDistributionMusicMinutes_1.sql" />
+    <Build Include="staging\Stored Procedures\uspMergePublicReception.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeMissingMinutes.sql" />
+    <Build Include="FPV\Tables\CalculationGroupPublicReceptionHistory.sql" />
+    <Build Include="FPV\Tables\MasterPublicReceptionHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupPublicReception.sql" />
+    <Build Include="FPV\Tables\MasterPublicReception.sql" />
+    <Build Include="staging\Tables\DistributionMissingMinutes.sql" />
+    <Build Include="staging\Tables\DistributionPublicReception.sql" />
+    <Build Include="FPV\Functions\udfPublicReceptionData.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetPublicReception.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutPublicReception.sql" />
+    <Build Include="FPV\Views\vApplicationPublicReceptionView.sql" />
+    <Build Include="FPV\Views\vCalculationGroupPublicReception.sql" />
+    <Build Include="FPV\Views\vMasterPublicReception.sql" />
+    <Build Include="FPV\Tables\RequestDef.sql" />
+    <Build Include="FPV\Tables\FPVCalculationHistory.sql" />
+    <Build Include="FPV\Tables\FPVCalculationEvent.sql" />
+    <Build Include="FPV\Tables\FPVCalculationDef.sql" />
+    <Build Include="FPV\Tables\FPVCalculation.sql" />
+    <Build Include="FPV\Tables\DistributionGroup.sql" />
+    <Build Include="FPV\Tables\Distribution.sql" />
+    <Build Include="FPV\Tables\CalculationGroupStationHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroup.sql" />
+    <Build Include="FPV\Views\vCalculationGroupStation.sql" />
+    <Build Include="FPV\Views\vCalculationGroup.sql" />
+    <Build Include="FPV\Views\vApplicationStationView.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_TriggerResetCalculationGroup.sql" />
+    <Build Include="FPV\Tables\CalculationGroupStation.sql" />
+    <Build Include="FPV\Tables\ApplicationRequest.sql" />
+    <Build Include="FPV\Views\vApplicationFPVProcessCalculationView.sql" />
+    <Build Include="FPV\Tables\MasterMusicMinutesHistory.sql" />
+    <Build Include="staging\Views\vDistributionMusicMinutes_1.sql" />
+    <Build Include="Security\prs_subscribed_application.sql" />
+    <Build Include="Security\Test.sql" />
+    <Build Include="Test\Views\JSONRequestStrings.sql" />
+    <Build Include="Test\Stored Procedures\CleanUpTestData.sql" />
+    <Build Include="Test\Stored Procedures\ExecuteTest.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeMusicMinutes.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeMasterRevenue.sql" />
+    <Build Include="staging\Tables\RevenueGroup.sql" />
+    <Build Include="FPV\Tables\CalculationGroupRevenueGroupHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupRevenueGroup.sql" />
+    <Build Include="staging\Views\vRevenueGroup.sql" />
+    <Build Include="FPV\Views\vMasterMusicMinutes_1.sql" />
+    <Build Include="FPV\Views\vMasterRevenueGroup.sql" />
+    <Build Include="FPV\Views\vCalculationGroupMasterRevenueGroup.sql" />
+    <Build Include="FPV\Views\vCalculationGroupRevenueGroup.sql" />
+    <Build Include="FPV\Views\vApplicationMusicMinutesView_1.sql" />
+    <Build Include="FPV\Views\vApplicationMissingMinutesView_1.sql" />
+    <Build Include="FPV\Views\vApplicationRevenueGroupView.sql" />
+    <Build Include="FPV\Functions\udfMusicMinutesData.sql" />
+    <Build Include="FPV\Functions\udfMissingMinutesData.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeRevenueGroup.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutRevenueGroups.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetRevenueGroups.sql" />
+    <Build Include="FPV\Functions\udfRevenueGroupData.sql" />
+    <Build Include="FPV\Stored Procedures\uspLogResponse.sql" />
+    <Build Include="FPV\Views\vCalculationGroupStationStatusSummary.sql" />
+    <Build Include="FPV\Views\vCalculationGroupRevenueGroupStatusSummary.sql" />
+    <Build Include="admin\Stored Procedures\uspApplyBasicMetadata.sql" />
+    <Build Include="FPV\Views\vDistributionRevenueMonthlyScenario.sql" />
+    <Build Include="FPV\Tables\TestTable.sql" />
+    <Build Include="staging\Views\vMasterRevenueLatestScenario.sql" />
+    <Build Include="staging\Tables\AudienceReachRAJAR.sql" />
+    <Build Include="staging\Tables\AudienceReachBARB.sql" />
+    <Build Include="FPV\Tables\MasterAudienceReachHistory.sql" />
+    <Build Include="FPV\Tables\MasterAudienceReach.sql" />
+    <Build Include="FPV\Tables\CalculationGroupAudienceReachHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupAudienceReach.sql" />
+    <Build Include="FPV\Views\vMasterAudienceReach.sql" />
+    <Build Include="FPV\Views\vCalculationGroupAudienceReach.sql" />
+    <Build Include="FPV\Views\vApplicationAudienceReachView.sql" />
+    <Build Include="FPV\Functions\udfAudienceReachData.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutAudienceReach.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetAudienceReach.sql" />
+    <Build Include="staging\Tables\BroadcasterTimeBandMap.sql" />
+    <Build Include="FPV\Tables\MasterUDCHistory.sql" />
+    <Build Include="FPV\Tables\MasterUDC.sql" />
+    <Build Include="FPV\Tables\CalculationGroupUDCHistory.sql" />
+    <Build Include="FPV\Tables\CalculationGroupUDC.sql" />
+    <Build Include="FPV\Views\vMasterUDC.sql" />
+    <Build Include="FPV\Views\vCalculationGroupUDC.sql" />
+    <Build Include="FPV\Views\vApplicationUDCView.sql" />
+    <Build Include="FPV\Functions\udfUDCData.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeUDC.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_PutUDC.sql" />
+    <Build Include="FPV\Stored Procedures\uspJSONRequest_GetUDC.sql" />
+    <Build Include="staging\Tables\StationUDCMapping.sql" />
+    <Build Include="staging\Views\vStationUDCMapping.sql" />
+    <Build Include="Config\Tables\IntegrationControl.sql" />
+    <Build Include="Security\Config.sql" />
+    <Build Include="staging\Tables\AbacusValidationLog.sql" />
+    <Build Include="Config\Tables\ValidationRules.sql" />
+    <Build Include="staging\Functions\udfValidateSourceRevenue.sql" />
+    <Build Include="staging\Stored Procedures\spValidateAbacus.sql" />
+    <Build Include="staging\Functions\udfValidateStationUDCExists.sql" />
+    <Build Include="staging\Functions\udfValidateCeasedStationUDCs.sql" />
+    <None Include="staging\Views\vAbacusValidationDetail.sql" />
+    <Build Include="staging\Functions\udfValidatePeakPercentSplits.sql" />
+    <Build Include="staging\Functions\udfValidateActiveStationsCeased.sql" />
+    <Build Include="staging\Functions\udfValidateStationUDCCounts.sql" />
+    <Build Include="staging\Stored Procedures\AbacusNotificationSummary.sql" />
+    <Build Include="staging\Views\vAudienceReachBARB.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeAudienceReachBARB.sql" />
+    <Build Include="staging\Functions\udfValidateCODACustomerCode.sql" />
+    <Build Include="staging\Views\vAudienceReachRAJAR.sql" />
+    <Build Include="staging\Stored Procedures\uspMergeAudienceReachRAJAR.sql" />
+    <Build Include="staging\Functions\udfValidateAVSampleDays.sql" />
+    <Build Include="Security\reporting.sql" />
+    <Build Include="staging\Tables\LicencePeriodScenarios.sql" />
+    <Build Include="staging\Views\vMasterRevenueAggregation.sql" />
+    <Build Include="staging\Views\vLicencePeriodScenarioPivot.sql" />
+    <Build Include="staging\Views\vAbacusValidationDetail_1.sql" />
+    <Build Include="admin\Stored Procedures\uspResetCalculationGroup.sql" />
+    <None Include="Scripts\Data\CreateTemporalClearDownProc.sql" />
+    <Build Include="staging\Functions\udfStringSplit.sql" />
+    <Build Include="FPV\Tables\RevenueGroup.sql" />
+    <Build Include="FPV\Tables\RevenueGroupHistory.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupStation.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupRevenueGroup.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupPublicReception.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupMusicMinutes.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupMissingMinutes.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupAudienceReach.sql" />
+    <Build Include="FPV\Views\vResponseCalcGroupFilters.sql" />
+    <Build Include="FPV\Functions\udfRemoveStringCharacters.sql" />
+    <Build Include="FPV\Stored Procedures\uspCleanAndReSeed.sql" />
+    <Build Include="FPV\Stored Procedures\uspCleanOnly.sql" />
+    <Build Include="Security\prs_abacusapplication_user.sql" />
+    <Build Include="Security\prs_abacusapplication_reporting.sql" />
+    <Build Include="Security\prs_abacusapplication_approver.sql" />
+    <Build Include="Security\prs_abacusapplication_admin.sql" />
+    <Build Include="FPV\Stored Procedures\uspSeedCalcGroupUDC.sql" />
+    <Build Include="FPV\Views\vMasterRevenueCalculationGroup.sql" />
+    <Build Include="FPV\Functions\udfGetStationID.sql" />
+    <Build Include="FPV\Functions\udfGetCodaCustomerCode.sql" />
+    <Build Include="FPV\Functions\udfGetStationName_1.sql" />
+    <Build Include="FPV\Functions\udfGetDGValue.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Script.PostDeployment.sql" />
+    <None Include="AbacusMasterFromUAT.dtsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Data\RefData.sql" />
+    <None Include="Compare\SqlSchemaCompare_DevToSysTest.scmp" />
+    <None Include="Compare\SqlSchemaCompare_UATToDev.scmp" />
+    <None Include="Compare\SqlSchemaCompare_UATToTFS.scmp" />
+    <None Include="Compare\SqlSchemaCompare_DevToTFS.scmp" />
+    <None Include="Publish\PRD.DB.Abacus.publish.xml" />
+    <None Include="Publish\UAT.DB.Abacus.publish.xml" />
+    <None Include="Compare\SqlSchemaCompare_SysTestToTFS.scmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\msdb.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\msdb.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>msdb</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

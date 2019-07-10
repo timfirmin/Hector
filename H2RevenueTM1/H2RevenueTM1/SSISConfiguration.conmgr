@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SSISConfiguration"
+  DTS:DTSID="{585B6D82-E14C-456B-B793-866CE0B48B07}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strSSISConfigurationConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZI-MS-SIS-D001,50501;Initial Catalog=SSISConfiguration;Integrated Security=True;Connect Timeout=0;Application Name=SSIS-{585B6D82-E14C-456B-B793-866CE0B48B07}SSISConfiguration;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

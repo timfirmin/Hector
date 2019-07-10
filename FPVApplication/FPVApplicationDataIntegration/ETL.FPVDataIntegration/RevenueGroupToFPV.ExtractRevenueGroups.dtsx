@@ -1,0 +1,1716 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2016 9:51:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GR2-W8-POW035"
+  DTS:CreatorName="PRS\TFirmin"
+  DTS:Description="TM1 Planning File Integration File Management "
+  DTS:DTSID="{1F02001D-7F09-4B23-B64A-B8A32E46AF97}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="RevenueGroupToFPV ExtractRevenueGroups"
+  DTS:PackageType="5"
+  DTS:VersionBuild="543"
+  DTS:VersionGUID="{C2DFAE11-7E7B-4DCD-98A1-BC460D5387C4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="intLoadId"
+      DTS:ConfigurationVariable="\Package.Variables[User::intParentLoadId].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD00E880-F290-41F0-83DB-F637E3776B9A}"
+      DTS:ObjectName="intParentLoadId" />
+    <DTS:Configuration
+      DTS:ConfigurationString="strWorkingUpdateProcedure"
+      DTS:ConfigurationVariable="\Package.Variables[User::strWorkingUpdateProcedure].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{F5E49F2C-5BF8-4A3C-9ADF-935315E593D4}"
+      DTS:ObjectName="strWorkingUpdateProcedure" />
+    <DTS:Configuration
+      DTS:ConfigurationString="strWorkingChildProcess"
+      DTS:ConfigurationVariable="\Package.Variables[User::strWorkingChildProcess].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{A92E7039-7436-41CD-BC38-7A849E537F1D}"
+      DTS:ObjectName="strWorkingChildProcess" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{7851B4E6-154A-41C6-87FC-FA82E0914791}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">29999</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{9455D1AD-ECD4-4E26-A4C2-C972C77588D4}"
+      DTS:ObjectName="LandingDelimiter">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">,</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{94AB478E-E763-4665-9233-E1DFAEC0AAFE}"
+      DTS:ObjectName="LandingSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BITlanding</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{02537DFE-2F6A-431C-BA24-F5140EC1EF85}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E3C35C3D-30D6-4CCA-9B6E-30A19EAA8743}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4285C021-63D5-45AD-9F45-7D33780E67EA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{92C09B4C-9F35-4CB1-81FC-3DA3324638B1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17B53164-744C-4B73-80AF-35EF0118D3E9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EC17AAF3-DC46-47A6-AFF8-358A9D2C7B61}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{959EA0C8-38FC-4245-9356-16AA66DDAF75}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A9F77C83-FFD3-4214-9808-E61184BA0060}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInvalidRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C0480A54-7748-4D7D-BA52-0E8E0805E8A2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">123</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{87A18891-E6D6-4880-B890-979ADCDD856F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ACA222F6-710B-4337-AB97-95AFDA664F60}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intRawFileRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7EF3FF98-1588-425E-B061-7E97C553C1B4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F0689ECE-6709-427F-AFDD-7741EA7E606C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{46AFD4C2-D609-41DC-992F-A40CBBA6AA51}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="objTableName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{56FD50B1-B0F2-4741-899E-EB3A55D58903}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstArchiveFileSet01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0FFF9A03-89F8-4984-A074-ADF6974B8362}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstDeleteFileSet01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{32D5B676-5F49-4371-89FD-AC77B517422E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstTablesLanded">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{58C38145-AC21-4A33-A365-5C22EA7FFBAF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchLandingLogTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITcontrol.LandedFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CBEF5C07-D044-4042-9FFB-6431AE3BB75E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchValidForArchive">
+      <DTS:VariableValue
+        DTS:DataType="8">N</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F0DB074-80BA-42C6-BA13-8BA1E09352C1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A8437B6C-4D32-4379-861E-ECEBDC6C5525}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentTableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7C969E21-3772-48AB-A934-D6AA2C098CA4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITLandingFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C99FB9AB-AC59-490C-8E05-738F7277B792}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileMoveFrom">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\Dev\01CostDataExtract\01CostDataExtract CR2 Pd1 - 2017_to_Pd_12-2019-TM1 Prod Server2018-04-16.cma</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4CBB99E8-3ADB-4894-993C-441E8B7F24AD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileMoveTo">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\Dev\FilesProcessed\01Cost\01CostDataExtract CR2 Pd1 - 2017_to_Pd_12-2019-TM1 Prod Server2018-04-16.cma</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{60D1A35B-9823-4F5B-A9AD-A8EA1856C07E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFPVLGTable">
+      <DTS:VariableValue
+        DTS:DataType="8">staging.RevenueGroup</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C38D17F8-45D6-4825-A9FB-22BBA70386DC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C83C5F99-C4F5-4BDD-A9D5-F29D402BD2A3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strObtainFileId">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C22A0BD5-C31D-4937-9718-77DA22984D6D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D93E6658-D667-4B7E-8D57-9CA75A691D2B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSchemaName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITlanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41CC3FAA-9D66-423F-B9AE-CB74C9A40800}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;BEGIN&#xA;  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);&#xA;                               &#xA;END;&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourcecQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">
+BEGIN
+  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);
+                               
+END;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E27B6F42-F53C-45E6-B0C1-3951D7EEAB55}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strCurrentFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C6AAA215-A099-4800-A95A-398B36344ABD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingChildProcess">
+      <DTS:VariableValue
+        DTS:DataType="8">LicenceGroup</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{73A922C0-2AF9-405B-B66D-24C18E78FDBE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0CDC961E-3E1C-4EA6-BBBD-CEA5302DAF8F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileMoveAction">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A87069DF-1DE4-45A7-97C6-251803E75406}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ECB7ACAB-E2CB-4CFE-9144-E1560F253192}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileValid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3E2E6B1C-3B35-49C5-8BCA-9E0E11DC6602}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingProcessFlag">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FCD02A62-E47E-43A1-8227-9F41D6A4D90C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRawPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Temp\SouceFiles\Landing\Distribution File - PRS - 07JUL2017.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1EF85EC5-F1A2-489F-B742-08AA35E0E496}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFailFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\Failed\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9045906-99E2-47BE-B17B-C2B7D447E44D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7B368CA8-C76E-44A5-BA60-8375727D1617}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C070F0E8-9280-4FAE-8BDC-48F64925C063}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingTable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B48A1995-D9A5-4C07-A4CF-BEA91A3FC37E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingUpdateProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">uspMergeRevenueGroup</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{4789C476-B986-4997-98DD-A153DAFFBA36}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{8326A89D-C9D5-437A-9B0D-9DAD79A6F210}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{630A0B74-CBB7-4389-A468-72286974690A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC100 Load Station Info from Licence Group to FPV DB">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{F7672F5C-7F85-4378-9620-2E4FB0FBE87A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT102 Extract Revenue Group">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Derived Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intLoadId]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET FPV Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"staging"."RevenueGroup"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Connections[IDbConnection]"
+                      connectionManagerID="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[AbacusADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[Code]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="Code"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[Code]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[Code]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[SocietySplitPercent]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="SocietySplitPercent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[SocietySplitPercent]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[SocietySplitPercent]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[RevenueApportionment]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="RevenueApportionment"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevenueApportionment]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionment]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[RevenueApportionmentMethodPRS]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="RevenueApportionmentMethodPRS"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevenueApportionmentMethodPRS]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionmentMethodPRS]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[RevenueApportionmentMethodMCPS]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="RevenueApportionmentMethodMCPS"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevenueApportionmentMethodMCPS]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionmentMethodMCPS]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[DistributionGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="DistributionGroup"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[DistributionGroup]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[DistributionGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[CodaCustomerCode]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="CodaCustomerCode"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[CodaCustomerCode]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[CodaCustomerCode]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[SocietySplitPercent]"
+                          dataType="numeric"
+                          name="SocietySplitPercent"
+                          precision="38"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevenueApportionment]"
+                          dataType="wstr"
+                          length="250"
+                          name="RevenueApportionment" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[DistributionGroup]"
+                          dataType="wstr"
+                          length="250"
+                          name="DistributionGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[CodaCustomerCode]"
+                          dataType="wstr"
+                          length="250"
+                          name="CodaCustomerCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevenueApportionmentMethodPRS]"
+                          dataType="wstr"
+                          length="250"
+                          name="RevenueApportionmentMethodPRS" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[RevenueApportionmentMethodMCPS]"
+                          dataType="wstr"
+                          length="250"
+                          name="RevenueApportionmentMethodMCPS" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertTimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="InsertTimeStamp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="Revenue Group"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">with cte_RGmetadata 
+as
+(SELECT 
+[CodaCustomerCode_Code] as RevenueGroupCode
+,count([Code]) as StationCount
+,max([DistributionGroup_Code]) as [DistributionGroup]
+      
+  FROM [MDS].[mdm].[Master_v_MasterStation]
+   where [CodaCustomerCode_Code] is not null
+  group by [CodaCustomerCode_Code]
+  )
+SELECT 
+ mdm.[Code]
+,mdm.[Name]
+,mdm.[SocietySplitPercent_Code] as [SocietySplitPercent]
+,0 as HedgedRate
+--This field now labelled Exclude from FPV so have to switch as Abacus logic sees this as 'Appropriate for RA'
+,case when len([RevenueApportionmentMethodPRS_Code]) &gt; 0 or len([RevenueApportionmentMethodMCPS_Code]) &gt; 0 then 'Yes' else 'No' end as [RevenueApportionment]
+,mdm.[RevenueApportionmentMethodPRS_Code] as [RevenueApportionmentMethodPRS]
+,mdm.[RevenueApportionmentMethodMCPS_Code] as [RevenueApportionmentMethodMCPS]
+,cte.DistributionGroup as [DistributionGroup]
+,mdm.[Code] as CodaCustomerCode
+
+FROM [mdm].[Master_v_CodaCustomer] mdm  JOIN cte_RGmetadata cte on mdm.Code = cte.RevenueGroupCode</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"mdm"."Master_v_MasterStation"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Connections[IDbConnection]"
+                      connectionManagerID="{EB2F8844-B069-4F8C-A5E7-2F3FDAFEC53A}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[MDSADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[Code]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[Code]"
+                          name="Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[SocietySplitPercent]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[SocietySplitPercent]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[SocietySplitPercent]"
+                          name="SocietySplitPercent"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[HedgedRate]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[HedgedRate]"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[HedgedRate]"
+                          name="HedgedRate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionment]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[RevenueApportionment]"
+                          length="3"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionment]"
+                          name="RevenueApportionment"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionmentMethodPRS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[RevenueApportionmentMethodPRS]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionmentMethodPRS]"
+                          name="RevenueApportionmentMethodPRS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionmentMethodMCPS]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[RevenueApportionmentMethodMCPS]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[RevenueApportionmentMethodMCPS]"
+                          name="RevenueApportionmentMethodMCPS"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[DistributionGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[DistributionGroup]"
+                          name="DistributionGroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[CodaCustomerCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].Columns[CodaCustomerCode]"
+                          name="CodaCustomerCode"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[SocietySplitPercent]"
+                          dataType="wstr"
+                          length="250"
+                          name="SocietySplitPercent" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[HedgedRate]"
+                          dataType="i4"
+                          name="HedgedRate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[RevenueApportionment]"
+                          dataType="wstr"
+                          length="3"
+                          name="RevenueApportionment" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[RevenueApportionmentMethodPRS]"
+                          dataType="wstr"
+                          length="250"
+                          name="RevenueApportionmentMethodPRS" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[RevenueApportionmentMethodMCPS]"
+                          dataType="wstr"
+                          length="250"
+                          name="RevenueApportionmentMethodMCPS" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup]"
+                          dataType="wstr"
+                          length="250"
+                          name="DistributionGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode]"
+                          dataType="wstr"
+                          length="250"
+                          name="CodaCustomerCode" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[Code]"
+                          name="Code" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[SocietySplitPercent]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[SocietySplitPercent]"
+                          name="SocietySplitPercent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[HedgedRate]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[HedgedRate]"
+                          name="HedgedRate" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[RevenueApportionment]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[RevenueApportionment]"
+                          name="RevenueApportionment" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[RevenueApportionmentMethodPRS]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[RevenueApportionmentMethodPRS]"
+                          name="RevenueApportionmentMethodPRS" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[RevenueApportionmentMethodMCPS]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[RevenueApportionmentMethodMCPS]"
+                          name="RevenueApportionmentMethodMCPS" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[DistributionGroup]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[DistributionGroup]"
+                          name="DistributionGroup" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode]"
+                          name="CodaCustomerCode" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group.Paths[ADO NET Source Output]"
+                  endId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Inputs[Derived Column Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group.Paths[Derived Column Output]"
+                  endId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination.Inputs[ADO NET Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns.Outputs[Derived Column Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 105 Merge to Abacus"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{0086c69c-138c-4272-83bd-4c84ed2636cf}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL 105 Merge to Abacus"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC staging." +  @[User::strWorkingUpdateProcedure] + " @pLoadId, @pUserName, @pInsertedRowCount OUTPUT"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="EXEC staging.uspMergeRevenueGroup @pLoadId, @pUserName, @pInsertedRowCount OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@pLoadId"
+                SQLTask:DtsVariableName="User::intParentLoadId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@pUserName"
+                SQLTask:DtsVariableName="System::UserName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="16"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@pInsertedRowCount"
+                SQLTask:DtsVariableName="User::intInsertedRows"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 109 Update Last Run Metadata"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{76d8fc6f-4b53-4450-87e9-026df8abe6f1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL 109 Update Last Run Metadata"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+  UPDATE [Config].[IntegrationControl]
+  SET
+       [LastUpdateTimeStamp] = GETDATE()
+      ,[LastUpdateInsertRowCount] =  " +  (DT_WSTR, 5) @[User::intInsertedRows]  + "
+
+ 
+, [LastUpdateLoadId] =  " +  (DT_WSTR, 10) @[User::intParentLoadId]   + "
+
+ 
+ WHERE 
+	[IntegrationName] = '"+    @[User::strWorkingChildProcess]     +"'
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="&#xA;  UPDATE [Config].[IntegrationControl]&#xA;  SET&#xA;       [LastUpdateTimeStamp] = GETDATE()&#xA;      ,[LastUpdateInsertRowCount] =  0&#xA;&#xA; &#xA;, [LastUpdateLoadId] =  4444&#xA;&#xA; &#xA; WHERE &#xA;&#x9;[IntegrationName] = 'LicenceGroup'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL101 Delete Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9AF3BBDF-2E1F-4D76-BDFC-86BF9F035B4E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL101 Delete Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="DELETE [staging].[RevenueGroup]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL104 Log Throughput"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{44C055DA-90D4-4DC2-97D5-B32A1EA31F1E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL104 Log Throughput"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+DECLARE @ApplicationId SMALLINT = 0
+ SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = '"+  @[$Project::strApplicationCode] + "'
+
+	INSERT INTO [Audit].[RowThroughput]
+			   ( ExecutionId	
+			    ,ExecutableId	
+			    ,EnvironmentId	
+				,EntityId	
+				,LoadProcess	
+				,TaskName	
+				,ProcessStream	
+				,LoadId	
+				,ApplicationId	
+				,SourceFileName	
+				,InsertedRows	
+				,ExtractedRows
+				,UpdatedRows	
+				,DeletedRows	
+				,FailedRows	
+				,ArchivedRows	
+				,BadRows	
+			   )
+		 VALUES
+			   ( " + (DT_WSTR, 10) @[System::ServerExecutionID]  + "-- ExecutionId	
+				,-1 -- EntityId	
+			   	,-1
+				,-1
+				,'"  +  @[User::strProcessStream]  + "' --LoadProcess	
+				,'" + @[System::TaskName]  + "'	--TaskName
+				, '" + @[System::PackageName] + " Load" + "'
+				," + (DT_WSTR, 10)@[User::intParentLoadId] + "	
+				,@ApplicationId	
+				,'" +  @[User::strFPVLGTable]  + "' 
+				," + (DT_WSTR, 10) @[User::intInsertedRows] + "
+				,0,0,0,0,0,0
+			   )
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3E10D4EA-1229-45A5-A082-AA0D4998BDD0}"
+              SQLTask:SqlStatementSource="&#xA;DECLARE @ApplicationId SMALLINT = 0&#xA; SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = 'FPV'&#xA;&#xA;&#x9;INSERT INTO [Audit].[RowThroughput]&#xA;&#x9;&#x9;&#x9;   ( ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;    ,ExecutableId&#x9;&#xA;&#x9;&#x9;&#x9;    ,EnvironmentId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,EntityId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,TaskName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ProcessStream&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,SourceFileName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,InsertedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ExtractedRows&#xA;&#x9;&#x9;&#x9;&#x9;,UpdatedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,DeletedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,FailedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ArchivedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,BadRows&#x9;&#xA;&#x9;&#x9;&#x9;   )&#xA;&#x9;&#x9; VALUES&#xA;&#x9;&#x9;&#x9;   ( 0-- ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,-1 -- EntityId&#x9;&#xA;&#x9;&#x9;&#x9;   &#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,'SRC2STG' --LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'SQL104 Log Throughput'&#x9;--TaskName&#xA;&#x9;&#x9;&#x9;&#x9;, 'RevenueGroupToFPV ExtractRevenueGroups Load'&#xA;&#x9;&#x9;&#x9;&#x9;,4444&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,@ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'staging.RevenueGroup' &#xA;&#x9;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;&#x9;,0,0,0,0,0,0&#xA;&#x9;&#x9;&#x9;   )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{0BDCDC92-DBDC-4CC6-8D5B-CE7A935B16AD}"
+          DTS:From="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL101 Delete Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{31A9E81F-C8BC-4CA3-A73D-C06111ADF9EC}"
+          DTS:From="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL104 Log Throughput" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{25C9062A-7401-432D-9D0D-EA977B0F5F6A}"
+          DTS:From="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL104 Log Throughput"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 105 Merge to Abacus" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{BC7F04ED-7A41-4F81-A69A-B280DDA5BA0E}"
+          DTS:From="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 105 Merge to Abacus"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 109 Update Last Run Metadata" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9F21E3C4-19E8-4C23-A9C6-AE9F99F0EF5D}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC100 Load Station Info from Licence Group to FPV DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{E99B39D7-6BC3-43D3-910C-DD7CA39FF241}"
+      DTS:From="Package\SEQC100 Load Station Info from Licence Group to FPV DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{BAD05E1B-2026-4DDB-B6B2-F9B5F550B214}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{0F358410-783E-442A-A549-2F9F65A7DBF5}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{884E3063-911D-4C8A-829C-BB2F7D4929D5}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="382.083333333333,487.777777777778" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="376.916666666667,1119" />
+        <NodeLayout
+          Size="222,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group"
+          TopLeft="126.355555555556,115.75" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 105 Merge to Abacus"
+          TopLeft="137.355555555556,278.428571428572" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL 109 Update Last Run Metadata"
+          TopLeft="118,363.428571428572" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL101 Delete Staging"
+          TopLeft="123.355555555556,35.2222222222222" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\SQL104 Log Throughput"
+          TopLeft="123.022222222223,195.611111111111" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint]"
+          TopLeft="240.355555555556,77.2222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.5277777777778"
+              Start="0,0"
+              End="0,31.0277777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.0277777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint 1]"
+          TopLeft="240.188888888889,157.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.861111111111"
+              Start="0,0"
+              End="0,30.361111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.361111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint 2]"
+          TopLeft="240.438888888889,237.611111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,40.8174603174606"
+              Start="0,0"
+              End="0,33.3174603174606">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3174603174606" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB.PrecedenceConstraints[Constraint 3]"
+          TopLeft="239.677777777778,320.428571428572">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.0000000000001"
+              Start="0,0"
+              End="0,35.5000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Update : [FPV].[MasterStation]"
+          ParentId="Package\SEQC100 Load Station Info from Licence Group to FPV DB"
+          FontInfo="{x:Null}"
+          Size="240,40"
+          Id="56428f79-815a-4682-938c-95799ce44a8e"
+          TopLeft="126.355555555556,228.805555555555" />
+        <AnnotationLayout
+          Text="strFPVStationTable"
+          ParentId="Package\SEQC100 Load Station Info from Licence Group to FPV DB"
+          FontInfo="{x:Null}"
+          Size="128,40"
+          Id="30a45fb6-ea2a-4358-9efe-0609604a5b28"
+          TopLeft="45.3333333333334,167.333333333333" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="530,469"
+          Size="530,512"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB"
+          TopLeft="218.25,573.222222222222" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="482.416666666667,529.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.4444444444439"
+              Start="0,0"
+              End="0,35.9444444444439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9444444444439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="483.333333333333,1085.22222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,33.7777777777781"
+              Start="0,0"
+              End="0,26.2777777777781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2777777777781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="  - FPV Data Integration -&#xA;Move from MDS to FPV"
+          ParentId="Package"
+          Size="231,67"
+          Id="c24ec8d9-6108-4ff3-96ee-fd4e13adeaf9"
+          TopLeft="344,355.638888888889">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="  (1300, -1,  20,  1,  0,  N'RevenueIntegrationTM1',     N'revenueintegrationtm1',        N'FPV TM1 Revenue Integration',         N'staging',    N'DistributionRevenueTM1',     N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1301, -1,  20,  1,  0,  N'DistributionRevenueCalendar',    N'distributionrevenuecalendar',   N'Distribution Revenue Calendar',        N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1302, -1,  20,  1,  0,  N'MasterStation',           N'masterstation',      N'MasterStation',            N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1303, -1,  20,  1,  0,  N'MasterDistributionGroup',        N'masterdistributiongroup',    N'Master Distribution Group',         N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1304, -1,  20,  1,  0,  N'MasterDistributionPeriod',    N'masterdistributionperiod',   N'Master Distribution Period',         N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME())"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="1205,104"
+          Id="3fd645e0-fb14-4fb5-9ec7-6155939b662f"
+          TopLeft="304.416666666667,232.666666666667" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination"
+          TopLeft="203,243" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Add Derived Columns"
+          TopLeft="213,141" />
+        <NodeLayout
+          Size="146,42"
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group"
+          TopLeft="226,43" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group.Paths[Derived Column Output]"
+          TopLeft="303,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group.Paths[ADO NET Source Output]"
+          TopLeft="301,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\ADO NET FPV Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Station Info from Licence Group to FPV DB\DFT102 Extract Revenue Group\Revenue Group">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

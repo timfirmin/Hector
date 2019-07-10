@@ -1,0 +1,1433 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{43A32E7D-DC07-46A2-BB25-67D81B4DCA58}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Clean REP_Third_Parties"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="199"
+  DTS:VersionGUID="{F1725968-356C-4F3D-8577-21E2E744A07A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{E1174E0A-AEB2-4847-BBF6-FA0635B838EA}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{641D3C2E-7631-4975-87FC-4032B707E84E}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{E1B7C4F4-1DA9-4F91-91F2-B6C466F0B8FF}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">STG2CLN</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{720B5085-794D-48AC-9ABD-17135D082F84}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E9E1F338-C2EF-4F9E-B104-50BDE7713B54}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9ADFC15-0DE0-49CF-984F-F31E2E3B8A5A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8727D581-7D71-4A6E-A1FD-3BE757DC60B4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{94CD2C08-F914-44F9-987D-65AF1424095A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E7622C8E-686A-4257-8496-0D3424C965EC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ADBC205E-473F-4EE3-AF0F-E9CDBFAF4093}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E65BF2FC-0182-436D-A99F-A2802E52910E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E039959F-2034-4CA7-BCDA-CCADEC6E17F7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C2C9F649-135F-4DD8-A47B-5D5196725F7C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{00D6775D-2EF9-4CB0-AAB4-E361646F4B36}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F50F599-0A57-4B40-ADAF-D1493AB6C6FD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Clean_Third_Parties</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA268F8E-26D1-4FFA-87EB-8E3B63078E0C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B97FC3A2-312F-428B-A018-5F4666508726}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D1F2A26-C488-4266-8BEF-00286A50659C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{969AA0A4-8CDE-449C-9236-C16D979F10C6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">STG2CLN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91541DB9-7C09-460F-BB93-BD01DD6A5472}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">STG2CLN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35903DBF-AF6B-4E4D-96EA-BAAFFABE1375}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AA126A93-0CBC-45C2-8834-61B1A3A38E2E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.Third_Parties</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{981C95B8-20FD-433F-8902-84D9A96E047A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Clean.Third_Parties</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{F844047B-7F50-4F58-BD52-7F761755A22B}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{A5CD909C-4A92-4616-B8BD-FCBDEBDB74DB}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Third_Parties"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{DC4AB015-A76A-43D9-A479-7F6EFBEE62FE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Third_Parties"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load Third_Parties.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{97AE5013-B52E-4A37-A7D2-377A5F78119F}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{9ECD6E0B-5A40-4979-9B32-2382845B15E0}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load Third_Parties.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{EC13B086-CE8F-4736-B623-DD96B68655A4}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Third_Parties\Adatis Data Cleansing"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Generic Data Cleansing Routine, that removes Leading and Trailing spaces, tabs and new lines."
+              name="Adatis Data Cleansing">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Adatis.SSIS.Tasks.DataCleaning, Adatis.SSIS.PipelineComponents, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Third_Parties\Adatis Data Cleansing.Inputs[Input]"
+                  name="Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Third_Parties\Adatis Data Cleansing.Outputs[Output]"
+                  name="Output"
+                  synchronousInputId="Package\DFT - Load Third_Parties\Adatis Data Cleansing.Inputs[Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO - Staging Third_Parties"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT distinct  [SURR_ID]
+      ,[GC_SUPPLIER_GROUP_TABLE]
+      ,[GC_SUPPLIER_GROUP_CODE]
+      ,[NAME]
+      ,[TP_SURR_ID]
+      ,[FINANCE_CODE]
+      ,[DN_ROOT_TP_SURR_ID]
+    
+  FROM [Staging].[Third_Parties]</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Broadcaster_MCPS_Licence_Types"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Connections[IDbConnection]"
+                  connectionManagerID="{5A008FB4-12C0-4875-8D36-B92B341D9245}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[SURR_ID]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[SURR_ID]"
+                      name="SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[GC_SUPPLIER_GROUP_TABLE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[GC_SUPPLIER_GROUP_TABLE]"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[GC_SUPPLIER_GROUP_TABLE]"
+                      name="GC_SUPPLIER_GROUP_TABLE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[GC_SUPPLIER_GROUP_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[GC_SUPPLIER_GROUP_CODE]"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[GC_SUPPLIER_GROUP_CODE]"
+                      name="GC_SUPPLIER_GROUP_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[NAME]"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[NAME]"
+                      name="NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[TP_SURR_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[TP_SURR_ID]"
+                      name="TP_SURR_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[FINANCE_CODE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[FINANCE_CODE]"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[FINANCE_CODE]"
+                      name="FINANCE_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[DN_ROOT_TP_SURR_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[DN_ROOT_TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[DN_ROOT_TP_SURR_ID]"
+                      name="DN_ROOT_TP_SURR_ID"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[SURR_ID]"
+                      dataType="numeric"
+                      name="SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[GC_SUPPLIER_GROUP_TABLE]"
+                      dataType="wstr"
+                      length="60"
+                      name="GC_SUPPLIER_GROUP_TABLE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[GC_SUPPLIER_GROUP_CODE]"
+                      dataType="wstr"
+                      length="60"
+                      name="GC_SUPPLIER_GROUP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[TP_SURR_ID]"
+                      dataType="i4"
+                      name="TP_SURR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[FINANCE_CODE]"
+                      dataType="wstr"
+                      length="60"
+                      name="FINANCE_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].ExternalColumns[DN_ROOT_TP_SURR_ID]"
+                      dataType="i4"
+                      name="DN_ROOT_TP_SURR_ID" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[SURR_ID]"
+                      name="SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[GC_SUPPLIER_GROUP_TABLE]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[GC_SUPPLIER_GROUP_TABLE]"
+                      name="GC_SUPPLIER_GROUP_TABLE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[GC_SUPPLIER_GROUP_CODE]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[GC_SUPPLIER_GROUP_CODE]"
+                      name="GC_SUPPLIER_GROUP_CODE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[NAME]"
+                      name="NAME" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[TP_SURR_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[TP_SURR_ID]"
+                      name="TP_SURR_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[FINANCE_CODE]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[FINANCE_CODE]"
+                      name="FINANCE_CODE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[DN_ROOT_TP_SURR_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[DN_ROOT_TP_SURR_ID]"
+                      name="DN_ROOT_TP_SURR_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Third_Parties\ADO - Third_Parties"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - Third_Parties"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Clean"."Third_Parties"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Connections[IDbConnection]"
+                  connectionManagerID="{5A008FB4-12C0-4875-8D36-B92B341D9245}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[SURR_ID]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[GC_SUPPLIER_GROUP_TABLE]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="GC_SUPPLIER_GROUP_TABLE"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[GC_SUPPLIER_GROUP_TABLE]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[GC_SUPPLIER_GROUP_TABLE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[GC_SUPPLIER_GROUP_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="GC_SUPPLIER_GROUP_CODE"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[GC_SUPPLIER_GROUP_CODE]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[GC_SUPPLIER_GROUP_CODE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="NAME"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[NAME]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[TP_SURR_ID]"
+                      cachedDataType="i4"
+                      cachedName="TP_SURR_ID"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[TP_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[FINANCE_CODE]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="FINANCE_CODE"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[FINANCE_CODE]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[FINANCE_CODE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[DN_ROOT_TP_SURR_ID]"
+                      cachedDataType="i4"
+                      cachedName="DN_ROOT_TP_SURR_ID"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[DN_ROOT_TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output].Columns[DN_ROOT_TP_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].Columns[RejectRow_YN]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="RejectRow_YN"
+                      externalMetadataColumnId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[RejectRow_YN]"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[SURR_ID]"
+                      dataType="numeric"
+                      name="SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[GC_SUPPLIER_GROUP_TABLE]"
+                      dataType="wstr"
+                      length="60"
+                      name="GC_SUPPLIER_GROUP_TABLE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[GC_SUPPLIER_GROUP_CODE]"
+                      dataType="wstr"
+                      length="60"
+                      name="GC_SUPPLIER_GROUP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[TP_SURR_ID]"
+                      dataType="i4"
+                      name="TP_SURR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[FINANCE_CODE]"
+                      dataType="wstr"
+                      length="60"
+                      name="FINANCE_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[DN_ROOT_TP_SURR_ID]"
+                      dataType="i4"
+                      name="DN_ROOT_TP_SURR_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[RejectRow_YN]"
+                      dataType="wstr"
+                      length="1"
+                      name="RejectRow_YN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]"
+                      name="RejectRow_YN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"N"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Third_Parties.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load Third_Parties\Adatis Data Cleansing.Inputs[Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT - Load Third_Parties.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Third_Parties\ADO - Third_Parties.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Third_Parties.Paths[Output]"
+              endId="Package\DFT - Load Third_Parties\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="Output"
+              startId="Package\DFT - Load Third_Parties\Adatis Data Cleansing.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{B488B23F-AFDA-4B47-91B1-01AF4643C05D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate CleanTable"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{5B4EF29E-5ED4-42C9-8FA4-BF4857AC4ED6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate CleanTable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5A008FB4-12C0-4875-8D36-B92B341D9245}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Clean.Third_Parties" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FA0D11C3-D099-437D-B5EB-BE2AFC0BDB86}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment != &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{34DD19D1-4F5E-4D74-A7F6-DE0750F11745}"
+      DTS:From="Package\DFT - Load Third_Parties"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{361BA700-0AF9-4A08-B3CF-2AED7831DF0E}"
+      DTS:From="Package\SQL - Truncate CleanTable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Third_Parties" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E61DE93F-B8AC-43E5-8969-16DC011C8BED}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate CleanTable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{0B0786CA-29ED-44F6-9CA0-C02595887067}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment == &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Truncate CleanTable" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{2A430FF7-9847-4F17-9E97-E225134F4237}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{6A0223A8-68DE-4296-AF5A-473135526D3D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{B6348E5D-FCFE-47B2-97A1-6690B89A42F7}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\DFT - Load Third_Parties"
+          TopLeft="193.25,323.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SQL - Truncate CleanTable"
+          TopLeft="223.25,237.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.375,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="324,365.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.583333333333"
+              Start="0,0"
+              End="0,40.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="323.25,279.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.583333333334"
+              Start="0,0"
+              End="0,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.125,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.333333333333"
+              Start="0,0"
+              End="0,35.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="366.916666666667,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-8.33333333333331,119.583333333333"
+              Start="0,0"
+              End="-8.33333333333331,112.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.6738965487338" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.6738965487338"
+                    Point2="0,59.6738965487338"
+                    Point3="-4,59.6738965487338" />
+                  <mssgle:LineSegment
+                    End="-4.33333333333331,59.6738965487338" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.33333333333331,59.6738965487338"
+                    Point2="-8.33333333333331,59.6738965487338"
+                    Point3="-8.33333333333331,63.6738965487338" />
+                  <mssgle:LineSegment
+                    End="-8.33333333333331,112.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.1666666666667,64.6738965487338,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Clean data from Staging to MDSIntegration DB"
+          ParentId="Package"
+          Size="348,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load Third_Parties">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="237,42"
+          Id="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties"
+          TopLeft="339,127" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT - Load Third_Parties\ADO - Third_Parties"
+          TopLeft="356,344" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load Third_Parties\DC - Add Integration Metadata"
+          TopLeft="350,268" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT - Load Third_Parties\Adatis Data Cleansing"
+          TopLeft="371,198" />
+        <EdgeLayout
+          Id="Package\DFT - Load Third_Parties.Paths[ADO NET Source Output]"
+          TopLeft="459.5,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Third_Parties.Paths[Output]"
+          TopLeft="461.75,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Third_Parties.Paths[Derived Column Output]"
+          TopLeft="458.75,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load Third_Parties.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load Third_Parties.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Third_Parties\ADO - Staging Third_Parties">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Third_Parties\ADO - Third_Parties">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

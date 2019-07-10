@@ -1,0 +1,1273 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{13A7345A-D528-4478-9CDD-ED432F490E1E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Clean REP_Broadcaster_Bands"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="197"
+  DTS:VersionGUID="{E35A1B69-A8CE-4565-A779-5FF8D0DAA932}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{5CEF2788-DF48-4D10-9923-3272376497ED}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{26E1A201-2243-444A-94F0-A347473B14B6}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{5CA4831A-BF90-4FA4-BC13-7C9AD1156551}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">STG2CLN</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3ADCA15E-81FF-4CD8-ACAA-097EFF355AEF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5765F355-5C48-4099-A9F0-1EEC09C7AC7A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8428EB36-2AB3-4014-9381-C0D334FDA28E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4FE3D709-E770-423E-AE0A-680B4389AA81}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1BEEB895-06E0-4C76-A690-971F3113B5A6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F02D9A1E-8F4F-444E-A9FB-931FD183183D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{013990E6-596B-4D52-B76A-50652B513CEF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{099C7307-D54A-414B-ABE8-76D216E667B8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9BCF405F-2E6A-4096-9411-A3B9EF9A4477}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CF685710-439B-4D1A-BFD7-80BC5EFB9866}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9496BBA3-F62B-4408-A523-179F72020D41}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4B84ABF4-6702-4ABD-9ED3-D78AEDFC59B3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Clean_Bands</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8994425D-8185-4E9F-ADC7-A44D8EDE667B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DB5F5786-B4B1-44CD-BF7E-01D1906020F4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F62E0D67-6443-44CF-AA47-2B2D6A6509EE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7D8E8537-8332-4470-8013-12DD4674164C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">STG2CLN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D33B111B-A4DC-445A-AC46-340D84DFD852}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">STG2CLN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{730915FC-56CF-48B8-81B2-6C9063D19C69}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B9B01478-DD6F-4F59-8C4A-04D15CB40318}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.Peak_Bands</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B512F88A-1A07-4E6E-87CB-CE20DAFE9C9B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Clean.Peak_Bands</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{B474BADF-3425-47D8-AB3B-08C1B163F295}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{76797A4D-2E79-4D21-BB81-D3D3780F03FB}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Peak Bands"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{194459B0-41AB-4E94-B38B-B20E5DE7C72A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Peak Bands"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load Peak Bands.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{AA03E6BC-CA9A-4A65-802F-32A589FD5C07}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{92E55BC8-8D63-4517-A3A1-A39CEFF0FCE4}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load Peak Bands.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{DA16947B-AA50-44F7-AA19-DC7FEEC02E7C}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Peak Bands\Adatis Data Cleansing"
+              componentClassID="Microsoft.ManagedComponentHost"
+              description="Generic Data Cleansing Routine, that removes Leading and Trailing spaces, tabs and new lines."
+              name="Adatis Data Cleansing">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Adatis.SSIS.Tasks.DataCleaning, Adatis.SSIS.PipelineComponents, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Peak Bands\Adatis Data Cleansing.Inputs[Input]"
+                  name="Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Peak Bands\Adatis Data Cleansing.Outputs[Output]"
+                  name="Output"
+                  synchronousInputId="Package\DFT - Load Peak Bands\Adatis Data Cleansing.Inputs[Input]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Peak Bands\ADO - Peak Bands"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - Peak Bands"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Clean"."Peak_Bands"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Connections[IDbConnection]"
+                  connectionManagerID="{5A008FB4-12C0-4875-8D36-B92B341D9245}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].Columns[SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[SURR_ID]"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].Columns[SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].Columns[NAME]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="NAME"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].Columns[NAME]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].Columns[RejectRow_YN]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="RejectRow_YN"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[RejectRow_YN]"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[SURR_ID]"
+                      dataType="numeric"
+                      name="SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[RejectRow_YN]"
+                      dataType="wstr"
+                      length="1"
+                      name="RejectRow_YN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO - Staging Peak Bands"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  [SURR_ID]
+      ,[NAME]
+
+  FROM .[Staging].[Peak_Bands]</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Broadcaster_MCPS_Licence_Types"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Connections[IDbConnection]"
+                  connectionManagerID="{5A008FB4-12C0-4875-8D36-B92B341D9245}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].Columns[SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].ExternalColumns[SURR_ID]"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].Columns[SURR_ID]"
+                      name="SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].Columns[NAME]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].ExternalColumns[NAME]"
+                      length="60"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].Columns[NAME]"
+                      name="NAME"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].ExternalColumns[SURR_ID]"
+                      dataType="numeric"
+                      name="SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="NAME" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[SURR_ID]"
+                      name="SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[NAME]"
+                      name="NAME" />
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[RejectRow_YN]"
+                      name="RejectRow_YN"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"N"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Peak Bands.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load Peak Bands\Adatis Data Cleansing.Inputs[Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT - Load Peak Bands.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Peak Bands\ADO - Peak Bands.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Peak Bands.Paths[Output]"
+              endId="Package\DFT - Load Peak Bands\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="Output"
+              startId="Package\DFT - Load Peak Bands\Adatis Data Cleansing.Outputs[Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{78F1AE10-805E-4B8D-841E-A263A0C321B6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate CleanTable"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{EE0E2291-D74A-4EE4-ABD7-3F158B825B94}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate CleanTable"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{5A008FB4-12C0-4875-8D36-B92B341D9245}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Clean.Peak_Bands" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5BF0F3A6-8E4B-4CE3-A851-BB48EB2A3E16}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment != &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4EB324DD-98D1-4E16-BB48-885284841398}"
+      DTS:From="Package\DFT - Load Peak Bands"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{2131E936-C653-43E5-B6DE-1EE6C3E1EF9B}"
+      DTS:From="Package\SQL - Truncate CleanTable"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Peak Bands" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{2BB7D831-8530-4637-AF75-D7BE32832426}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate CleanTable" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{F1F639ED-848F-4015-8DA6-7192DD74EAF2}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment == &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Truncate CleanTable" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{6DC49467-5603-46A5-9FD6-69D40D033E38}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{3F2DCF12-5E99-4C42-B8DD-7078721F15A3}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{DD32C358-D51C-4984-A98C-2E6FFD0A3E90}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\DFT - Load Peak Bands"
+          TopLeft="193.25,323.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SQL - Truncate CleanTable"
+          TopLeft="223.25,237.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.375,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="324,365.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.583333333333"
+              Start="0,0"
+              End="0,40.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="323.25,279.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.583333333334"
+              Start="0,0"
+              End="0,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.125,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.333333333333"
+              Start="0,0"
+              End="0,35.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="366.916666666667,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-8.33333333333331,119.583333333333"
+              Start="0,0"
+              End="-8.33333333333331,112.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.6738965487338" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,55.6738965487338"
+                    Point2="0,59.6738965487338"
+                    Point3="-4,59.6738965487338" />
+                  <mssgle:LineSegment
+                    End="-4.33333333333331,59.6738965487338" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.33333333333331,59.6738965487338"
+                    Point2="-8.33333333333331,59.6738965487338"
+                    Point3="-8.33333333333331,63.6738965487338" />
+                  <mssgle:LineSegment
+                    End="-8.33333333333331,112.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-12.1666666666667,64.6738965487338,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Clean data from Staging to MDSIntegration DB"
+          ParentId="Package"
+          Size="348,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load Peak Bands">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT - Load Peak Bands\ADO - Peak Bands"
+          TopLeft="356,344" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load Peak Bands\DC - Add Integration Metadata"
+          TopLeft="350,268" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT - Load Peak Bands\Adatis Data Cleansing"
+          TopLeft="371,198" />
+        <NodeLayout
+          Size="237,42"
+          Id="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands"
+          TopLeft="339,127" />
+        <EdgeLayout
+          Id="Package\DFT - Load Peak Bands.Paths[Output]"
+          TopLeft="461.75,240">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Peak Bands.Paths[Derived Column Output]"
+          TopLeft="458.75,310">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Peak Bands.Paths[ADO NET Source Output]"
+          TopLeft="459.5,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load Peak Bands.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load Peak Bands.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Peak Bands\ADO - Peak Bands">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Peak Bands\ADO - Staging Peak Bands">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

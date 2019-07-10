@@ -1,0 +1,1491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DeploymentModel>Project</DeploymentModel>
+  <ProductVersion>15.0.900.40</ProductVersion>
+  <SchemaVersion>9.0.1.0</SchemaVersion>
+  <State>$base64$PFNvdXJjZUNvbnRyb2xJbmZvIHhtbG5zOnhzZD0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOmRkbDI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yIiB4bWxuczpkZGwyXzI9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDAzL2VuZ2luZS8yLzIiIHhtbG5zOmRkbDEwMF8xMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDA4L2VuZ2luZS8xMDAvMTAwIiB4bWxuczpkZGwyMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAiIHhtbG5zOmRkbDIwMF8yMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEwL2VuZ2luZS8yMDAvMjAwIiB4bWxuczpkZGwzMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAiIHhtbG5zOmRkbDMwMF8zMDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDExL2VuZ2luZS8zMDAvMzAwIiB4bWxuczpkZGw0MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAiIHhtbG5zOmRkbDQwMF80MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEyL2VuZ2luZS80MDAvNDAwIiB4bWxuczpkZGw1MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAiIHhtbG5zOmRkbDUwMF81MDA9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vYW5hbHlzaXNzZXJ2aWNlcy8yMDEzL2VuZ2luZS81MDAvNTAwIiB4bWxuczpkd2Q9Imh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vRGF0YVdhcmVob3VzZS9EZXNpZ25lci8xLjAiPg0KICA8RW5hYmxlZD50cnVlPC9FbmFibGVkPg0KICA8UHJvamVjdE5hbWU+U0FLPC9Qcm9qZWN0TmFtZT4NCiAgPEF1eFBhdGg+U0FLPC9BdXhQYXRoPg0KICA8TG9jYWxQYXRoPlNBSzwvTG9jYWxQYXRoPg0KICA8UHJvdmlkZXI+U0FLPC9Qcm92aWRlcj4NCjwvU291cmNlQ29udHJvbEluZm8+</State>
+  <Database>
+    <Name>MDS StationIntegration LoadMDS.database</Name>
+    <FullPath>MDS StationIntegration LoadMDS.database</FullPath>
+  </Database>
+  <DataSources />
+  <DataSourceViews />
+  <DeploymentModelSpecificContent>
+    <Manifest>
+      <SSIS:Project SSIS:ProtectionLevel="DontSaveSensitive" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
+        <SSIS:Properties>
+          <SSIS:Property SSIS:Name="ID">{7e38d64a-c506-4608-99a2-0dce2bf289f5}</SSIS:Property>
+          <SSIS:Property SSIS:Name="Name">MDS_StationIntegration_LoadMDS</SSIS:Property>
+          <SSIS:Property SSIS:Name="VersionMajor">0</SSIS:Property>
+          <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+          <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
+          <SSIS:Property SSIS:Name="VersionComments">
+          </SSIS:Property>
+          <SSIS:Property SSIS:Name="CreationDate">2018-04-20T14:10:24.9200252+01:00</SSIS:Property>
+          <SSIS:Property SSIS:Name="CreatorName">PRS\SYilmaz</SSIS:Property>
+          <SSIS:Property SSIS:Name="CreatorComputerName">STU-W8-BIDEV004</SSIS:Property>
+          <SSIS:Property SSIS:Name="Description">
+          </SSIS:Property>
+          <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
+        </SSIS:Properties>
+        <SSIS:Packages>
+          <SSIS:Package SSIS:Name="LoadMDS.MCPSLicenceType_Details.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.Domain_Details.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.RightType_Details.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.Territory_Details.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.MasterStationData_New.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS_Process_TransformToMDS.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.MasterStationData_PersistChanges.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.UDC_New.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.UDC_Validation.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.StationUDC_Validation.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.StationUDC_New.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.UDC_Notification.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="LoadMDS.MusicReportingGroup_Details.dtsx" SSIS:EntryPoint="1" />
+        </SSIS:Packages>
+        <SSIS:ConnectionManagers>
+          <SSIS:ConnectionManager SSIS:Name="BISystemADO.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="MDSADO.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="MDSIntegration.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="REPConnection.conmgr" />
+          <SSIS:ConnectionManager SSIS:Name="MDSIntegrationOle.conmgr" />
+        </SSIS:ConnectionManagers>
+        <SSIS:DeploymentInfo>
+          <SSIS:ProjectConnectionParameters>
+            <SSIS:Parameter SSIS:Name="CM.BISystemADO.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">BISystemDev</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.BISystemADO.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.BISystemADO.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.BISystemADO.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">AZP-MS-SQL-D002.database.windows.net</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.BISystemADO.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">SQLProxyBIDev@prsformusic.com</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSADO.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">MDS</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSADO.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSADO.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSADO.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">AZI-MS-sql-D002,50501</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSADO.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegration.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">MDSIntegration</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegration.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegration.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegration.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">AZI-MS-sql-D002,50501</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegration.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.REPConnection.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.REPConnection.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.REPConnection.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.REPConnection.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">D8PRDVA</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.REPConnection.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">prbi_sqlssis</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegrationOle.InitialCatalog">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">MDSIntegration</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegrationOle.Password">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegrationOle.RetainSameConnection">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegrationOle.ServerName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">AZI-MS-SQL-D002,50501</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.MDSIntegrationOle.UserName">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+          </SSIS:ProjectConnectionParameters>
+          <SSIS:PackageInfo>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.MCPSLicenceType_Details.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{AB0901FE-1E76-4895-89F7-53DFDCB85D9A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS MCPSLicenceType_Details</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">100</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B001284F-0158-40A5-B776-CB6EC2B33C93}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{0A1B1BBA-C3A7-4D20-A1DC-C570E3DD56CF}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{13B37E29-E0F0-4D6B-818B-949B19D0B483}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{30320C29-1F8C-4D32-BD7F-2F7107D28253}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SourceToStage</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.Domain_Details.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{05CD0C79-0209-4146-858C-0607DF7B4CD8}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS Domain_Details</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">95</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{EC41AA92-0E32-43E4-9EB4-1A52D057BC8B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{72522817-AC4E-41B5-8D93-1E96DBE6775F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{19D31432-C6A0-41CC-9C06-B12F83BA454B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{DA75DF67-8876-4BB4-831E-F5C84959400C}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SourceToStage</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.RightType_Details.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A7676325-2775-4A30-84B2-C48AC0DBCE97}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS RightType_Details</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">101</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AC36F5D3-3405-4231-87FA-B4276630455E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{617905F4-D45C-4A19-AF97-1317C266C3FC}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{318F5575-7697-48BE-AA39-41EB19189E3F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A8AEE988-F95C-44A4-978F-E9D42C01334D}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.Territory_Details.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{0C8D193D-4CAD-4B27-A6B8-742418DD45C3}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS Territory_Details</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">99</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D02862EF-BA04-427B-A36B-4ACB08BFD687}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5B398C59-0AC2-4954-84B9-C2B8E35E00FB}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{2BA77259-CDDE-46EE-9A4A-CEE11C4EF6F0}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{66472A01-CEDA-4B87-B6F5-449467A231D7}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SourceToStage</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.MasterStationData_New.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{CE6A93B2-B459-4FE1-88BC-CCA5E4622016}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS Territory_Details</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">135</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{21130CB1-26E0-4AB9-B45D-6E5850A1E02B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{AD580D09-7FD5-49D0-916D-EB9BB599D831}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5FF47E8B-0CBC-409B-813C-0B050AF2105D}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">308155</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{E8E9C3C0-B5C1-4C9B-8EBC-2362260D2F7B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS_Process_TransformToMDS.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{1EB6F9DA-D0BA-4C3C-96CF-67A3ECC570DC}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS_Process_TransformToMDS</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">143</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{DA3241B7-66A5-4BB1-9195-68086C0CDD97}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{80C4CBBC-A9D8-45C3-833C-8C83A88EBD6C}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A7DF5549-1E47-4C65-A87E-E064BD91101F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">232559</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{341638E7-2143-4CF6-838B-45151C760F20}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.MasterStationData_PersistChanges.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A975822A-BA94-4028-98AF-46B7562CD5D2}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS MasterStationData_PersistChanges</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">160</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{94D2DA1C-680C-4148-89B7-FE2309D1B22C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5618D31A-DADB-421B-8690-CE1FA328EC56}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{F340D3A4-3768-4190-BB79-0453B94665FF}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{AFF93D82-379D-467A-BABF-471F08F2C816}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.UDC_New.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{B6760B1A-4989-4331-B9B6-F3A270D2D23D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS UDC_New</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">121</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8CAC58BA-41C2-4371-886E-A2624FBE469C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{892E869F-9A28-4EC6-8EE2-32082E729642}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">999123</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{FB646422-DFD1-4460-B03A-A5BF6CB103F3}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{75F0686B-2A51-4291-8F79-2E8046F370F4}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.UDC_Validation.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{F17F75D1-7C39-49E4-B8BF-6E5FF7549728}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS UDC_Validation</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">177</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B9E359E3-B842-4B77-9987-19441FE9F2C5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{57F850F3-1593-470A-8E13-F6E034A884A6}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">999123</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A65B30C6-F5FD-4503-BFF8-343F480BBA19}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5F3F7900-108B-4995-8EB8-A35A3347D7C9}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.StationUDC_Validation.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{8837D203-CF3B-441B-95FD-318B7675025C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS StationUDC_Validation</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">176</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2A277456-FB2D-4F46-83B6-A94890C93584}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{7DC79935-1F9C-4217-895F-2B188F3FDB6F}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">424</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{3AB847E3-FED4-47EC-AC20-F1DD91B84B54}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{31F0E4A3-8E92-4CD1-98B6-1A8871BC9AA5}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.StationUDC_New.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{8195BA0D-D0A3-4581-9538-D89C2D633868}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS StationUDC_New</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">134</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{46EA403C-082B-4D32-B6DC-6765B3304D1D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5F535F3F-9FFF-489B-8248-55A214BEF02B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">109133</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{CF380876-5E6E-4B1C-9C72-94B62AB643C8}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5B7A8AEC-87BE-4AC6-81F2-3AA646129C50}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.UDC_Notification.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{98C510EA-086A-49AF-978E-EC2C8948B84A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS UDC_Notification</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">159</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{124E00F9-F304-447E-A9AE-200F26EFC10C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{5B648DA8-EE94-4EB0-A091-BE7162ED6455}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">91932</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{A79CF2B9-C112-4C95-B7AA-5F2B9FA1585B}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{4D978397-DCAF-4269-99E5-D428F3DB51A6}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">TransformToMDS</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="LoadMDS.MusicReportingGroup_Details.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{87AD06F3-8932-4725-9326-35F8C02F2E2F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">LoadMDS MusicReportingGroup_Details</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">103</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{A451BFC9-DCB9-4DF2-850C-51B1E67AB86A}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="intParentLoadId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{395CB52A-6066-4FC2-AE13-38E7310992EC}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="intSourceFileId">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{D74211CD-7DC0-4916-8254-BB3ED4B571E2}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">1</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="strProcessStream">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">{9BDF95EF-6B1D-4553-BFB4-9B77C9D4D113}</SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">SourceToStage</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
+            </SSIS:PackageMetaData>
+          </SSIS:PackageInfo>
+        </SSIS:DeploymentInfo>
+      </SSIS:Project>
+    </Manifest>
+  </DeploymentModelSpecificContent>
+  <ControlFlowParts />
+  <Miscellaneous />
+  <Configurations>
+    <Configuration>
+      <Name>Development</Name>
+      <Options>
+        <OutputPath>bin</OutputPath>
+        <ConnectionMappings />
+        <ConnectionProviderMappings />
+        <ConnectionSecurityMappings />
+        <DatabaseStorageLocations />
+        <TargetServerVersion>SQLServer2016</TargetServerVersion>
+        <ParameterConfigurationValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2019-03-27T15:02:30.2016428Z</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{058198d8-ff3b-4974-b79f-b9aaa7bb9398}</Id>
+            <Name>Project::strApplicationCode</Name>
+            <Value xsi:type="xsd:string">MDSI</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{cf199446-43d5-40de-a27b-91716551aec7}</Id>
+            <Name>Project::strBISystemConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZP-MS-SQL-D002.database.windows.net;Initial Catalog=BISystemDev;User ID=SQLProxyBIDev@prsformusic.com;Password=G927cr!952sY$Tdek*v9fz3;Authentication="Active Directory Password";Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{bd0b27b3-47cc-4818-bc24-c96bf311176c}</Id>
+            <Name>Project::strDbMailProfileName</Name>
+            <Value xsi:type="xsd:string">AZI-MS-SQL-D002 SQL Database Mail</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{d21cae64-7f12-476f-aed2-7423815ca885}</Id>
+            <Name>Project::strValidationMailRecipients</Name>
+            <Value xsi:type="xsd:string">Support-BI-apps@prsformusic.com;senay.yilmaz@prsformusic.com</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{ce160b3d-2902-4181-908b-17f9cc0a2503}</Id>
+            <Name>Project::strMDSIntegrationConnectionStringADO</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-D002,50501;Initial Catalog=MDSIntegration;Integrated Security=True;Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{43fefab3-35e8-40da-b1a0-fd2f2d227422}</Id>
+            <Name>Project::strMDSConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-D002,50501;Initial Catalog=MDS;Integrated Security=True;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{2050b0b4-f706-4887-a219-bf93f3c9f163}</Id>
+            <Name>Project::strMDSModelName</Name>
+            <Value xsi:type="xsd:string">Abacus Data Hub</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{cbbe8de5-4fc9-4bc7-9705-8662554b18b5}</Id>
+            <Name>Project::strRepConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=D8PRDVA;User ID=prbi_sqlssis;Password=M0d1fy!-d8prdva;DistribTX=0;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{81de89d4-3bda-430c-b89a-4a53cef051c5}</Id>
+            <Name>Project::strMDSConnectionStringOle</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-SQL-D002,50501;Initial Catalog=MDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{9547632a-45f2-463f-8468-bcebde52078e}</Id>
+            <Name>Project::strSSRSReportLink</Name>
+            <Value xsi:type="xsd:string">https://app-reports-dev01/reports/report/Department%20Reports/BINotifications/MDSIntegration/</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{dd45a535-1d55-4480-a309-24d4d75f3ab2}</Id>
+            <Name>Project::strSourceSystemForStationData</Name>
+            <Value xsi:type="xsd:string" />
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{c54abc4f-a75d-4099-949d-58e3b75df170}</Id>
+            <Name>Project::strNotificationDBConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-D002,50501;Initial Catalog=NotificationService;Integrated Security=True;Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{4b4290f2-1e89-405a-aaf3-8aaceca1400a}</Id>
+            <Name>Project::strNotificationEmailEnabled</Name>
+            <Value xsi:type="xsd:string">1</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{eae89212-8998-4b63-8fa5-f5040f3ea9c3}</Id>
+            <Name>Project::strMDSIntegrationConnStringOLE</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-SQL-D002,50501;Initial Catalog=MDSIntegration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{8f7fe8a0-169f-457c-9305-02cc54720d6a}</Id>
+            <Name>Project::strSSRSReportLinkUDC</Name>
+            <Value xsi:type="xsd:string">https://app-reports-dev01/reports/report/Department%20Reports/BINotifications/MDSIntegration/</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationValues>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>SysTest</Name>
+      <Options>
+        <OutputPath>bin</OutputPath>
+        <ConnectionMappings />
+        <ConnectionProviderMappings />
+        <ConnectionSecurityMappings />
+        <DatabaseStorageLocations />
+        <TargetServerVersion>SQLServer2016</TargetServerVersion>
+        <ParameterConfigurationValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2019-03-05T15:04:11.6888392Z</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{058198d8-ff3b-4974-b79f-b9aaa7bb9398}</Id>
+            <Name>Project::strApplicationCode</Name>
+            <Value xsi:type="xsd:string">MDSI</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{cf199446-43d5-40de-a27b-91716551aec7}</Id>
+            <Name>Project::strBISystemConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZP-MS-SQL-D002.database.windows.net;Initial Catalog=BISystemDev;User ID=SQLProxyBIDev@prsformusic.com;Password=G927cr!952sY$Tdek*v9fz3;Authentication="Active Directory Password";Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{bd0b27b3-47cc-4818-bc24-c96bf311176c}</Id>
+            <Name>Project::strDbMailProfileName</Name>
+            <Value xsi:type="xsd:string">AZI-MS-SQL-T001 SQL Database Mail</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{d21cae64-7f12-476f-aed2-7423815ca885}</Id>
+            <Name>Project::strValidationMailRecipients</Name>
+            <Value xsi:type="xsd:string">Support-BI-apps@prsformusic.com;senay.yilmaz@prsformusic.com</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{ce160b3d-2902-4181-908b-17f9cc0a2503}</Id>
+            <Name>Project::strMDSIntegrationConnectionStringADO</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-T001,50501;Initial Catalog=MDSIntegration;Integrated Security=True;Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{43fefab3-35e8-40da-b1a0-fd2f2d227422}</Id>
+            <Name>Project::strMDSConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-T001,50501;Initial Catalog=MDS;Integrated Security=True;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{2050b0b4-f706-4887-a219-bf93f3c9f163}</Id>
+            <Name>Project::strMDSModelName</Name>
+            <Value xsi:type="xsd:string">strMDSModelName	Master Date Centre	DistributionMasterDataV2	DistributionMasterDataV2</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{cbbe8de5-4fc9-4bc7-9705-8662554b18b5}</Id>
+            <Name>Project::strRepConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=D8PRDVA;User ID=prbi_sqlssis;Password=M0d1fy!-d8prdva;DistribTX=0;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{81de89d4-3bda-430c-b89a-4a53cef051c5}</Id>
+            <Name>Project::strMDSConnectionStringOle</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-SQL-T001,50501;Initial Catalog=MDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{9547632a-45f2-463f-8468-bcebde52078e}</Id>
+            <Name>Project::strSSRSReportLink</Name>
+            <Value xsi:type="xsd:string">https://app-reports-systest01/reports/report/Department%20Reports/BINotifications/MDSIntegration/</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{dd45a535-1d55-4480-a309-24d4d75f3ab2}</Id>
+            <Name>Project::strSourceSystemForStationData</Name>
+            <Value xsi:type="xsd:string" />
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{c54abc4f-a75d-4099-949d-58e3b75df170}</Id>
+            <Name>Project::strNotificationDBConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-T001,50501;Initial Catalog=NotificationService;Integrated Security=True;Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{4b4290f2-1e89-405a-aaf3-8aaceca1400a}</Id>
+            <Name>Project::strNotificationEmailEnabled</Name>
+            <Value xsi:type="xsd:string">1</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{eae89212-8998-4b63-8fa5-f5040f3ea9c3}</Id>
+            <Name>Project::strMDSIntegrationConnStringOLE</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-SQL-T001,50501;Initial Catalog=MDSIntegration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{8f7fe8a0-169f-457c-9305-02cc54720d6a}</Id>
+            <Name>Project::strSSRSReportLinkUDC</Name>
+            <Value xsi:type="xsd:string">https://app-reports-systest01/reports/report/Department%20Reports/BINotifications/MDSIntegration/</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationValues>
+      </Options>
+    </Configuration>
+    <Configuration>
+      <Name>UAT</Name>
+      <Options>
+        <OutputPath>bin</OutputPath>
+        <ConnectionMappings />
+        <ConnectionProviderMappings />
+        <ConnectionSecurityMappings />
+        <DatabaseStorageLocations />
+        <TargetServerVersion>SQLServer2016</TargetServerVersion>
+        <ParameterConfigurationValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2019-03-05T15:04:11.6888392Z</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{058198d8-ff3b-4974-b79f-b9aaa7bb9398}</Id>
+            <Name>Project::strApplicationCode</Name>
+            <Value xsi:type="xsd:string">MDSI</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{cf199446-43d5-40de-a27b-91716551aec7}</Id>
+            <Name>Project::strBISystemConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZP-MS-SQL-U001.database.windows.net;Initial Catalog=BISystemUAT;Connect Timeout=60;ConnectRetryCount=3;ConnectRetryInterval=20;Authentication="Active Directory Integrated";</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{bd0b27b3-47cc-4818-bc24-c96bf311176c}</Id>
+            <Name>Project::strDbMailProfileName</Name>
+            <Value xsi:type="xsd:string">AZI-MS-SQL-U001 SQL Database Mail</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{d21cae64-7f12-476f-aed2-7423815ca885}</Id>
+            <Name>Project::strValidationMailRecipients</Name>
+            <Value xsi:type="xsd:string">Support-BI-apps@prsformusic.com;senay.yilmaz@prsformusic.com</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{ce160b3d-2902-4181-908b-17f9cc0a2503}</Id>
+            <Name>Project::strMDSIntegrationConnectionStringADO</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-U001,50501;Initial Catalog=MDSIntegration;Integrated Security=True;Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{43fefab3-35e8-40da-b1a0-fd2f2d227422}</Id>
+            <Name>Project::strMDSConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-U001,50501;Initial Catalog=MDS;Integrated Security=True;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{2050b0b4-f706-4887-a219-bf93f3c9f163}</Id>
+            <Name>Project::strMDSModelName</Name>
+            <Value xsi:type="xsd:string">Master Data Centre</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{cbbe8de5-4fc9-4bc7-9705-8662554b18b5}</Id>
+            <Name>Project::strRepConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=D8PRDVA;User ID=prbi_sqlssis;Password=M0d1fy!-d8prdva;DistribTX=0;Provider=OraOLEDB.Oracle.1;Persist Security Info=True;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{81de89d4-3bda-430c-b89a-4a53cef051c5}</Id>
+            <Name>Project::strMDSConnectionStringOle</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-SQL-U001,50501;Initial Catalog=MDS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{9547632a-45f2-463f-8468-bcebde52078e}</Id>
+            <Name>Project::strSSRSReportLink</Name>
+            <Value xsi:type="xsd:string">https://app-reports-uat01/reports/report/Department%20Reports/BINotifications/MDSIntegration/</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{dd45a535-1d55-4480-a309-24d4d75f3ab2}</Id>
+            <Name>Project::strSourceSystemForStationData</Name>
+            <Value xsi:type="xsd:string" />
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{c54abc4f-a75d-4099-949d-58e3b75df170}</Id>
+            <Name>Project::strNotificationDBConnectionString</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-sql-U001,50501;Initial Catalog=NotificationService;Integrated Security=True;Pooling=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{4b4290f2-1e89-405a-aaf3-8aaceca1400a}</Id>
+            <Name>Project::strNotificationEmailEnabled</Name>
+            <Value xsi:type="xsd:string">1</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{eae89212-8998-4b63-8fa5-f5040f3ea9c3}</Id>
+            <Name>Project::strMDSIntegrationConnStringOLE</Name>
+            <Value xsi:type="xsd:string">Data Source=AZI-MS-SQL-U001,50501;Initial Catalog=MDSIntegration;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;</Value>
+          </ConfigurationSetting>
+          <ConfigurationSetting>
+            <Id>{8f7fe8a0-169f-457c-9305-02cc54720d6a}</Id>
+            <Name>Project::strSSRSReportLinkUDC</Name>
+            <Value xsi:type="xsd:string">https://app-reports-uat01/reports/report/Department%20Reports/BINotifications/MDSIntegration/</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationValues>
+      </Options>
+    </Configuration>
+  </Configurations>
+</Project>

@@ -1,0 +1,1578 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2017 11:57:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="STU-W8-BIDEV004"
+  DTS:CreatorName="PRS\SYilmaz"
+  DTS:DTSID="{404E5E35-8992-4D5C-B744-E1D217A9981E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="LoadMDS CodaCodes_PersistChanges"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="150"
+  DTS:VersionGUID="{5D371FCB-F285-4F84-B6A7-9C6CCFC6052A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{AC8867FF-FF6F-4AED-97B3-357C2D084FA2}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{22EF82FB-558C-41C7-A53A-13A035E09084}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4A689711-E290-4A8F-B9C6-4618D88EA96C}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TransformToMDS</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0531E42F-2827-4F1E-B42F-F04E3FFC82FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B1AC281-47FD-4BF6-BA7C-0AE88E407256}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{780E369C-F05F-49F9-8404-A04F4E9EA9F3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0B59D378-9F59-4DF3-B176-D96008826A43}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{72EBF717-222C-445E-BB74-495418925F9C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{863F8916-1A79-4642-B001-C93189285BFB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{65291270-1103-4E9A-A3C2-57DB7702B09E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5C647322-E5D5-427D-92DE-2A3C3801ECF8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsImportType">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9DEF3000-F651-478C-8388-CF6D3EC69ACB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsStagingLogFlag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75C54FAE-8AF6-44E9-B4DE-239A59B7F018}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsStatusId">
+      <DTS:VariableValue
+        DTS:DataType="2">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{33B20943-94C4-4704-9ADA-2876EA61C5DA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8899B6E2-E7A5-41A8-A705-1765EF112C10}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A1172EC8-4BE1-48F7-B97F-38EA95A85D40}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0040277D-27EB-4212-A1F1-2003E5F19292}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C9C4EBFB-C39E-4217-BE54-6074B4B94930}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3AFFA62D-4112-43D4-92A7-19D9349A4430}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FE144C66-B3BF-4A4D-8D43-38E50B5AB948}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Alerts_CodaCodes</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29A049ED-A322-49BA-BFFC-EB44D5BDE954}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C6C56E4-B023-4E8C-825A-F9E5EF386ADF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FC07F66-D94D-41AC-A90E-88825FF4134C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC  Reporting.ObtainChangingFinCodesNotificationSummary   @LoadId =  &quot; +  (DT_WSTR,10)  @[$Package::intParentLoadId] + &quot; , @ReportLink='&quot; + @[$Project::strSSRSReportLink] + &quot;'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenerateAPIMail">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC  Reporting.ObtainChangingFinCodesNotificationSummary   @LoadId =  0 , @ReportLink='https://app-reports-dev01/reports/report/Application%20Reports/Hector2/MDSStationFinancialCodeMappings'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{126CCECE-47FF-459B-BDB2-87242F314A3E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&lt;BR&gt; &quot; + @[$Project::strSSRSReportLink]  +  (DT_WSTR, 15)  @[$Package::intParentLoadId]  + &quot;  &lt;BR&gt; &quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenericReportLink">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;BR&gt; https://app-reports-dev01/reports/report/Application%20Reports/Hector2/MDSStationFinancialCodeMappings0  &lt;BR&gt; </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4391C75F-238B-45D9-B840-9250A0B60594}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">TRN2MDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1356BAC-79E1-42F7-8ACC-CDBE05949E3C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMailHTMLBody">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;BR&gt;&lt;BR&gt;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{906F8112-F13F-4E8F-91AA-5E66E9BE545E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">MasterStation</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7587BB1C-DAF0-45B2-B6CF-496B3BDA246E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsModelName">
+      <DTS:VariableValue
+        DTS:DataType="8">MasterStationData</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{76BD72F3-CEAB-44B5-88B2-EC828A156DE6}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stg.udp_Master_&quot; +  @[User::strMdsEntityName] + &quot;_Leaf&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsStagingStoredProc">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.udp_Master_MasterStation_Leaf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2CDF1A4-3919-4CCF-AAE7-3610D5E3ABBE}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stg.Master_&quot; +  @[User::strMdsEntityName] + &quot;_Leaf&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsStagingTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.Master_MasterStation_Leaf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8701FBFA-07F7-4F65-BDA8-C9584A564F28}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsUserName">
+      <DTS:VariableValue
+        DTS:DataType="8">PRS\SYilmaz</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BB7FA71D-C1D7-47EA-8DF4-CE012CFBDEDC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsVersionName">
+      <DTS:VariableValue
+        DTS:DataType="8">VERSION_1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{36DDC9B4-3318-4020-B5B4-31985B93C119}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC [notification].[uspRequestNotification]  @notificationTemplate = '&quot; + @[User::strNotificationTemplate]  + &quot;',@notificationSubject = '&quot;  + @[User::strNotificationSubject]  + &quot;' ,@notificationData ='&quot; +  @[User::strMailHTMLBody]   + &quot;'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strNotificationProcedureParams">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC [notification].[uspRequestNotification]  @notificationTemplate = 'MDS Validation Finance',@notificationSubject = 'MDS Master Station Validation (Finance)' ,@notificationData ='&lt;BR&gt;&lt;BR&gt;'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54CBAE16-7CFD-45DA-9505-5E9ED07E37B0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strNotificationSubject">
+      <DTS:VariableValue
+        DTS:DataType="8">MDS Master Station Validation (Finance)</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1C95BDC4-A3BE-4759-BB87-5FB885AE369A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strNotificationTemplate">
+      <DTS:VariableValue
+        DTS:DataType="8">MDS Validation Finance</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B560E3E6-96BF-4CAA-A22A-34A038A43A42}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">TransformToMDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4F54168A-0755-4623-A225-138688277376}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">Transform</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{3F4E8B6B-EADC-48E7-9A92-913A602141CC}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{BC5F3C82-2127-4F53-86D1-03E8E96CF68F}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Persist New and  Changing"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Gets a dataset from the natural key table and then lookups up all the attributes needed to fully represent each dimension member. The complete dataset will then be check to see if it is an insert or an update and loaded into the relevant tables."
+      DTS:DTSID="{CF47CB3B-12FB-458B-B6F3-39363EEB969D}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Persist New and  Changing">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{5765525F-7D45-4247-B3B9-BABD0EA20AA6}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="strTaskAction">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFL - Persist New and  Changing.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{98F498DE-C0B0-4D01-98DF-7B756C237C31}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{B203F8F2-E8D7-4182-B795-6C8F8D6792AE}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Customer Code Alerts Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select [TerritoryCode],[TerritoryName]
+  from [Transform].[Territory]</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."v_CodaCodeAlerts"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Connections[IDbConnection]"
+                  connectionManagerID="{645B29D0-B87C-45CC-A430-4B331A8B9DE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[SourceSystem]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[SourceSystem]"
+                      length="3"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[SourceSystem]"
+                      name="SourceSystem"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[action]"
+                      length="7"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[action]"
+                      name="action"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCodeType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCodeType]"
+                      length="16"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCodeType]"
+                      name="CodaCodeType"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCode]"
+                      length="10"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCode]"
+                      name="CodaCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCodeDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCodeDescription]"
+                      length="250"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCodeDescription]"
+                      name="CodaCodeDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[LoadId]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[SourceSystem]"
+                      dataType="wstr"
+                      length="3"
+                      name="SourceSystem" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[action]"
+                      dataType="wstr"
+                      length="7"
+                      name="action" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCodeType]"
+                      dataType="wstr"
+                      length="16"
+                      name="CodaCodeType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodaCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCodeDescription]"
+                      dataType="wstr"
+                      length="250"
+                      name="CodaCodeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[SourceSystem]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[SourceSystem]"
+                      name="SourceSystem" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[action]"
+                      dataType="wstr"
+                      length="7"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[action]"
+                      name="action" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[CodaCodeType]"
+                      dataType="wstr"
+                      length="16"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[CodaCodeType]"
+                      name="CodaCodeType" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[CodaCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[CodaCode]"
+                      name="CodaCode" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[CodaCodeDescription]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[CodaCodeDescription]"
+                      name="CodaCodeDescription" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[LoadId]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[LoadId]"
+                      name="LoadId" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[SysStartTime]"
+                      name="SysStartTime" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Add additional column detail e.g. LoadID"
+              name="DRC - Add Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Output].Columns[ParentLoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Output].Columns[ParentLoadId]"
+                      name="ParentLoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DST - Customer Code Alerts"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."AlertsCodaCustomerCode"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Connections[IDbConnection]"
+                  connectionManagerID="{645B29D0-B87C-45CC-A430-4B331A8B9DE4}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[SourceSystem]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="SourceSystem"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[SourceSystem]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[SourceSystem]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[action]"
+                      cachedDataType="wstr"
+                      cachedLength="7"
+                      cachedName="action"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[action]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[action]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[CodaCodeType]"
+                      cachedDataType="wstr"
+                      cachedLength="16"
+                      cachedName="CodaCodeType"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[CodaCodeType]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCodeType]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[CodaCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CodaCode"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[CodaCode]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCode]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[CodaCodeDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="CodaCodeDescription"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[CodaCodeDescription]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[CodaCodeDescription]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].Columns[ParentLoadId]"
+                      cachedDataType="i4"
+                      cachedName="ParentLoadId"
+                      externalMetadataColumnId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[ParentLoadId]"
+                      lineageId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Output].Columns[ParentLoadId]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[ParentLoadId]"
+                      dataType="i8"
+                      name="ParentLoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[SourceSystem]"
+                      dataType="wstr"
+                      length="10"
+                      name="SourceSystem" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[action]"
+                      dataType="wstr"
+                      length="10"
+                      name="action" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[CodaCodeType]"
+                      dataType="wstr"
+                      length="25"
+                      name="CodaCodeType" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[CodaCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="CodaCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[CodaCodeDescription]"
+                      dataType="wstr"
+                      length="250"
+                      name="CodaCodeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Persist New and  Changing\RWC - Successful Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Increment successful row counter."
+              name="RWC - Successful Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::intSuccessRows</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFL - Persist New and  Changing\RWC - Successful Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Persist New and  Changing\RWC - Successful Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFL - Persist New and  Changing\RWC - Successful Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Persist New and  Changing.Paths[ADO NET Source Output]"
+              endId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Inputs[Derived Column Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFL - Persist New and  Changing.Paths[Derived Column Output]"
+              endId="Package\DFL - Persist New and  Changing\RWC - Successful Row Count.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFL - Persist New and  Changing\DRC - Add Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFL - Persist New and  Changing.Paths[Row Count Output 1]"
+              endId="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts.Inputs[ADO NET Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFL - Persist New and  Changing\RWC - Successful Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{F0E4A2F6-73C2-4FD5-9ABE-C7DE9E711445}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ - Notification Request Creation"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{B2FE8FD6-4BDC-40DD-96CC-7F2C7F20DF6A}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ - Notification Request Creation">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Notification Request Creation\EST - Create Notification Body"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{C157549D-8AC4-46FD-8A57-3A1A4DFEBCD7}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST - Create Notification Body"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::strGenerateAPIMail]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{645B29D0-B87C-45CC-A430-4B331A8B9DE4}"
+              SQLTask:SqlStatementSource="EXEC  Reporting.ObtainChangingFinCodesNotificationSummary   @LoadId =  0 , @ReportLink='https://app-reports-dev01/reports/report/Application%20Reports/Hector2/MDSStationFinancialCodeMappings'"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::strMailHTMLBody" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ - Notification Request Creation\EST - Request Notification"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{668C9518-74C7-494F-B015-5633FAD72D80}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST - Request Notification"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">@[User::strNotificationProcedureParams]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+              SQLTask:SqlStatementSource="EXEC [notification].[uspRequestNotification]  @notificationTemplate = 'MDS Validation Finance',@notificationSubject = 'MDS Master Station Validation (Finance)' ,@notificationData ='&lt;BR&gt;&lt;BR&gt;'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ - Notification Request Creation.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4F656DBF-9167-4471-887F-CA6C1DFFF13E}"
+          DTS:From="Package\SEQ - Notification Request Creation\EST - Create Notification Body"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ - Notification Request Creation\EST - Request Notification" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{EA275D5D-DE6B-41CB-A7FF-6D809D912DC4}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EST - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CC49768E-94FE-4CC7-BD9C-9A0EB3437A8B}"
+      DTS:From="Package\EST - Obtain EntityId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\DFL - Persist New and  Changing" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{AAAC0EBA-9825-4B86-A368-9CA21E7168B7}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[$Project::strNotificationEmailEnabled] ==&quot;1&quot;"
+      DTS:From="Package\DFL - Persist New and  Changing"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SEQ - Notification Request Creation" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{90EBA724-72AA-49BA-9C2C-E333C6FD1AD4}"
+      DTS:From="Package\SEQ - Notification Request Creation"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{C565F552-8474-4FBA-8486-E7637FEF2A77}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[$Project::strNotificationEmailEnabled] == &quot;0&quot;"
+      DTS:From="Package\DFL - Persist New and  Changing"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{2615D56E-2A4F-4798-AFD7-B6614E3764FE}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{7AEF82CD-1800-4DE8-A55F-D618813B9327}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{10899528-F42F-4502-872C-56F121A6DAB7}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="262.75918460212,127" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="650.75918460212,576" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DFL - Persist New and  Changing"
+          TopLeft="258.75918460212,286.3294134635" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\EST - Obtain EntityId"
+          TopLeft="262.75918460212,206" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\SEQ - Notification Request Creation\EST - Create Notification Body"
+          TopLeft="45,9" />
+        <NodeLayout
+          Size="202,42"
+          Id="Package\SEQ - Notification Request Creation\EST - Request Notification"
+          TopLeft="48,85" />
+        <EdgeLayout
+          Id="Package\SEQ - Notification Request Creation.PrecedenceConstraints[Constraint]"
+          TopLeft="152.25,51">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34"
+              Start="0,0"
+              End="0,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="view this :&#xA;&#xA;User::strMailHTMLBody"
+          ParentId="Package\SEQ - Notification Request Creation"
+          Size="142,64"
+          Id="a00815e5-9817-4f93-b341-cd91d1107fb8"
+          TopLeft="277,60">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="424,179"
+          Size="424,222"
+          Id="Package\SEQ - Notification Request Creation"
+          TopLeft="164,484" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="380.25918460212,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="378.00918460212,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.3294134635"
+              Start="0,0"
+              End="0,30.8294134635">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8294134635" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="339.796258967727,328.3294134635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,155.6705865365"
+              Start="0,0"
+              End="0,148.1705865365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,148.1705865365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,66.08529326825,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="588,596">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="62.7591846021199,0"
+              Start="0,0"
+              End="55.2591846021199,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="55.2591846021199,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="413.425851268787,328.3294134635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="354.833333333333,247.6705865365"
+              Start="0,0"
+              End="354.833333333333,240.1705865365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,96.077418668399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,96.077418668399"
+                    Point2="0,100.077418668399"
+                    Point3="4,100.077418668399" />
+                  <mssgle:LineSegment
+                    End="350.833333333333,100.077418668399" />
+                  <mssgle:CubicBezierSegment
+                    Point1="350.833333333333,100.077418668399"
+                    Point2="354.833333333333,100.077418668399"
+                    Point3="354.833333333333,104.077418668399" />
+                  <mssgle:LineSegment
+                    End="354.833333333333,240.1705865365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="169.416666666667,105.077418668399,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Persist New and Changing Coda Customer Data"
+          ParentId="Package"
+          Size="314,38"
+          Id="77dca0ed-7409-42c0-8980-b789be424424"
+          TopLeft="234,33">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="This package persist New&amp;Changing Customer Codes into Transfom and logs notification requests"
+          ParentId="Package"
+          Size="516,38"
+          Id="6e54331d-9f8d-4e28-89ef-9ea7e642884e"
+          TopLeft="164,74">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFL - Persist New and  Changing">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="211,42"
+          Id="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts"
+          TopLeft="244,269" />
+        <NodeLayout
+          Size="204,44"
+          Id="Package\DFL - Persist New and  Changing\RWC - Successful Row Count"
+          TopLeft="257.507142864928,181.217855656412" />
+        <NodeLayout
+          Size="253,42"
+          Id="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data"
+          TopLeft="237,19" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFL - Persist New and  Changing\DRC - Add Metadata"
+          TopLeft="251.507142864928,109.811903770942" />
+        <EdgeLayout
+          Id="Package\DFL - Persist New and  Changing.Paths[ADO NET Source Output]"
+          TopLeft="359.503571432464,61">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48.811903770942"
+              Start="0,0"
+              End="0,41.311903770942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.311903770942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Persist New and  Changing.Paths[Row Count Output 1]"
+          TopLeft="359.507142864928,225.217855656412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-10.007142864928,43.782144343588"
+              Start="0,0"
+              End="-10.007142864928,36.282144343588">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.891072171794" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.891072171794"
+                    Point2="0,21.891072171794"
+                    Point3="-4,21.891072171794" />
+                  <mssgle:LineSegment
+                    End="-6.00714286492803,21.891072171794" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.00714286492803,21.891072171794"
+                    Point2="-10.007142864928,21.891072171794"
+                    Point3="-10.007142864928,25.891072171794" />
+                  <mssgle:LineSegment
+                    End="-10.007142864928,36.282144343588" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Persist New and  Changing.Paths[Derived Column Output]"
+          TopLeft="357.507142864928,151.811903770942">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,29.40595188547"
+              Start="0,0"
+              End="0,21.90595188547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.90595188547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFL - Persist New and  Changing.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\DFL - Load MDS Staging.EventHandlers[OnPostExecute]\Load MDS Insurer"
+          TopLeft="391,138" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Persist New and  Changing\DST - Customer Code Alerts">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Persist New and  Changing\ADO NET Customer Code Alerts Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

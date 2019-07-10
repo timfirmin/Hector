@@ -1,0 +1,4 @@
+﻿CREATE USER [SSRSBIDevUser] FOR LOGIN [SSRSBIDevUser];
+
+
+

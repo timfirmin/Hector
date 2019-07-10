@@ -1,0 +1,2627 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2016 9:51:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GR2-W8-POW035"
+  DTS:CreatorName="PRS\TFirmin"
+  DTS:Description="TM1 Planning File Integration Export Hector"
+  DTS:DTSID="{559264E1-D2E8-4D9C-91AC-D6212F8D3485}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="H2PlanningTM1 FileMergeHector"
+  DTS:PackageType="5"
+  DTS:VersionBuild="480"
+  DTS:VersionGUID="{73E8EED4-7B1B-4F89-94C8-8762B49877F0}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[connRevenueFlatFile]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{86D0159B-8B9D-45A2-8BA5-F63B06242945}"
+      DTS:ObjectName="connRevenueFlatFile">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::strWorkingRawPath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="2057"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Temp\SouceFiles\Landing\Distribution File - PRS - 07JUL2017.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Company"
+              DTS:DTSID="{96DB9B3B-CC8B-4EAA-A948-18AF6385EAD7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Class"
+              DTS:DTSID="{800A8571-4F23-46F8-B19F-1EDDE1BDE419}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Level 4"
+              DTS:DTSID="{ACD7461C-C7C0-4196-BDD8-F673925A69AB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Level 3"
+              DTS:DTSID="{322A1427-6F9F-4F09-825F-A3446C9A4356}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Level 2"
+              DTS:DTSID="{52437C8E-15C7-43B1-AD12-035A30D65C84}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Level 1"
+              DTS:DTSID="{7128BE15-EBD8-40CE-8695-D0E718726E82}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EL1 Description"
+              DTS:DTSID="{28518F32-CAF7-4024-B07F-F9052CB47C23}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EL1 Code"
+              DTS:DTSID="{2AF6A02D-FEB2-4A83-B72B-597CA910C04F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="150"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EL2 Description"
+              DTS:DTSID="{4A7AF4C2-4144-42A4-BA27-681D47CF65EA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="EL2 Code"
+              DTS:DTSID="{9BD71A05-60B5-4369-8EAE-0AEED1476A73}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Month"
+              DTS:DTSID="{5CA5174C-7136-4606-A23D-5D7CCE097978}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Year"
+              DTS:DTSID="{070219DB-8EF7-4111-93F5-4252A2BBAAE8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Scenario"
+              DTS:DTSID="{85FB21D3-9FEC-4C2D-8B55-DA944D32AEFB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Value"
+              DTS:DTSID="{9D5AF054-DCAF-413D-BA9D-D79D242EEC6C}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="intLoadId"
+      DTS:ConfigurationVariable="\Package.Variables[User::intParentLoadId].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{02C7DE75-5CF5-42CD-BD9F-51FCBD3C69E4}"
+      DTS:ObjectName="intParentLoadId" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{D06EBC38-21AF-4B5B-BE39-8231D8A57FED}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">29999</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{65B5CC43-880D-4CD2-AEAB-19EA0973A7E1}"
+      DTS:ObjectName="LandingDelimiter">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">,</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{2EF77B7B-5546-4B17-9BC0-2214034DC4F0}"
+      DTS:ObjectName="LandingSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BITlanding</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A782DF71-7BD5-415E-A1AB-934D3561947A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dblWorkingRowCount">
+      <DTS:VariableValue
+        DTS:DataType="8">123</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09684EC8-E7E4-41BE-8F74-0531035D5C2D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="dblWorkingValue">
+      <DTS:VariableValue
+        DTS:DataType="8">23.123123</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8146D279-3E1B-49CC-850F-6DAC62EFA902}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EF05C69D-E09C-4A3D-BF5D-C026525C07EE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FFAC1CB5-5297-46C0-A276-25D39FFE1D9C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B169A7F-689D-437A-8B0C-9F1BE61601C8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4FB89211-D73D-413F-A9E6-C8631DB6A2F8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2EF9A613-4DD2-45CE-B7B9-4259F24ADF56}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1855D89E-4FB9-4219-8CC1-4A343F367EE8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D185D1BA-9A11-4425-B63F-878CBC7992F7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInvalidRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D78A6583-FB52-4EF8-974E-C2BFD15AAF48}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">123</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{31DCADE3-5F30-4953-8C51-67FF52168C4A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DF28CFC-4EDC-4E8A-897D-D1521C53ABE0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intRawFileRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{803E8907-1E47-4296-B985-418531F764B7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E02E47E-88C1-4FEB-A536-998505EBD095}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{585FACBE-02F4-45A8-A9AB-9A20C5DE0849}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="objTableName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{19CB6A8E-005F-4552-B974-104340E92851}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstExportedFPVMetadata">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9A2606A5-B447-4A8D-A796-4198B9B27AF3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstTablesLanded">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E3E289FF-7898-471D-89B0-9087FDB892E4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchLandingLogTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITcontrol.LandedFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABFA7418-5529-4B69-A965-F08107AC0BD8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentBatchValid">
+      <DTS:VariableValue
+        DTS:DataType="8">Y</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD869385-C64D-4D4B-939A-4E3C14C27729}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75FCE909-BF1E-4E38-BC7B-49FE93C03F36}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentTableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD782984-E98A-4426-AE70-207A201171FA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITLandingFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{188E8348-6A5E-4E94-98AB-E6B14316A2DC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">FILE2EXT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DE4C39D5-7A9C-412D-ABB7-122D4D1C1654}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strObtainFileId">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D4971264-EBD9-4728-A94F-B4C854288CEF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">FILE2EXT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{17F65DE8-473A-44AD-9610-A49F84209F8B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSchemaName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITlanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42BCA046-14C7-4762-B571-261F2C07D19C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;BEGIN&#xA;  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);&#xA;                               &#xA;END;&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourcecQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">
+BEGIN
+  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);
+                               
+END;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5462835-3489-4F9D-B4D1-BD5FEA013646}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strCurrentFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B46F3AEC-8C8C-415B-85F0-560C05E7FA19}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5448748C-A75B-4372-A794-8C22E769A826}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{646640A4-7A04-4D0C-9271-A51D16AE0CE9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileValid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{34CBFDE8-7671-444B-B1EB-D11E73FC6EE7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingProcessFlag">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA145E3C-BEF7-471B-9F01-23A29390AC46}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRawPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Temp\SouceFiles\Landing\Distribution File - PRS - 07JUL2017.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{69CE16AE-03EA-4D46-800E-18ED4DCDC5F5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFailFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\Failed\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D694057B-1217-4D6E-964E-A5D627FF1DE5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{487178AC-4508-425D-B89E-778869C306DB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5E8E9E63-5093-4FB6-94F5-413AED4CFC75}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Distribution_PRS_20072017_014</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{2610A948-6821-4BE9-A97C-83DFACF5DBB3}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{9CE4073F-A336-4BCF-84B1-9336FADFBAB5}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC100 Load Finance Hector2 FPV"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{70A34C50-1744-49A3-B9C1-3247CCB376E0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQC100 Load Finance Hector2 FPV">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:DTSID="{36E82184-BFFC-45CB-9566-2DE020D67E8D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT109 Revenue Transform To Datamart"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="[ADO NET Staging Destination].[TableOrViewName]">@[$Project::strFPVDestinationSchemaTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <pipeline
+              defaultBufferSize="3145728"
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Derived Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Inputs[Derived Column Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[InsertLoadId]"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[ISNULL](@[User::intParentLoadId]) ? 99999 : @[User::intParentLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(@[User::intParentLoadId]) ? 99999 : @[User::intParentLoadId]</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Inputs[Derived Column Input]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Staging Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">staging.BaseRevenueTM1</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Connections[IDbConnection]"
+                      connectionManagerID="{962544EB-09D8-4D22-B1E6-5919E043D389}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[HectorMartADOnet]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[CompanyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CompanyCode"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[CompanyCode]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[CompanyCode]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[AccountCodeEL1]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountCodeEL1"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL1]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountCodeEL1]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[AccountDescrEL1]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountDescrEL1"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL1]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountDescrEL1]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[AccountCodeEL2]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountCodeEL2"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL2]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountCodeEL2]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[AccountDescrEL2]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountDescrEL2"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL2]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountDescrEL2]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[PlanningScenario]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningScenario"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningScenario]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningScenario]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[PlanningPeriod]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningPeriod"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriod]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningPeriod]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[PlanningYear]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningYear"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningYear]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningYear]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[PlanningFilePeriodSeq]"
+                          cachedDataType="i4"
+                          cachedName="PlanningFilePeriodSeq"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningFilePeriodSeq]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningFilePeriodSeq]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[PlanningPeriodFirstDay]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="PlanningPeriodFirstDay"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriodFirstDay]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningPeriodFirstDay]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[TM1CategoryOnlineBroadcast]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="TM1CategoryOnlineBroadcast"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1CategoryOnlineBroadcast]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[TM1BroadcastGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="TM1BroadcastGroup"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1BroadcastGroup]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1BroadcastGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[ValueGBP]"
+                          cachedDataType="cy"
+                          cachedName="ValueGBP"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValueGBP]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[ValueGBP]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[TM1PlanningFileLogKey]"
+                          cachedDataType="i4"
+                          cachedName="TM1PlanningFileLogKey"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1PlanningFileLogKey]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[InsertLoadId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1BaseRevenueKey]"
+                          dataType="i4"
+                          name="TM1BaseRevenueKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[CompanyCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="CompanyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL1]"
+                          dataType="wstr"
+                          length="50"
+                          name="AccountCodeEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL1]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL2]"
+                          dataType="wstr"
+                          length="50"
+                          name="AccountCodeEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL2]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningScenario" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriod]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningYear" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          name="PlanningFilePeriodSeq" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp"
+                          name="PlanningPeriodFirstDay" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1CategoryOnlineBroadcast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1BroadcastGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValueGBP]"
+                          dataType="numeric"
+                          name="ValueGBP"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          name="TM1PlanningFileLogKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertTimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="InsertTimeStamp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="ADO Transform Planning Aggregate Source"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+	 pd.[Company] AS [CompanyCode]
+	,pd.[EL1Code] as AccountCodeEL1
+	,pd.EL1Description as AccountDescrEL1
+	,pd.[EL2Code] as AccountCodeEL2
+	,pd.EL2Description as AccountDescrEL2
+	,pd.[PlanningScenario]
+	,pd.[PlanningPeriod]
+	,pd.[PlanningYear]
+	,pd.[PlanningFilePeriodSeq]
+	,pd.[PlanningPeriodFirstDay]
+	,[Level4] as TM1CategoryOnlineBroadcast
+	,[Level1] as TM1BroadcastGroup
+	,sum(pd.[ValueGBP]) as [ValueGBP]
+	,[PlanningFileLogKey] as TM1PlanningFileLogKey
+	,pd.[InsertLoadId]
+
+
+  FROM [TM1Transform].[PlanningData] pd
+  JOIN [TM1Control].[PlanningScenario] ps on pd.PlanningScenarioKey = ps.PlanningScenarioUniqueKey
+
+  WHERE ps.PlanningScenarioValidFDM = 'Y'
+  and pd.[EL2Code] like 'C%'
+  and pd.[Class] = 'Revenue'
+
+ GROUP  BY 
+	 pd.[Company]
+	,pd.[EL1Code]
+,pd.EL1Description 
+	,pd.[EL2Code]
+,pd.EL2Description 
+	,pd.PlanningScenario
+	,pd.[PlanningPeriod]
+	,pd.[PlanningYear]
+	,pd.[PlanningFilePeriodSeq]
+	,pd.[PlanningPeriodFirstDay] 
+	,pd.[Level4] 
+	,pd.[Level1]
+	,pd.[PlanningFileLogKey] 
+	,pd.[InsertLoadId]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"TM1Transform"."DistributionRevenueOutput"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Connections[IDbConnection]"
+                      connectionManagerID="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[BITStageADOnet]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[CompanyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[CompanyCode]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[CompanyCode]"
+                          name="CompanyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountCodeEL1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL1]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountCodeEL1]"
+                          name="AccountCodeEL1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountDescrEL1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL1]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountDescrEL1]"
+                          name="AccountDescrEL1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountCodeEL2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL2]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountCodeEL2]"
+                          name="AccountCodeEL2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountDescrEL2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL2]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[AccountDescrEL2]"
+                          name="AccountDescrEL2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningScenario]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningScenario]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningScenario]"
+                          name="PlanningScenario"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningPeriod]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriod]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningPeriod]"
+                          name="PlanningPeriod"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningYear]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningYear]"
+                          name="PlanningYear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningFilePeriodSeq]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningFilePeriodSeq]"
+                          name="PlanningFilePeriodSeq"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriodFirstDay]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[PlanningPeriodFirstDay]"
+                          name="PlanningPeriodFirstDay"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1CategoryOnlineBroadcast]"
+                          name="TM1CategoryOnlineBroadcast"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[TM1BroadcastGroup]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1BroadcastGroup]"
+                          name="TM1BroadcastGroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[ValueGBP]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[ValueGBP]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[ValueGBP]"
+                          name="ValueGBP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[TM1PlanningFileLogKey]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]"
+                          name="TM1PlanningFileLogKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[CompanyCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="CompanyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL1]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountCodeEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL1]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL2]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountCodeEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL2]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningScenario" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriod]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningYear" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          name="PlanningFilePeriodSeq" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp2"
+                          name="PlanningPeriodFirstDay"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1CategoryOnlineBroadcast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1BroadcastGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[ValueGBP]"
+                          dataType="cy"
+                          name="ValueGBP" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          name="TM1PlanningFileLogKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[CompanyCode]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[CompanyCode]"
+                          name="CompanyCode" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL1]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL1]"
+                          name="AccountCodeEL1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL1]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL1]"
+                          name="AccountDescrEL1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL2]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL2]"
+                          name="AccountCodeEL2" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL2]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL2]"
+                          name="AccountDescrEL2" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningScenario]"
+                          name="PlanningScenario" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningPeriod]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningPeriod]"
+                          name="PlanningPeriod" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningYear]"
+                          name="PlanningYear" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningFilePeriodSeq]"
+                          name="PlanningFilePeriodSeq" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[PlanningPeriodFirstDay]"
+                          name="PlanningPeriodFirstDay"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[TM1CategoryOnlineBroadcast]"
+                          name="TM1CategoryOnlineBroadcast" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[TM1BroadcastGroup]"
+                          name="TM1BroadcastGroup" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[ValueGBP]"
+                          dataType="cy"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[ValueGBP]"
+                          name="ValueGBP" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[TM1PlanningFileLogKey]"
+                          name="TM1PlanningFileLogKey" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[InsertLoadId]"
+                          name="InsertLoadId" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys"
+                  componentClassID="Microsoft.Aggregate"
+                  contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+                  description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+                  name="Aggregate Header Keys"
+                  version="3">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                      name="CountDistinctScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                      name="CountDistinctKeys" />
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                      name="AutoExtendFactor">25</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Inputs[Aggregate Input 1]"
+                      name="Aggregate Input 1">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Inputs[Aggregate Input 1].Columns[ValueGBP]"
+                          cachedDataType="cy"
+                          cachedName="ValueGBP"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[ValueGBP]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Inputs[Aggregate Input 1].Columns[TM1PlanningFileLogKey]"
+                          cachedDataType="i4"
+                          cachedName="TM1PlanningFileLogKey"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1]"
+                      name="Aggregate Output 1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                          name="KeyScale"
+                          typeConverter="KeyScaleType">0</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                          name="Keys" />
+                      </properties>
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendRows]"
+                          dataType="ui8"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendRows]"
+                          name="FullSendRows">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\0:invalid}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">2</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendValue]"
+                          dataType="cy"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendValue]"
+                          name="FullSendValue">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[ValueGBP]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">4</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FileLogKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FileLogKey]"
+                          name="FileLogKey">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the ID of the input column used in the aggregation."
+                              name="AggregationColumnId">#{Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]}</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the type of aggregation."
+                              name="AggregationType"
+                              typeConverter="AggregationType">0</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                              name="IsBig">1</property>
+                            <property
+                              dataType="System.Int32"
+                              description="Specifies the string comparison options."
+                              name="AggregationComparisonFlags">0</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input].Columns[FileLogKey]"
+                          cachedDataType="i4"
+                          cachedName="FileLogKey"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FileLogKey]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input].Columns[FullSendRows]"
+                          cachedDataType="ui8"
+                          cachedName="FullSendRows"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendRows]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input].Columns[FullSendValue]"
+                          cachedDataType="cy"
+                          cachedName="FullSendValue"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendValue]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFileLogKey]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFileLogKey]"
+                          name="strFileLogKey"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FileLogKey]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFullSendRows]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFullSendRows]"
+                          name="strFullSendRows"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendRows]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFullSendValue]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFullSendValue]"
+                          name="strFullSendValue"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1].Columns[FullSendValue]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary"
+                  componentClassID="Microsoft.Multicast"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="MCST Split Row Loads and Summary">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 6]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 6"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 7]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 7"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 4]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 4"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 1]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 8]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 8"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 5]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 5"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 3]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 3"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 2]"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 2"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 9]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 9"
+                      synchronousInputId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata"
+                  componentClassID="Microsoft.RecordsetDestination"
+                  contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+                  name="RST Exported Metadata">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the recordset."
+                      name="VariableName">User::rstExportedFPVMetadata</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata.Inputs[Recordset Destination Input]"
+                      hasSideEffects="true"
+                      name="Recordset Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata.Inputs[Recordset Destination Input].Columns[strFileLogKey]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="strFileLogKey"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFileLogKey]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata.Inputs[Recordset Destination Input].Columns[strFullSendRows]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="strFullSendRows"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFullSendRows]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata.Inputs[Recordset Destination Input].Columns[strFullSendValue]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="strFullSendValue"
+                          lineageId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output].Columns[strFullSendValue]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[ADO NET Source Output]"
+                  endId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Inputs[Derived Column Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Aggregate Output 1]"
+                  endId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Aggregate Output 1"
+                  startId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Outputs[Aggregate Output 1]" />
+                <path
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Data Conversion Output]"
+                  endId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata.Inputs[Recordset Destination Input]"
+                  name="Data Conversion Output"
+                  startId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Derived Column Output]"
+                  endId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Inputs[Multicast Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Multicast Output 1]"
+                  endId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination.Inputs[ADO NET Destination Input]"
+                  name="Multicast Output 1"
+                  startId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 1]" />
+                <path
+                  refId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Multicast Output 2]"
+                  endId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys.Inputs[Aggregate Input 1]"
+                  name="Multicast Output 2"
+                  startId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary.Outputs[Multicast Output 2]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{B4481F90-314A-46DF-BF74-B5BFE440098E}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="FELC201 Loop Export Metadata and Updte  FPV Log Table">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{386A8FB1-68F5-4760-8C1F-E9CD65D6721A}"
+            DTS:ObjectName="{0F302AD4-F08F-4257-A509-EEC3982C4DAD}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::rstExportedFPVMetadata" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL203 Update Export Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{D30D0F9B-CE3B-4278-9703-E135B0D16E70}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL203 Update Export Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"UPDATE [TM1Control].[ImportFileLog]
+
+   
+SET [ExtractFPVTimeStamp] = getdate()
+      ,[ExtractFPVValue] = '" + (DT_WSTR, 20)@[User::dblWorkingValue] + "' 
+      ,[ExtractFPVRows] = '" + (DT_WSTR, 20)@[User::dblWorkingRowCount] + "' 
+
+ 
+WHERE FileLogUniqueKey = '" +  (DT_WSTR, 10)@[User::strWorkingFileLogKey] + "' and [LoadId] = '" + (DT_WSTR, 10)@[User::intParentLoadId] + "'
+
+SELECT isnull([SourceFileID],0) as SourceFileId FROM [TM1Control].[ImportFileLog] WHERE FileLogUniqueKey = '" + (DT_WSTR, 10)@[User::strWorkingFileLogKey] + "'"</DTS:PropertyExpression>
+              <DTS:EventHandlers>
+                <DTS:EventHandler
+                  DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL203 Update Export Metadata.EventHandlers[OnPostExecute]"
+                  DTS:CreationName="OnPostExecute"
+                  DTS:DTSID="{3ABC8B02-611A-4FA9-831C-55D4D6690340}"
+                  DTS:EventID="0"
+                  DTS:EventName="OnPostExecute"
+                  DTS:LocaleID="-1">
+                  <DTS:Variables>
+                    <DTS:Variable
+                      DTS:CreationName=""
+                      DTS:Description="The propagate property of the event"
+                      DTS:DTSID="{EFDFE16C-B2C8-4522-8126-D6B4300130BE}"
+                      DTS:IncludeInDebugDump="6789"
+                      DTS:Namespace="System"
+                      DTS:ObjectName="Propagate">
+                      <DTS:VariableValue
+                        DTS:DataType="11">-1</DTS:VariableValue>
+                    </DTS:Variable>
+                  </DTS:Variables>
+                  <DTS:Executables />
+                </DTS:EventHandler>
+              </DTS:EventHandlers>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+                  SQLTask:SqlStatementSource="UPDATE [TM1Control].[ImportFileLog]&#xA;&#xA;   &#xA;SET [ExtractFPVTimeStamp] = getdate()&#xA;      ,[ExtractFPVValue] = '23.123123' &#xA;      ,[ExtractFPVRows] = '123' &#xA;&#xA; &#xA;WHERE FileLogUniqueKey = '' and [LoadId] = '4444'&#xA;&#xA;SELECT isnull([SourceFileID],0) as SourceFileId FROM [TM1Control].[ImportFileLog] WHERE FileLogUniqueKey = ''"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::strWorkingSourceFileId" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL205 Stamp BISystem Source File"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{c13fc280-6d83-4794-9eb2-c681ac0c4d9f}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL205 Stamp BISystem Source File"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+              DTS:ThreadHint="0">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"EXEC [Control].[UpdateSourceFile] " +  @[User::strWorkingSourceFileId]  +  ",'TRN2WAR',"+ (DT_WSTR, 10)@[User::intParentLoadId]
++
+
+"
+GO"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{5E0A346F-6D89-411F-9933-2F8EFB6992CA}"
+                  SQLTask:SqlStatementSource="EXEC [Control].[UpdateSourceFile] ,'TRN2WAR',4444&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{3AF2F105-8F18-4321-90AD-14069FDB3F0F}"
+              DTS:From="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL203 Update Export Metadata"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL205 Stamp BISystem Source File" />
+          </DTS:PrecedenceConstraints>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{A687E52D-1A3D-427D-BFE9-537668ED0D88}"
+              DTS:ObjectName="{A687E52D-1A3D-427D-BFE9-537668ED0D88}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::dblWorkingRowCount" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{1C6EFF76-C41A-4EE5-9E05-6F664CAD9717}"
+              DTS:ObjectName="{1C6EFF76-C41A-4EE5-9E05-6F664CAD9717}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::dblWorkingValue" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{0748C28C-C8A8-4D71-A558-7E13BB1440F9}"
+              DTS:ObjectName="{0748C28C-C8A8-4D71-A558-7E13BB1440F9}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::strWorkingFileLogKey" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\SQL101 Get Batch Validate Status"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{23749A0F-CDFE-4D7B-8494-D3B2F8BB28D6}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL101 Get Batch Validate Status"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"SELECT isnull(max([TransformValidStatus]),'N') MaxStatus  FROM [TM1Control].[ImportFileLog]
+  WHERE [LoadId] = '" + (DT_WSTR, 6) @[User::intParentLoadId] +  "' AND DerivedFileType = 'Revenue'"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+              SQLTask:SqlStatementSource="SELECT isnull(max([TransformValidStatus]),'N') MaxStatus  FROM [TM1Control].[ImportFileLog]&#xA;  WHERE [LoadId] = '4444' AND DerivedFileType = 'Revenue'"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::strCurrentBatchValid" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV\SQL105 Prepare Hector 2 Host Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{4C1317F8-143E-4BF7-968A-80CF9DC154BF}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL105 Prepare Hector 2 Host Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"truncate table " +  @[$Project::strFPVDestinationSchemaTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{962544EB-09D8-4D22-B1E6-5919E043D389}"
+              SQLTask:SqlStatementSource="truncate table staging.BaseRevenueTM1" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{8DFF94F3-0FCF-49FB-8EEB-A85AEF989878}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[User::strCurrentBatchValid] == &quot;Y&quot;"
+          DTS:From="Package\SEQC100 Load Finance Hector2 FPV\SQL101 Get Batch Validate Status"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC100 Load Finance Hector2 FPV\SQL105 Prepare Hector 2 Host Table"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{984CD055-ADA3-4046-907C-C0BEB8E23AA8}"
+          DTS:From="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table"
+          DTS:Value="2" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Finance Hector2 FPV.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{FD24A5C9-32B6-40D6-B824-8A0229459327}"
+          DTS:From="Package\SEQC100 Load Finance Hector2 FPV\SQL105 Prepare Hector 2 Host Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{7311DF90-1F63-45AF-A19E-0DA0A2C4B2A6}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC100 Load Finance Hector2 FPV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{F7C593A0-60DE-4CC2-B11E-8E608A383EB2}"
+      DTS:From="Package\SEQC100 Load Finance Hector2 FPV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task"
+      DTS:Value="2" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{5125E302-2302-4046-A0A6-A56296AB9509}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{95B67C27-8FCC-46E7-8B95-D21FAC66781F}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{A558CB85-B13B-4DA4-AD3B-0E38F63A0147}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="589.892857142857,111.257936507936" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="599.107142857143,916.892857142857" />
+        <NodeLayout
+          Size="274,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart"
+          TopLeft="111,264" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL203 Update Export Metadata"
+          TopLeft="99.25,23.25" />
+        <NodeLayout
+          Size="251,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL205 Stamp BISystem Source File"
+          TopLeft="83.9999999999999,116" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table.PrecedenceConstraints[Constraint]"
+          TopLeft="212.625,65.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,50.75"
+              Start="0,0"
+              End="0,43.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Return Updated Rows to strWorkingSourceFileId"
+          ParentId="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table"
+          FontInfo="{x:Null}"
+          Size="285,40"
+          Id="ae62f1fa-6afa-4680-8dbf-cf9beeddc8e2"
+          TopLeft="81,66" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="440,188"
+          Size="440,231"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table"
+          TopLeft="31.2857142857138,346.607142857143" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\SQL101 Get Batch Validate Status"
+          TopLeft="132,53.75" />
+        <NodeLayout
+          Size="252,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\SQL105 Prepare Hector 2 Host Table"
+          TopLeft="124,177" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV.PrecedenceConstraints[Constraint]"
+          TopLeft="250.5,95.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,81.25"
+              Start="0,0"
+              End="0,73.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-33.9655859375,28.875,67.931171875,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV.PrecedenceConstraints[Constraint 1]"
+          TopLeft="249.642857142857,306">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,40.607142857143"
+              Start="0,0"
+              End="0,33.107142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.107142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,10.7488839285715,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV.PrecedenceConstraints[Constraint 2]"
+          TopLeft="249,219">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,12.9453125,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Get Validity Status = User::strCurrentBatchValid"
+          ParentId="Package\SEQC100 Load Finance Hector2 FPV"
+          FontInfo="{x:Null}"
+          Size="278,40"
+          Id="17578bf7-c3c7-40c8-ae80-9ef0c057bb44"
+          TopLeft="99,12" />
+        <AnnotationLayout
+          Text="@[User::strCurrentBatchValid] == &quot;Y&quot;"
+          ParentId="Package\SEQC100 Load Finance Hector2 FPV"
+          FontInfo="{x:Null}"
+          Size="225,40"
+          Id="05f873f7-8c24-45c3-b10a-3920657eb95f"
+          TopLeft="300,104" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="530,621"
+          Size="530,664"
+          Id="Package\SEQC100 Load Finance Hector2 FPV"
+          TopLeft="441,189" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="702.196428571428,153.257936507936">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,35.7420634920639"
+              Start="0,0"
+              End="0,28.2420634920639">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2420634920639" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="706.803571428572,853">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,63.8928571428571"
+              Start="0,0"
+              End="0,56.3928571428571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.3928571428571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-25.304453125,22.3917410714286,50.60890625,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="- TM1 Planning File Integration Export Hector -&#xA;         Merge Valid Files into Hector2 FPV&#xA;"
+          ParentId="Package"
+          Size="402,89"
+          Id="c24ec8d9-6108-4ff3-96ee-fd4e13adeaf9"
+          TopLeft="514.75,40.7500000000001">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="rstExportedFDMMetadata"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="165,40"
+          Id="23904a18-858c-4cd4-90e3-c9b7af882a63"
+          TopLeft="238,500" />
+        <AnnotationLayout
+          Text="InsertLoadId&#xA;FileLogKey   strWorkingFileLogKey&#xA;FullSendRows  dblWorkingRowCount&#xA;FullSendValue dblWorkingValue&#xA;"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="226,104"
+          Id="70f373ac-978f-4573-b4de-47bf81aca85e"
+          TopLeft="182.857142857143,746.428571428571" />
+        <AnnotationLayout
+          Text="Note : There must be a valid Revenue file to allow Extract / File Management Phase"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="467,40"
+          Id="250a1e86-2a99-468e-a472-9969edff5c45"
+          TopLeft="458,158" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\MCST Split Row Loads and Summary"
+          TopLeft="113,201" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\RST Exported Metadata"
+          TopLeft="415,402.142857142857" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Add Derived Columns"
+          TopLeft="147,106" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination"
+          TopLeft="131.5,281.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Aggregate Header Keys"
+          TopLeft="413,203.142857142857" />
+        <NodeLayout
+          Size="282,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source"
+          TopLeft="102,27" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\Data Conversion"
+          TopLeft="426,296" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Multicast Output 2]"
+          TopLeft="365,223.071428571428">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="48,0"
+              Start="0,0"
+              End="40.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Multicast Output 1]"
+          TopLeft="239.75,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,38.5"
+              Start="0,0"
+              End="0,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Derived Column Output]"
+          TopLeft="238,148">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Data Conversion Output]"
+          TopLeft="507,338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,64.142857142857"
+              Start="0,0"
+              End="0,56.642857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.642857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[Aggregate Output 1]"
+          TopLeft="506,245.142857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,50.857142857143"
+              Start="0,0"
+              End="0,43.357142857143">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.357142857143" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart.Paths[ADO NET Source Output]"
+          TopLeft="240,69">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="EL1 entries not matchable :&#xA;&#xA;MCPS_Download Forecast&#xA;MCPS_GEOL Forecast&#xA;MCPS_LOML Forecast&#xA;MCPS_Promo Forecast&#xA;MCPS_Ringtones Forecast&#xA;MCPS_Streaming Forecast&#xA;MCPS_Vinyl Forecast&#xA;MCPS_Webcast Forecast&#xA;PRS_Download Forecast&#xA;PRS_Fitness Forecast&#xA;PRS_Gaming Forecast&#xA;PRS_GEOL Forecast&#xA;PRS_Instalment Charge&#xA;PRS_LOML Forecast&#xA;PRS_MSB2B Forecast&#xA;PRS_Promo Forecast&#xA;PRS_Ringtones Forecast&#xA;PRS_SPV Forecast&#xA;PRS_Streaming Forecast&#xA;PRS_Vinyl Forecast&#xA;PRS_Webcast Forecast&#xA;&#xA;&#xA;EL2 entries not loadable :&#xA;&#xA;MCOS_SourceCode Forecast&#xA;MCOS_Unallocated&#xA;MCPS_Unallocated&#xA;MCPS_SourceCode Forecast&#xA;PRS_Growth Strategy Target&#xA;PRS_LowValue Licensee&#xA;PRS_Management Contribution Target&#xA;PRS_Nepal: MRCSN&#xA;PRS_New Business&#xA;PRS_No Detail&#xA;PRS_Other Agencies&#xA;PRS_Other Revenue&#xA;PRS_Policy Adjustment&#xA;PRS_Retransmission&#xA;PRS_SourceCode Forecast&#xA;PRS_Unallocated&#xA;PRS_Policy Adjustment&#xA;"
+          ParentId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart"
+          FontInfo="{x:Null}"
+          Size="232,742"
+          Id="a4e79cd7-3c4a-4a63-8bb4-c74181c4591d"
+          TopLeft="630,49" />
+        <AnnotationLayout
+          Text=""
+          ParentId="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart"
+          FontInfo="{x:Null}"
+          Size="29,40"
+          Id="d1db6220-b71f-4b12-87b9-0e65ab6fb720"
+          TopLeft="467,396" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO NET Staging Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Finance Hector2 FPV\DFT109 Revenue Transform To Datamart\ADO Transform Planning Aggregate Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package\SEQC100 Load Finance Hector2 FPV\FELC201 Loop Export Metadata and Updte  FPV Log Table\SQL203 Update Export Metadata.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="{28cc640f-f35d-4a47-ab97-29fd62baf3dc}"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

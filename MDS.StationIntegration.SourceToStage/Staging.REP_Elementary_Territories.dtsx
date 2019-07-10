@@ -1,0 +1,1338 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{137D187F-BF39-4D8F-9D06-093A2F99B214}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Staging REP_Elementary_Territories"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="181"
+  DTS:VersionGUID="{E81ADF35-3645-4A5D-8680-823F59E73930}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{A15A9FFE-55E6-425B-A582-F2FE28C5D0B8}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{7BC8F0E8-2449-4E2B-9817-9E7EBC5FED1C}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{4C61A59F-FF2C-4831-ABE6-A9BCDA52E41E}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SRC2STG</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4633C6B9-33A1-4E36-B821-67CA0F7D0D4E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BBF6115C-852E-4C67-88FF-E735202C7E07}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ADBBB312-4BE3-49F5-9B86-1A85F39574DF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86F11341-9795-4FE0-89C1-06FD1D756F8D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BB3B4934-F4A3-4A0A-90D4-A854C0F7C2B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1F5F2847-3C48-4FDE-96E5-71FC0381665C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3E1F194-3621-438E-8EB4-8C47F2B58DF3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{66BE92D0-0790-44A9-8D4F-DC44E36DBC6F}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F78A73EC-329C-4679-A3D1-73842AA51266}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D162520-7DC2-4EC2-983C-31A1EEEB263D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8BC37B2-00B9-4685-8579-9D4BEAD1747E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C467B511-F730-420B-8EEE-107A4AE1AF1A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Stage_Elementary_Territories</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABF09F63-AC86-4E4A-B726-6932C257CA18}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7B7F8978-9E3A-46F0-B1F7-92AD17C29344}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{268A2433-6133-4463-9375-C8EF1BB6AB18}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A810C8FA-1F7E-4D03-90B8-A35D1D4899C6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DC7A59E2-54F0-4E92-97F0-B5C72681A112}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD2BA44B-E589-48CD-936D-2CAE4242AC6A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{93345F4D-9B4A-4128-84A9-B06AB13A32DD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Elementary_Territories</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D3F6FFF5-70F7-4F60-8E38-195EF2F6BFAF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.Elementary_Territories</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{D0E167A7-03A8-4A6B-B1E0-F8A616C4CF3A}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{5ABFE8C3-FB7B-4848-B1C9-43B032A44804}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Elementary Territory Details"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B8B787A9-0D67-4962-962F-41761BB5E1B5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Elementary Territory Details"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load Elementary Territory Details.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{B87D84BC-0CDE-456D-A4BB-15765FDE926D}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{E308779A-8BC6-4B77-AD43-57FFAE9623A0}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load Elementary Territory Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{E03E2FC1-A786-4DDD-A81C-3FFAF09C3AB3}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - Elementary_Territories"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Elementary_Territories"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Connections[IDbConnection]"
+                  connectionManagerID="{933360BD-CAEF-47C7-A196-9587BF3D4A36}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[ABBREV]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ABBREV"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[ABBREV]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ABBREV]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="CODE"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[CODE]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[CODE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="60"
+                      cachedName="NAME"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[NAME]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[TIS_CODE]"
+                      cachedDataType="numeric"
+                      cachedName="TIS_CODE"
+                      cachedPrecision="4"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[TIS_CODE]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[TIS_CODE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[ELT_CODE_SHARE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="ELT_CODE_SHARE"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[ELT_CODE_SHARE]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ELT_CODE_SHARE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[ROLLUP_ELT_CODE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="5"
+                      cachedName="ROLLUP_ELT_CODE"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[ROLLUP_ELT_CODE]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ROLLUP_ELT_CODE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[CODE]"
+                      dataType="wstr"
+                      length="5"
+                      name="CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="60"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[ABBREV]"
+                      dataType="wstr"
+                      length="10"
+                      name="ABBREV" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[TIS_CODE]"
+                      dataType="numeric"
+                      name="TIS_CODE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[ELT_CODE_SHARE]"
+                      dataType="wstr"
+                      length="5"
+                      name="ELT_CODE_SHARE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[ROLLUP_ELT_CODE]"
+                      dataType="wstr"
+                      length="5"
+                      name="ROLLUP_ELT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="REP - Elementary_Territories"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+  code,
+  name,
+  abbrev,
+  tis_code,
+  elt_code_share,
+  rollup_elt_code
+from prism.Elementary_Territories</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Connections[OleDbConnection]"
+                  connectionManagerID="{353B4A9F-28E4-46BA-B1B6-AD161434E9DD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[REPConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[CODE]"
+                      length="5"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[CODE]"
+                      name="CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                      length="60"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[NAME]"
+                      name="NAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ABBREV]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[ABBREV]"
+                      length="10"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ABBREV]"
+                      name="ABBREV"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[TIS_CODE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[TIS_CODE]"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[TIS_CODE]"
+                      name="TIS_CODE"
+                      precision="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ELT_CODE_SHARE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[ELT_CODE_SHARE]"
+                      length="5"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ELT_CODE_SHARE]"
+                      name="ELT_CODE_SHARE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ROLLUP_ELT_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[ROLLUP_ELT_CODE]"
+                      length="5"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].Columns[ROLLUP_ELT_CODE]"
+                      name="ROLLUP_ELT_CODE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[ABBREV]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ABBREV" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[TIS_CODE]"
+                      dataType="numeric"
+                      name="TIS_CODE"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[ELT_CODE_SHARE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ELT_CODE_SHARE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output].ExternalColumns[ROLLUP_ELT_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="ROLLUP_ELT_CODE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[CODE]"
+                      name="CODE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="60"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[NAME]"
+                      name="NAME" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ABBREV]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ABBREV]"
+                      name="ABBREV" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[TIS_CODE]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[TIS_CODE]"
+                      name="TIS_CODE"
+                      precision="4" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ELT_CODE_SHARE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ELT_CODE_SHARE]"
+                      name="ELT_CODE_SHARE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ROLLUP_ELT_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ROLLUP_ELT_CODE]"
+                      name="ROLLUP_ELT_CODE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Elementary Territory Details.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Elementary Territory Details.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{c5f5f8ed-4010-46c9-b19a-43a3eb0ecd79}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D13571EE-9BFD-4DAC-9480-FB6E0275893A}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{393189E0-5F89-4464-BD58-B12112119314}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{933360BD-CAEF-47C7-A196-9587BF3D4A36}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Staging].[elementary_territories]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1BBA4E5E-E31A-418D-AB08-6498A778953E}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment != &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{A22599B5-F0B3-40AC-A2E1-5A841323B23B}"
+      DTS:From="Package\DFT - Load Elementary Territory Details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{5A95498D-133A-474F-9675-BB64B452480B}"
+      DTS:From="Package\SQL - Truncate Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Elementary Territory Details" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{3939FCCF-5002-40BB-B09D-F6B3565D8B0A}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BB472DA9-4819-495D-9D89-85C94C0B4EAA}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment == &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{436969E2-FD01-4921-8A16-E29ABF4EDC86}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{F9AEB9BA-387B-4607-99C1-3EF56170C535}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{74D5685E-5EAB-4698-8165-0DD8FF5E04D2}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="266,42"
+          Id="Package\DFT - Load Elementary Territory Details"
+          TopLeft="192.25,324.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - Truncate Staging Table"
+          TopLeft="198.25,238.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.375,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="326.25,366.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.583333333333"
+              Start="0,0"
+              End="0,39.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="325.75,280.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.583333333334"
+              Start="0,0"
+              End="0,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.375,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.333333333333"
+              Start="0,0"
+              End="0,36.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Staging data from REP to MDSIntegration DB"
+          ParentId="Package"
+          Size="338,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="367.25,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,120.583333333333"
+              Start="0,0"
+              End="0,113.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,48.5416666666665,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load Elementary Territory Details">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="215,42"
+          Id="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories"
+          TopLeft="354,152" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load Elementary Territory Details\DC - Add Integration Metadata"
+          TopLeft="352,246" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories"
+          TopLeft="357,345" />
+        <EdgeLayout
+          Id="Package\DFT - Load Elementary Territory Details.Paths[OLE DB Source Output]"
+          TopLeft="462.75,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Elementary Territory Details.Paths[Derived Column Output]"
+          TopLeft="464.75,288">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load Elementary Territory Details.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load Elementary Territory Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Elementary Territory Details\REP - Elementary_Territories">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Elementary Territory Details\ADO - Elementary_Territories">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1652 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2017 11:57:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="STU-W8-BIDEV004"
+  DTS:CreatorName="PRS\SYilmaz"
+  DTS:DTSID="{AE2CC057-0F73-4F77-8C62-3F3563802F06}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Staging_Process_SourceToStaging"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="143"
+  DTS:VersionGUID="{F8BB98F3-0B46-4325-B875-9F105661739C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{819EE8B6-B166-4F7F-BCC9-6694CC830BD9}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{29D4C6CA-1146-4EC7-90FD-A4F2D5E75912}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{DF4FC026-8916-4AC1-9D98-D8E63C79CFED}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SourceToStaging</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4A742E81-4523-492E-A006-C242B2F6B8FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CE7D37A7-3DC0-42BA-97D5-F389BD2D3437}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A022449E-1609-4EBA-BDC8-3A858558882D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2C288E77-03EE-432C-9A57-6AB061A5AE2A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{738E5C3D-AA46-487A-BB20-54456D7F30B5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B1FC59D3-B9A9-4721-8093-A487CE078129}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBABB215-3B00-4A01-93F9-B0B572762DA9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{697B379D-0E8E-4735-A992-7C331B3329DE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D0187E07-5A39-40AF-AB17-2E5A78B669C7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AEE52DB9-ECAE-4056-BC9D-CFD4EA12CF1E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Process</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0480D68-1DEC-47B8-8BA4-1FB43B851BA2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2103D9DF-ED3B-4C92-BA73-30094AF79A34}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSIntegrationDailyBatch</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{689F95A9-C5CC-413D-BCC5-8350FF96E4FD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenerateAPIMail">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DF2EE089-CC6A-47DE-A46E-6A4ECFD76AF3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenerateAPIMailForTabular">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1DF5C58C-6855-45F6-A8E7-FC89D6A9C1EA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ECC845C0-C542-4B62-8EDC-F424916FE2D9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMailHTMLBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0FBD6B0-7E42-4033-B7CD-852F5D615466}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SourceToStaging</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1E7C19A-5034-4210-BF6C-8C97ED9366EB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40DB411D-C12B-4D15-A506-375EC3EEEE5C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strFileName] + &quot;_&quot; +  (DT_STR,4,1252)DATEPART( &quot;yyyy&quot; , getdate() ) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;mm&quot; , getdate() ), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;dd&quot; , getdate() ), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSIntegrationDailyBatch_20190327</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8324A38E-8584-4FE2-B8B7-483DBC27D8D3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{D6C94A9C-357E-47C7-803B-CABB3E3A229A}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{25FF8A2B-9062-465A-A838-24B123D66CE9}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST- Insert or Obtain SourceFileId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{675FE1AA-BE9E-4462-A235-8FF55664A549}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST- Insert or Obtain SourceFileId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D13571EE-9BFD-4DAC-9480-FB6E0275893A}"
+          SQLTask:SqlStatementSource="EXEC [Control].[InsertSourceFile] @FileName , @LoadId , @ApplicationCode , @Source , @SourceFileId OUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@ApplicationCode"
+            SQLTask:DtsVariableName="$Project::strApplicationCode"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@FileName"
+            SQLTask:DtsVariableName="User::strSourceFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="User::intSourceFileId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@Source"
+            SQLTask:DtsVariableName="User::strSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST- Update File Processing Log BISystem"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{4B30F139-258B-47BC-B60F-216B8706C505}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST- Update File Processing Log BISystem"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [Control].[UpdateSourceFile] "+ (DT_WSTR,6) @[User::intSourceFileId] +", '"+ @[User::strLoadProcessShortName] +"'"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D13571EE-9BFD-4DAC-9480-FB6E0275893A}"
+          SQLTask:SqlStatementSource="EXEC [Control].[UpdateSourceFile] 0, 'CLN2TRN'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEC - Source to Stage D&amp;M"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="SEC - MDS to Stage"
+      DTS:DTSID="{74635668-46ab-4eb8-92aa-3a38aee36019}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEC - Source to Stage D&amp;M">
+      <DTS:Variables />
+      <DTS:Executables />
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEC - Source to Stage REP"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="SEC - MDS to Stage"
+      DTS:DTSID="{32FFD994-1631-43BE-8EB7-116A3A77C2F7}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEC - Source to Stage REP">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Broadcasters from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Broadcasters from Rep"
+          DTS:DTSID="{EC3F32ED-B9C6-442A-AC74-C85BC7582FFA}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Broadcasters from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Broadcasters.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_MCPS_Licence_Types from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Broadcaster_MCPS_Licence_Types from Rep"
+          DTS:DTSID="{08DA50E3-D54B-4168-9506-B09A3B0FE1D7}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Broadcaster_MCPS_Licence_Types from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Broadcaster_MCPS_Licence_Types.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_Right_Types from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Broadcaster_Right_Types from Rep"
+          DTS:DTSID="{B16783D7-817D-4766-95D1-34749117E915}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Broadcaster_Right_Types from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Broadcaster_Right_Types.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_UDCS Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Broadcaster_UDCS Rep"
+          DTS:DTSID="{5399AB16-C9E2-46FB-9D32-49D7C05E3FE5}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Broadcaster_UDCS Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Broadcaster_UDCS.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get CG_Ref_Codes from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get CG_Ref_Codes from Rep"
+          DTS:DTSID="{31213CE7-0C06-42A7-8150-C68C5A25E7E8}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get CG_Ref_Codes from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_CG_Ref_Codes.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Domains from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Domains from Rep"
+          DTS:DTSID="{DAAA5C63-6EE3-40A3-A883-ACDDF4BD6614}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Domains from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Domains.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Elementary_Territories from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Elementary_Territories from Rep"
+          DTS:DTSID="{86658CD6-6414-4699-9753-75E51C74287D}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Elementary_Territories from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Elementary_Territories.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get MCPS_Licence_Types from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get MCPS_Licence_Types from Rep"
+          DTS:DTSID="{B2E4A631-CD71-46AE-85DF-AA5A5E187739}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get MCPS_Licence_Types from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_MCPS_Licence_Types.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - Get Usage_Distribution_Codes from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Usage_Distribution_Codes from Rep"
+          DTS:DTSID="{A3359719-EAFB-4194-BABC-953CCDDD5569}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Usage_Distribution_Codes from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Usage_Distribution_Codes.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - GetREP - Bands"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Bands from Rep"
+          DTS:DTSID="{4133fa1f-03b1-49c2-a02e-96519a30af17}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - GetREP - Bands"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Bands.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - GetREP - Third_Parties"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Third_Parties from Rep"
+          DTS:DTSID="{49473b79-852e-44a6-ac48-56a6d37bcba0}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - GetREP - Third_Parties"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Third_Parties.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP\PKG - GetREP - Usage_Distribution_Groups"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Usage_Distribution_Groups from Rep"
+          DTS:DTSID="{ed30241e-a75d-4d3f-91cb-9dc990e37f7a}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - GetREP - Usage_Distribution_Groups"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Usage_Distribution_Groups.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{E64B30AF-7591-485E-94E6-D8B48196A5F5}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_MCPS_Licence_Types from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_Right_Types from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{DDC918D5-04DD-4450-B3A2-91C633924CCA}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_Right_Types from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_UDCS Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 11 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{258500f3-4b40-4273-9033-a94f223df602}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - GetREP - Third_Parties"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 11 1"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - GetREP - Bands" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 12 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4053a4c8-f4ac-45cb-bc3e-bc493e29fc5d}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - GetREP - Bands"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 12 1"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - GetREP - Usage_Distribution_Groups" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C0373D6C-FCC1-4728-9E8F-69A630A87CBC}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_UDCS Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get Broadcasters from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{79316333-99B3-4388-B702-7723D9F0746B}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Broadcasters from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get CG_Ref_Codes from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{A88F8FFC-F01D-4EC3-A519-9C414606384F}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get CG_Ref_Codes from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get Domains from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{BAD30820-0AFF-473E-9F8D-3A5B4CF2CF4D}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Domains from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get Elementary_Territories from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 6]"
+          DTS:CreationName=""
+          DTS:DTSID="{2F0ADB50-DAB3-426C-AE06-6AEF2AECF08F}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Elementary_Territories from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 6"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get MCPS_Licence_Types from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 7]"
+          DTS:CreationName=""
+          DTS:DTSID="{3DF6E7FE-F45A-4366-A066-2B7029A67110}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get MCPS_Licence_Types from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 7"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - Get Usage_Distribution_Codes from Rep" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 8]"
+          DTS:CreationName=""
+          DTS:DTSID="{2149C47D-278D-425A-B4A2-28C7405AF8CE}"
+          DTS:From="Package\SEC - Source to Stage REP\PKG - Get Usage_Distribution_Codes from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 8"
+          DTS:To="Package\SEC - Source to Stage REP\PKG - GetREP - Third_Parties" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEC - Source to Stage REP WH"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="SEC - MDS to Stage"
+      DTS:DTSID="{5cbae87f-3676-4af9-ba2d-521f717b3d07}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEC - Source to Stage REP WH">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP WH\PKG - Get Broadcaster Attributes from Rep WH"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Usage_Distribution_Codes from Rep"
+          DTS:DTSID="{aef5b651-4579-46de-865a-f1174c4e4a99}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Broadcaster Attributes from Rep WH"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_Broadcaster_Attributes.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Source to Stage REP WH\PKG - Get SampleDays from Rep"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Usage_Distribution_Codes from Rep"
+          DTS:DTSID="{89e8461b-2766-438a-8df1-f5b311253507}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get SampleDays from Rep"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Staging.REP_SampleDays.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Source to Stage REP WH.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7B58C925-CE33-41CC-AAD5-F5263EED617E}"
+          DTS:From="Package\SEC - Source to Stage REP WH\PKG - Get SampleDays from Rep"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEC - Source to Stage REP WH\PKG - Get Broadcaster Attributes from Rep WH" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B0736A4C-04CD-4C1C-A3A4-35E75E2AF09D}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EST- Insert or Obtain SourceFileId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{DBB2B610-8B7F-4C54-9F8F-EFB5F7E04793}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::intSourceFileId] !=0"
+      DTS:From="Package\EST- Insert or Obtain SourceFileId"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEC - Source to Stage REP" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{E72E0B8B-9F7D-4FA2-B3AE-64039C922F5E}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::intSourceFileId] ==0"
+      DTS:From="Package\EST- Insert or Obtain SourceFileId"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{F99D56F6-0CC9-4948-8CB3-E37F28184669}"
+      DTS:From="Package\SEC - Source to Stage REP"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SEC - Source to Stage REP WH" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{5A392E94-6E53-4B8C-BCB3-CFE99032B1CF}"
+      DTS:From="Package\EST- Update File Processing Log BISystem"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{82082FC1-FFAF-43F6-81A1-7631C629AD6B}"
+      DTS:From="Package\SEC - Source to Stage D&amp;M"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\EST- Update File Processing Log BISystem" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{E0560D7B-D16E-42A1-BC22-4689B9925776}"
+      DTS:From="Package\SEC - Source to Stage REP WH"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\SEC - Source to Stage D&amp;M" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{F11024DF-8B9B-4F10-A48C-B4E46550108B}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{34994B23-B855-4E2F-88C1-2E811DCE5A84}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{7B22C3E7-0EF3-4743-A1F0-4C14AAD35F77}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="556.166666666663,2219.55555555555" />
+        <NodeLayout
+          Size="213,57"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="1572.33333333333,2643.22222222222" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\EST- Insert or Obtain SourceFileId"
+          TopLeft="547.166666666663,2380.55555555555" />
+        <NodeLayout
+          Size="279,42"
+          Id="Package\EST- Update File Processing Log BISystem"
+          TopLeft="1536.16666666666,2849.49999999999" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="595,416"
+          Size="595,459"
+          Id="Package\SEC - Source to Stage D&amp;M"
+          TopLeft="715.166666666666,3210.33333333333" />
+        <NodeLayout
+          Size="337,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_MCPS_Licence_Types from Rep"
+          TopLeft="101,13" />
+        <NodeLayout
+          Size="336,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_Right_Types from Rep"
+          TopLeft="102,81" />
+        <NodeLayout
+          Size="335,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Broadcaster_UDCS Rep"
+          TopLeft="100,147" />
+        <NodeLayout
+          Size="337,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Broadcasters from Rep"
+          TopLeft="101,215" />
+        <NodeLayout
+          Size="338,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get CG_Ref_Codes from Rep"
+          TopLeft="99,283" />
+        <NodeLayout
+          Size="331,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Domains from Rep"
+          TopLeft="101,357" />
+        <NodeLayout
+          Size="329,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Elementary_Territories from Rep"
+          TopLeft="101,436" />
+        <NodeLayout
+          Size="329,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get MCPS_Licence_Types from Rep"
+          TopLeft="102.666666666667,506.666666666667" />
+        <NodeLayout
+          Size="331,42"
+          Id="Package\SEC - Source to Stage REP\PKG - Get Usage_Distribution_Codes from Rep"
+          TopLeft="101,573" />
+        <NodeLayout
+          Size="325,42"
+          Id="Package\SEC - Source to Stage REP\PKG - GetREP - Bands"
+          TopLeft="109,731.5" />
+        <NodeLayout
+          Size="325,42"
+          Id="Package\SEC - Source to Stage REP\PKG - GetREP - Third_Parties"
+          TopLeft="102,647.5" />
+        <NodeLayout
+          Size="325,42"
+          Id="Package\SEC - Source to Stage REP\PKG - GetREP - Usage_Distribution_Groups"
+          TopLeft="101.5,806" />
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint]"
+          TopLeft="269.75,55">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 1]"
+          TopLeft="268.75,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 11 1]"
+          TopLeft="268,689.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 12 1]"
+          TopLeft="267.75,773.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5"
+              Start="0,0"
+              End="0,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 2]"
+          TopLeft="268.5,189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 3]"
+          TopLeft="268.75,257">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26"
+              Start="0,0"
+              End="0,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 4]"
+          TopLeft="267.25,325">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 5]"
+          TopLeft="266,399">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 6]"
+          TopLeft="266.333333333333,478">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.666666666667"
+              Start="0,0"
+              End="0,21.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 7]"
+          TopLeft="266.833333333333,548.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.333333333333"
+              Start="0,0"
+              End="0,16.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP.PrecedenceConstraints[Constraint 8]"
+          TopLeft="265.5,615">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.5"
+              Start="0,0"
+              End="0,25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="579,854"
+          Size="579,896"
+          Id="Package\SEC - Source to Stage REP"
+          TopLeft="25.1666666666663,2628.33333333333" />
+        <NodeLayout
+          Size="325,42"
+          Id="Package\SEC - Source to Stage REP WH\PKG - Get Broadcaster Attributes from Rep WH"
+          TopLeft="66.6666666666667,150.333333333333" />
+        <NodeLayout
+          Size="325,42"
+          Id="Package\SEC - Source to Stage REP WH\PKG - Get SampleDays from Rep"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package\SEC - Source to Stage REP WH.PrecedenceConstraints[Constraint]"
+          TopLeft="225.833333333333,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.3333333333335"
+              Start="0,0"
+              End="0,40.8333333333335">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.8333333333335" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="595,236"
+          Size="595,279"
+          Id="Package\SEC - Source to Stage REP WH"
+          TopLeft="17.4999999999997,3615.66666666666" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="667.916666666663,2261.55555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,119"
+              Start="0,0"
+              End="0,111.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,111.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="628.83333333333,2422.55555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-314.166666666664,205.77777777778"
+              Start="0,0"
+              End="-314.166666666664,198.27777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.1254007511228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.1254007511228"
+                    Point2="0,83.1254007511228"
+                    Point3="-4,83.1254007511228" />
+                  <mssgle:LineSegment
+                    End="-310.166666666664,83.1254007511228" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-310.166666666664,83.1254007511228"
+                    Point2="-314.166666666664,83.1254007511228"
+                    Point3="-314.166666666664,87.1254007511228" />
+                  <mssgle:LineSegment
+                    End="-314.166666666664,198.27777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-165.083333333332,88.1254007511228,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="706.499999999996,2422.55555555555">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="972.333333333337,220.666666666668"
+              Start="0,0"
+              End="972.333333333337,213.166666666668">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,85.1398735916466" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,85.1398735916466"
+                    Point2="0,89.1398735916466"
+                    Point3="4,89.1398735916466" />
+                  <mssgle:LineSegment
+                    End="968.333333333337,89.1398735916466" />
+                  <mssgle:CubicBezierSegment
+                    Point1="968.333333333337,89.1398735916466"
+                    Point2="972.333333333337,89.1398735916466"
+                    Point3="972.333333333337,93.1398735916466" />
+                  <mssgle:LineSegment
+                    End="972.333333333337,213.166666666668" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="478.166666666669,94.1398735916466,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="314.833333333333,3524.33333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,91.3333333333335"
+              Start="0,0"
+              End="0,83.8333333333335">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,83.8333333333335" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="1677.25,2849.49999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-149.27777777777"
+              Start="0,0"
+              End="0,-141.77777777777">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-141.77777777777" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1012.66666666667,3210.33333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="662.999999999994,-318.83333333334"
+              Start="0,0"
+              End="662.999999999994,-311.33333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-155.41666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-155.41666666667"
+                    Point2="0,-159.41666666667"
+                    Point3="4,-159.41666666667" />
+                  <mssgle:LineSegment
+                    End="658.999999999994,-159.41666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="658.999999999994,-159.41666666667"
+                    Point2="662.999999999994,-159.41666666667"
+                    Point3="662.999999999994,-163.41666666667" />
+                  <mssgle:LineSegment
+                    End="662.999999999994,-311.33333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="612.5,3755.16666666666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="102.666666666667,-315.333333333333"
+              Start="0,0"
+              End="95.1666666666666,-315.333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="47.3333333333333,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="47.3333333333333,0"
+                    Point2="51.3333333333333,0"
+                    Point3="51.3333333333333,-4" />
+                  <mssgle:LineSegment
+                    End="51.3333333333333,-311.333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="51.3333333333333,-311.333333333333"
+                    Point2="51.3333333333333,-315.333333333333"
+                    Point3="55.3333333333333,-315.333333333333" />
+                  <mssgle:LineSegment
+                    End="95.1666666666666,-315.333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Process Daily  Source to Staging Data"
+          ParentId="Package"
+          Size="255,38"
+          Id="77dca0ed-7409-42c0-8980-b789be424424"
+          TopLeft="552.166666666663,2156.55555555555">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

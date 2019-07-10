@@ -1,0 +1,1966 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{531E2DB6-FB7C-428B-B230-3532F5D96220}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Transform BroadcasterUDCMapping"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="201"
+  DTS:VersionGUID="{BB7AB5E9-7C14-404B-93A9-713933A0A780}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{67D0940B-F1BC-45EB-96F4-0709BEF59C80}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{EDB48EDE-5F56-4A13-A1D9-FC77D31D7268}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{476E4B12-D69E-4678-9392-3C82C11ACD28}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">CLN2TRN</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D46C5A00-9401-4DC0-B7A5-B86B57909135}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{18E5D1CF-76E6-4610-8C19-9C343486FF6D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{93742A17-73E4-470D-9DC6-F2C8033E4FA4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{403A5920-0AB3-4E9D-9643-857E97AD8F7C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44478CAB-24B9-4E46-99D5-7BE0E3BD3EAC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1184D464-BD22-4931-9169-DDF0E66B3A43}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C7BEB9A8-6668-4A43-B6A1-BD7910969A1B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D0110C10-6BB4-4B43-A554-030EE2DE49FC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A397CC3-78C8-4BB9-9B27-2F297DD8832D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{41DD327F-9395-44B2-997A-7326CAADD228}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D157406-F8CE-4279-AC29-14D16D0E2052}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{301B4555-4D04-4B3E-BEEE-804498F7E663}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97A1228E-D6C4-4B9C-8782-25ADD601A18F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Transform_BroadcasterUDCMapping</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1FFCED09-AAAC-40EF-9627-C919D2A0E5AB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4444372B-0F3B-44E2-A7EC-5380F0C11E5C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5184B31B-C870-47FF-A1D5-7E0F13361D7E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1582734-DB81-4B7A-9AC7-32BEC8F24F9B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{138363DE-6BC3-4729-91A8-653CCC7B00C2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2B489736-CEE8-4274-89E5-7D51BF8F6A65}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FEAD3811-17A9-41A9-8060-3045FE9E0E3B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABDB2F12-4C5D-4A07-97BB-CC15A26D7E87}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strFileName] + &quot;_&quot; +  (DT_STR,4,1252)DATEPART( &quot;yyyy&quot; , getdate() ) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;mm&quot; , getdate() ), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;dd&quot; , getdate() ), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">_20190304</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DFCB8BFD-62E8-4D7A-8CE4-B16283666795}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BroadcasterUDCMapping</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A423646F-6122-4694-AF9C-F39D6A3C7436}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Transform.BroadcasterUDCMapping</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{F7A0EB08-68E2-4B7A-A336-8229EA69FD3A}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{F5BD4A52-7E5A-4246-9599-FC4AABC74B50}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load BroadcasterUDCMapping"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{58978A26-5C69-49E9-BD95-60ED89D6D5A9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load BroadcasterUDCMapping"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load BroadcasterUDCMapping.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{82BAC611-6D18-414B-83A3-ACC1ECDC2B63}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{9712DF1E-FA2C-43B9-AFD2-BACFE3479462}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load BroadcasterUDCMapping.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{92999EEE-7EFA-438A-8653-49DE45605FD6}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - BroadcasterUDCMapping New"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."BroadcasterUDCMapping"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Connections[IDbConnection]"
+                  connectionManagerID="{150F7D50-F806-437E-9B20-1F7088261E6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[BroadcasterUDCKey]"
+                      cachedDataType="i8"
+                      cachedName="BroadcasterUDCKey"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterUDCKey]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[BroadcasterUDCCode]"
+                      cachedDataType="wstr"
+                      cachedLength="12"
+                      cachedName="BroadcasterUDCCode"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterUDCCode]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[BroadcasterDomain]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="BroadcasterDomain"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterDomain]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterDomain]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[BroadcasterThirdPartyID]"
+                      cachedDataType="numeric"
+                      cachedName="BroadcasterThirdPartyID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterThirdPartyID]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterThirdPartyID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[StationID]"
+                      cachedDataType="wstr"
+                      cachedLength="6"
+                      cachedName="StationID"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[StationID]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[StationID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[StationName]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="StationName"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[StationName]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[StationName]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[UDCUsedForPurposeCode]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="UDCUsedForPurposeCode"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCUsedForPurposeCode]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[UDCUsedForPurposeDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="UDCUsedForPurposeDescription"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCUsedForPurposeDescription]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeDescription]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[UDCTimeBand]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="UDCTimeBand"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCTimeBand]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCTimeBand]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[UDCKey]"
+                      cachedDataType="numeric"
+                      cachedName="UDCKey"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCKey]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[UDCCode]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="UDCCode"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCCode]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[UDCDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="UDCDescription"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCDescription]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCDescription]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[BroadcasterUDCStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="BroadcasterUDCStartDate"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterUDCStartDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCStartDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[PerformanceStartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PerformanceStartDate"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PerformanceStartDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PerformanceStartDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[PerformanceEndDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PerformanceEndDate"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PerformanceEndDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PerformanceEndDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[LatestUDGID]"
+                      cachedDataType="numeric"
+                      cachedName="LatestUDGID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGID]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[LatestUDGDistributionDate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LatestUDGDistributionDate"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGDistributionDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGDistributionDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[LatestUDGPerformanceStartDate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LatestUDGPerformanceStartDate"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGPerformanceStartDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGPerformanceStartDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[LatestUDGPerformanceEndDate]"
+                      cachedDataType="dbTimeStamp2"
+                      cachedName="LatestUDGPerformanceEndDate"
+                      cachedScale="7"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGPerformanceEndDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGPerformanceEndDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[PRSPerformanceFPVInPounds]"
+                      cachedDataType="numeric"
+                      cachedName="PRSPerformanceFPVInPounds"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PRSPerformanceFPVInPounds]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PRSPerformanceFPVInPounds]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[PRSMechanicalFPVInPounds]"
+                      cachedDataType="numeric"
+                      cachedName="PRSMechanicalFPVInPounds"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PRSMechanicalFPVInPounds]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PRSMechanicalFPVInPounds]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      name="BroadcasterUDCKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      length="12"
+                      name="BroadcasterUDCCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterDomain]"
+                      dataType="wstr"
+                      length="100"
+                      name="BroadcasterDomain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterThirdPartyID]"
+                      dataType="numeric"
+                      name="BroadcasterThirdPartyID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[StationID]"
+                      dataType="wstr"
+                      length="6"
+                      name="StationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[StationName]"
+                      dataType="wstr"
+                      length="60"
+                      name="StationName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCUsedForPurposeCode]"
+                      dataType="wstr"
+                      length="1"
+                      name="UDCUsedForPurposeCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      length="240"
+                      name="UDCUsedForPurposeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCTimeBand]"
+                      dataType="wstr"
+                      length="60"
+                      name="UDCTimeBand" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCKey]"
+                      dataType="numeric"
+                      name="UDCKey"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCCode]"
+                      dataType="wstr"
+                      length="5"
+                      name="UDCCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[UDCDescription]"
+                      dataType="wstr"
+                      length="60"
+                      name="UDCDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterUDCStartDate]"
+                      dataType="dbTimeStamp"
+                      name="BroadcasterUDCStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PerformanceStartDate]"
+                      dataType="dbTimeStamp"
+                      name="PerformanceStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PerformanceEndDate]"
+                      dataType="dbTimeStamp"
+                      name="PerformanceEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGID]"
+                      dataType="numeric"
+                      name="LatestUDGID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGDistributionDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestUDGDistributionDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGPerformanceStartDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestUDGPerformanceStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LatestUDGPerformanceEndDate]"
+                      dataType="dbTimeStamp"
+                      name="LatestUDGPerformanceEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PRSPerformanceFPVInPounds]"
+                      dataType="numeric"
+                      name="PRSPerformanceFPVInPounds"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[PRSMechanicalFPVInPounds]"
+                      dataType="numeric"
+                      name="PRSMechanicalFPVInPounds"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO Get BroadcasterUDCMapping From Clean"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">with cte_UnDuped as 
+(
+SELECT	
+	 CAST(HashBytes('SHA1', [broadcaster_station_id] + [usage_distribution_code]) AS bigint) AS [BroadcasterUDCKey]
+	  ,[broadcaster_station_id] + '_' + [usage_distribution_code] as BroadcasterUDCCode
+	  ,[broadcaster_domain] as BroadcasterDomain
+      ,[broadcaster_third_party_id] as BroadcasterThirdPartyID
+      ,[broadcaster_station_id] as StationID
+      ,[broadcaster] as StationName
+      ,[udc_used_for_purpose_code] as UDCUsedForPurposeCode
+      ,case when [udc_used_for_purpose_code] = 'C' then 'Commercial' else 'Main' end as UDCUsedForPurposeDescription
+      ,[udc_time_band_name] as UDCTimeBand
+      ,[usage_distribution_code_key] as UDCKey
+      ,[usage_distribution_code] as UDCCode
+      ,[usage_distribution_code_desc] as UDCDescription
+      ,[broadcaster_udc_start_date] as BroadcasterUDCStartDate
+      ,[budc_perf_start_date] as PerformanceStartDate
+      ,[budc_perf_end_date] as PerformanceEndDate
+      ,[latest_udg_surr_id] as LatestUDGID
+      ,[latest_udg_distribution_date] as LatestUDGDistributionDate
+      ,[latest_udg_perf_start_date] as LatestUDGPerformanceStartDate
+      ,[latest_udg_perf_end_date] as LatestUDGPerformanceEndDate
+      ,[prsrep_perf_fpv_in_pounds] as PRSPerformanceFPVInPounds
+      ,[prsrep_mech_fpv_in_pounds] as PRSMechanicalFPVInPounds
+	  ,0 as LoadId
+	  ,getdate() as SysStartTime 
+	  ,getdate() as SysEndTime 
+	  ,ROW_NUMBER() OVER(PARTITION BY [broadcaster_station_id], [usage_distribution_code_key] ORDER BY [broadcaster] ASC) as RowOrder
+
+  FROM [Transform].[v_BroadcasterUDCMapping] with (nolock)
+)
+select *  from cte_UnDuped where RowOrder = 1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."v_SampleDays"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Connections[IDbConnection]"
+                  connectionManagerID="{150F7D50-F806-437E-9B20-1F7088261E6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCKey]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCKey]"
+                      name="BroadcasterUDCKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCCode]"
+                      length="12"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCCode]"
+                      name="BroadcasterUDCCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterDomain]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterDomain]"
+                      length="100"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterDomain]"
+                      name="BroadcasterDomain"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterThirdPartyID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterThirdPartyID]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterThirdPartyID]"
+                      name="BroadcasterThirdPartyID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[StationID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[StationID]"
+                      length="6"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[StationID]"
+                      name="StationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[StationName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[StationName]"
+                      length="60"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[StationName]"
+                      name="StationName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCUsedForPurposeCode]"
+                      length="1"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeCode]"
+                      name="UDCUsedForPurposeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCUsedForPurposeDescription]"
+                      length="10"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeDescription]"
+                      name="UDCUsedForPurposeDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCTimeBand]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCTimeBand]"
+                      length="60"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCTimeBand]"
+                      name="UDCTimeBand"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCKey]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCKey]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCKey]"
+                      name="UDCKey"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCCode]"
+                      length="5"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCCode]"
+                      name="UDCCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCDescription]"
+                      length="60"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[UDCDescription]"
+                      name="UDCDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCStartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCStartDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[BroadcasterUDCStartDate]"
+                      name="BroadcasterUDCStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PerformanceStartDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PerformanceStartDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PerformanceStartDate]"
+                      name="PerformanceStartDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PerformanceEndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PerformanceEndDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PerformanceEndDate]"
+                      name="PerformanceEndDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGID]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGID]"
+                      name="LatestUDGID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGDistributionDate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGDistributionDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGDistributionDate]"
+                      name="LatestUDGDistributionDate"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGPerformanceStartDate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGPerformanceStartDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGPerformanceStartDate]"
+                      name="LatestUDGPerformanceStartDate"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGPerformanceEndDate]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGPerformanceEndDate]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LatestUDGPerformanceEndDate]"
+                      name="LatestUDGPerformanceEndDate"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PRSPerformanceFPVInPounds]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PRSPerformanceFPVInPounds]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PRSPerformanceFPVInPounds]"
+                      name="PRSPerformanceFPVInPounds"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PRSMechanicalFPVInPounds]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PRSMechanicalFPVInPounds]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[PRSMechanicalFPVInPounds]"
+                      name="PRSMechanicalFPVInPounds"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LoadId]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[RowOrder]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[RowOrder]"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].Columns[RowOrder]"
+                      name="RowOrder"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      name="BroadcasterUDCKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      length="12"
+                      name="BroadcasterUDCCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterDomain]"
+                      dataType="wstr"
+                      length="100"
+                      name="BroadcasterDomain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterThirdPartyID]"
+                      dataType="numeric"
+                      name="BroadcasterThirdPartyID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[StationID]"
+                      dataType="wstr"
+                      length="6"
+                      name="StationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[StationName]"
+                      dataType="wstr"
+                      length="60"
+                      name="StationName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCUsedForPurposeCode]"
+                      dataType="wstr"
+                      length="1"
+                      name="UDCUsedForPurposeCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      length="10"
+                      name="UDCUsedForPurposeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCTimeBand]"
+                      dataType="wstr"
+                      length="60"
+                      name="UDCTimeBand" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCKey]"
+                      dataType="numeric"
+                      name="UDCKey"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCCode]"
+                      dataType="wstr"
+                      length="5"
+                      name="UDCCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[UDCDescription]"
+                      dataType="wstr"
+                      length="60"
+                      name="UDCDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCStartDate]"
+                      dataType="dbTimeStamp"
+                      name="BroadcasterUDCStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PerformanceStartDate]"
+                      dataType="dbTimeStamp"
+                      name="PerformanceStartDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PerformanceEndDate]"
+                      dataType="dbTimeStamp"
+                      name="PerformanceEndDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGID]"
+                      dataType="numeric"
+                      name="LatestUDGID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGDistributionDate]"
+                      dataType="dbTimeStamp2"
+                      name="LatestUDGDistributionDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGPerformanceStartDate]"
+                      dataType="dbTimeStamp2"
+                      name="LatestUDGPerformanceStartDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LatestUDGPerformanceEndDate]"
+                      dataType="dbTimeStamp2"
+                      name="LatestUDGPerformanceEndDate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PRSPerformanceFPVInPounds]"
+                      dataType="numeric"
+                      name="PRSPerformanceFPVInPounds"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[PRSMechanicalFPVInPounds]"
+                      dataType="numeric"
+                      name="PRSMechanicalFPVInPounds"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output].ExternalColumns[RowOrder]"
+                      dataType="i8"
+                      name="RowOrder" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCKey]"
+                      name="BroadcasterUDCKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCCode]"
+                      name="BroadcasterUDCCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterDomain]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterDomain]"
+                      name="BroadcasterDomain" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterThirdPartyID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterThirdPartyID]"
+                      name="BroadcasterThirdPartyID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[StationID]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[StationID]"
+                      name="StationID" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[StationName]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[StationName]"
+                      name="StationName" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCUsedForPurposeCode]"
+                      dataType="wstr"
+                      length="1"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCUsedForPurposeCode]"
+                      name="UDCUsedForPurposeCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCUsedForPurposeDescription]"
+                      name="UDCUsedForPurposeDescription" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCTimeBand]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCTimeBand]"
+                      name="UDCTimeBand" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCKey]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCKey]"
+                      name="UDCKey"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCCode]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCCode]"
+                      name="UDCCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCDescription]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[UDCDescription]"
+                      name="UDCDescription" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCStartDate]"
+                      name="BroadcasterUDCStartDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PerformanceStartDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PerformanceStartDate]"
+                      name="PerformanceStartDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PerformanceEndDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PerformanceEndDate]"
+                      name="PerformanceEndDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGID]"
+                      name="LatestUDGID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGDistributionDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGDistributionDate]"
+                      name="LatestUDGDistributionDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGPerformanceStartDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGPerformanceStartDate]"
+                      name="LatestUDGPerformanceStartDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGPerformanceEndDate]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LatestUDGPerformanceEndDate]"
+                      name="LatestUDGPerformanceEndDate"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PRSPerformanceFPVInPounds]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PRSPerformanceFPVInPounds]"
+                      name="PRSPerformanceFPVInPounds"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PRSMechanicalFPVInPounds]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[PRSMechanicalFPVInPounds]"
+                      name="PRSMechanicalFPVInPounds"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LoadId]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[LoadId]"
+                      name="LoadId" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[SysStartTime]"
+                      name="SysStartTime" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[SysEndTime]"
+                      name="SysEndTime" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[RowOrder]"
+                      dataType="i8"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[RowOrder]"
+                      name="RowOrder" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load BroadcasterUDCMapping.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT - Load BroadcasterUDCMapping.Paths[Derived Column Output]"
+              endId="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST- Insert or Obtain SourceFileId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{E5E0E217-08EE-43BB-BC9A-608A415BB12E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST- Insert or Obtain SourceFileId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6AD0B3A1-7F89-4884-B329-A0166388F56B}"
+          SQLTask:SqlStatementSource="EXEC [Control].[InsertSourceFile] @FileName , @LoadId , @ApplicationCode , @Source , @SourceFileId OUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@ApplicationCode"
+            SQLTask:DtsVariableName="$Project::strApplicationCode"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@FileName"
+            SQLTask:DtsVariableName="User::strSourceFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="User::intSourceFileId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@Source"
+            SQLTask:DtsVariableName="User::strSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0E337ABF-B47C-4681-A6C5-F89A7B7C05D6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6AD0B3A1-7F89-4884-B329-A0166388F56B}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="User::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Transform Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C377F0AE-2C98-4E3D-A1E2-CD812BFB2041}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Transform Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{150F7D50-F806-437E-9B20-1F7088261E6E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Transform].[BroadcasterUDCMapping]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A225D707-125D-4591-931A-126B4E6FC79F}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EST- Insert or Obtain SourceFileId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{1D436C49-9952-4A0B-8898-E62E1FC39713}"
+      DTS:From="Package\DFT - Load BroadcasterUDCMapping"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D05BEB4D-606F-4209-A8BC-A30FCBC4DA3A}"
+      DTS:From="Package\SQL - Truncate Transform Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load BroadcasterUDCMapping" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{352D7D4D-22D5-45F8-BD71-19710D3373D0}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate Transform Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{CCD4D072-BB5C-4AB3-8B28-0F7C6EE6C25B}"
+      DTS:From="Package\EST- Insert or Obtain SourceFileId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Obtain EntityId" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{4A4D79D2-FB44-4B05-BEF1-68B34AEA477F}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{C54F86C5-8467-46E9-9453-6DA0BB9310F5}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{DC158437-586D-4C6C-B74C-F0B12109F151}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="597.25,86.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="604.964285714286,527.357142857143" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\DFT - Load BroadcasterUDCMapping"
+          TopLeft="614.678571428571,438.77380952381" />
+        <NodeLayout
+          Size="241,43"
+          Id="Package\EST- Insert or Obtain SourceFileId"
+          TopLeft="608.964285714286,177.571428571429" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="636.857142857143,263" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - Truncate Transform Table"
+          TopLeft="604.964285714286,352.190476190476" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="727.857142857143,128.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48.8214285714286"
+              Start="0,0"
+              End="0,41.3214285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.3214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="731.071428571429,480.77380952381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.5833333333331"
+              Start="0,0"
+              End="0,39.0833333333331">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.0833333333331" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="730.571428571429,394.190476190476">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.5833333333339"
+              Start="0,0"
+              End="0,37.0833333333339">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.0833333333339" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="729.660714285714,305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,47.1904761904759"
+              Start="0,0"
+              End="0,39.6904761904759">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6904761904759" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="727.910714285714,220.571428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42.4285714285714"
+              Start="0,0"
+              End="0,34.9285714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.9285714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  BroadcasterUDCMapping To Transform"
+          ParentId="Package"
+          Size="299,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="585.285714285714,32.4285714285714">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="EXEC [Control].[InsertSourceFile] @FileName , @LoadId , @ApplicationCode , @Source , @SourceFileId OUT&#xA;&#xA;@ApplicationCode = Project::strApplicationCode&#xA;@FileName = User::strSourceFileName&#xA;@LoadId = User::intLoadId&#xA;(output) @SourceFileId = User::strSourceFileId&#xA;@Source = User::strSource&#xA;&#xA;add User::sstrFileName  and  User::strSourceFileName    and User::intSourceFileId&#xA;make sure Obtain Entity Id using local User not Package level variable"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="598,184"
+          Id="6e14c64d-2360-4441-a173-deca953f3c95"
+          TopLeft="1127,113.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load BroadcasterUDCMapping">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="328,42"
+          Id="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean"
+          TopLeft="259,104" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New"
+          TopLeft="291,290" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load BroadcasterUDCMapping\DC - Add Integration Metadata"
+          TopLeft="305,194" />
+        <EdgeLayout
+          Id="Package\DFT - Load BroadcasterUDCMapping.Paths[Derived Column Output]"
+          TopLeft="417.75,236">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load BroadcasterUDCMapping.Paths[ADO NET Source Output]"
+          TopLeft="420,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load BroadcasterUDCMapping.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load BroadcasterUDCMapping.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load BroadcasterUDCMapping\ADO Get BroadcasterUDCMapping From Clean">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load BroadcasterUDCMapping\ADO - BroadcasterUDCMapping New">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

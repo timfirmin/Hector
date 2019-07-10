@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="msdbADO"
+  DTS:DTSID="{6EA77B8A-B56B-41B7-9DA0-FD552DAFD385}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strMsdbADOConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZI-MS-SIS-D001,50501;Initial Catalog=msdb;Integrated Security=True;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

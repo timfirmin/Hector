@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AzureDataWarehouse"
+  DTS:DTSID="{6CA8D217-F397-46C1-BDE2-740AA6710CAE}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strAzureDataWarehouseConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZP-MS-SQL-P003.database.windows.net;Initial Catalog=BI-ADW-P01;Connect Timeout=60;Authentication=Active Directory Integrated;ConnectRetryCount=3;ConnectRetryInterval=20;Application Name=SSIS-{6CA8D217-F397-46C1-BDE2-740AA6710CAE}AzureDataWarehouse;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,25 @@
+﻿
+CREATE VIEW [FPV].[vReferenceData]
+AS
+
+SELECT [UsageType]
+		,[RefDataCategory]
+      ,[RefDataGroup]
+      ,[RefDataName]
+      ,[RefDataType]
+      ,[RefDataValue]
+      ,[SysStartTime]
+      ,[SysEndTime]
+	  ,1[IsCurrent]
+FROM [FPV].[ReferenceData]
+UNION
+SELECT [UsageType]
+		,[RefDataCategory]
+      ,[RefDataGroup]
+      ,[RefDataName]
+      ,[RefDataType]
+      ,[RefDataValue]
+      ,[SysStartTime]
+      ,[SysEndTime]
+	  ,0[IsCurrent]
+FROM [FPV].[ReferenceDataHistory]

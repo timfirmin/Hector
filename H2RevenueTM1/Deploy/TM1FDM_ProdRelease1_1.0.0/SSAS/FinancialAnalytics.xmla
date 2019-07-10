@@ -1,0 +1,2924 @@
+﻿{
+  "create": {
+    "database": {
+      "name": "FinancialAnalytics",
+      "compatibilityLevel": 1200,
+      "model": {
+        "name": "FinancialAnalytics",
+        "culture": "en-GB",
+        "dataSources": [
+          {
+            "name": "FinanceDataMart",
+            "connectionString": "Provider=SQLNCLI11.1;Data Source=AZI-MS-SQL-P001,50501;Persist Security Info=True;User ID=SQLAppFINDM;Initial Catalog=FinanceDataMart",
+            "impersonationMode": "impersonateAccount",
+            "account": "prs\\SQLProxyBIProduction",
+            "annotations": [
+              {
+                "name": "ConnectionEditUISource",
+                "value": "SqlServer"
+              }
+            ]
+          }
+        ],
+"tables": [
+{
+"name": "Company",
+"columns": [
+{
+"name": "AddedDate",
+"dataType": "dateTime",
+"isHidden": true,
+"sourceColumn": "AddedDate",
+"formatString": "General Date",
+"sourceProviderType": "DBTimeStamp"
+},
+{
+"name": "ModifiedDate",
+"dataType": "dateTime",
+"isHidden": true,
+"sourceColumn": "ModifiedDate",
+"formatString": "General Date",
+"sourceProviderType": "DBTimeStamp"
+},
+{
+"name": "DeletedDate",
+"dataType": "dateTime",
+"isHidden": true,
+"sourceColumn": "DeletedDate",
+"formatString": "General Date",
+"sourceProviderType": "DBTimeStamp"
+},
+{
+"name": "UserName",
+"dataType": "string",
+"isHidden": true,
+"sourceColumn": "UserName",
+"sourceProviderType": "Char"
+},
+{
+"name": "CompanyCode",
+"dataType": "string",
+"sourceColumn": "CompanyCode"
+},
+{
+"name": "CompanyKey",
+"dataType": "int64",
+"isHidden": true,
+"sourceColumn": "CompanyKey"
+},
+{
+"name": "CompanyDescription",
+"dataType": "string",
+"sourceColumn": "CompanyDescrFull"
+},
+{
+"name": "CompanyDescriptionShort",
+"dataType": "string",
+"sourceColumn": "CompanyDescrShort"
+}
+],
+"partitions": [
+{
+"name": "Dim_Company",
+"dataView": "full",
+"source": {
+"query": "SELECT *  FROM [CodaTabular].[DimCompany]",
+"dataSource": "FinanceDataMart"
+},
+"annotations": [
+{
+"name": "QueryEditorSerialization",
+"value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimCompany]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT *  FROM [CodaTabular].[DimCompany]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimCompany"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimCompany]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Document",
+            "columns": [
+              {
+                "name": "AddedDate",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "AddedDate",
+                "formatString": "General Date",
+                "sourceProviderType": "DBTimeStamp"
+              },
+              {
+                "name": "ModifiedDate",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "ModifiedDate",
+                "formatString": "General Date",
+                "sourceProviderType": "DBTimeStamp"
+              },
+              {
+                "name": "DeletedDate",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "DeletedDate",
+                "formatString": "General Date",
+                "sourceProviderType": "DBTimeStamp"
+              },
+              {
+                "name": "UserName",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "UserName",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "CompanyDocumentCode",
+                "dataType": "string",
+                "sourceColumn": "CompanyDocumentCode"
+              },
+              {
+                "name": "CompanyCode",
+                "dataType": "string",
+                "sourceColumn": "CompanyCode"
+              },
+              {
+                "name": "DocumentCode",
+                "dataType": "string",
+                "sourceColumn": "DocumentCode"
+              },
+              {
+                "name": "DocumentKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "DocumentKey"
+              },
+              {
+                "name": "CompanyKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "CompanyKey"
+              },
+              {
+                "name": "DocumentReportingType",
+                "dataType": "string",
+                "sourceColumn": "DocumentReportingType"
+              },
+              {
+                "name": "DocumentDescrFull",
+                "dataType": "string",
+                "sourceColumn": "DocumentDescrFull"
+              },
+              {
+                "name": "DocumentDescrShort",
+                "dataType": "string",
+                "sourceColumn": "DocumentDescrShort"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_Document",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT *  FROM [CodaTabular].[DimDocument]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimDocument]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT *  FROM [CodaTabular].[DimDocument]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimDocument"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimDocument]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Accounts EL1",
+            "columns": [
+              {
+                "name": "AccountCode EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaCode_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescription EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaDescr_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescriptionCode EL1",
+                "dataType": "string",
+                "sourceColumn": "DescrCode_El1"
+              },
+              {
+                "name": "BusinessUnit EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaBusinessUnitEL1"
+              },
+              {
+                "name": "AccountAccountCategory EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaAccountCategory_EL1"
+              },
+              {
+                "name": "AccountBS_PL EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaBS_PL_EL1"
+              },
+              {
+                "name": "ManagementAccounts EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaManagementAccounts_EL1"
+              },
+              {
+                "name": "ProfitLossGroup EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaProfitLossGroup_EL1"
+              },
+              {
+                "name": "AccountKey_EL1",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL1"
+              },
+              {
+                "name": "CompanyAccountCode_EL1",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "CompanyAccountCode_EL1"
+              },
+              {
+                "name": "AccountCompanyCode EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaCompanyCode_EL1"
+              },
+              {
+                "name": "AddedDate EL1",
+                "dataType": "dateTime",
+                "sourceColumn": "AddedDate_EL1"
+              },
+              {
+                "name": "DeletedDate EL1",
+                "dataType": "dateTime",
+                "sourceColumn": "DeletedDate_EL1"
+              },
+              {
+                "name": "ActiveInactive EL1",
+                "dataType": "string",
+                "sourceColumn": "ActiveInactive_EL1"
+              },
+              {
+                "name": "AccountCodePrefix EL1",
+                "dataType": "string",
+                "sourceColumn": "CodaCodePrefix_EL1"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_CodaEL1",
+                "dataView": "full",
+                "source": {
+                  "query": [
+                    "SELECT *",
+                    " FROM [CodaTabular].[DimCodaEL1]"
+                  ],
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": [
+                      "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *",
+                      " FROM [CodaTabular].[DimCodaEL1]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "AccountEL1",
+                "levels": [
+                  {
+                    "name": "AccountDescriptionCode EL1",
+                    "ordinal": 4,
+                    "column": "AccountDescriptionCode EL1"
+                  },
+                  {
+                    "name": "BusinessUnit EL1",
+                    "ordinal": 2,
+                    "column": "BusinessUnit EL1"
+                  },
+                  {
+                    "name": "ManagementAccounts EL1",
+                    "ordinal": 3,
+                    "column": "ManagementAccounts EL1"
+                  },
+                  {
+                    "name": "AccountAccountCategory EL1",
+                    "ordinal": 1,
+                    "column": "AccountAccountCategory EL1"
+                  },
+                  {
+                    "name": "AccountCompanyCode EL1",
+                    "ordinal": 0,
+                    "column": "AccountCompanyCode EL1"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": [
+                  "SELECT *",
+                  " FROM [CodaTabular].[DimCodaEL1]"
+                ]
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "Dim_CodaEL1"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "dbo"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *",
+                  " FROM [CodaTabular].[DimCodaEL1]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Accounts EL2",
+            "columns": [
+              {
+                "name": "AccountDescription EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaDescr_EL2",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescriptionCode EL2",
+                "dataType": "string",
+                "sourceColumn": "DescrCode_El2"
+              },
+              {
+                "name": "AccountCodePrefix EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaCodePrefix_EL2"
+              },
+              {
+                "name": "AccountGroupTM1 EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaGroupTM1_EL2"
+              },
+              {
+                "name": "BusinessUnit EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaBusinessUnit_EL2"
+              },
+              {
+                "name": "CustomerGroup EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaCustomerGroup_EL2"
+              },
+              {
+                "name": "AccountKey_EL2",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL2"
+              },
+              {
+                "name": "CompanyAccountCode EL2",
+                "dataType": "string",
+                "sourceColumn": "CompanyAccountCode_EL2"
+              },
+              {
+                "name": "AccountCompanyCode_EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaCompanyCode_EL2"
+              },
+              {
+                "name": "AccountCode EL2",
+                "dataType": "string",
+                "sourceColumn": "CodaCode_EL2"
+              },
+              {
+                "name": "AddedDate EL2",
+                "dataType": "dateTime",
+                "sourceColumn": "AddedDate_EL2"
+              },
+              {
+                "name": "DeletedDate EL2",
+                "dataType": "dateTime",
+                "sourceColumn": "DeletedDate_EL2"
+              },
+              {
+                "name": "ActiveInactive EL2",
+                "dataType": "string",
+                "sourceColumn": "ActiveInactive_EL2"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_CodaEL2",
+                "dataView": "full",
+                "source": {
+                  "query": [
+                    "SELECT *",
+                    " FROM [CodaTabular].[DimCodaEL2]"
+                  ],
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": [
+                      "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *",
+                      " FROM [CodaTabular].[DimCodaEL2]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "AccountsEL2",
+                "levels": [
+                  {
+                    "name": "AccountCompanyCode EL2",
+                    "ordinal": 0,
+                    "column": "AccountCompanyCode_EL2"
+                  },
+                  {
+                    "name": "BusinessUnit EL2",
+                    "ordinal": 1,
+                    "column": "BusinessUnit EL2"
+                  },
+                  {
+                    "name": "CustomerGroup EL2",
+                    "ordinal": 2,
+                    "column": "CustomerGroup EL2"
+                  },
+                  {
+                    "name": "AccountDescriptionCode El2",
+                    "ordinal": 3,
+                    "column": "AccountDescriptionCode EL2"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": [
+                  "SELECT *",
+                  " FROM [CodaTabular].[DimCodaEL2]"
+                ]
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "Dim_CodaEL2"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "dbo"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *",
+                  " FROM [CodaTabular].[DimCodaEL2]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Accounts EL3",
+            "columns": [
+              {
+                "name": "AccountCodePrefix EL3",
+                "dataType": "string",
+                "sourceColumn": "CodaCodePrefix_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountCode EL3",
+                "dataType": "string",
+                "sourceColumn": "CodaCode_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescription EL3",
+                "dataType": "string",
+                "sourceColumn": "CodaDescr_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescriptionCode EL3",
+                "dataType": "string",
+                "sourceColumn": "DescrCode_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountGroupTM1 EL3",
+                "dataType": "string",
+                "sourceColumn": "CodaGroupTM1_EL3"
+              },
+              {
+                "name": "AccountKey_EL3",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL3"
+              },
+              {
+                "name": "CompanyAccountCode_EL3",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "CompanyAccountCode_EL3"
+              },
+              {
+                "name": "AccountCompanyCode EL3",
+                "dataType": "string",
+                "sourceColumn": "CodaCompanyCode_EL3"
+              },
+              {
+                "name": "AddedDate EL3",
+                "dataType": "dateTime",
+                "sourceColumn": "AddedDate_EL3"
+              },
+              {
+                "name": "DeletedDate EL3",
+                "dataType": "dateTime",
+                "sourceColumn": "DeletedDate_EL3"
+              },
+              {
+                "name": "ActiveInactive EL3",
+                "dataType": "string",
+                "sourceColumn": "ActiveInactive_EL3"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_CodaEL3",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT * FROM [CodaTabular].[DimCodaEL3]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimCodaEL3]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "AccountsEL3",
+                "levels": [
+                  {
+                    "name": "AccountCompanyCode EL3",
+                    "ordinal": 0,
+                    "column": "AccountCompanyCode EL3"
+                  },
+                  {
+                    "name": "AccountCodePrefix EL3",
+                    "ordinal": 1,
+                    "column": "AccountCodePrefix EL3"
+                  },
+                  {
+                    "name": "AccountDescriptionCode EL3",
+                    "ordinal": 2,
+                    "column": "AccountDescriptionCode EL3"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT * FROM [CodaTabular].[DimCodaEL3]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimCodaEL3"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimCodaEL3]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Accounts EL4",
+            "columns": [
+              {
+                "name": "AccountCodePrefix EL4",
+                "dataType": "string",
+                "sourceColumn": "CodaCodePrefix_EL4",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountCode EL4",
+                "dataType": "string",
+                "sourceColumn": "CodaCode_EL4",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescription EL4",
+                "dataType": "string",
+                "sourceColumn": "CodaDescr_EL4",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountDescriptionCode EL4",
+                "dataType": "string",
+                "sourceColumn": "DescrCode_EL4",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountKey_EL4",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL4"
+              },
+              {
+                "name": "CompanyAccountCode_EL4",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "CompanyAccountCode_EL4"
+              },
+              {
+                "name": "AccountCompanyCode EL4",
+                "dataType": "string",
+                "sourceColumn": "CodaCompanyCode_EL4"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_CodaEL4",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT *  FROM [CodaTabular].[DimCodaEL4]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimCodaEL4]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "AccountsEL4",
+                "levels": [
+                  {
+                    "name": "AccountCompanyCode EL4",
+                    "ordinal": 0,
+                    "column": "AccountCompanyCode EL4"
+                  },
+                  {
+                    "name": "AccountCodePrefix EL4",
+                    "ordinal": 1,
+                    "column": "AccountCodePrefix EL4"
+                  },
+                  {
+                    "name": "AccountDescriptionCode EL4",
+                    "ordinal": 2,
+                    "column": "AccountDescriptionCode EL4"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT *  FROM [CodaTabular].[DimCodaEL4]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimCodaEL4"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimCodaEL4]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Fiscal Date",
+            "dataCategory": "Time",
+            "columns": [
+              {
+                "name": "DateKey",
+                "dataType": "int64",
+                "sourceColumn": "DateKey",
+                "sourceProviderType": "Integer"
+              },
+              {
+                "name": "FiscalDate",
+                "dataType": "dateTime",
+                "isKey": true,
+                "sourceColumn": "DateDt",
+                "formatString": "General Date",
+                "sourceProviderType": "DBDate"
+              },
+              {
+                "name": "FiscalYear",
+                "dataType": "int64",
+                "sourceColumn": "CalendarYear",
+                "sourceProviderType": "Integer"
+              },
+              {
+                "name": "FiscalYearMonth",
+                "dataType": "string",
+                "sourceColumn": "CalendarYearMonth",
+                "sourceProviderType": "WChar"
+              },
+              {
+                "name": "FiscalMonth",
+                "dataType": "int64",
+                "sourceColumn": "CalendarMonth",
+                "sourceProviderType": "SmallInt"
+              },
+              {
+                "name": "FiscalYearQuarter",
+                "dataType": "string",
+                "sourceColumn": "CalendarYearQuarter",
+                "sourceProviderType": "WChar"
+              },
+              {
+                "name": "FiscalQuarter",
+                "dataType": "int64",
+                "sourceColumn": "CalendarQuarter",
+                "sourceProviderType": "SmallInt"
+              },
+              {
+                "name": "ShortMonthNameOfYear",
+                "dataType": "string",
+                "sourceColumn": "ShortMonthNameOfYear",
+                "sourceProviderType": "WChar"
+              },
+              {
+                "name": "MonthNameOfYear",
+                "dataType": "string",
+                "sourceColumn": "MonthNameOfYear"
+              },
+              {
+                "name": "DayNameOfWeek",
+                "dataType": "string",
+                "sourceColumn": "DayNameOfWeek",
+                "sourceProviderType": "WChar"
+              },
+              {
+                "name": "ShortDayNameOfWeek",
+                "dataType": "string",
+                "sourceColumn": "ShortDayNameOfWeek",
+                "sourceProviderType": "WChar"
+              },
+              {
+                "name": "DayOfWeek",
+                "dataType": "int64",
+                "sourceColumn": "DayOfWeek",
+                "sourceProviderType": "SmallInt"
+              },
+              {
+                "name": "DayOfMonth",
+                "dataType": "int64",
+                "sourceColumn": "DayOfMonth",
+                "sourceProviderType": "SmallInt"
+              },
+              {
+                "name": "DayOfYear",
+                "dataType": "int64",
+                "sourceColumn": "DayOfYear",
+                "sourceProviderType": "SmallInt"
+              },
+              {
+                "name": "InsertLoadId",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "InsertLoadId",
+                "sourceProviderType": "Integer"
+              },
+              {
+                "name": "UpdateLoadId",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "UpdateLoadId",
+                "sourceProviderType": "Integer"
+              },
+              {
+                "name": "InsertTimestamp",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "InsertTimestamp",
+                "formatString": "General Date",
+                "sourceProviderType": "DBTimeStamp"
+              },
+              {
+                "name": "UpdateTimestamp",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "UpdateTimestamp",
+                "formatString": "General Date",
+                "sourceProviderType": "DBTimeStamp"
+              },
+              {
+                "name": "DateAgeing",
+                "dataType": "string",
+                "sourceColumn": "DateAgeing"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_Date",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT [CodaTabular].[DimDates].[DateKey],[CodaTabular].[DimDates].[DateDt],[CodaTabular].[DimDates].[CalendarYear],[CodaTabular].[DimDates].[CalendarYearMonth],[CodaTabular].[DimDates].[CalendarMonth],[CodaTabular].[DimDates].[CalendarYearQuarter],[CodaTabular].[DimDates].[CalendarQuarter],[CodaTabular].[DimDates].[ShortMonthNameOfYear],[CodaTabular].[DimDates].[MonthNameOfYear],[CodaTabular].[DimDates].[DayNameOfWeek],[CodaTabular].[DimDates].[ShortDayNameOfWeek],[CodaTabular].[DimDates].[DayOfWeek],[CodaTabular].[DimDates].[DayOfMonth],[CodaTabular].[DimDates].[DayOfYear],[CodaTabular].[DimDates].[InsertLoadId],[CodaTabular].[DimDates].[UpdateLoadId],[CodaTabular].[DimDates].[InsertTimestamp],[CodaTabular].[DimDates].[UpdateTimestamp] ,[CodaTabular].[DimDates].[DateAgeing] FROM [CodaTabular].[DimDates]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [CodaTabular].[DimDates].[DateKey],[CodaTabular].[DimDates].[DateDt],[CodaTabular].[DimDates].[CalendarYear],[CodaTabular].[DimDates].[CalendarYearMonth],[CodaTabular].[DimDates].[CalendarMonth],[CodaTabular].[DimDates].[CalendarYearQuarter],[CodaTabular].[DimDates].[CalendarQuarter],[CodaTabular].[DimDates].[ShortMonthNameOfYear],[CodaTabular].[DimDates].[MonthNameOfYear],[CodaTabular].[DimDates].[DayNameOfWeek],[CodaTabular].[DimDates].[ShortDayNameOfWeek],[CodaTabular].[DimDates].[DayOfWeek],[CodaTabular].[DimDates].[DayOfMonth],[CodaTabular].[DimDates].[DayOfYear],[CodaTabular].[DimDates].[InsertLoadId],[CodaTabular].[DimDates].[UpdateLoadId],[CodaTabular].[DimDates].[InsertTimestamp],[CodaTabular].[DimDates].[UpdateTimestamp] ,[CodaTabular].[DimDates].[DateAgeing] FROM [CodaTabular].[DimDates]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "DocumentDate",
+                "levels": [
+                  {
+                    "name": "FiscalYear",
+                    "ordinal": 0,
+                    "column": "FiscalYear"
+                  },
+                  {
+                    "name": "FiscalYearQuarter",
+                    "ordinal": 1,
+                    "column": "FiscalYearQuarter"
+                  },
+                  {
+                    "name": "FiscalDate",
+                    "ordinal": 3,
+                    "column": "FiscalDate"
+                  },
+                  {
+                    "name": "FiscalYearMonth",
+                    "ordinal": 2,
+                    "column": "FiscalYearMonth"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT [CodaTabular].[DimDates].[DateKey],[CodaTabular].[DimDates].[DateDt],[CodaTabular].[DimDates].[CalendarYear],[CodaTabular].[DimDates].[CalendarYearMonth],[CodaTabular].[DimDates].[CalendarMonth],[CodaTabular].[DimDates].[CalendarYearQuarter],[CodaTabular].[DimDates].[CalendarQuarter],[CodaTabular].[DimDates].[ShortMonthNameOfYear],[CodaTabular].[DimDates].[MonthNameOfYear],[CodaTabular].[DimDates].[DayNameOfWeek],[CodaTabular].[DimDates].[ShortDayNameOfWeek],[CodaTabular].[DimDates].[DayOfWeek],[CodaTabular].[DimDates].[DayOfMonth],[CodaTabular].[DimDates].[DayOfYear],[CodaTabular].[DimDates].[InsertLoadId],[CodaTabular].[DimDates].[UpdateLoadId],[CodaTabular].[DimDates].[InsertTimestamp],[CodaTabular].[DimDates].[UpdateTimestamp] ,[CodaTabular].[DimDates].[DateAgeing] FROM [CodaTabular].[DimDates]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimDates"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [CodaTabular].[DimDates].[DateKey],[CodaTabular].[DimDates].[DateDt],[CodaTabular].[DimDates].[CalendarYear],[CodaTabular].[DimDates].[CalendarYearMonth],[CodaTabular].[DimDates].[CalendarMonth],[CodaTabular].[DimDates].[CalendarYearQuarter],[CodaTabular].[DimDates].[CalendarQuarter],[CodaTabular].[DimDates].[ShortMonthNameOfYear],[CodaTabular].[DimDates].[MonthNameOfYear],[CodaTabular].[DimDates].[DayNameOfWeek],[CodaTabular].[DimDates].[ShortDayNameOfWeek],[CodaTabular].[DimDates].[DayOfWeek],[CodaTabular].[DimDates].[DayOfMonth],[CodaTabular].[DimDates].[DayOfYear],[CodaTabular].[DimDates].[InsertLoadId],[CodaTabular].[DimDates].[UpdateLoadId],[CodaTabular].[DimDates].[InsertTimestamp],[CodaTabular].[DimDates].[UpdateTimestamp] ,[CodaTabular].[DimDates].[DateAgeing] FROM [CodaTabular].[DimDates]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Financials",
+            "columns": [
+              {
+                "name": "PerformanceRange",
+                "dataType": "string",
+                "sourceColumn": "PerformanceRange",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CompanyCode",
+                "dataType": "string",
+                "sourceColumn": "CodaCmpCode",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "DocumentCode",
+                "dataType": "string",
+                "sourceColumn": "CodaDocCode",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "DocumentNumber",
+                "dataType": "string",
+                "sourceColumn": "CodaDocNum",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "DocumentLineNumber",
+                "dataType": "string",
+                "sourceColumn": "CodaDocLinenum",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "HeaderModifiedDate",
+                "dataType": "string",
+                "sourceColumn": "CodaHeaderModifiedDate",
+                "sourceProviderType": "Char",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "LineModifiedDate",
+                "dataType": "string",
+                "sourceColumn": "CodaLineModifiedDate",
+                "sourceProviderType": "Char",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "OriginalCompanyCode",
+                "dataType": "string",
+                "sourceColumn": "CodaOrigCmpCode",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "OriginalDocumentCode",
+                "dataType": "string",
+                "sourceColumn": "CodaOrigDocCode",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "OriginalDocumentNumber",
+                "dataType": "string",
+                "sourceColumn": "CodaOrigDocNum",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "OriginatingDocument",
+                "dataType": "string",
+                "sourceColumn": "OriginatingDocument",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "LineUserName",
+                "dataType": "string",
+                "sourceColumn": "CodaLineUserName",
+                "sourceProviderType": "Char",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "CustomerSupplierFlag",
+                "dataType": "int64",
+                "sourceColumn": "CustomerSupplierFlag",
+                "sourceProviderType": "SmallInt",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "ExchangeRate",
+                "dataType": "decimal",
+                "sourceColumn": "ExchangeRate",
+                "formatString": "#,0.00000",
+                "sourceProviderType": "Currency",
+                "displayFolder": "Measures",
+                "summarizeBy": "none"
+              },
+              {
+                "name": "DebitCredit",
+                "dataType": "string",
+                "sourceColumn": "DebitCredit",
+                "sourceProviderType": "Char",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "HeaderDescription",
+                "dataType": "string",
+                "sourceColumn": "CodaHeaderDescr",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "LineType",
+                "dataType": "int64",
+                "sourceColumn": "CodaLineType",
+                "sourceProviderType": "SmallInt",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "LineTypeDescription",
+                "dataType": "string",
+                "sourceColumn": "CodaLineTypeDescr",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CodaRef1",
+                "dataType": "string",
+                "sourceColumn": "CodaRef1",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CodaRef2",
+                "dataType": "string",
+                "sourceColumn": "CodaRef2",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CodaRef3",
+                "dataType": "string",
+                "sourceColumn": "CodaRef3",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CodaRef4",
+                "dataType": "string",
+                "sourceColumn": "CodaRef4",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CodaRef5",
+                "dataType": "string",
+                "sourceColumn": "CodaRef5",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "CodaRef6",
+                "dataType": "string",
+                "sourceColumn": "CodaRef6",
+                "sourceProviderType": "Char",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "SalesInvoiceStatus",
+                "dataType": "string",
+                "sourceColumn": "salesinvoicestatus",
+                "sourceProviderType": "SmallInt",
+                "displayFolder": "DocStatusFields"
+              },
+              {
+                "name": "MatchLevel",
+                "dataType": "int64",
+                "sourceColumn": "matchlevel",
+                "sourceProviderType": "SmallInt",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "LineDescription",
+                "dataType": "string",
+                "sourceColumn": "CodaLineDescr",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "PipelineDocumentCode",
+                "dataType": "string",
+                "sourceColumn": "PipelineDocCode",
+                "displayFolder": "PipelineKey"
+              },
+              {
+                "name": "PipelineDocumentNumber",
+                "dataType": "string",
+                "sourceColumn": "PipelineDocNum",
+                "displayFolder": "PipelineKey"
+              },
+              {
+                "name": "FiscalPeriod",
+                "dataType": "int64",
+                "sourceColumn": "CodaFiscalPeriod",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "FiscalYear",
+                "dataType": "int64",
+                "sourceColumn": "CodaFiscalYear",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "FiscalDate",
+                "dataType": "dateTime",
+                "sourceColumn": "CodaFiscalDate",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "DetailsCode",
+                "dataType": "string",
+                "sourceColumn": "CodaDetailsCode",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "PipelinePivotCode",
+                "dataType": "string",
+                "sourceColumn": "PipelinePivotCode",
+                "displayFolder": "PipelineKey"
+              },
+              {
+                "name": "PipelineAccountCode EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineAccountCode_El2",
+                "displayFolder": "PipelineKey"
+              },
+              {
+                "name": "PipelineAccountCode EL3",
+                "dataType": "string",
+                "sourceColumn": "PipelineAccountCode_El3",
+                "displayFolder": "PipelineKey"
+              },
+              {
+                "name": "DocumentAccount",
+                "dataType": "string",
+                "sourceColumn": "DocAccount",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "AccountCode EL1",
+                "dataType": "string",
+                "sourceColumn": "AccountCode_EL1",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "AccountCode EL2",
+                "dataType": "string",
+                "sourceColumn": "AccountCode_EL2",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "AccountCode EL3",
+                "dataType": "string",
+                "sourceColumn": "AccountCode_EL3",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "AccountCode EL4",
+                "dataType": "string",
+                "sourceColumn": "AccountCode_EL4",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "AccountCode EL5",
+                "dataType": "string",
+                "sourceColumn": "AccountCode_EL5",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "AccountCode EL6",
+                "dataType": "string",
+                "sourceColumn": "AccountCode_EL6",
+                "displayFolder": "CODAKey"
+              },
+              {
+                "name": "DocumentXRef",
+                "dataType": "string",
+                "sourceColumn": "DocXRef",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocCurrencyAmount",
+                "dataType": "double",
+                "isNullable": false,
+                "sourceColumn": "DocCurrencyAmount",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocDualCurrencyAmount",
+                "dataType": "double",
+                "sourceColumn": "DocDualCurrencyAmount",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocAmount",
+                "dataType": "double",
+                "sourceColumn": "DocAmount",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocTaxAmount",
+                "dataType": "double",
+                "sourceColumn": "DocTaxAmount",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocumentApprover",
+                "dataType": "string",
+                "sourceColumn": "DocApprover",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocumentDate",
+                "dataType": "dateTime",
+                "sourceColumn": "DocumentDate",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "RegistrationDate",
+                "dataType": "dateTime",
+                "sourceColumn": "RegistrationDate",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "DocumentInputDate",
+                "dataType": "dateTime",
+                "sourceColumn": "DocInputDate",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "DocumentInputTime",
+                "dataType": "dateTime",
+                "sourceColumn": "DocInputTime",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "PaymentDate",
+                "dataType": "dateTime",
+                "sourceColumn": "PaymentDate",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "ReminderDate",
+                "dataType": "dateTime",
+                "sourceColumn": "ReminderDate",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "PaymentMatchingStatus",
+                "dataType": "string",
+                "sourceColumn": "PaymentMatchingStatus",
+                "displayFolder": "DocStatusFields"
+              },
+              {
+                "name": "ReconciliationStatus",
+                "dataType": "string",
+                "sourceColumn": "ReconciliationStatus",
+                "displayFolder": "DocStatusFields"
+              },
+              {
+                "name": "ReminderStatus",
+                "dataType": "string",
+                "sourceColumn": "ReminderStatus",
+                "displayFolder": "DocStatusFields"
+              },
+              {
+                "name": "DocumentStatus",
+                "dataType": "string",
+                "sourceColumn": "DocumentStatus",
+                "displayFolder": "DocStatusFields"
+              },
+              {
+                "name": "WorkFlowStatus",
+                "dataType": "string",
+                "sourceColumn": "WorkFlowStatus",
+                "displayFolder": "DocStatusFields"
+              },
+              {
+                "name": "DocumentMatchUniqueRef",
+                "dataType": "int64",
+                "sourceColumn": "DocumentMatchUniqueRef",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocumentLineSeverity",
+                "dataType": "int64",
+                "sourceColumn": "DocLineSeverity",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocumentLetterSeverity",
+                "dataType": "int64",
+                "sourceColumn": "DocLetterSeverity",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "CurrentYN",
+                "dataType": "string",
+                "sourceColumn": "CurrentYN",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "InsertLoadId",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "InsertLoadId"
+              },
+              {
+                "name": "UpdateLoadId",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "UpdateLoadId"
+              },
+              {
+                "name": "InsertTimestamp",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "InsertTimestamp"
+              },
+              {
+                "name": "UpdateTimestamp",
+                "dataType": "dateTime",
+                "isHidden": true,
+                "sourceColumn": "UpdateTimestamp"
+              },
+              {
+                "name": "TaxLineCode",
+                "dataType": "string",
+                "sourceColumn": "TaxLineCode",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "TemplateCode",
+                "dataType": "string",
+                "sourceColumn": "TemplateCode",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "AuthorisingUser",
+                "dataType": "string",
+                "sourceColumn": "AuthUser",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "OriginalUser",
+                "dataType": "string",
+                "sourceColumn": "OrigUser",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "StatUser",
+                "dataType": "string",
+                "sourceColumn": "StatUser",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "PipelineAccountCode EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineAccountCode_EL1",
+                "displayFolder": "PipelineKey"
+              },
+              {
+                "name": "CodaDetailsKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "CodaDetailsKey"
+              },
+              {
+                "name": "PipelinePivotKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelinePivotKey"
+              },
+              {
+                "name": "PipelineAccountKey_EL1",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelineAccountKey_EL1"
+              },
+              {
+                "name": "PipelineAccountKey_EL2",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelineAccountKey_EL2"
+              },
+              {
+                "name": "PipelineAccountKey_EL3",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelineAccountKey_EL3"
+              },
+              {
+                "name": "CodaCompanyKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "CodaCompanyKey"
+              },
+              {
+                "name": "CodaDocumentKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "CodaDocumentKey"
+              },
+              {
+                "name": "AccountKey_EL1",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL1"
+              },
+              {
+                "name": "AccountKey_EL2",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL2"
+              },
+              {
+                "name": "AccountKey_EL3",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL3"
+              },
+              {
+                "name": "AccountKey_EL4",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL4"
+              },
+              {
+                "name": "AccountKey_EL5",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL5"
+              },
+              {
+                "name": "AccountKey_EL6",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL6"
+              },
+              {
+                "name": "AccountKey_EL12",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL12"
+              },
+              {
+                "name": "AccountKey_EL123",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL123"
+              },
+              {
+                "name": "DocumentXRefDescr",
+                "dataType": "string",
+                "sourceColumn": "DocXRefDescr",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocumentListOrder",
+                "dataType": "int64",
+                "description": "DocListOrder",
+                "sourceColumn": "CodaDocListOrder",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocCurrencyCodeKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "DocCurrencyCodeKey"
+              },
+              {
+                "name": "CurrencyCode",
+                "dataType": "string",
+                "sourceColumn": "DocCurrencyCode",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocumentLineComment1",
+                "dataType": "string",
+                "description": "DocLineComment",
+                "sourceColumn": "CodaDocLineComment",
+                "displayFolder": "OtherDocFields"
+              },
+              {
+                "name": "DocAmountRevenue",
+                "dataType": "decimal",
+                "sourceColumn": "DocAmountRevenue",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocAmountBalanceSheet",
+                "dataType": "decimal",
+                "sourceColumn": "DocAmountBalanceSheet",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "type": "calculated",
+                "name": "PostingPeriod",
+                "dataType": "string",
+                "isDataTypeInferred": true,
+                "expression": "RIGHT([FiscalPeriod],2)",
+                "displayFolder": "DateFields"
+              },
+              {
+                "name": "ValueDate",
+                "dataType": "dateTime",
+                "sourceColumn": "ValueDate"
+              },
+              {
+                "name": "ValueDateAgeing",
+                "dataType": "string",
+                "sourceColumn": "ValueDateAgeing"
+              },
+              {
+                "name": "InvoicePaidStatus",
+                "dataType": "string",
+                "sourceColumn": "InvoicePaidStatus"
+              },
+              {
+                "name": "HeldReason",
+                "dataType": "string",
+                "sourceColumn": "HeldReason"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Fact_Financials",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT * FROM [CodaTabular].[FactFinancials]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[FactFinancials]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "measures": [
+              {
+                "name": "DocValueCCY",
+                "expression": "SUM([DocCurrencyAmount])*-1 ",
+                "formatString": "#,0.00",
+                "displayFolder": "CalcMeasures"
+              },
+              {
+                "name": "DocValueGBP",
+                "expression": "SUM([DocAmount])*-1",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocTaxCCY",
+                "expression": "SUM([DocTaxAmount])*-1",
+                "formatString": "#,0.00",
+                "displayFolder": "CalcMeasures"
+              },
+              {
+                "name": "LatestLoadDate",
+                "expression": "MAX([DocumentInputDate])",
+                "formatString": "General Date",
+                "displayFolder": "CalcMeasures"
+              },
+              {
+                "name": "LastProcessDate",
+                "expression": "TODAY()",
+                "formatString": "General Date",
+                "displayFolder": "CalcMeasures"
+              },
+              {
+                "name": "MonthOnMonthChange_PriorPeriod",
+                "expression": "[DocValueGBP] - CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,MONTH))",
+                "displayFolder": "TimeIntelligent"
+              },
+              {
+                "name": "MonthonMonthChange%_PriorPeriod",
+                "expression": "IF ([DocValueGBP]= 0 , BLANK(),(CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,MONTH))- [DocValueGBP])/CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,MONTH)))",
+                "displayFolder": "TimeIntelligent"
+              },
+              {
+                "name": "YearonYearChange",
+                "expression": "[DocValueGBP] - CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,YEAR))",
+                "formatString": "#,0",
+                "displayFolder": "TimeIntelligent"
+              },
+              {
+                "name": "YearonYearChange%",
+                "expression": "IF ([DocValueGBP]= 0 , BLANK(),(CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,YEAR))- [DocValueGBP])/CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,YEAR)))",
+                "formatString": "#,0.00",
+                "displayFolder": "TimeIntelligent"
+              },
+              {
+                "name": "ValueGBP_YTD_PriorYear",
+                "expression": "CALCULATE(SUM([DocAmount]), (DATEADD(DATESYTD('Fiscal Date'[FiscalDate]),-1,YEAR)))",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TimeIntelligent",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ValueGBP_YTD",
+                "expression": "CALCULATE(SUM([DocAmount]), (DATESYTD('Fiscal Date'[FiscalDate])))",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TimeIntelligent",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ValueGBP_MTD_PriorYear",
+                "expression": "CALCULATE(SUM([DocAmount]), (DATEADD(DATESMTD('Fiscal Date'[FiscalDate]),-1,YEAR)))",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TimeIntelligent",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ValueGBP_MTD",
+                "expression": "CALCULATE(SUM([DocAmount]), (DATESMTD('Fiscal Date'[FiscalDate])))",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TimeIntelligent",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "MonthonMonthChange%_PriorYear",
+                "expression": "IF ([DocValueGBP]= 0 , BLANK(),(CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,YEAR))- [DocValueGBP])/CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,YEAR)))",
+                "formatString": "#,0.00",
+                "displayFolder": "TimeIntelligent"
+              },
+              {
+                "name": "MonthOnMonthChange_PriorYear",
+                "expression": "[DocValueGBP] - CALCULATE([DocValueGBP],PARALLELPERIOD('Fiscal Date'[FiscalDate],-1,YEAR))",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TimeIntelligent",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ValueGBP_MTD_PriorPeriod",
+                "expression": "CALCULATE(SUM([DocAmount]), PREVIOUSMONTH('Fiscal Date'[FiscalDate])) ",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TimeIntelligent",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocValueGBPRevenue",
+                "expression": "SUM([DocAmountRevenue])*-1",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "CalcMeasures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocValueGBPBalanceSheet",
+                "expression": "SUM([DocAmountBalanceSheet])*-1",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "CalcMeasures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "DocAmountRevenueGBP",
+                "expression": "SUM([DocAmountRevenue])*-1",
+                "displayFolder": "CalcMeasures"
+              },
+              {
+                "name": "DocAmountBalanceSheetGBP",
+                "expression": "SUM([DocAmountBalanceSheet])*-1",
+                "displayFolder": "CalcMeasures"
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT * FROM [CodaTabular].[FactFinancials]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "Fact_Financials"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "dbo"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[FactFinancials]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Pipeline EL1",
+            "columns": [
+              {
+                "name": "PipelineAccountCategory EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineAccountCategory_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineBS_PL EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineBS_PL_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineBusinessUnit EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineBusinessUnitEL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineManagementAccounts EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineManagementAccounts_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineCode EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineCode_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineDescription EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineDescr_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineCodePrefix EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineCodePrefix_EL1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineDescriptionCode El1",
+                "dataType": "string",
+                "sourceColumn": "DescrCode_El1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineProfitLossGroup EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineProfitLossGroup_EL1"
+              },
+              {
+                "name": "CompanyAccountCode_EL1",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "CompanyAccountCode_EL1"
+              },
+              {
+                "name": "PipelineCompanyCode EL1",
+                "dataType": "string",
+                "sourceColumn": "PipelineCompanyCode_EL1"
+              },
+              {
+                "name": "PipelineAccountKey_EL1",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelineAccountKey_EL1"
+              },
+              {
+                "name": "AddedDate EL1",
+                "dataType": "dateTime",
+                "sourceColumn": "AddedDate_EL1"
+              },
+              {
+                "name": "DeletedDate EL1",
+                "dataType": "dateTime",
+                "sourceColumn": "DeletedDate_EL1"
+              },
+              {
+                "name": "ActiveInactive EL1",
+                "dataType": "string",
+                "sourceColumn": "ActiveInactive_EL1"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_PipelineEL1",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT * FROM [CodaTabular].[DimPipelineEL1]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimPipelineEL1]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "PipelineEL1",
+                "levels": [
+                  {
+                    "name": "PipelineAccountCategory EL1",
+                    "ordinal": 1,
+                    "column": "PipelineAccountCategory EL1"
+                  },
+                  {
+                    "name": "PipelineBusinessUnit EL1",
+                    "ordinal": 2,
+                    "column": "PipelineBusinessUnit EL1"
+                  },
+                  {
+                    "name": "PipelineManagementAccounts EL1",
+                    "ordinal": 3,
+                    "column": "PipelineManagementAccounts EL1"
+                  },
+                  {
+                    "name": "PipelineDescriptionCode El1",
+                    "ordinal": 4,
+                    "column": "PipelineDescriptionCode El1"
+                  },
+                  {
+                    "name": "PipelineCompanyCode EL1",
+                    "ordinal": 0,
+                    "column": "PipelineCompanyCode EL1"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT * FROM [CodaTabular].[DimPipelineEL1]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "Dim_PipelineEL1"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "dbo"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimPipelineEL1]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Pipeline EL2",
+            "columns": [
+              {
+                "name": "PipelineCodePrefix EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineCodePrefix_EL2",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineCode EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineCode_EL2",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineDescription EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineDescr_EL2",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineDescriptionCode El2",
+                "dataType": "string",
+                "sourceColumn": "PipelineDescrCode_El2",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineGroupTM1 EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineGroupTM1_EL2"
+              },
+              {
+                "name": "PipelineBusinessUnit EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineBusinessUnit_EL2"
+              },
+              {
+                "name": "PipelineCustomerGroup EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineCustomerGroup_EL2"
+              },
+              {
+                "name": "CompanyAccountCode_EL2",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "CompanyAccountCode_EL2"
+              },
+              {
+                "name": "PipelineCompanyCode EL2",
+                "dataType": "string",
+                "sourceColumn": "PipelineCompanyCode_EL2"
+              },
+              {
+                "name": "PipelineAccountKey_EL2",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelineAccountKey_EL2"
+              },
+              {
+                "name": "AddedDate EL2",
+                "dataType": "dateTime",
+                "sourceColumn": "AddedDate_EL2"
+              },
+              {
+                "name": "DeletedDate EL2",
+                "dataType": "dateTime",
+                "sourceColumn": "DeletedDate_EL2"
+              },
+              {
+                "name": "ActiveInactive EL2",
+                "dataType": "string",
+                "sourceColumn": "ActiveInactive_EL2"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_PipelineEL2",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT *  FROM [CodaTabular].[DimPipelineEL2]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimPipelineEL2]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "PipelineEL2",
+                "levels": [
+                  {
+                    "name": "PipelineDescriptionCode El2",
+                    "ordinal": 3,
+                    "column": "PipelineDescriptionCode El2"
+                  },
+                  {
+                    "name": "PipelineBusinessUnit EL2",
+                    "ordinal": 1,
+                    "column": "PipelineBusinessUnit EL2"
+                  },
+                  {
+                    "name": "PipelineCustomerGroup EL2",
+                    "ordinal": 2,
+                    "column": "PipelineCustomerGroup EL2"
+                  },
+                  {
+                    "name": "PipelineCompanyCode EL2",
+                    "ordinal": 0,
+                    "column": "PipelineCompanyCode EL2"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT *  FROM [CodaTabular].[DimPipelineEL2]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimPipelineEL2"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT *  FROM [CodaTabular].[DimPipelineEL2]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Pipeline EL3",
+            "columns": [
+              {
+                "name": "PipelineCodePrefix EL3",
+                "dataType": "string",
+                "sourceColumn": "PipelineCodePrefix_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineCode EL3",
+                "dataType": "string",
+                "sourceColumn": "PipelineCode_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineDescription EL3",
+                "dataType": "string",
+                "sourceColumn": "PipelineDescr_EL3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "PipelineGroupTM1 EL3",
+                "dataType": "string",
+                "sourceColumn": "PipelineGroupTM1_EL3"
+              },
+              {
+                "name": "PipelineDescriptionCode El3",
+                "dataType": "string",
+                "sourceColumn": "PipelineDescrCode_El3"
+              },
+              {
+                "name": "CompanyAccountCode_EL3",
+                "dataType": "string",
+                "isHidden": true,
+                "sourceColumn": "CompanyAccountCode_EL3"
+              },
+              {
+                "name": "PipelineCompanyCode EL3",
+                "dataType": "string",
+                "sourceColumn": "PipelineCompanyCode_EL3"
+              },
+              {
+                "name": "PipelineAccountKey_EL3",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "PipelineAccountKey_EL3"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_PipelineEL3",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT * FROM [CodaTabular].[DimPipelineEL3]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimPipelineEL3]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "PipelineEL3",
+                "levels": [
+                  {
+                    "name": "PipelineCompanyCode EL3",
+                    "ordinal": 0,
+                    "column": "PipelineCompanyCode EL3"
+                  },
+                  {
+                    "name": "PipelineCodePrefix EL3",
+                    "ordinal": 1,
+                    "column": "PipelineCodePrefix EL3"
+                  },
+                  {
+                    "name": "PipelineDescriptionCode El3",
+                    "ordinal": 2,
+                    "column": "PipelineDescriptionCode El3"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT * FROM [CodaTabular].[DimPipelineEL3]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "Dim_PipelineEL3"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "dbo"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimPipelineEL3]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "Customer Scheme",
+            "columns": [
+              {
+                "name": "AccountKey_EL12",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL12",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "CompanyKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "CompanyKey",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "CompanyCode",
+                "dataType": "string",
+                "sourceColumn": "CompanyCode",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "EL1Code",
+                "dataType": "string",
+                "sourceColumn": "EL1Code",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "EL2Code",
+                "dataType": "string",
+                "sourceColumn": "EL2Code",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "BusinessUnit EL12",
+                "dataType": "string",
+                "sourceColumn": "BusinessUnit_EL12",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "CategoryScheme EL12",
+                "dataType": "string",
+                "sourceColumn": "CategoryScheme_EL12",
+                "sourceProviderType": "Char"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "DimCustomerScheme",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT * FROM [CodaTabular].[DimCustomerScheme]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimCustomerScheme]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT * FROM [CodaTabular].[DimCustomerScheme]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimCustomerScheme"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT * FROM [CodaTabular].[DimCustomerScheme]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          },
+          {
+            "name": "DM Mappings",
+            "columns": [
+              {
+                "name": "AccountKey_EL123",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "AccountKey_EL123",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "CompanyKey",
+                "dataType": "int64",
+                "sourceColumn": "CompanyKey",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "CompanyCode",
+                "dataType": "string",
+                "sourceColumn": "CompanyCode",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "EL1Code",
+                "dataType": "string",
+                "sourceColumn": "EL1Code",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "EL2Code",
+                "dataType": "string",
+                "sourceColumn": "EL2Code",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "EL3Code",
+                "dataType": "string",
+                "sourceColumn": "EL3Code",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "UsageGroupCode_DandM",
+                "dataType": "string",
+                "sourceColumn": "UsageGroupCode_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "UsageDescription_DandM",
+                "dataType": "string",
+                "sourceColumn": "UsageDescription_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "DescriptionCode_UsageCode",
+                "dataType": "string",
+                "sourceColumn": "DescrCode_UsageCode",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "ActiveInActive_DandM",
+                "dataType": "string",
+                "sourceColumn": "ActiveInActive_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "BusinessUnit_DandM",
+                "dataType": "string",
+                "sourceColumn": "BusinessUnit_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "Domain_DandM",
+                "dataType": "string",
+                "sourceColumn": "Domain_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "CustomerGroup_DandM",
+                "dataType": "string",
+                "sourceColumn": "CustomerGroup_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "UsedForPurpose_DandM",
+                "dataType": "string",
+                "sourceColumn": "UsedForPurpose_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "Broadcaster_DandM",
+                "dataType": "string",
+                "sourceColumn": "Broadcaster_DandM",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "ThirdParty_DandM",
+                "dataType": "string",
+                "sourceColumn": "ThirdParty_DandM",
+                "sourceProviderType": "Char"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "DimDMMappings",
+                "dataView": "full",
+                "source": {
+                  "query": " SELECT [CodaTabular].[DimDMMappings].* FROM [CodaTabular].[DimDMMappings] ",
+                  "dataSource": "FinanceDataMart"
+                }
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": " SELECT [CodaTabular].[DimDMMappings].* FROM [CodaTabular].[DimDMMappings] "
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "DimDMMappings"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              }
+            ]
+          },
+          {
+            "name": "Currency",
+            "columns": [
+              {
+                "name": "DocCurrencyCodeKey",
+                "dataType": "int64",
+                "isHidden": true,
+                "sourceColumn": "DocCurrencyCodeKey",
+                "sourceProviderType": "Integer"
+              },
+              {
+                "name": "CurrencyCode",
+                "dataType": "string",
+                "sourceColumn": "DocCurrencyCode",
+                "sourceProviderType": "VarChar"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "Dim_Currency",
+                "dataView": "full",
+                "source": {
+                  "query": [
+                    "SELECT [DocCurrencyCodeKey]",
+                    "      ,[DocCurrencyCode]",
+                    "  FROM [FinanceDataMart].[CodaTabular].[DimCurrency]"
+                  ],
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": [
+                      "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [DocCurrencyCodeKey]",
+                      "      ,[DocCurrencyCode]",
+                      "  FROM [FinanceDataMart].[CodaTabular].[DimCurrency]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "Hierarchy1"
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": [
+                  "SELECT [DocCurrencyCodeKey]",
+                  "      ,[DocCurrencyCode]",
+                  "  FROM [FinanceDataMart].[CodaTabular].[DimCurrency]"
+                ]
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "Dim_Currency"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [DocCurrencyCodeKey]",
+                  "      ,[DocCurrencyCode]",
+                  "  FROM [FinanceDataMart].[CodaTabular].[DimCurrency]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "FinancialsTM1",
+            "columns": [
+              {
+                "name": "CompanyKey",
+                "dataType": "int64",
+                "sourceColumn": "CompanyKey",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "DocumentKey",
+                "dataType": "int64",
+                "sourceColumn": "DocumentKey",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "TM1Class",
+                "dataType": "string",
+                "sourceColumn": "TM1Class",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "TM1Level4",
+                "dataType": "string",
+                "sourceColumn": "TM1Level4",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "TM1Level3",
+                "dataType": "string",
+                "sourceColumn": "TM1Level3",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "TM1Level2",
+                "dataType": "string",
+                "sourceColumn": "TM1Level2",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "TM1Level1",
+                "dataType": "string",
+                "sourceColumn": "TM1Level1",
+                "sourceProviderType": "Char"
+              },
+              {
+                "name": "AccountEL1Key",
+                "dataType": "int64",
+                "sourceColumn": "AccountEL1Key",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "AccountEL2Key",
+                "dataType": "int64",
+                "sourceColumn": "AccountEL2Key",
+                "sourceProviderType": "BigInt"
+              },
+              {
+                "name": "FiscalDate",
+                "dataType": "dateTime",
+                "sourceColumn": "DateDt",
+                "formatString": "General Date",
+                "sourceProviderType": "DBTimeStamp"
+              },
+              {
+                "name": "BudgetValue",
+                "dataType": "decimal",
+                "sourceColumn": "BudgetValue",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "sourceProviderType": "Currency",
+                "displayFolder": "TM1Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ForecastQ1Value",
+                "dataType": "decimal",
+                "sourceColumn": "ForecastQ1Value",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "sourceProviderType": "Currency",
+                "displayFolder": "TM1Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ForecastQ2Value",
+                "dataType": "decimal",
+                "sourceColumn": "ForecastQ2Value",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "sourceProviderType": "Currency",
+                "displayFolder": "TM1Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ForecastQ3Value",
+                "dataType": "decimal",
+                "sourceColumn": "ForecastQ3Value",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "sourceProviderType": "Currency",
+                "displayFolder": "TM1Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "ActualValue",
+                "dataType": "decimal",
+                "sourceColumn": "ActualValue",
+                "formatString": "\"£\"#,0.00;-\"£\"#,0.00;\"£\"#,0.00",
+                "displayFolder": "TM1Measures",
+                "annotations": [
+                  {
+                    "name": "Format",
+                    "value": "<Format Format=\"Currency\" Accuracy=\"2\" ThousandSeparator=\"True\"><Currency LCID=\"2057\" DisplayName=\"£ English (United Kingdom)\" Symbol=\"£\" PositivePattern=\"0\" NegativePattern=\"1\" /></Format>"
+                  }
+                ]
+              },
+              {
+                "name": "TM1CostRevenue",
+                "dataType": "string",
+                "sourceColumn": "TM1CostRevenue"
+              }
+            ],
+            "partitions": [
+              {
+                "name": "FactTM1Planning",
+                "dataView": "full",
+                "source": {
+                  "query": "SELECT [CodaTabular].[FactTM1Planning].[CompanyKey],[CodaTabular].[FactTM1Planning].[DocumentKey],[CodaTabular].[FactTM1Planning].[TM1CostRevenue],[CodaTabular].[FactTM1Planning].[TM1Class],[CodaTabular].[FactTM1Planning].[TM1Level4],[CodaTabular].[FactTM1Planning].[TM1Level3],[CodaTabular].[FactTM1Planning].[TM1Level2],[CodaTabular].[FactTM1Planning].[TM1Level1],[CodaTabular].[FactTM1Planning].[AccountEL1Key],[CodaTabular].[FactTM1Planning].[AccountEL2Key],[CodaTabular].[FactTM1Planning].[DateDt],[CodaTabular].[FactTM1Planning].[BudgetValue],[CodaTabular].[FactTM1Planning].[ForecastQ1Value],[CodaTabular].[FactTM1Planning].[ForecastQ2Value],[CodaTabular].[FactTM1Planning].[ForecastQ3Value], [CodaTabular].[FactTM1Planning].[ActualValue]    FROM [CodaTabular].[FactTM1Planning]",
+                  "dataSource": "FinanceDataMart"
+                },
+                "annotations": [
+                  {
+                    "name": "QueryEditorSerialization",
+                    "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [CodaTabular].[FactTM1Planning].[CompanyKey],[CodaTabular].[FactTM1Planning].[DocumentKey],[CodaTabular].[FactTM1Planning].[TM1CostRevenue],[CodaTabular].[FactTM1Planning].[TM1Class],[CodaTabular].[FactTM1Planning].[TM1Level4],[CodaTabular].[FactTM1Planning].[TM1Level3],[CodaTabular].[FactTM1Planning].[TM1Level2],[CodaTabular].[FactTM1Planning].[TM1Level1],[CodaTabular].[FactTM1Planning].[AccountEL1Key],[CodaTabular].[FactTM1Planning].[AccountEL2Key],[CodaTabular].[FactTM1Planning].[DateDt],[CodaTabular].[FactTM1Planning].[BudgetValue],[CodaTabular].[FactTM1Planning].[ForecastQ1Value],[CodaTabular].[FactTM1Planning].[ForecastQ2Value],[CodaTabular].[FactTM1Planning].[ForecastQ3Value], [CodaTabular].[FactTM1Planning].[ActualValue]    FROM [CodaTabular].[FactTM1Planning]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+                  }
+                ]
+              }
+            ],
+            "measures": [
+              {
+                "name": "BudgetValueTM1",
+                "expression": "SUM([BudgetValue])"
+              },
+              {
+                "name": "ForecastQ1ValueTM1",
+                "expression": "SUM([ForecastQ1Value])"
+              },
+              {
+                "name": "ForecastQ2ValueTM1",
+                "expression": "SUM([ForecastQ2Value])"
+              },
+              {
+                "name": "ForecastQ3ValueTM1",
+                "expression": "SUM([ForecastQ3Value])"
+              },
+              {
+                "name": "ActualValueTM1",
+                "expression": "SUM([ActualValue])"
+              },
+              {
+                "name": "BudgetVsActualsTM1%",
+                "expression": "IF ([BudgetValueTM1]= 0, BLANK(), (([BudgetValueTM1]-[ActualValueTM1])/[BudgetValueTM1]))",
+                "formatString": "0.00",
+                "displayFolder": "TM1calculations"
+              }
+            ],
+            "hierarchies": [
+              {
+                "name": "TM1hierarchy",
+                "levels": [
+                  {
+                    "name": "TM1Class",
+                    "ordinal": 0,
+                    "column": "TM1Class"
+                  },
+                  {
+                    "name": "TM1Level4",
+                    "ordinal": 1,
+                    "column": "TM1Level4"
+                  },
+                  {
+                    "name": "TM1Level3",
+                    "ordinal": 2,
+                    "column": "TM1Level3"
+                  },
+                  {
+                    "name": "TM1Level2",
+                    "ordinal": 3,
+                    "column": "TM1Level2"
+                  },
+                  {
+                    "name": "TM1Level1",
+                    "ordinal": 4,
+                    "column": "TM1Level1"
+                  }
+                ]
+              }
+            ],
+            "annotations": [
+              {
+                "name": "_TM_ExtProp_QueryDefinition",
+                "value": "SELECT [CodaTabular].[FactTM1Planning].[CompanyKey],[CodaTabular].[FactTM1Planning].[DocumentKey],[CodaTabular].[FactTM1Planning].[TM1CostRevenue],[CodaTabular].[FactTM1Planning].[TM1Class],[CodaTabular].[FactTM1Planning].[TM1Level4],[CodaTabular].[FactTM1Planning].[TM1Level3],[CodaTabular].[FactTM1Planning].[TM1Level2],[CodaTabular].[FactTM1Planning].[TM1Level1],[CodaTabular].[FactTM1Planning].[AccountEL1Key],[CodaTabular].[FactTM1Planning].[AccountEL2Key],[CodaTabular].[FactTM1Planning].[DateDt],[CodaTabular].[FactTM1Planning].[BudgetValue],[CodaTabular].[FactTM1Planning].[ForecastQ1Value],[CodaTabular].[FactTM1Planning].[ForecastQ2Value],[CodaTabular].[FactTM1Planning].[ForecastQ3Value], [CodaTabular].[FactTM1Planning].[ActualValue]    FROM [CodaTabular].[FactTM1Planning]"
+              },
+              {
+                "name": "_TM_ExtProp_DbTableName",
+                "value": "FactTM1Planning"
+              },
+              {
+                "name": "_TM_ExtProp_DbSchemaName",
+                "value": "CodaTabular"
+              },
+              {
+                "name": "QueryEditorSerialization",
+                "value": "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"QueryEditorSerialization\"><AnnotationContent><![CDATA[<RSQueryCommandText>SELECT [CodaTabular].[FactTM1Planning].[CompanyKey],[CodaTabular].[FactTM1Planning].[DocumentKey],[CodaTabular].[FactTM1Planning].[TM1CostRevenue],[CodaTabular].[FactTM1Planning].[TM1Class],[CodaTabular].[FactTM1Planning].[TM1Level4],[CodaTabular].[FactTM1Planning].[TM1Level3],[CodaTabular].[FactTM1Planning].[TM1Level2],[CodaTabular].[FactTM1Planning].[TM1Level1],[CodaTabular].[FactTM1Planning].[AccountEL1Key],[CodaTabular].[FactTM1Planning].[AccountEL2Key],[CodaTabular].[FactTM1Planning].[DateDt],[CodaTabular].[FactTM1Planning].[BudgetValue],[CodaTabular].[FactTM1Planning].[ForecastQ1Value],[CodaTabular].[FactTM1Planning].[ForecastQ2Value],[CodaTabular].[FactTM1Planning].[ForecastQ3Value], [CodaTabular].[FactTM1Planning].[ActualValue]    FROM [CodaTabular].[FactTM1Planning]</RSQueryCommandText><RSQueryCommandType>Text</RSQueryCommandType><RSQueryDesignState></RSQueryDesignState>]]></AnnotationContent></Gemini>"
+              }
+            ]
+          }
+        ],
+        "relationships": [
+          {
+            "name": "52f0aa53-088e-48a2-b4ef-5448cacc7482",
+            "fromTable": "Financials",
+            "fromColumn": "FiscalDate",
+            "toTable": "Fiscal Date",
+            "toColumn": "FiscalDate"
+          },
+          {
+            "name": "1f727188-350e-404c-80a0-c690dd3d2e3b",
+            "fromTable": "Financials",
+            "fromColumn": "PipelineAccountKey_EL1",
+            "toTable": "Pipeline EL1",
+            "toColumn": "PipelineAccountKey_EL1"
+          },
+          {
+            "name": "bfd9f061-30d2-4b14-b1eb-f01cca3aeb83",
+            "fromTable": "Financials",
+            "fromColumn": "PipelineAccountKey_EL2",
+            "toTable": "Pipeline EL2",
+            "toColumn": "PipelineAccountKey_EL2"
+          },
+          {
+            "name": "7fddb001-f3ad-4703-9f34-b3d26fb8f902",
+            "fromTable": "Financials",
+            "fromColumn": "PipelineAccountKey_EL3",
+            "toTable": "Pipeline EL3",
+            "toColumn": "PipelineAccountKey_EL3"
+          },
+          {
+            "name": "8bbab061-a7f7-4b0a-85e1-f50b00108a50",
+            "fromTable": "Financials",
+            "fromColumn": "CodaCompanyKey",
+            "toTable": "Company",
+            "toColumn": "CompanyKey"
+          },
+          {
+            "name": "4cad5484-b512-4c4e-b06e-92074a84a932",
+            "fromTable": "Financials",
+            "fromColumn": "CodaDocumentKey",
+            "toTable": "Document",
+            "toColumn": "DocumentKey"
+          },
+          {
+            "name": "76b17f99-bfcd-4e6f-90f4-f7a541c690c0",
+            "fromTable": "Financials",
+            "fromColumn": "AccountKey_EL1",
+            "toTable": "Accounts EL1",
+            "toColumn": "AccountKey_EL1"
+          },
+          {
+            "name": "4c80b1cc-8df5-4ab1-a381-00c44fad70dc",
+            "fromTable": "Financials",
+            "fromColumn": "AccountKey_EL3",
+            "toTable": "Accounts EL3",
+            "toColumn": "AccountKey_EL3"
+          },
+          {
+            "name": "7a0f33ea-a0c8-440a-9fd5-8cfc7e504e09",
+            "fromTable": "Financials",
+            "fromColumn": "AccountKey_EL4",
+            "toTable": "Accounts EL4",
+            "toColumn": "AccountKey_EL4"
+          },
+          {
+            "name": "5aab31dd-6436-4b9e-9d5d-732d62dc62b7",
+            "fromTable": "Financials",
+            "fromColumn": "AccountKey_EL12",
+            "toTable": "Customer Scheme",
+            "toColumn": "AccountKey_EL12"
+          },
+          {
+            "name": "7c6393f4-e2ac-4b7a-b2cc-6ce2adc66071",
+            "fromTable": "Financials",
+            "fromColumn": "AccountKey_EL123",
+            "toTable": "DM Mappings",
+            "toColumn": "AccountKey_EL123"
+          },
+          {
+            "name": "724ac65d-5112-4dfe-990b-7f34958d9611",
+            "fromTable": "Financials",
+            "fromColumn": "AccountKey_EL2",
+            "toTable": "Accounts EL2",
+            "toColumn": "AccountKey_EL2"
+          },
+          {
+            "name": "08eb2861-9099-4278-b08d-44af7edd02cf",
+            "fromTable": "Financials",
+            "fromColumn": "DocCurrencyCodeKey",
+            "toTable": "Currency",
+            "toColumn": "DocCurrencyCodeKey"
+          },
+          {
+            "name": "a2758f8f-0fc2-45e9-b531-1f20b3364a16",
+            "fromTable": "FinancialsTM1",
+            "fromColumn": "CompanyKey",
+            "toTable": "Company",
+            "toColumn": "CompanyKey"
+          },
+          {
+            "name": "0e06dbd3-75dc-435d-a72d-b36e9855e87c",
+            "fromTable": "FinancialsTM1",
+            "fromColumn": "DocumentKey",
+            "toTable": "Document",
+            "toColumn": "DocumentKey"
+          },
+          {
+            "name": "06af53db-7922-4099-931e-3fbf66d6ce59",
+            "fromTable": "FinancialsTM1",
+            "fromColumn": "AccountEL1Key",
+            "toTable": "Accounts EL1",
+            "toColumn": "AccountKey_EL1"
+          },
+          {
+            "name": "b552b193-e807-4400-9701-982f995d030f",
+            "fromTable": "FinancialsTM1",
+            "fromColumn": "AccountEL2Key",
+            "toTable": "Accounts EL2",
+            "toColumn": "AccountKey_EL2"
+          },
+          {
+            "name": "5b96f2d3-89fc-4c1a-a5b1-17658e76bbe8",
+            "fromTable": "FinancialsTM1",
+            "fromColumn": "FiscalDate",
+            "toTable": "Fiscal Date",
+            "toColumn": "FiscalDate"
+          }
+        ],
+        "roles": [
+          {
+            "name": "PRSUsers",
+            "description": "testusers",
+            "modelPermission": "read",
+            "members": [
+              {
+                "memberName": "PRS\\SPeters",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-2983"
+              },
+              {
+                "memberName": "PRS\\SBandali",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-15519"
+              },
+              {
+                "memberName": "PRS\\RPhilpotts",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-16795"
+              },
+              {
+                "memberName": "S-1-5-21-3673259227-595194118-3760552712-14839",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-14839"
+              },
+              {
+                "memberName": "S-1-5-21-3673259227-595194118-3760552712-13973",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-13973"
+              },
+              {
+                "memberName": "S-1-5-21-3673259227-595194118-3760552712-20666",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-20666"
+              }
+            ]
+          },
+          {
+            "name": "Processor",
+            "description": "Process  Cube",
+            "modelPermission": "readRefresh",
+            "members": [
+              {
+                "memberName": "PRS\\SQLProxyBITest",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-19866"
+              },
+              {
+                "memberName": "PRS\\TFirmin",
+                "memberId": "S-1-5-21-3673259227-595194118-3760552712-19825"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+

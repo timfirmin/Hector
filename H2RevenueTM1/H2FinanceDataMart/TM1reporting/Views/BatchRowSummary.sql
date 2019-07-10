@@ -1,0 +1,18 @@
+﻿CREATE VIEW TM1Reporting.[BatchRowSummary]
+as
+SELECT [LoadId] as BatchId
+      ,[FileKey]
+      ,[DerivedFileType]
+      ,[FileName]
+      ,[FileStartPeriodString]
+      ,[FileEndPeriodString]
+      ,[FileRawRowCount]
+      ,[FileModifiedTimeStamp]
+      ,[StagingTotalRows]
+      ,[StagingValidStatus]
+      ,[TransformValidRows]
+      ,[TransformValidStatus]
+      ,[ExtractFDMRows]
+      ,[ExtractFPVRows]
+      ,[ExtractValidStatus]
+  FROM [FinanceStage].[TM1Control].[BatchRowSummary]

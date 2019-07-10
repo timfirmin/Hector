@@ -1,0 +1,1429 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2017 11:57:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="STU-W8-BIDEV004"
+  DTS:CreatorName="PRS\SYilmaz"
+  DTS:DTSID="{1EB6F9DA-D0BA-4C3C-96CF-67A3ECC570DC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="LoadMDS_Process_TransformToMDS"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="156"
+  DTS:VersionGUID="{E232A565-1FEE-4AF7-8736-B771D864E706}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{80C4CBBC-A9D8-45C3-833C-8C83A88EBD6C}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{A7DF5549-1E47-4C65-A87E-E064BD91101F}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{341638E7-2143-4CF6-838B-45151C760F20}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TransformToMDS</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BF2AE811-CA4A-4F93-BFF1-ABFD6B801FA2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{87523AC1-9908-4AF4-AE1F-C47D76756EC8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{52D512E2-19D1-43A7-8086-163CB46B654E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{286C896C-FBE7-466C-951F-95ECAEDC16EF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FE04A9C3-450A-4544-A9B3-A827076939F9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{95DBD8E1-4D1F-4E4D-8620-8022B5B5FB30}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3295A44D-FA43-4D0A-B5C6-051295D9EE8A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D491E00C-E822-4537-B267-CB8B3A659D2C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{29256DA5-585E-41A8-92C4-AF99425C8A46}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B79AD0AE-A132-4D6C-A6C6-B8B5925F54DB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Process</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3CD8D2F-86D6-44AE-9D21-B631ABB51B12}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{09D52204-883B-4273-8A19-EEEEFECDE3B9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSIntegrationDailyBatch</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D63DF090-D329-48DD-988A-1C0D4C8E9148}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::strSSRSReportLink]  +  (DT_WSTR, 15)  @[User::intLoadId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenericReportLink">
+      <DTS:VariableValue
+        DTS:DataType="8">https://app-reports-dev01/reports/report/Department%20Reports/BINotifications/MDSIntegration/0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8A27FE3A-1725-49BF-A63B-D241EE9D0BA2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">TRN2MDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{923663D4-A92F-4F47-B0DB-E6EC56F107B3}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC [notification].[uspRequestNotification]  @notificationTemplate = '&quot; + &quot;MDS Station Changes'&quot; + &quot;,@notificationSubject = 'MDS Station Changes'&quot; + &quot;,@notificationBody ='MDS Station Changes',@reportLink = '&quot; +   @[User::strGenericReportLink] + &quot;'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strNotificationProcedureParams">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC [notification].[uspRequestNotification]  @notificationTemplate = 'MDS Station Changes',@notificationSubject = 'MDS Station Changes',@notificationBody ='MDS Station Changes',@reportLink = 'https://app-reports-dev01/reports/report/Department%20Reports/BINotifications/MDSIntegration/0'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C09F7553-65EA-4332-9C01-3D9A830DFAFC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strNotificationTemplate">
+      <DTS:VariableValue
+        DTS:DataType="8">MDS Station Changes</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5DC9AB5A-777C-4FDA-8229-B7C1731FAE55}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">TransformToMDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{192358BD-1CA0-4BBA-8561-57EB209F293D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F06EB37E-9FD0-4B41-A692-CF112928A519}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strFileName] + &quot;_&quot; +  (DT_STR,4,1252)DATEPART( &quot;yyyy&quot; , getdate() ) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;mm&quot; , getdate() ), 2) +&#xA;RIGHT(&quot;0&quot; + (DT_STR,4,1252)DATEPART( &quot;dd&quot; , getdate() ), 2)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSIntegrationDailyBatch_20190328</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{006365E8-B552-41F3-9CB4-4520A8E4415D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{50948FDB-3294-42FD-80C3-9082391A8C1F}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{590C07C1-B9DB-4626-A411-6EE55F60A3E5}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST- Insert or Obtain SourceFileId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DE17A5BD-9309-41F1-8F6A-6616E31E707E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST- Insert or Obtain SourceFileId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{367111C3-2C35-4D8C-9BFE-AB75807F5565}"
+          SQLTask:SqlStatementSource="EXEC [Control].[InsertSourceFile] @FileName , @LoadId , @ApplicationCode , @Source , @SourceFileId OUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@ApplicationCode"
+            SQLTask:DtsVariableName="$Project::strApplicationCode"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@FileName"
+            SQLTask:DtsVariableName="User::strSourceFileName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="User::intSourceFileId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@Source"
+            SQLTask:DtsVariableName="User::strSource"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\EST- Update File Processing Log BISystem"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D2338795-251A-4D30-A2CB-3D076E4C79FD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="EST- Update File Processing Log BISystem"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"EXEC [Control].[UpdateSourceFile] "+ (DT_WSTR,6) @[User::intSourceFileId] +", '"+ @[User::strLoadProcessShortName] +"'"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{367111C3-2C35-4D8C-9BFE-AB75807F5565}"
+          SQLTask:SqlStatementSource="EXEC [Control].[UpdateSourceFile] 0, 'TRN2MDS'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEC - Transform To MDS"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="SEC - MDS to Stage"
+      DTS:DTSID="{08B34A24-680B-468C-A4E2-B7501783F16F}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEC - Transform To MDS">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Get Domain Data from Transform"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Domain Data from Transform"
+          DTS:Disabled="True"
+          DTS:DTSID="{55944A70-FBDF-44D5-BEB2-2B2E72804C66}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Domain Data from Transform"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.Domain_Details.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Get MasterStation Data From Transform"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get MasterStation Data From Transform"
+          DTS:DTSID="{520A51A6-6577-49A9-8F33-A9D19913DE8E}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get MasterStation Data From Transform"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.MasterStationData_New.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Get MCPSLicenceType Data from Transform"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get MCPSLicenceType Data from Transform"
+          DTS:Disabled="True"
+          DTS:DTSID="{58A34EA8-7A02-4999-AEA5-D1D9E2BD8F07}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get MCPSLicenceType Data from Transform"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.MCPSLicenceType_Details.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Get RightType Data from Transform"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get RightType Data from Transform"
+          DTS:DTSID="{78AEEFE9-DA75-442F-B494-B3CC88202317}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get RightType Data from Transform"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.RightType_Details.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Get Territory Data from Transform"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Get Territory Data from Transform"
+          DTS:Disabled="True"
+          DTS:DTSID="{2096FCF9-0752-40D5-95F4-CE1C41DFBB55}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Get Territory Data from Transform"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.Territory_Details.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Persist Changing Master Station Data"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Persist Changing Master Station Data"
+          DTS:DTSID="{40e3f777-565f-42ea-b0b8-d4caa392eee6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Persist Changing Master Station Data"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.MasterStationData_PersistChanges.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To MDS\PKG - Persist Changing MusicReportingGroup"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Persist Changing MusicReportingGroup"
+          DTS:Disabled="True"
+          DTS:DTSID="{77dbb2bd-bd87-4f22-b589-8c2ead67a4c2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Persist Changing MusicReportingGroup"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.MusicReportingGroup_Details.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F3D6A62E-64B0-4BC5-A803-AEB72319FC27}"
+          DTS:From="Package\SEC - Transform To MDS\PKG - Get MCPSLicenceType Data from Transform"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEC - Transform To MDS\PKG - Persist Changing MusicReportingGroup" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{B643E0B4-EC79-4064-AD80-F111AEE37D50}"
+          DTS:From="Package\SEC - Transform To MDS\PKG - Get Domain Data from Transform"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEC - Transform To MDS\PKG - Get RightType Data from Transform" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{33A6C5BC-5F47-46BC-A70B-19CDE70BDABE}"
+          DTS:From="Package\SEC - Transform To MDS\PKG - Get RightType Data from Transform"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEC - Transform To MDS\PKG - Get Territory Data from Transform" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{453B7DD0-E229-4D5A-B389-8274A0F868DF}"
+          DTS:From="Package\SEC - Transform To MDS\PKG - Get Territory Data from Transform"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEC - Transform To MDS\PKG - Get MCPSLicenceType Data from Transform" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2C33032-FF51-48D4-9DC2-2E67C4C7756D}"
+          DTS:From="Package\SEC - Transform To MDS\PKG - Persist Changing MusicReportingGroup"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEC - Transform To MDS\PKG - Get MasterStation Data From Transform" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 5]"
+          DTS:CreationName=""
+          DTS:DTSID="{C599D8FC-0FD3-4620-9CC5-80FF50D4007D}"
+          DTS:From="Package\SEC - Transform To MDS\PKG - Get MasterStation Data From Transform"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 5"
+          DTS:To="Package\SEC - Transform To MDS\PKG - Persist Changing Master Station Data" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEC - Transform To UDC MDS Sync"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="SEC - MDS to Stage"
+      DTS:DTSID="{a7049464-3b0c-4404-bc26-9b621b28441f}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEC - Transform To UDC MDS Sync">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC MDS Sync"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Station UDC MDS Sync"
+          DTS:DTSID="{c99f0a71-a6cb-4f1c-80f7-93e7afa9a89d}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG -  Station UDC MDS Sync"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.StationUDC_New.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC Notification"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Station UDC Notification"
+          DTS:DTSID="{63baca01-0236-41fd-9891-e3f90a0c7876}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG -  Station UDC Notification"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.UDC_Notification.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync\PKG - Master UDC  Delta Information"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - Master UDC  Delta Information"
+          DTS:DTSID="{e35a4572-adf0-46e0-b115-87d79e5f50f2}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Master UDC  Delta Information"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.UDC_Validation.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync\PKG - Station UDC Delta"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG -  Station UDC Delta"
+          DTS:DTSID="{35e95ac5-d38f-4747-85ae-bfe4b614b03a}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - Station UDC Delta"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.StationUDC_Validation.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync\PKG - UDC MDS Sync Insert Delete"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="PKG - UDC MDS Sync Insert Delete"
+          DTS:DTSID="{9fc8cd7a-b58d-4056-909c-57a2680da69a}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PKG - UDC MDS Sync Insert Delete"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>LoadMDS.UDC_New.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>strProcessStream</ParameterName>
+                <BindedVariableOrParameterName>User::strProcessStream</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>User::intLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>intSourceFileId</ParameterName>
+                <BindedVariableOrParameterName>User::intSourceFileId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{D39F488F-B55A-47A3-8226-C4CABF3F7068}"
+          DTS:From="Package\SEC - Transform To UDC MDS Sync\PKG - Master UDC  Delta Information"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEC - Transform To UDC MDS Sync\PKG - UDC MDS Sync Insert Delete" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{33C21111-9B95-4958-8043-2FE85700CBAF}"
+          DTS:From="Package\SEC - Transform To UDC MDS Sync\PKG - UDC MDS Sync Insert Delete"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEC - Transform To UDC MDS Sync\PKG - Station UDC Delta" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C4FB6DAD-07A4-46CC-86CB-509CC0B054F6}"
+          DTS:From="Package\SEC - Transform To UDC MDS Sync\PKG - Station UDC Delta"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC MDS Sync" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{030E346B-0470-4F81-9A46-4FC4C46B3C3E}"
+          DTS:From="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC MDS Sync"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC Notification" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D574CB20-E9D4-42FD-8C63-73EE7128D535}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\EST- Insert or Obtain SourceFileId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C1153207-DC55-4C73-9A00-24393D13770E}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::intSourceFileId] !=0"
+      DTS:From="Package\EST- Insert or Obtain SourceFileId"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEC - Transform To MDS" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7607A823-5190-432B-A3B1-E3B11BA0F100}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::intSourceFileId] ==0"
+      DTS:From="Package\EST- Insert or Obtain SourceFileId"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{CA5B29BB-38D2-4B0E-8BC9-CDE4E1890EEC}"
+      DTS:From="Package\SEC - Transform To MDS"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SEC - Transform To UDC MDS Sync" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{9AF9073D-E4E9-4638-9865-E96E46540703}"
+      DTS:From="Package\EST- Update File Processing Log BISystem"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD3CA6C2-8347-4947-8D12-8BB81633F7E3}"
+      DTS:From="Package\SEC - Transform To UDC MDS Sync"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\EST- Update File Processing Log BISystem" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{A17EFC1A-600D-4F8F-9004-2E909FE363D8}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{CC3CDEE2-5D2F-421E-AF91-9A048FC6ED83}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{2C302368-0173-4390-B434-3175A22C39C4}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="1347.33333333333,499.222222222222" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="1345.66666666667,954.22222222222" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\EST- Insert or Obtain SourceFileId"
+          TopLeft="1333.33333333333,593.222222222222" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\EST- Update File Processing Log BISystem"
+          TopLeft="1320.5,1242.83333333333" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Get Domain Data from Transform"
+          TopLeft="50.7210884353741,28" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Get MasterStation Data From Transform"
+          TopLeft="43.2210884353741,454.722222222222" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Get MCPSLicenceType Data from Transform"
+          TopLeft="50.7210884353741,286.166666666667" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Get RightType Data from Transform"
+          TopLeft="50.7210884353741,114.055555555556" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Get Territory Data from Transform"
+          TopLeft="50.7210884353741,200.111111111111" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Persist Changing Master Station Data"
+          TopLeft="50.7210884353741,540.333333333333" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To MDS\PKG - Persist Changing MusicReportingGroup"
+          TopLeft="50.7210884353741,370.777777777777" />
+        <EdgeLayout
+          Id="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint]"
+          TopLeft="222.721088435374,332.166666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.6111111111099"
+              Start="0,0"
+              End="0,31.1111111111099">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.1111111111099" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 1]"
+          TopLeft="222.721088435374,74">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.0555555555555"
+              Start="0,0"
+              End="0,32.5555555555555">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5555555555555" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 2]"
+          TopLeft="222.721088435374,160.055555555556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.0555555555555"
+              Start="0,0"
+              End="0,32.5555555555555">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5555555555555" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 3]"
+          TopLeft="222.721088435374,246.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.0555555555555"
+              Start="0,0"
+              End="0,32.5555555555555">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5555555555555" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 4]"
+          TopLeft="218.971088435374,416.777777777777">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.944444444445"
+              Start="0,0"
+              End="0,30.444444444445">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.444444444445" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To MDS.PrecedenceConstraints[Constraint 5]"
+          TopLeft="218.971088435374,500.722222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.6111111111111"
+              Start="0,0"
+              End="0,32.1111111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.1111111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="461,641"
+          Size="461,684"
+          Id="Package\SEC - Transform To MDS"
+          TopLeft="685.333333333333,276" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC MDS Sync"
+          TopLeft="68.0396825396826,288" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To UDC MDS Sync\PKG -  Station UDC Notification"
+          TopLeft="68.0396825396826,372.333333333333" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To UDC MDS Sync\PKG - Master UDC  Delta Information"
+          TopLeft="68.0396825396826,35" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To UDC MDS Sync\PKG - Station UDC Delta"
+          TopLeft="68.0396825396826,203.666666666667" />
+        <NodeLayout
+          Size="344,46"
+          Id="Package\SEC - Transform To UDC MDS Sync\PKG - UDC MDS Sync Insert Delete"
+          TopLeft="68.0396825396826,119.333333333333" />
+        <EdgeLayout
+          Id="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint]"
+          TopLeft="240.039682539683,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3333333333333"
+              Start="0,0"
+              End="0,30.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint 1]"
+          TopLeft="240.039682539683,165.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3333333333333"
+              Start="0,0"
+              End="0,30.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint 2]"
+          TopLeft="240.039682539683,249.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3333333333333"
+              Start="0,0"
+              End="0,30.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Transform To UDC MDS Sync.PrecedenceConstraints[Constraint 3]"
+          TopLeft="240.039682539683,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.3333333333333"
+              Start="0,0"
+              End="0,30.8333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.8333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="472,473"
+          Size="472,516"
+          Id="Package\SEC - Transform To UDC MDS Sync"
+          TopLeft="682.33333333333,1001" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="1456.58333333333,541.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="1333.33333333333,616.111111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-186.999999999997,0"
+              Start="0,0"
+              End="-179.499999999997,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-179.499999999997,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-97.7499999999985,5,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="1453,635.222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,318.999999999998"
+              Start="0,0"
+              End="0,311.499999999998">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,311.499999999998" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,147.749999999999,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="917.083333333331,960">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="1451.08333333333,1242.83333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-246.61111111111"
+              Start="0,0"
+              End="0,-239.11111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-239.11111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="1154.33333333333,1261.41666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.16666666667,0"
+              Start="0,0"
+              End="158.66666666667,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="158.66666666667,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Process Daily  Transform to MDS Data"
+          ParentId="Package"
+          Size="257,38"
+          Id="77dca0ed-7409-42c0-8980-b789be424424"
+          TopLeft="1350.33333333333,322.222222222222">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BISystemADO"
+  DTS:DTSID="{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strBISystemConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZP-MS-SQL-D002.database.windows.net;User ID=SQLProxyBIDev@prsformusic.com;Initial Catalog=BISystemDev;Persist Security Info=True;Pooling=False;Authentication=Active Directory Password;Application Name=SSIS-{C0B63B45-FF5E-4249-AD4A-4F32CE1E6489}BISystemADO;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1"></DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

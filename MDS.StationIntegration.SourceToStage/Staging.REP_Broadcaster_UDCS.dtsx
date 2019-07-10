@@ -1,0 +1,1401 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{FEAC4938-A906-4C02-BB16-A3CC162769C6}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Staging REP_Broadcaster_UDCS"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="187"
+  DTS:VersionGUID="{7BD1AB81-F506-43AB-AA32-2A8EDF347E6F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{C0DA5C54-5280-46C1-B770-020D0BFD956E}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{48A50A22-FF28-4DD9-93EE-B5102FE957E0}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{293C6E99-EEF9-43A4-82B4-8F5FFCF786EF}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SRC2STG</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{06578A6B-6F74-40D9-B8E2-1DD8A11549F3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{96CDD6CD-5A3E-4901-99A6-F566942B83FF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{84FDA0D9-27B4-481B-ACE9-48FB99695B0E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6907DB0-8A9D-4F91-92CB-D87A1A5173B0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9EE05EA2-2FD1-4396-93A6-82B29E3C8372}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7755EA32-56F7-4D3A-9EA6-F35B0868DC81}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CB8BD080-AA22-467C-A3D0-19C95EF85AEE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2BAA7758-6E3D-4F10-8598-0D8F17ECBDAD}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8C6F7F8D-CCF7-4702-A963-36056A17EB44}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7485C24C-8D46-46ED-85AE-47F9321A9BFD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C8BEB400-D760-4C95-8150-B6D9666398BA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{890CFB5E-20D5-4D80-8E39-FFC0139A27E0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Stage_Broadcaster_UDCS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ABDD1ECD-CAFF-4FEB-A2E9-6DC4C8A60EBA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7FA1E10D-2E07-4E77-90C5-60E6AEA8FACB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{807B4AF5-4F8D-44B4-9FBB-E6BA2B2048ED}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1027036F-D20A-4CAC-BB77-C8A209B757B4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48762795-B634-490E-8501-261C74D8CEE1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F142C37C-16C2-453E-A004-A4E6AE062919}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ECD35E5F-5DE8-4E12-94B8-8A5459CC7D2A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Broadcaster_UDCS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F82CEA4-DC63-4DF7-95E7-4AFD2A8DD430}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.Broadcaster_UDCS</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{5500F65B-33D5-4960-8940-228129F95D02}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{25ACC81D-F370-49CE-B0FA-491F728DF156}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Broadcaster UDC Details"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{AD020388-3229-40BF-B8DF-490D3D1149BE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Broadcaster UDC Details"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load Broadcaster UDC Details.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{CBFCD8CB-F8B1-4068-9A15-E599546A6FE6}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{B446E189-4381-4C50-AB4D-B16B0A7D6E00}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load Broadcaster UDC Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{669F21B0-6083-4DC3-A20A-FE5E21E08853}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - Broadcaster_UDCS"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Broadcaster_UDCS"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Connections[IDbConnection]"
+                  connectionManagerID="{933360BD-CAEF-47C7-A196-9587BF3D4A36}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[BRO_TP_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="BRO_TP_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[BRO_TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[BRO_TP_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[DC_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="DC_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[DC_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[DC_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[START_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="START_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[START_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[START_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[END_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="END_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[END_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[END_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[USED_FOR_PURPOSE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="USED_FOR_PURPOSE"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[USED_FOR_PURPOSE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[USED_FOR_PURPOSE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[PERFORMANCE_START_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PERFORMANCE_START_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_START_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[PERFORMANCE_START_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[PERFORMANCE_END_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PERFORMANCE_END_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_END_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[PERFORMANCE_END_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[BND_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="BND_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[BND_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[BND_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[MBRG_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="MBRG_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[MBRG_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[MBRG_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[BRO_TP_SURR_ID]"
+                      dataType="numeric"
+                      name="BRO_TP_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[DC_SURR_ID]"
+                      dataType="numeric"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[USED_FOR_PURPOSE]"
+                      dataType="wstr"
+                      length="1"
+                      name="USED_FOR_PURPOSE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[BND_SURR_ID]"
+                      dataType="numeric"
+                      name="BND_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[MBRG_SURR_ID]"
+                      dataType="numeric"
+                      name="MBRG_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="REP - Broadcaster_UDCS"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+  bro_tp_surr_id,
+  dc_surr_id,
+  start_date,
+  end_date,
+  used_for_purpose,
+  performance_start_date,
+  performance_end_date,
+  bnd_surr_id,
+  mbrg_surr_id
+from prblk.broadcaster_udcs</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Connections[OleDbConnection]"
+                  connectionManagerID="{353B4A9F-28E4-46BA-B1B6-AD161434E9DD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[REPConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[BRO_TP_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[BRO_TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[BRO_TP_SURR_ID]"
+                      name="BRO_TP_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[DC_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[DC_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[DC_SURR_ID]"
+                      name="DC_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[START_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[START_DATE]"
+                      name="START_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[END_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[END_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[END_DATE]"
+                      name="END_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[USED_FOR_PURPOSE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[USED_FOR_PURPOSE]"
+                      length="1"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[USED_FOR_PURPOSE]"
+                      name="USED_FOR_PURPOSE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_START_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[PERFORMANCE_START_DATE]"
+                      name="PERFORMANCE_START_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_END_DATE]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[PERFORMANCE_END_DATE]"
+                      name="PERFORMANCE_END_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[BND_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[BND_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[BND_SURR_ID]"
+                      name="BND_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[MBRG_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[MBRG_SURR_ID]"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].Columns[MBRG_SURR_ID]"
+                      name="MBRG_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[BRO_TP_SURR_ID]"
+                      dataType="numeric"
+                      name="BRO_TP_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[DC_SURR_ID]"
+                      dataType="numeric"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[USED_FOR_PURPOSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="USED_FOR_PURPOSE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[BND_SURR_ID]"
+                      dataType="numeric"
+                      name="BND_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output].ExternalColumns[MBRG_SURR_ID]"
+                      dataType="numeric"
+                      name="MBRG_SURR_ID"
+                      precision="12" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[BRO_TP_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[BRO_TP_SURR_ID]"
+                      name="BRO_TP_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[DC_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[DC_SURR_ID]"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[START_DATE]"
+                      name="START_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[END_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[END_DATE]"
+                      name="END_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[USED_FOR_PURPOSE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[USED_FOR_PURPOSE]"
+                      name="USED_FOR_PURPOSE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_START_DATE]"
+                      name="PERFORMANCE_START_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_END_DATE]"
+                      name="PERFORMANCE_END_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[BND_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[BND_SURR_ID]"
+                      name="BND_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[MBRG_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[MBRG_SURR_ID]"
+                      name="MBRG_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Broadcaster UDC Details.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Broadcaster UDC Details.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CA977468-3AD8-4726-A02C-EBD5550746A0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D13571EE-9BFD-4DAC-9480-FB6E0275893A}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CD2F485F-52DA-44D3-8262-5E4E93AF53B0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{933360BD-CAEF-47C7-A196-9587BF3D4A36}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Staging].[Broadcaster_UDCS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{16A1DCAA-89AE-4945-B38D-20ED53EC4E5F}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment != &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{C954098C-B45A-4F60-A9A2-26F8A21D98FB}"
+      DTS:From="Package\DFT - Load Broadcaster UDC Details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{822EF5AD-CECB-43DC-937D-CE2143E9082D}"
+      DTS:From="Package\SQL - Truncate Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Broadcaster UDC Details" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{18E5DB49-148E-4CA0-8847-9E86E6301C7B}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{B17DF672-028E-4BC4-BE76-65025D5DC383}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment == &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{9557ECD4-1106-4CD1-BDAB-BFF67C47A3B3}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{6D88CD81-7875-4796-A456-732F0C257FDF}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{DBDB70F8-BF5F-4496-89E5-84846BDB8E6C}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DFT - Load Broadcaster UDC Details"
+          TopLeft="197.25,324.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - Truncate Staging Table"
+          TopLeft="198.25,238.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.375,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="324.5,366.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.583333333333"
+              Start="0,0"
+              End="0,39.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="324,280.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.583333333334"
+              Start="0,0"
+              End="0,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.375,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.333333333333"
+              Start="0,0"
+              End="0,36.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="367.25,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,120.583333333333"
+              Start="0,0"
+              End="0,113.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,48.5416666666665,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Staging data from REP to MDSIntegration DB"
+          ParentId="Package"
+          Size="338,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load Broadcaster UDC Details">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS"
+          TopLeft="332,138" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load Broadcaster UDC Details\DC - Add Integration Metadata"
+          TopLeft="318,247" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS"
+          TopLeft="332,345" />
+        <EdgeLayout
+          Id="Package\DFT - Load Broadcaster UDC Details.Paths[OLE DB Source Output]"
+          TopLeft="430,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Broadcaster UDC Details.Paths[Derived Column Output]"
+          TopLeft="430.75,289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load Broadcaster UDC Details.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load Broadcaster UDC Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Broadcaster UDC Details\REP - Broadcaster_UDCS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Broadcaster UDC Details\ADO - Broadcaster_UDCS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

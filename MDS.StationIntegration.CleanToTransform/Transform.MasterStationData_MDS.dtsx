@@ -1,0 +1,2836 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{400F982C-C94C-43CA-8BD3-F5E16FE07732}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Transform MasterStationData_MDS"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="235"
+  DTS:VersionGUID="{61B3A145-F4A1-429B-8940-120473F7D84E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{48E94366-4F58-41C1-A541-3519D4E41C78}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{6E85A8D0-2705-423D-9D3A-7E67314A19BA}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{515A04EC-9488-4A56-B122-5E85BF7B5235}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">CLN2TRN</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{50C694F9-001E-4A00-B811-65AB725B113B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{74BAAB5F-B8B6-4815-83CF-F611F9A023C1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{306CC316-D05C-44DB-87CE-0FCFD5CA1368}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DA0FBCCE-3514-4395-826B-47C7D54E74FC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0134A3BD-CA79-46F1-A859-5C3D9C3FD62B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{037BEBCC-C2B9-4317-ACF1-70573D566479}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{18862F4A-E273-417A-8403-73731F8B9650}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{37AFCFF9-DF8A-443E-BBFB-733154A162F7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{875EB0EB-7AAF-4A31-B1A4-B501AD364BAA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10720EB8-B836-44C0-8BDC-61AF76BFB49A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D7B24A20-9489-4336-99E1-EA1F5B75225C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A2715B9A-50EE-40D3-87DF-780884C8BC79}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">MasterStationData</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2B7040A0-09A7-4AE5-B8DC-0EB7109C5AAB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AED5CDBD-D9DD-4F03-961A-F5F6140E61CB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A60990B-2473-460B-BA72-A0023A66ADE0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BADEF99A-DA53-4321-9271-BCB4F446C33C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B25EAC3C-2945-4FAE-AE50-18A67124A581}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F9D4188-20CD-44FF-AB3C-A3330A6F7250}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A630A9F2-B9C1-4BC6-8E8E-6FC304D62818}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">MasterStationData</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97E7D1BB-A2C3-4CA2-A720-238A41280630}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Transform.MasterStationData</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{06FAF0B9-121B-413D-8D9C-D706FBE6DFEE}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{88477900-D698-4ECA-874C-B1848B2176E3}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load   MasterSationData Details"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2262A2D3-C91A-491F-803D-CD3FDCC2DD6A}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load   MasterSationData Details"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load   MasterSationData Details.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{2B10C803-89E5-4F53-AD37-18BAE9E0B837}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{567457E8-4497-4591-A735-2C99D39E07FC}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load   MasterSationData Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{5604B864-B8C4-415B-9DE6-F35D25981B13}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET MasterStation Data"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"mdm"."Master_v_MasterStation"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Connections[IDbConnection]"
+                  connectionManagerID="{B078DBBF-F5AD-4E8A-87C5-3CEAE1D0A31B}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSADO]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MUID]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MUID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MUID]"
+                      name="MUID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[VersionName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[VersionName]"
+                      length="50"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[VersionName]"
+                      name="VersionName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[VersionNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[VersionNumber]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[VersionNumber]"
+                      name="VersionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Version_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[Version_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Version_ID]"
+                      name="Version_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[VersionFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[VersionFlag]"
+                      length="50"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[VersionFlag]"
+                      name="VersionFlag"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Code]"
+                      name="Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ChangeTrackingMask]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ChangeTrackingMask]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ChangeTrackingMask]"
+                      name="ChangeTrackingMask"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[DistributionGroup_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[DistributionGroup_Code]"
+                      name="DistributionGroup_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[DistributionGroup_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[DistributionGroup_Name]"
+                      name="DistributionGroup_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[DistributionGroup_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[DistributionGroup_ID]"
+                      name="DistributionGroup_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LicencedStatus_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_Code]"
+                      name="LicencedStatus_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LicencedStatus_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_Name]"
+                      name="LicencedStatus_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LicencedStatus_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_ID]"
+                      name="LicencedStatus_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ExcludeFromFPV_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ExcludeFromFPV_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ExcludeFromFPV_Code]"
+                      name="ExcludeFromFPV_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ExcludeFromFPV_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ExcludeFromFPV_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ExcludeFromFPV_Name]"
+                      name="ExcludeFromFPV_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ExcludeFromFPV_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ExcludeFromFPV_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ExcludeFromFPV_ID]"
+                      name="ExcludeFromFPV_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_Code]"
+                      name="CodaCustomerCode_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_Name]"
+                      name="CodaCustomerCode_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_ID]"
+                      name="CodaCustomerCode_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RightType_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_Code]"
+                      name="RightType_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RightType_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_Name]"
+                      name="RightType_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RightType_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_ID]"
+                      name="RightType_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicy_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_Code]"
+                      name="AudioPolicy_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicy_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_Name]"
+                      name="AudioPolicy_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicy_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_ID]"
+                      name="AudioPolicy_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicyCommercial_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_Code]"
+                      name="AudioPolicyCommercial_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicyCommercial_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_Name]"
+                      name="AudioPolicyCommercial_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicyCommercial_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_ID]"
+                      name="AudioPolicyCommercial_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[StationAdminRate_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[StationAdminRate_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[StationAdminRate_Code]"
+                      name="StationAdminRate_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[StationAdminRate_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[StationAdminRate_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[StationAdminRate_Name]"
+                      name="StationAdminRate_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[StationAdminRate_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[StationAdminRate_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[StationAdminRate_ID]"
+                      name="StationAdminRate_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PublicReceptionAdminRate_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PublicReceptionAdminRate_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PublicReceptionAdminRate_Code]"
+                      name="PublicReceptionAdminRate_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PublicReceptionAdminRate_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PublicReceptionAdminRate_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PublicReceptionAdminRate_Name]"
+                      name="PublicReceptionAdminRate_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PublicReceptionAdminRate_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PublicReceptionAdminRate_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PublicReceptionAdminRate_ID]"
+                      name="PublicReceptionAdminRate_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PRSHedgedRate_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PRSHedgedRate_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PRSHedgedRate_Code]"
+                      name="PRSHedgedRate_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PRSHedgedRate_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PRSHedgedRate_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PRSHedgedRate_Name]"
+                      name="PRSHedgedRate_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PRSHedgedRate_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PRSHedgedRate_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[PRSHedgedRate_ID]"
+                      name="PRSHedgedRate_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CommercialSampleDays]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CommercialSampleDays]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CommercialSampleDays]"
+                      name="CommercialSampleDays"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[NonCommercialSampleDays]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[NonCommercialSampleDays]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[NonCommercialSampleDays]"
+                      name="NonCommercialSampleDays"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MCPSHedgedRate_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MCPSHedgedRate_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MCPSHedgedRate_Code]"
+                      name="MCPSHedgedRate_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MCPSHedgedRate_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MCPSHedgedRate_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MCPSHedgedRate_Name]"
+                      name="MCPSHedgedRate_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MCPSHedgedRate_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MCPSHedgedRate_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MCPSHedgedRate_ID]"
+                      name="MCPSHedgedRate_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[TotalSampleDays]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[TotalSampleDays]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[TotalSampleDays]"
+                      name="TotalSampleDays"
+                      precision="38"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MinimumFee]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MinimumFee]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[MinimumFee]"
+                      name="MinimumFee"
+                      precision="38"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalWeightingMCPS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalWeightingMCPS]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalWeightingMCPS]"
+                      name="RegionalWeightingMCPS"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalParentStationId_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalParentStationId_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalParentStationId_Code]"
+                      name="RegionalParentStationId_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalParentStationId_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalParentStationId_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalParentStationId_Name]"
+                      name="RegionalParentStationId_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalParentStationId_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalParentStationId_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalParentStationId_ID]"
+                      name="RegionalParentStationId_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalWeightingPRS]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalWeightingPRS]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RegionalWeightingPRS]"
+                      name="RegionalWeightingPRS"
+                      precision="38"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[BR3Licence_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[BR3Licence_Code]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[BR3Licence_Code]"
+                      name="BR3Licence_Code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[BR3Licence_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[BR3Licence_Name]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[BR3Licence_Name]"
+                      name="BR3Licence_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[BR3Licence_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[BR3Licence_ID]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[BR3Licence_ID]"
+                      name="BR3Licence_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[EnterDateTime]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[EnterDateTime]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[EnterDateTime]"
+                      name="EnterDateTime"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[EnterUserName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[EnterUserName]"
+                      length="100"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[EnterUserName]"
+                      name="EnterUserName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[EnterVersionNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[EnterVersionNumber]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[EnterVersionNumber]"
+                      name="EnterVersionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LastChgDateTime]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LastChgDateTime]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LastChgDateTime]"
+                      name="LastChgDateTime"
+                      scale="3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LastChgUserName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LastChgUserName]"
+                      length="100"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LastChgUserName]"
+                      name="LastChgUserName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LastChgVersionNumber]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LastChgVersionNumber]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LastChgVersionNumber]"
+                      name="LastChgVersionNumber"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ValidationStatus]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ValidationStatus]"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ValidationStatus]"
+                      name="ValidationStatus"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MUID]"
+                      dataType="guid"
+                      name="MUID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[VersionName]"
+                      dataType="wstr"
+                      length="50"
+                      name="VersionName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[VersionNumber]"
+                      dataType="i4"
+                      name="VersionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[Version_ID]"
+                      dataType="i4"
+                      name="Version_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[VersionFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="VersionFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ChangeTrackingMask]"
+                      dataType="i4"
+                      name="ChangeTrackingMask" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="DistributionGroup_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="DistributionGroup_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[DistributionGroup_ID]"
+                      dataType="i4"
+                      name="DistributionGroup_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LicencedStatus_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="LicencedStatus_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LicencedStatus_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="LicencedStatus_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LicencedStatus_ID]"
+                      dataType="i4"
+                      name="LicencedStatus_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ExcludeFromFPV_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="ExcludeFromFPV_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ExcludeFromFPV_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="ExcludeFromFPV_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ExcludeFromFPV_ID]"
+                      dataType="i4"
+                      name="ExcludeFromFPV_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="CodaCustomerCode_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="CodaCustomerCode_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CodaCustomerCode_ID]"
+                      dataType="i4"
+                      name="CodaCustomerCode_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RightType_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="RightType_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RightType_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="RightType_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RightType_ID]"
+                      dataType="i4"
+                      name="RightType_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicy_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="AudioPolicy_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicy_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="AudioPolicy_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicy_ID]"
+                      dataType="i4"
+                      name="AudioPolicy_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicyCommercial_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="AudioPolicyCommercial_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicyCommercial_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="AudioPolicyCommercial_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[AudioPolicyCommercial_ID]"
+                      dataType="i4"
+                      name="AudioPolicyCommercial_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[StationAdminRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="StationAdminRate_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[StationAdminRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="StationAdminRate_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[StationAdminRate_ID]"
+                      dataType="i4"
+                      name="StationAdminRate_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PublicReceptionAdminRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="PublicReceptionAdminRate_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PublicReceptionAdminRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="PublicReceptionAdminRate_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PublicReceptionAdminRate_ID]"
+                      dataType="i4"
+                      name="PublicReceptionAdminRate_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PRSHedgedRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="PRSHedgedRate_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PRSHedgedRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="PRSHedgedRate_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[PRSHedgedRate_ID]"
+                      dataType="i4"
+                      name="PRSHedgedRate_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[CommercialSampleDays]"
+                      dataType="numeric"
+                      name="CommercialSampleDays"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[NonCommercialSampleDays]"
+                      dataType="numeric"
+                      name="NonCommercialSampleDays"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MCPSHedgedRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="MCPSHedgedRate_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MCPSHedgedRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="MCPSHedgedRate_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MCPSHedgedRate_ID]"
+                      dataType="i4"
+                      name="MCPSHedgedRate_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[TotalSampleDays]"
+                      dataType="numeric"
+                      name="TotalSampleDays"
+                      precision="38" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[MinimumFee]"
+                      dataType="numeric"
+                      name="MinimumFee"
+                      precision="38"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalWeightingMCPS]"
+                      dataType="numeric"
+                      name="RegionalWeightingMCPS"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalParentStationId_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="RegionalParentStationId_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalParentStationId_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="RegionalParentStationId_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalParentStationId_ID]"
+                      dataType="i4"
+                      name="RegionalParentStationId_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[RegionalWeightingPRS]"
+                      dataType="numeric"
+                      name="RegionalWeightingPRS"
+                      precision="38"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[BR3Licence_Code]"
+                      dataType="wstr"
+                      length="250"
+                      name="BR3Licence_Code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[BR3Licence_Name]"
+                      dataType="wstr"
+                      length="250"
+                      name="BR3Licence_Name" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[BR3Licence_ID]"
+                      dataType="i4"
+                      name="BR3Licence_ID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[EnterDateTime]"
+                      dataType="dbTimeStamp2"
+                      name="EnterDateTime"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[EnterUserName]"
+                      dataType="wstr"
+                      length="100"
+                      name="EnterUserName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[EnterVersionNumber]"
+                      dataType="i4"
+                      name="EnterVersionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LastChgDateTime]"
+                      dataType="dbTimeStamp2"
+                      name="LastChgDateTime"
+                      scale="3" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LastChgUserName]"
+                      dataType="wstr"
+                      length="100"
+                      name="LastChgUserName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[LastChgVersionNumber]"
+                      dataType="i4"
+                      name="LastChgVersionNumber" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].ExternalColumns[ValidationStatus]"
+                      dataType="wstr"
+                      length="250"
+                      name="ValidationStatus" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MUID]"
+                      dataType="guid"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MUID]"
+                      name="MUID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[VersionName]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[VersionName]"
+                      name="VersionName" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[VersionNumber]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[VersionNumber]"
+                      name="VersionNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[Version_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[Version_ID]"
+                      name="Version_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[VersionFlag]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[VersionFlag]"
+                      name="VersionFlag" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[Code]"
+                      name="Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ChangeTrackingMask]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ChangeTrackingMask]"
+                      name="ChangeTrackingMask" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[DistributionGroup_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[DistributionGroup_Code]"
+                      name="DistributionGroup_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[DistributionGroup_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[DistributionGroup_Name]"
+                      name="DistributionGroup_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[DistributionGroup_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[DistributionGroup_ID]"
+                      name="DistributionGroup_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LicencedStatus_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LicencedStatus_Code]"
+                      name="LicencedStatus_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LicencedStatus_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LicencedStatus_Name]"
+                      name="LicencedStatus_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LicencedStatus_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LicencedStatus_ID]"
+                      name="LicencedStatus_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ExcludeFromFPV_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ExcludeFromFPV_Code]"
+                      name="ExcludeFromFPV_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ExcludeFromFPV_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ExcludeFromFPV_Name]"
+                      name="ExcludeFromFPV_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ExcludeFromFPV_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ExcludeFromFPV_ID]"
+                      name="ExcludeFromFPV_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode_Code]"
+                      name="CodaCustomerCode_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode_Name]"
+                      name="CodaCustomerCode_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CodaCustomerCode_ID]"
+                      name="CodaCustomerCode_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RightType_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RightType_Code]"
+                      name="RightType_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RightType_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RightType_Name]"
+                      name="RightType_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RightType_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RightType_ID]"
+                      name="RightType_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicy_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicy_Code]"
+                      name="AudioPolicy_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicy_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicy_Name]"
+                      name="AudioPolicy_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicy_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicy_ID]"
+                      name="AudioPolicy_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicyCommercial_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicyCommercial_Code]"
+                      name="AudioPolicyCommercial_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicyCommercial_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicyCommercial_Name]"
+                      name="AudioPolicyCommercial_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicyCommercial_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[AudioPolicyCommercial_ID]"
+                      name="AudioPolicyCommercial_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[StationAdminRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[StationAdminRate_Code]"
+                      name="StationAdminRate_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[StationAdminRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[StationAdminRate_Name]"
+                      name="StationAdminRate_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[StationAdminRate_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[StationAdminRate_ID]"
+                      name="StationAdminRate_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PublicReceptionAdminRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PublicReceptionAdminRate_Code]"
+                      name="PublicReceptionAdminRate_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PublicReceptionAdminRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PublicReceptionAdminRate_Name]"
+                      name="PublicReceptionAdminRate_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PublicReceptionAdminRate_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PublicReceptionAdminRate_ID]"
+                      name="PublicReceptionAdminRate_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PRSHedgedRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PRSHedgedRate_Code]"
+                      name="PRSHedgedRate_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PRSHedgedRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PRSHedgedRate_Name]"
+                      name="PRSHedgedRate_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PRSHedgedRate_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[PRSHedgedRate_ID]"
+                      name="PRSHedgedRate_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CommercialSampleDays]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[CommercialSampleDays]"
+                      name="CommercialSampleDays"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[NonCommercialSampleDays]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[NonCommercialSampleDays]"
+                      name="NonCommercialSampleDays"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MCPSHedgedRate_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MCPSHedgedRate_Code]"
+                      name="MCPSHedgedRate_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MCPSHedgedRate_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MCPSHedgedRate_Name]"
+                      name="MCPSHedgedRate_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MCPSHedgedRate_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MCPSHedgedRate_ID]"
+                      name="MCPSHedgedRate_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[TotalSampleDays]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[TotalSampleDays]"
+                      name="TotalSampleDays"
+                      precision="38" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MinimumFee]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[MinimumFee]"
+                      name="MinimumFee"
+                      precision="38"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalWeightingMCPS]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalWeightingMCPS]"
+                      name="RegionalWeightingMCPS"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalParentStationId_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalParentStationId_Code]"
+                      name="RegionalParentStationId_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalParentStationId_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalParentStationId_Name]"
+                      name="RegionalParentStationId_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalParentStationId_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalParentStationId_ID]"
+                      name="RegionalParentStationId_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalWeightingPRS]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[RegionalWeightingPRS]"
+                      name="RegionalWeightingPRS"
+                      precision="38"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[BR3Licence_Code]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[BR3Licence_Code]"
+                      name="BR3Licence_Code" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[BR3Licence_Name]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[BR3Licence_Name]"
+                      name="BR3Licence_Name" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[BR3Licence_ID]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[BR3Licence_ID]"
+                      name="BR3Licence_ID" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[EnterDateTime]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[EnterDateTime]"
+                      name="EnterDateTime"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[EnterUserName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[EnterUserName]"
+                      name="EnterUserName" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[EnterVersionNumber]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[EnterVersionNumber]"
+                      name="EnterVersionNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LastChgDateTime]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LastChgDateTime]"
+                      name="LastChgDateTime"
+                      scale="3" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LastChgUserName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LastChgUserName]"
+                      name="LastChgUserName" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LastChgVersionNumber]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[LastChgVersionNumber]"
+                      name="LastChgVersionNumber" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ValidationStatus]"
+                      dataType="wstr"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ValidationStatus]"
+                      name="ValidationStatus" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Transform Broadcaster"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."Broadcaster"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Connections[IDbConnection]"
+                  connectionManagerID="{150F7D50-F806-437E-9B20-1F7088261E6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="date"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[NewRecordFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="NewRecordFlag"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[NewRecordFlag]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[NewRecordFlag]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterKey]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Code"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterCode]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[Name]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_BroadcasterName]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[RightType_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="RightType_Code"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_RightTypeCode]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[RightType_Code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[AudioPolicy_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="AudioPolicy_Code"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_AudioPolicyMain]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicy_Code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[AudioPolicyCommercial_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="AudioPolicyCommercial_Code"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_AudioPolicyCommercial]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[AudioPolicyCommercial_Code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[CommercialSampleDays]"
+                      cachedDataType="numeric"
+                      cachedName="CommercialSampleDays"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_CommercialSampleDays]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CommercialSampleDays]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[NonCommercialSampleDays]"
+                      cachedDataType="numeric"
+                      cachedName="NonCommercialSampleDays"
+                      cachedPrecision="38"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_MainSampleDays]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[NonCommercialSampleDays]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[LicencedStatus_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="LicencedStatus_Code"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_LicencedStatus]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[LicencedStatus_Code]" />
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].Columns[CodaCustomerCode_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="CodaCustomerCode_Code"
+                      externalMetadataColumnId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_CustomerAccountNo]"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[CodaCustomerCode_Code]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterKey]"
+                      dataType="i8"
+                      name="BroadcasterKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="BroadcasterCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[BroadcasterName]"
+                      dataType="wstr"
+                      length="60"
+                      name="BroadcasterName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[RightTypeCode]"
+                      dataType="wstr"
+                      length="60"
+                      name="RightTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[AudioPolicyMain]"
+                      dataType="wstr"
+                      length="60"
+                      name="AudioPolicyMain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[AudioPolicyCommercial]"
+                      dataType="wstr"
+                      length="60"
+                      name="AudioPolicyCommercial" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MainSampleDays]"
+                      dataType="i4"
+                      name="MainSampleDays" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[CommercialSampleDays]"
+                      dataType="i4"
+                      name="CommercialSampleDays" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[LicencedStatus]"
+                      dataType="wstr"
+                      length="60"
+                      name="LicencedStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[CustomerAccountNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="CustomerAccountNo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[NewRecordFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="NewRecordFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_BroadcasterName]"
+                      dataType="wstr"
+                      length="100"
+                      name="MDS_BroadcasterName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_RightTypeCode]"
+                      dataType="wstr"
+                      length="60"
+                      name="MDS_RightTypeCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_AudioPolicyMain]"
+                      dataType="wstr"
+                      length="60"
+                      name="MDS_AudioPolicyMain" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_AudioPolicyCommercial]"
+                      dataType="wstr"
+                      length="60"
+                      name="MDS_AudioPolicyCommercial" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_MainSampleDays]"
+                      dataType="i4"
+                      name="MDS_MainSampleDays" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_CommercialSampleDays]"
+                      dataType="i4"
+                      name="MDS_CommercialSampleDays" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_LicencedStatus]"
+                      dataType="wstr"
+                      length="60"
+                      name="MDS_LicencedStatus" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[MDS_CustomerAccountNo]"
+                      dataType="wstr"
+                      length="20"
+                      name="MDS_CustomerAccountNo" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input].ExternalColumns[UpdateTimeStamp]"
+                      dataType="dbTimeStamp"
+                      name="UpdateTimeStamp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load   MasterSationData Details\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Inputs[Data Conversion Input].Columns[Code]"
+                      cachedDataType="wstr"
+                      cachedLength="250"
+                      cachedName="Code"
+                      lineageId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Output].Columns[String_Code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="250"
+                      lineageId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Output].Columns[String_Code]"
+                      name="String_Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output].Columns[Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Integration Metadata For New"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DATE)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DATE)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[NewRecordFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[NewRecordFlag]"
+                      name="NewRecordFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"X"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"X"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[Action]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[Action]"
+                      name="Action"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"MDS"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"MDS"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[ParentLoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[ParentLoadId]"
+                      name="ParentLoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load   MasterSationData Details\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT * 
+FROM [Clean].[v_MasterStationData]
+WHERE DataSourceType = 'P'</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT * 
+FROM [Clean].[v_MasterStationData]
+WHERE DataSourceType = 'P') [refTable]
+where [refTable].[BroadcasterCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BroadcasterKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BroadcasterCode" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="BroadcasterName" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DomainName" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MusicReportingGroup" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LicencedStatus" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TerritoryCode" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="RightTypeCode" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DataSource" dataType="DT_STR" length="3" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CustomerAccountNo" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="DataSourceType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Output].Columns[String_Code]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load   MasterSationData Details\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{136B1F55-9BF2-4458-8AE8-37F52D8C0F38}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegrationOle]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load   MasterSationData Details\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Lookup.Inputs[Lookup Input].Columns[String_Code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="250"
+                      cachedName="String_Code"
+                      lineageId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Output].Columns[String_Code]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">BroadcasterCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - Load   MasterSationData Details\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load   MasterSationData Details.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load   MasterSationData Details\Data Conversion.Inputs[Data Conversion Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT - Load   MasterSationData Details.Paths[Data Conversion Output]"
+              endId="Package\DFT - Load   MasterSationData Details\Lookup.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT - Load   MasterSationData Details\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT - Load   MasterSationData Details.Paths[Derived Column Output]"
+              endId="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load   MasterSationData Details.Paths[Lookup No Match Output]"
+              endId="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - Load   MasterSationData Details\Lookup.Outputs[Lookup No Match Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5D76F75E-C01F-4278-8244-89B5AECFE821}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6AD0B3A1-7F89-4884-B329-A0166388F56B}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{009E15AC-69F1-49FF-A7E5-208E178FD42A}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D5278447-AC73-4C5E-BAAF-ED92BBB728D1}"
+      DTS:From="Package\DFT - Load   MasterSationData Details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{950EC864-9810-4F24-B6DB-5F3B5BFA6871}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load   MasterSationData Details" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{A6E42716-99C8-4EFB-9C1A-029B75937439}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{8B1F17AD-D7B5-4470-9A0B-D6B4B4E6811F}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{CAD10BF5-5979-4767-B35D-F9D5926299C0}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="230,312" />
+        <NodeLayout
+          Size="259,42"
+          Id="Package\DFT - Load   MasterSationData Details"
+          TopLeft="198.25,235.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="327.75,277.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="8.75,34.083333333333"
+              Start="0,0"
+              End="8.75,26.583333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0416666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.0416666666665"
+                    Point2="0,17.0416666666665"
+                    Point3="4,17.0416666666665" />
+                  <mssgle:LineSegment
+                    End="4.75,17.0416666666665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.75,17.0416666666665"
+                    Point2="8.75,17.0416666666665"
+                    Point3="8.75,21.0416666666665" />
+                  <mssgle:LineSegment
+                    End="8.75,26.583333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="324.125,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41.916666666667"
+              Start="0,0"
+              End="0,34.416666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.416666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Check&amp;Load  Station Data Created in MDS"
+          ParentId="Package"
+          Size="283,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="190,20">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load   MasterSationData Details">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\DFT - Load   MasterSationData Details\Lookup"
+          TopLeft="346,348" />
+        <NodeLayout
+          Size="234,42"
+          Id="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster"
+          TopLeft="326,544" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT - Load   MasterSationData Details\Data Conversion"
+          TopLeft="364,269" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data"
+          TopLeft="333.5,89" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\DFT - Load   MasterSationData Details\DC - Integration Metadata For New"
+          TopLeft="326,446" />
+        <EdgeLayout
+          Id="Package\DFT - Load   MasterSationData Details.Paths[Lookup No Match Output]"
+          TopLeft="447.75,390">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,18.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load   MasterSationData Details.Paths[Derived Column Output]"
+          TopLeft="445.75,488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load   MasterSationData Details.Paths[Data Conversion Output]"
+          TopLeft="444.5,311">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load   MasterSationData Details.Paths[ADO NET Source Output]"
+          TopLeft="441.75,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,138"
+              Start="0,0"
+              End="0,130.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,130.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Removed Data Source Sync Task"
+          ParentId="Package\DFT - Load   MasterSationData Details"
+          Size="189,37"
+          Id="64036860-5526-41fe-a23c-a8ff47014952"
+          TopLeft="467,168">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Type = 'X'&#xD;&#xA;&#xD;&#xA;Either in MDS  But No Longer REP&#xD;&#xA;or Manually Entered by Users"
+          ParentId="Package\DFT - Load   MasterSationData Details"
+          Size="194,77"
+          Id="23cfae49-8022-4458-a52c-c8d944acc551"
+          TopLeft="585,441">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Color="#FFF1F1F1">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load   MasterSationData Details.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load   MasterSationData Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load   MasterSationData Details\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load   MasterSationData Details\ADO NET MasterStation Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load   MasterSationData Details\ADO NET Transform Broadcaster">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

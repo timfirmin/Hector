@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BISystemADO"
+  DTS:DTSID="{9F2654C4-B0F5-422F-9D19-3DFC3798FA3C}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strBISystemADOConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZP-MS-SQL-D002.database.windows.net;User ID=simon.whiteley@prsformusic.com;Initial Catalog=BISystemDev;Authentication=&quot;Active Directory Password&quot;;Application Name=SSIS-Package-{D0813DD5-BCBB-40FC-B375-BCAE2204B3EC}AZP-MS-SQL-D002.database.windows.net;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAArxBDPDgLykGXNqBCNBZGWQAAAAACAAAAAAADZgAAwAAAABAAAADd6hdqlvfAMEECPZfVFuhnAAAAAASAAACgAAAAEAAAABdNUZGcfuUh8NcjvVL6k/54AAAAnXs0x0Hh/gk0hOHWbupw67MaHObgccUd8SKBVjalLkUMYnKGvY26QMjDIO2XTu1fJ36OCBAH5PyVIXJH5NoPQnMe44zRj9lPUYK32i/wt+v9NByhx2PQhULptBW+RJhIhVRL6H5lQ55E/1GiGO0IAc7a5eXBrZzqFAAAAGBStFckEjC1lKUoWnOsW8p9FWYH</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,485 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>Azure_BI_System</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{eeec2263-0386-4947-ab19-18ba2d309d08}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>Azure_BI_System</RootNamespace>
+    <AssemblyName>Azure_BI_System</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <EnableFullTextSearch>False</EnableFullTextSearch>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <ConcatNullYieldsNull>False</ConcatNullYieldsNull>
+    <AnsiNulls>False</AnsiNulls>
+    <AnsiPadding>False</AnsiPadding>
+    <CompatibilityMode>130</CompatibilityMode>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="OLAPControl\" />
+    <Folder Include="OLAPControl\Tables\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="Audit\" />
+    <Folder Include="Audit\Tables\" />
+    <Folder Include="Test\" />
+    <Folder Include="Test\Tables\" />
+    <Folder Include="Config\" />
+    <Folder Include="Config\Tables\" />
+    <Folder Include="Control\" />
+    <Folder Include="Control\Tables\" />
+    <Folder Include="Monitor\" />
+    <Folder Include="Monitor\Tables\" />
+    <Folder Include="Audit\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="Config\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Audit\Stored Procedures\" />
+    <Folder Include="Config\Stored Procedures\" />
+    <Folder Include="Control\Stored Procedures\" />
+    <Folder Include="OLAPControl\Stored Procedures\" />
+    <Folder Include="Test\Stored Procedures\" />
+    <Folder Include="Security\" />
+    <Folder Include="Audit\Sequences\" />
+    <Folder Include="SSIS\" />
+    <Folder Include="SSIS\Tables\" />
+    <Folder Include="Control\Views" />
+    <Folder Include="Azure\" />
+    <Folder Include="Azure\Tables\" />
+    <Folder Include="Azure\Stored Procedures\" />
+    <Folder Include="Project\" />
+    <Folder Include="Project\Scripts\" />
+    <Folder Include="Project\Scripts\PostDeployment\" />
+    <Folder Include="Secure" />
+    <Folder Include="Secure\Tables" />
+    <Folder Include="Secure\Stored Procedures" />
+    <Folder Include="DataQuality" />
+    <Folder Include="DataQuality\Tables" />
+    <Folder Include="Metadata" />
+    <Folder Include="Metadata\Tables" />
+    <Folder Include="Reporting" />
+    <Folder Include="Reporting\Tables" />
+    <Folder Include="Control\Sequences" />
+    <Folder Include="Control\Functions" />
+    <Folder Include="Metadata\Views" />
+    <Folder Include="DataQuality\Stored Procedures" />
+    <Folder Include="Reporting\Stored Procedures" />
+    <Folder Include="TabularControl" />
+    <Folder Include="TabularControl\Stored Procedures" />
+    <Folder Include="TabularControl\Tables" />
+    <Folder Include="ChartMartControl" />
+    <Folder Include="ChartMartControl\Tables" />
+    <Folder Include="ChartMartControl\Procedures" />
+    <Folder Include="Azure\Views\" />
+    <Folder Include="Notification" />
+    <Folder Include="Notification\Tables" />
+    <Folder Include="Notification\Stored Procedures" />
+    <Folder Include="Notification\View" />
+    <Folder Include="Notification\Functions" />
+    <Folder Include="Notification\PostDeployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="OLAPControl\Tables\MeasureGroup.sql" />
+    <Build Include="OLAPControl\Tables\Dimension.sql" />
+    <Build Include="OLAPControl\Tables\Cube.sql" />
+    <Build Include="OLAPControl\Tables\Database.sql" />
+    <Build Include="OLAPControl\Tables\PartitionDefinition.sql" />
+    <Build Include="OLAPControl\Tables\MeasureGroupDimension.sql" />
+    <Build Include="OLAPControl\Tables\MeasureGroupPartition.sql" />
+    <Build Include="Audit\Tables\ErrorInstanceLog.sql" />
+    <Build Include="Audit\Tables\ErrorLog.sql" />
+    <Build Include="Audit\Tables\ExecutionParameters.sql" />
+    <Build Include="Audit\Tables\ExecutionPath.sql" />
+    <Build Include="Audit\Tables\PackageLoad.sql" />
+    <Build Include="Audit\Tables\RowThroughput.sql" />
+    <Build Include="Audit\Tables\RunLogs.sql" />
+    <Build Include="Audit\Tables\EventFact.sql" />
+    <Build Include="Audit\Tables\ErrorRows.sql" />
+    <Build Include="Audit\Tables\ExecutionLogs.sql" />
+    <Build Include="Audit\Tables\SourceFileProcessStream.sql" />
+    <Build Include="Audit\Tables\DataQuality.sql" />
+    <Build Include="Test\Tables\UnitDataTester.sql" />
+    <Build Include="Config\Tables\Parameter.sql" />
+    <Build Include="Config\Tables\Variable.sql" />
+    <Build Include="Control\Tables\NotificationType.sql" />
+    <Build Include="Test\Tables\ValidationSource.sql" />
+    <Build Include="Control\Tables\Notification.sql" />
+    <Build Include="Test\Tables\ValidationType.sql" />
+    <Build Include="Control\Tables\DistributionGroupUser.sql" />
+    <Build Include="Test\Tables\ValidationTestExecution.sql" />
+    <Build Include="Test\Tables\ValidationTest.sql" />
+    <Build Include="Control\Tables\DistributionGroup.sql" />
+    <Build Include="Control\Tables\EventActionType.sql" />
+    <Build Include="Control\Tables\SourceFileType.sql" />
+    <Build Include="Monitor\Tables\FactCounters.sql" />
+    <Build Include="Control\Tables\FileTypeGroup.sql" />
+    <Build Include="Monitor\Tables\DimTime.sql" />
+    <Build Include="Monitor\Tables\DimEnvironment.sql" />
+    <Build Include="Control\Tables\FileExtensionType.sql" />
+    <Build Include="Monitor\Tables\DimCounters.sql" />
+    <Build Include="Control\Tables\Status.sql" />
+    <Build Include="Control\Tables\SourceFile.sql" />
+    <Build Include="Control\Tables\Entity.sql" />
+    <Build Include="Control\Tables\ProcessStream.sql" />
+    <Build Include="Control\Tables\EntityProcessStream.sql" />
+    <Build Include="Control\Tables\LoadStatusType.sql" />
+    <Build Include="Control\Tables\PartitionLoad.sql" />
+    <Build Include="Control\Tables\Users.sql" />
+    <Build Include="Control\Tables\EntityType.sql" />
+    <Build Include="Control\Tables\RuleSetObject.sql" />
+    <Build Include="Control\Tables\RuleType.sql" />
+    <Build Include="Control\Tables\NotificationSeverity.sql" />
+    <Build Include="Control\Tables\NotificationStatus.sql" />
+    <Build Include="Control\Tables\SourceFileTypeIdentification.sql" />
+    <Build Include="Control\Tables\NotificationDistibutionConfig.sql" />
+    <Build Include="Control\Tables\CleanseRule.sql" />
+    <Build Include="Control\Tables\PatternMatchType.sql" />
+    <Build Include="Control\Tables\CleanseRuleType.sql" />
+    <Build Include="Control\Tables\DataQualityRuleType.sql" />
+    <Build Include="Control\Tables\DataQualityRule.sql" />
+    <Build Include="Control\Tables\RuleSet.sql" />
+    <Build Include="Control\Tables\IncrementalLoad.sql" />
+    <Build Include="Control\Tables\NotificationProcessTypes.sql" />
+    <Build Include="Control\Tables\NotificationSubscribers.sql" />
+    <Build Include="Control\Tables\NotificationEmailMessageFormats.sql" />
+    <Build Include="Control\Tables\NotificationMessageType.sql" />
+    <Build Include="Control\Tables\NotificationGroupMembers.sql" />
+    <Build Include="Control\Tables\NotificationGroups.sql" />
+    <Build Include="Audit\Views\vPackageLoadThroughput.sql" />
+    <Build Include="dbo\Functions\GenerateVarchar.sql" />
+    <Build Include="dbo\Functions\SplitCSV.sql" />
+    <Build Include="Config\Functions\ObtainVariable.sql" />
+    <Build Include="Audit\Stored Procedures\ObtainErrorLogId.sql" />
+    <Build Include="Audit\Stored Procedures\InsertRowThroughput.sql" />
+    <Build Include="Audit\Stored Procedures\ObtainLatestLoadDate.sql" />
+    <Build Include="Audit\Stored Procedures\UpdateSourceFileProcessStream.sql" />
+    <Build Include="Audit\Stored Procedures\InsertSourceFileProcessStream.sql" />
+    <Build Include="Config\Stored Procedures\AddVariable.sql" />
+    <Build Include="Control\Stored Procedures\AttachSourceDatabase.sql" />
+    <Build Include="Control\Stored Procedures\ObtainEntityId.sql" />
+    <Build Include="Control\Stored Procedures\ObtainEntityIdForFile.sql" />
+    <Build Include="Control\Stored Procedures\ObtainNewLoadId.sql" />
+    <Build Include="Control\Stored Procedures\UpdatePackageLoad.sql" />
+    <Build Include="Control\Stored Procedures\UpdatePartitionLog.sql" />
+    <Build Include="Control\Stored Procedures\UpdateSourceFile.sql" />
+    <Build Include="Control\Stored Procedures\VerifyPackageLoadStatus.sql" />
+    <Build Include="Control\Stored Procedures\InsertEntityProcessStream.sql" />
+    <Build Include="Control\Stored Procedures\ObtainUnprocessedSourceFiles.sql" />
+    <Build Include="Control\Stored Procedures\NotificationSave.sql" />
+    <Build Include="Control\Stored Procedures\UpdateNotificationProcessStatus.sql" />
+    <Build Include="Control\Stored Procedures\GetNotificationMessageTemplate.sql" />
+    <Build Include="Control\Stored Procedures\GetEmailAddressForNotificationSeverity.sql" />
+    <Build Include="Control\Stored Procedures\GetActiveNotificationsToProcess.sql" />
+    <Build Include="Control\Stored Procedures\StartIncrementalLoad.sql" />
+    <Build Include="Control\Stored Procedures\RollbackIncrementalLoad.sql" />
+    <Build Include="Control\Stored Procedures\CompleteIncrementalLoad.sql" />
+    <Build Include="OLAPControl\Stored Procedures\ResetDirtyPartitions.sql" />
+    <Build Include="OLAPControl\Stored Procedures\ObtainMGDimensionsToProcess.sql" />
+    <Build Include="OLAPControl\Stored Procedures\ObtainMGPartitionsToProcess.sql" />
+    <Build Include="Test\Stored Procedures\ObtainValidationTests.sql" />
+    <Build Include="Test\Stored Procedures\InsertValidationTestExecution.sql" />
+    <Build Include="Audit\Sequences\seqErrorLogId.sql" />
+    <Build Include="SSIS\Tables\projects.sql" />
+    <Build Include="SSIS\Tables\packages.sql" />
+    <Build Include="SSIS\Tables\execution_parameter_values.sql" />
+    <Build Include="SSIS\Tables\environments.sql" />
+    <Build Include="SSIS\Tables\event_messages.sql" />
+    <Build Include="Control\Tables\BatchControl.sql" />
+    <Build Include="Control\Views\vLoadProcessStream.sql" />
+    <Build Include="Control\Stored Procedures\InsertBatchControl.sql" />
+    <Build Include="Audit\Views\vProject.sql" />
+    <Build Include="Audit\Views\vPackage.sql" />
+    <Build Include="Audit\Views\vExecutionParameterValues.sql" />
+    <Build Include="Audit\Views\vEnvironment.sql" />
+    <Build Include="Audit\Views\vAuditLog.sql" />
+    <Build Include="Control\Stored Procedures\VerifyPackageExecution.sql" />
+    <Build Include="Control\Stored Procedures\ObtainEntityUploadDetails.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.ProcessStream.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.SourceFileType.Populate.sql" />
+    <Build Include="Secure\Tables\Configurations.sql" />
+    <Build Include="Secure\Stored Procedures\GetBlobConnectionString.sql" />
+    <Build Include="Secure\Stored Procedures\SetBlobConfiguration.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.LoadStatusType.Populate.sql" />
+    <Build Include="Control\Tables\Application.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.Application.Populate.sql" />
+    <Build Include="Secure\Stored Procedures\GetBlobConnectionKey.sql" />
+    <Build Include="Control\Stored Procedures\ObtainBlobContainers.sql" />
+    <Build Include="Control\Stored Procedures\ObtainDistributionsReadyToProcess.sql" />
+    <Build Include="Control\Stored Procedures\InsertSourceFile.sql" />
+    <Build Include="Control\Stored Procedures\ObtainSourceFileId.sql" />
+    <Build Include="Control\Stored Procedures\WaitGlobalProcessPackageCompletion.sql" />
+    <Build Include="Control\Stored Procedures\CheckSourceFilesIfStagedInClean.sql" />
+    <Build Include="Audit\Stored Procedures\CompareSTG2CLNRowCounts.sql" />
+    <None Include="Project\Scripts\PostDeployment\Config.Parameter.Populate.sql" />
+    <Build Include="Security\Audit.sql" />
+    <Build Include="Security\Azure.sql" />
+    <Build Include="Security\AzureLoggingAgent.sql" />
+    <Build Include="Security\Config.sql" />
+    <Build Include="Security\Control.sql" />
+    <Build Include="Security\DataRollback.sql" />
+    <Build Include="Security\db_azure_logging_agent.sql" />
+    <Build Include="Security\db_subscribed_application.sql" />
+    <Build Include="Security\db_validation_agent.sql" />
+    <Build Include="Security\Metadata.sql" />
+    <Build Include="Security\Monitor.sql" />
+    <Build Include="Security\OLAPControl.sql" />
+    <Build Include="Security\PRSBIDevValidation.sql" />
+    <Build Include="Security\Reporting.sql" />
+    <Build Include="Security\ROLE-BICENTRE-DEVELOPER.sql" />
+    <Build Include="Security\ROLE-BICENTRE-DEVELOPER-ADMIN.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\Secure.sql" />
+    <Build Include="Security\SSIS.sql" />
+    <Build Include="Security\Test.sql" />
+    <Build Include="Control\Stored Procedures\VerifyIfPackageAlreadyRun.sql" />
+    <Build Include="Control\Stored Procedures\ObtainEntityTypesForBlobUpload.sql" />
+    <Build Include="Control\Stored Procedures\DeleteEntityProcessStream.sql" />
+    <Build Include="Control\Stored Procedures\ObtainPRBISourceFileId.sql" />
+    <Build Include="Control\Stored Procedures\ObtainSourceFiles.sql" />
+    <Build Include="Control\Stored Procedures\ObtainSourceFileIdForProcess.sql" />
+    <Build Include="Control\Stored Procedures\ObtainSourceFileIdForBlobUpload.sql" />
+    <Build Include="Control\Stored Procedures\ObtainDistributionCodeFromSourceFile.sql" />
+    <Build Include="Control\Stored Procedures\ObtainSourceEntityTypes.sql" />
+    <Build Include="Security\DataQuality.sql" />
+    <Build Include="DataQuality\Tables\DataIntegrityType.sql" />
+    <Build Include="DataQuality\Tables\Screen.sql" />
+    <Build Include="DataQuality\Tables\ScreenSeverity.sql" />
+    <Build Include="DataQuality\Tables\StandardisedRule.sql" />
+    <Build Include="DataQuality\Tables\HarmoniseRule.sql" />
+    <Build Include="Metadata\Tables\Object.sql" />
+    <Build Include="Metadata\Tables\ObjectAttribute.sql" />
+    <Build Include="Metadata\Tables\ObjectIdentifier.sql" />
+    <Build Include="Metadata\Tables\ObjectRelationship.sql" />
+    <Build Include="Metadata\Tables\ObjectType.sql" />
+    <Build Include="Metadata\Tables\RelationshipType.sql" />
+    <Build Include="Metadata\Tables\Source.sql" />
+    <Build Include="OLAPControl\Tables\OlapQueryLogArchive.sql" />
+    <Build Include="Reporting\Tables\Date.sql" />
+    <Build Include="Reporting\Tables\ExecutionLogs.sql" />
+    <Build Include="Reporting\Tables\ExecutionParameters.sql" />
+    <Build Include="Reporting\Tables\ExecutionPath.sql" />
+    <Build Include="Reporting\Tables\FormatTypes.sql" />
+    <Build Include="Reporting\Tables\Machines.sql" />
+    <Build Include="Reporting\Tables\ReportActions.sql" />
+    <Build Include="Reporting\Tables\Reports.sql" />
+    <Build Include="Reporting\Tables\ReportTypes.sql" />
+    <Build Include="Reporting\Tables\RequestTypes.sql" />
+    <Build Include="Reporting\Tables\SourceTypes.sql" />
+    <Build Include="Reporting\Tables\StatusCodes.sql" />
+    <Build Include="Reporting\Tables\Users.sql" />
+    <Build Include="Control\Sequences\PartitionKey.sql" />
+    <Build Include="Control\Functions\SplitCSV.sql" />
+    <Build Include="Metadata\Views\vDatabaseStructure.sql" />
+    <Build Include="Metadata\Views\vFileStructure.sql" />
+    <Build Include="Metadata\Views\vwExecutionLog.sql" />
+    <Build Include="Metadata\Views\vwExecutionLogWithParameters.sql" />
+    <Build Include="DataQuality\Stored Procedures\ObtainScreens.sql" />
+    <Build Include="DataQuality\Stored Procedures\GetFeedTableDetails.sql" />
+    <Build Include="DataQuality\Stored Procedures\GetFeedTableColumnDetails.sql" />
+    <Build Include="DataQuality\Stored Procedures\ObtainStandardiseRules.sql" />
+    <Build Include="DataQuality\Stored Procedures\ObtainHarmoniseRules.sql" />
+    <Build Include="Control\Stored Procedures\CreateViewForStage.sql" />
+    <Build Include="Control\Stored Procedures\GetSourceFileFromEntity.sql" />
+    <Build Include="Control\Stored Procedures\ObtainBulkEntityId.sql" />
+    <Build Include="Control\Stored Procedures\ObtainFilesToUnload.sql" />
+    <Build Include="Control\Stored Procedures\ObtainFilesToUnloadDataRetention.sql" />
+    <Build Include="Control\Stored Procedures\PartitionManagementReplicateIndexes.sql" />
+    <Build Include="Control\Stored Procedures\PartitionManagementSetMOLAPPartitions.sql" />
+    <Build Include="OLAPControl\Stored Procedures\SetCubeProcessStatus.sql" />
+    <Build Include="Control\Stored Procedures\ProcessSourceFile.sql" />
+    <Build Include="Control\Stored Procedures\ObtainChangedPartitionKeys.sql" />
+    <Build Include="Control\Stored Procedures\ObtainActivePartitionKeys.sql" />
+    <None Include="Project\Scripts\PostDeployment\Azure.Component.Populate.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainLoadProcessData.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainDataThroughputData.sql" />
+    <Build Include="Reporting\Stored Procedures\ObtainPackageLoadSummary.sql" />
+    <None Include="Project\Scripts\PostDeployment\Azure.Process.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Azure.ProcessComponent.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.EntityType.Populate.sql" />
+    <Build Include="SSIS\Tables\executions.sql" />
+    <Build Include="SSIS\Tables\Folders.sql" />
+    <None Include="Project\Scripts\PostDeployment\OLAPControl.Cube.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\OLAPControl.Database.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.EventActionType.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Control.FileExtensionType.Populate.sql" />
+    <Build Include="Secure\Stored Procedures\Secure.InsertDataLakeStoreConfiguration.sql" />
+    <Build Include="Secure\Stored Procedures\Secure.GetDataLakeStoreConfiguration.sql" />
+    <Build Include="Secure\Tables\DataLakeStoreConfiguration.sql" />
+    <Build Include="Control\Stored Procedures\AssignPartitionKey.sql" />
+    <Build Include="Security\TabularControl.sql" />
+    <Build Include="TabularControl\Tables\Database.sql" />
+    <Build Include="TabularControl\Tables\ModelTable.sql" />
+    <Build Include="TabularControl\Tables\ModelTablePartition.sql" />
+    <Build Include="TabularControl\Tables\ProcessLevel.sql" />
+    <Build Include="TabularControl\Tables\ProcessStatus.sql" />
+    <None Include="Project\Scripts\PostDeployment\TabularControl.Database.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\TabularControl.ModelTable.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\TabularControl.ModelTablePartition.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\TabularControl.ProcessStatus.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\TabularControl.ProcessLevel.Populate.sql" />
+    <Build Include="TabularControl\Stored Procedures\ObtainPartitionsByStatus.sql" />
+    <Build Include="TabularControl\Stored Procedures\SetPartitionStatus.sql" />
+    <Build Include="TabularControl\Stored Procedures\ObtainDirtyPartitionsToProcess.sql" />
+    <Build Include="TabularControl\Stored Procedures\ObtainDatabaseTables.sql" />
+    <Build Include="Control\Stored Procedures\ClearSourceFileBySource.sql" />
+    <Build Include="Control\Stored Procedures\ResetSourceFileByName.sql" />
+    <Build Include="TabularControl\Stored Procedures\ObtainDataSourceName.sql" />
+    <Build Include="TabularControl\Stored Procedures\ObtainDatabaseTablesByProcessLevel.sql" />
+    <Build Include="TabularControl\Stored Procedures\ObtainDatabaseTablesToProcess.sql" />
+    <Build Include="ChartMartControl\Tables\ChartMartControl.Country.sql" />
+    <Build Include="Security\ChartMartControl.sql" />
+    <None Include="Project\Scripts\PostDeployment\ChartMartControl.SpotifyCountry.Populate.sql" />
+    <Build Include="ChartMartControl\Procedures\ChartMartControl.ObtainCountries.sql" />
+    <Build Include="Control\Stored Procedures\SourceFileIdToLoad.sql" />
+    <Build Include="Control\Stored Procedures\ObtainBlobContainersWnames.sql" />
+    <Build Include="Audit\Stored Procedures\InsertRowThroughputFromLastLoad.sql" />
+    <Build Include="Azure\Tables\ProcessScheduleLog.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Azure\Tables\ProcessScheduleException.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Azure\Tables\DefaultProcessSchedule.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Azure\Views\vwDefaultProcessSchedule.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Azure\Stored Procedures\UpsertProcessScheduleStatus.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Azure\Stored Procedures\GetProcessComponents.sql">
+      <AnsiNulls>On</AnsiNulls>
+    </Build>
+    <Build Include="Azure\Tables\ProcessComponent.sql" />
+    <Build Include="Azure\Tables\Component.sql" />
+    <Build Include="Azure\Tables\Process.sql" />
+    <None Include="Project\Scripts\PostDeployment\Azure.DefaultProcessSchedule.Populate.sql" />
+    <Build Include="Azure\Views\vwSourceFileInProgress.sql" />
+    <Build Include="Azure\Stored Procedures\GetComponentsForShutdown.sql" />
+    <Build Include="Azure\Stored Procedures\CheckTimeIfInShutdownWindow.sql" />
+    <Build Include="Azure\Tables\ShutdownConfiguration.sql" />
+    <Build Include="Azure\Stored Procedures\InsertRunbookExecutionLog.sql" />
+    <Build Include="Azure\Tables\RunbookExecutionLog.sql" />
+    <Build Include="Azure\Stored Procedures\LogEvent.sql" />
+    <Build Include="Azure\Tables\EventLog.sql" />
+    <Build Include="Azure\Tables\ComponentType.sql" />
+    <Build Include="Azure\Stored Procedures\GetComponentByType.sql" />
+    <None Include="Project\Scripts\PostDeployment\Azure.ComponentType.Populate.sql" />
+    <Build Include="Azure\Tables\NotificationReceipient.sql" />
+    <None Include="Azure\Stored Procedures\GetNotificationReceipients.sql" />
+    <None Include="Project\Scripts\PostDeployment\Azure.NotificationReceipient.Populate.sql" />
+    <Build Include="Control\Stored Procedures\UpdateSourceFileUnloaded.sql" />
+    <Build Include="Notification\View\vNotification.sql" />
+    <Build Include="Notification\View\vTemplateRecipientList.sql" />
+    <Build Include="Notification\Stored Procedures\uspProcessQueue.sql" />
+    <Build Include="Notification\Stored Procedures\uspRequestNotification.sql" />
+    <Build Include="Notification\Tables\Notification.sql" />
+    <Build Include="Notification\Tables\Recipient.sql" />
+    <Build Include="Notification\Tables\Solution.sql" />
+    <Build Include="Notification\Tables\Template.sql" />
+    <Build Include="Notification\Tables\TemplateRecipient.sql" />
+    <Build Include="Notification\Stored Procedures\uspGetNotificationFromQueue.sql" />
+    <Build Include="Notification\Stored Procedures\uspProcessNotification.sql" />
+    <Build Include="Notification\View\vNotificationQueue.sql" />
+    <Build Include="Notification\Functions\udfLogNotificationResponse.sql" />
+    <Build Include="Notification\Tables\notification_parameters.sql" />
+    <Build Include="Notification\Tables\template_parameter_mapping.sql" />
+    <Build Include="Notification\Stored Procedures\update_param_values.sql" />
+    <Build Include="Notification\Stored Procedures\uspUpdateNotificationBody.sql" />
+    <Build Include="Security\notification.sql" />
+    <Build Include="Notification\View\vNotificationFailed.sql" />
+    <Build Include="Notification\View\vNotificationQueueStatus.sql" />
+    <None Include="Project\Scripts\PostDeployment\Notification.Recipient.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Notification.Template.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Notification.TemplateParameterMapping.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\Notification.TemplateRecipient.Populate.sql" />
+    <None Include="Project\Scripts\PostDeployment\NotificationTestScripts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Audit\Stored Procedures\CompareSRC2STGRowCounts.sql" />
+    <PostDeploy Include="Project\Scripts\PostDeployment\RunPostDeploymentScripts.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\Control.CleanseRuleType.Populate.sql" />
+    <None Include="Azure\Stored Procedures\GetProcessScheduleLogStatus.sql" />
+    <None Include="Project\Scripts\PostDeployment\Notification.DataInitialisation.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\Control.DataQualityRuleType.Populate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\DataQuality.HarmoniseRule.Populate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\DataQuality.Screen.Populate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\DataQuality.ScreenSeverity.Populate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\DataQuality.StandardiseRule.Populate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Project\Scripts\PostDeployment\DataQuality.IntegrityType.Populate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\AzureV12\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>True</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
+  </ItemGroup>
+</Project>

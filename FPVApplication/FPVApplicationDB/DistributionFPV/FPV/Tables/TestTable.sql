@@ -1,0 +1,5 @@
+﻿CREATE TABLE [FPV].[TestTable] (
+    [id] INT IDENTITY (1, 1) NOT NULL,
+    PRIMARY KEY CLUSTERED ([id] ASC)
+);
+

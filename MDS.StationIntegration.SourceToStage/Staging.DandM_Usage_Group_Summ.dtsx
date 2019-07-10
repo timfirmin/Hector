@@ -1,0 +1,1737 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{C0E4C25C-CF0B-4CE8-B0BC-FCBA3E9CF7D2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Staging DandM_Usage_Group_Summ"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="191"
+  DTS:VersionGUID="{A163A9F1-F95C-418A-A051-3DA3B8D3EE98}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{18314903-AC55-4257-9D59-C43259D733B7}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{A1FCBA71-1EF6-4B48-B0FE-6A8F58DB311B}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{0BC0587E-0720-4E50-BEB6-F504D9B7AD95}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SRC2STG</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BCB15106-CCEE-49B5-8DAE-1643D5DFD4C4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1349899F-976D-49CE-8075-594494CCC3F1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BEF19764-1156-4A76-9F44-17D781718784}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BA5AF34A-297D-4AC0-A690-4E4BB2D0E917}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{283E2F22-5B19-47A1-8125-67886EDE4A7A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C421D7C-C57F-402E-A2A2-CC6934DF62F6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F45F6BC-D1C6-4433-8971-BB2DE3F6FAEC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8B378F01-4659-445B-AAB7-AAB6D1C6347A}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{600458CE-0B60-48CC-8854-BC331D909295}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{22D8B6DB-461F-4843-B3A4-BCD4B53CC430}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E41C99F7-B31D-498A-BF00-88E4680B3264}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD6A3F7E-AD04-462B-9413-7174BEE5E708}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Usage_Group_Summary</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CFF6CDE5-FD15-4C4E-AB85-64FC3D174637}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2C3CD70C-4AF5-4D5C-B716-C198657E2DC1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F4B488C2-D02B-4CF9-863F-093F423CACAA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D6E51BAC-EEA2-4F91-8422-2789A11DF8DD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97F59F91-AAB7-4AD0-B275-C67BF2BDD8C7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4B2801DA-EE48-459E-B60F-ACE44837E0B1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{614EEA64-EC3B-4ED3-B73B-3A7654F84571}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Usage_Group_Summary</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A7A28DBA-FDB8-4DEF-BE69-917F3E36C2BD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.Usage_Group_Summary</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{9EBDB295-559B-4BBD-88C3-DA0A3DC41865}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{6E2E817A-A171-4A97-956F-6B7BF952E7A8}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Usage_Group_SummaryDetails"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{B49C23C7-8C37-4BF8-922F-0C0B301433F1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Usage_Group_SummaryDetails"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load Usage_Group_SummaryDetails.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{B4C9D970-E7CC-4263-9CEF-262499D1661A}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{992D0F38-84CD-4163-A283-D76DCE974FB5}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load Usage_Group_SummaryDetails.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{A5B37425-6496-4124-B46E-7FDBD192BEC2}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - Usage_Group_Summary"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Broadcaster_UDCS"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Connections[IDbConnection]"
+                  connectionManagerID="{933360BD-CAEF-47C7-A196-9587BF3D4A36}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[BRO_TP_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="BRO_TP_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[BRO_TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\928:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[DC_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="DC_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[DC_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\929:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[START_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="START_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[START_DATE]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\930:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[END_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="END_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[END_DATE]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\931:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[USED_FOR_PURPOSE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="USED_FOR_PURPOSE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[USED_FOR_PURPOSE]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\932:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[PERFORMANCE_START_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PERFORMANCE_START_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_START_DATE]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\933:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[PERFORMANCE_END_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PERFORMANCE_END_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_END_DATE]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\934:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[BND_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="BND_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[BND_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\935:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[MBRG_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="MBRG_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[MBRG_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\936:invalid" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[BRO_TP_SURR_ID]"
+                      dataType="numeric"
+                      name="BRO_TP_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[DC_SURR_ID]"
+                      dataType="numeric"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[USED_FOR_PURPOSE]"
+                      dataType="wstr"
+                      length="1"
+                      name="USED_FOR_PURPOSE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[BND_SURR_ID]"
+                      dataType="numeric"
+                      name="BND_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[MBRG_SURR_ID]"
+                      dataType="numeric"
+                      name="MBRG_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="REP - Usage_Group_Summary"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+     
+  FROM dmown.usage_group</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Connections[OleDbConnection]"
+                  connectionManagerID="{B99B5F58-6BC7-4FDE-9315-B21F6A4573AD}:invalid"
+                  connectionManagerRefId="{B99B5F58-6BC7-4FDE-9315-B21F6A4573AD}:invalid"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_ID]"
+                      name="USAGE_GROUP_ID"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[TO_DROP_CODA_ACCOUNT_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[TO_DROP_CODA_ACCOUNT_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[TO_DROP_CODA_ACCOUNT_ID]"
+                      name="TO_DROP_CODA_ACCOUNT_ID"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_SUMM_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_SUMM_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_SUMM_ID]"
+                      name="USAGE_GROUP_SUMM_ID"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_TYPE_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_TYPE_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_TYPE_ID]"
+                      name="USAGE_GROUP_TYPE_ID"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      length="65"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[EF_IND]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[EF_IND]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[EF_IND]"
+                      name="EF_IND"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MIN_CASHED_OUT_LINE_AMT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MIN_CASHED_OUT_LINE_AMT]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MIN_CASHED_OUT_LINE_AMT]"
+                      name="MIN_CASHED_OUT_LINE_AMT"
+                      precision="11"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[POA_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[POA_FLG]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[POA_FLG]"
+                      name="POA_FLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[RECORD_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[RECORD_STATUS]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[RECORD_STATUS]"
+                      name="RECORD_STATUS"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SATELLITE_CABLE_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SATELLITE_CABLE_FLG]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SATELLITE_CABLE_FLG]"
+                      name="SATELLITE_CABLE_FLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SHOW_STATEMENT_DETAIL_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SHOW_STATEMENT_DETAIL_FLG]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SHOW_STATEMENT_DETAIL_FLG]"
+                      name="SHOW_STATEMENT_DETAIL_FLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SOURCE_DOCUMENT_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_DOCUMENT_FLG]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SOURCE_DOCUMENT_FLG]"
+                      name="SOURCE_DOCUMENT_FLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[TAXABLE_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[TAXABLE_FLG]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[TAXABLE_FLG]"
+                      name="TAXABLE_FLG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_CODE]"
+                      length="5"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_CODE]"
+                      name="USAGE_GROUP_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[ADMIN_RATE_AMT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[ADMIN_RATE_AMT]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[ADMIN_RATE_AMT]"
+                      name="ADMIN_RATE_AMT"
+                      precision="11"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[ADMIN_RATE_PCT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[ADMIN_RATE_PCT]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[ADMIN_RATE_PCT]"
+                      name="ADMIN_RATE_PCT"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[INSTEAD_OF]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[INSTEAD_OF]"
+                      length="20"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[INSTEAD_OF]"
+                      name="INSTEAD_OF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MASTER_USAGE_GROUP_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MASTER_USAGE_GROUP_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MASTER_USAGE_GROUP_ID]"
+                      name="MASTER_USAGE_GROUP_ID"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_SUMM_REPORTS_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_SUMM_REPORTS_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[USAGE_GROUP_SUMM_REPORTS_ID]"
+                      name="USAGE_GROUP_SUMM_REPORTS_ID"
+                      precision="10"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SOURCED_FROM_PRS_REP_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SOURCED_FROM_PRS_REP_Y]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[SOURCED_FROM_PRS_REP_Y]"
+                      name="SOURCED_FROM_PRS_REP_Y"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[DN_UGS_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[DN_UGS_DESCRIPTION]"
+                      length="65"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[DN_UGS_DESCRIPTION]"
+                      name="DN_UGS_DESCRIPTION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[STMT_USING_INVOICE_DESC_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[STMT_USING_INVOICE_DESC_Y]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[STMT_USING_INVOICE_DESC_Y]"
+                      name="STMT_USING_INVOICE_DESC_Y"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MCPS_COMMISSION_SET_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MCPS_COMMISSION_SET_CODE]"
+                      length="3"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MCPS_COMMISSION_SET_CODE]"
+                      name="MCPS_COMMISSION_SET_CODE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MCST_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MCST_ID]"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].Columns[MCST_ID]"
+                      name="MCST_ID"
+                      precision="3"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_ID]"
+                      dataType="numeric"
+                      name="USAGE_GROUP_ID"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[TO_DROP_CODA_ACCOUNT_ID]"
+                      dataType="numeric"
+                      name="TO_DROP_CODA_ACCOUNT_ID"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_SUMM_ID]"
+                      dataType="numeric"
+                      name="USAGE_GROUP_SUMM_ID"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_TYPE_ID]"
+                      dataType="numeric"
+                      name="USAGE_GROUP_TYPE_ID"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="65"
+                      name="DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[EF_IND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="EF_IND" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MIN_CASHED_OUT_LINE_AMT]"
+                      dataType="numeric"
+                      name="MIN_CASHED_OUT_LINE_AMT"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[POA_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="POA_FLG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[RECORD_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="RECORD_STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SATELLITE_CABLE_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SATELLITE_CABLE_FLG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SHOW_STATEMENT_DETAIL_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SHOW_STATEMENT_DETAIL_FLG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SOURCE_DOCUMENT_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SOURCE_DOCUMENT_FLG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[TAXABLE_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="TAXABLE_FLG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      name="USAGE_GROUP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[ADMIN_RATE_AMT]"
+                      dataType="numeric"
+                      name="ADMIN_RATE_AMT"
+                      precision="11"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[ADMIN_RATE_PCT]"
+                      dataType="numeric"
+                      name="ADMIN_RATE_PCT"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[INSTEAD_OF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="INSTEAD_OF" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MASTER_USAGE_GROUP_ID]"
+                      dataType="numeric"
+                      name="MASTER_USAGE_GROUP_ID"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[USAGE_GROUP_SUMM_REPORTS_ID]"
+                      dataType="numeric"
+                      name="USAGE_GROUP_SUMM_REPORTS_ID"
+                      precision="10" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[SOURCED_FROM_PRS_REP_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="SOURCED_FROM_PRS_REP_Y" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[DN_UGS_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="65"
+                      name="DN_UGS_DESCRIPTION" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[STMT_USING_INVOICE_DESC_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="STMT_USING_INVOICE_DESC_Y" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MCPS_COMMISSION_SET_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="MCPS_COMMISSION_SET_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output].ExternalColumns[MCST_ID]"
+                      dataType="numeric"
+                      name="MCST_ID"
+                      precision="3" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_ID]"
+                      name="USAGE_GROUP_ID"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[TO_DROP_CODA_ACCOUNT_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[TO_DROP_CODA_ACCOUNT_ID]"
+                      name="TO_DROP_CODA_ACCOUNT_ID"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_SUMM_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_SUMM_ID]"
+                      name="USAGE_GROUP_SUMM_ID"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_TYPE_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_TYPE_ID]"
+                      name="USAGE_GROUP_TYPE_ID"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="65"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[DESCRIPTION]"
+                      name="DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[EF_IND]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[EF_IND]"
+                      name="EF_IND" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MIN_CASHED_OUT_LINE_AMT]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MIN_CASHED_OUT_LINE_AMT]"
+                      name="MIN_CASHED_OUT_LINE_AMT"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[POA_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[POA_FLG]"
+                      name="POA_FLG" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[RECORD_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[RECORD_STATUS]"
+                      name="RECORD_STATUS" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SATELLITE_CABLE_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SATELLITE_CABLE_FLG]"
+                      name="SATELLITE_CABLE_FLG" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SHOW_STATEMENT_DETAIL_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SHOW_STATEMENT_DETAIL_FLG]"
+                      name="SHOW_STATEMENT_DETAIL_FLG" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SOURCE_DOCUMENT_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SOURCE_DOCUMENT_FLG]"
+                      name="SOURCE_DOCUMENT_FLG" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[TAXABLE_FLG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[TAXABLE_FLG]"
+                      name="TAXABLE_FLG" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="5"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_CODE]"
+                      name="USAGE_GROUP_CODE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ADMIN_RATE_AMT]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ADMIN_RATE_AMT]"
+                      name="ADMIN_RATE_AMT"
+                      precision="11"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ADMIN_RATE_PCT]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ADMIN_RATE_PCT]"
+                      name="ADMIN_RATE_PCT"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[INSTEAD_OF]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[INSTEAD_OF]"
+                      name="INSTEAD_OF" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MASTER_USAGE_GROUP_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MASTER_USAGE_GROUP_ID]"
+                      name="MASTER_USAGE_GROUP_ID"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_SUMM_REPORTS_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[USAGE_GROUP_SUMM_REPORTS_ID]"
+                      name="USAGE_GROUP_SUMM_REPORTS_ID"
+                      precision="10" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SOURCED_FROM_PRS_REP_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[SOURCED_FROM_PRS_REP_Y]"
+                      name="SOURCED_FROM_PRS_REP_Y" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[DN_UGS_DESCRIPTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="65"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[DN_UGS_DESCRIPTION]"
+                      name="DN_UGS_DESCRIPTION" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[STMT_USING_INVOICE_DESC_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[STMT_USING_INVOICE_DESC_Y]"
+                      name="STMT_USING_INVOICE_DESC_Y" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MCPS_COMMISSION_SET_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MCPS_COMMISSION_SET_CODE]"
+                      name="MCPS_COMMISSION_SET_CODE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MCST_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[MCST_ID]"
+                      name="MCST_ID"
+                      precision="3" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Usage_Group_SummaryDetails.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Usage_Group_SummaryDetails.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{5609B370-9C1A-4C69-A171-8A18C4080C28}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D13571EE-9BFD-4DAC-9480-FB6E0275893A}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{F93C2E20-F51B-4F6C-A1D4-C202DEEC32A5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{933360BD-CAEF-47C7-A196-9587BF3D4A36}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Staging].[Broadcaster_UDCS]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8A0F3411-10D3-4C6E-A70B-EA5887C6FDC1}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D74DD88B-F105-49D7-A031-4AB8F2E675CB}"
+      DTS:From="Package\DFT - Load Usage_Group_SummaryDetails"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{16F3969E-3AC1-4D57-8CFB-665F7EEACAAA}"
+      DTS:From="Package\SQL - Truncate Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Usage_Group_SummaryDetails" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{B8EED21D-BE83-4644-A3EB-CAA06B98CAB7}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{C8A14C53-D352-40F8-ACE7-7673E1EBBE94}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{ABE7DFF2-9B35-4B53-BC19-6083F3ABE36B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{14EECCCB-25C7-4975-A8D4-E5221D754E29}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="249,42"
+          Id="Package\DFT - Load Usage_Group_SummaryDetails"
+          TopLeft="197.25,324.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - Truncate Staging Table"
+          TopLeft="198.25,238.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="324.5,366.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.583333333333"
+              Start="0,0"
+              End="0,39.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="324,280.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.583333333334"
+              Start="0,0"
+              End="0,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.375,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.333333333333"
+              Start="0,0"
+              End="0,36.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Staging data from D&amp;M to MDSIntegration DB"
+          ParentId="Package"
+          Size="343,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load Usage_Group_SummaryDetails">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary"
+          TopLeft="332,138" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load Usage_Group_SummaryDetails\DC - Add Integration Metadata"
+          TopLeft="318,247" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary"
+          TopLeft="332,345" />
+        <EdgeLayout
+          Id="Package\DFT - Load Usage_Group_SummaryDetails.Paths[OLE DB Source Output]"
+          TopLeft="430,180">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,67"
+              Start="0,0"
+              End="0,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Usage_Group_SummaryDetails.Paths[Derived Column Output]"
+          TopLeft="430.75,289">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,16.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load Usage_Group_SummaryDetails.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load Usage_Group_SummaryDetails.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Usage_Group_SummaryDetails\REP - Usage_Group_Summary">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Usage_Group_SummaryDetails\ADO - Usage_Group_Summary">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

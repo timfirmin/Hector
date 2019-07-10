@@ -1,0 +1,2113 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2017 11:57:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="STU-W8-BIDEV004"
+  DTS:CreatorName="PRS\SYilmaz"
+  DTS:DTSID="{D1794181-A7B8-4677-9F12-AE896B118664}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="LoadMDS UDCDeltas bkup"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="143"
+  DTS:VersionGUID="{B3CAE296-8D62-4952-8E89-F00B9CAE2CFF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{8C903185-9BD4-4D67-8718-D5964B1E5C2A}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{CAE3961A-3211-4E30-BAD4-62757DA92089}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{32E1581F-57E6-42A3-893C-2F59F45E00C4}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">TransformToMDS</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA1BD679-584C-4928-B883-1CF20D165F67}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D70BCB2D-93B6-49DD-81C9-27A988F633D0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0BD5473C-303A-499E-B20C-379FB6C756E6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D0250E44-AC11-41DE-9643-5CA3479C53D1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9EE047D2-6B79-40F2-8B09-17EB2B8C7B4C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{73A63988-0098-44CF-8B20-62595354EF80}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EF6DA551-99E8-4D6D-8996-C5B0F1CCEC25}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{43A95280-0828-4CC2-ADD8-7E45AB49D8BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsImportType">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{65911598-856E-47DE-8118-A551DF5D570F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsStagingLogFlag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E6F61D0-54F9-4E2A-839E-24659711C92D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsStatusId">
+      <DTS:VariableValue
+        DTS:DataType="2">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DE6521E6-C16D-4EA8-AA3D-D622C6330CC8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6BE2B90E-C89B-459B-BCA1-0DDC5998F7BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{918F9ECA-C5EA-46A9-BDE4-DA329CEC0504}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{996A7FB8-91D8-416B-8BC8-CDFFFBC2217D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0BD3726D-D973-40DB-98B7-4D7975D88221}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E1969CB-F88E-47C0-AE64-45B5D0679D00}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2F20213D-E450-43F6-9484-3900A9495F92}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">MDS_MasterStationData</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA103C50-0793-4FF3-B03F-F3BD4568C89B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D615B48-7339-4AC8-A18C-51E18946E597}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{14D66271-87E0-4565-BDAB-3A5492D44C17}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC [Stage].[SendHTMLEmail001]  @recipientsSTR = '&quot; + @[$Project::strValidationMailRecipients]   + &quot;',@profilenameSTR = '&quot; + @[$Project::strDbMailProfileName]  +  &quot;',@tableHTML ='&quot; + @[User::strMailHTMLBody]  +  &quot;',@subjectSTR='DotMailer : Failing API Calls for Treshold, Load Id = &quot; +  (DT_WSTR, 5) @[User::intLoadId] + &quot;Env = &quot; + @[User::strFileName] + &quot; (Latest Execution Attached)'&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenerateAPIMail">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC [Stage].[SendHTMLEmail001]  @recipientsSTR = 'Support-BI-apps@prsformusic.com;senay.yilmaz@prsformusic.com',@profilenameSTR = 'AZI-MS-SQL-D002 SQL Database Mail',@tableHTML ='',@subjectSTR='DotMailer : Failing API Calls for Treshold, Load Id = 0Env =  (Latest Execution Attached)'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9F268458-6900-478D-9026-17E0977E8DB0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">TRN2MDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9DB7900D-3A95-4D0E-8C48-A6404FBD6426}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMailHTMLBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BB733D8E-2CC9-4330-8751-A9D60486D7FA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">MasterStation</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CFFBBFC6-80B2-4BA5-BF4D-B2AF6E323ADA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsModelName">
+      <DTS:VariableValue
+        DTS:DataType="8">MasterStationData</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D384C127-101A-47EC-80E1-B9289B72EF8D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stg.udp_Master_&quot; +  @[User::strMdsEntityName] + &quot;_Leaf&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsStagingStoredProc">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.udp_Master_MasterStation_Leaf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{240F90F9-0AEF-4CF0-9A45-1DED81ED71CA}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stg.Master_&quot; +  @[User::strMdsEntityName] + &quot;_Leaf&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsStagingTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.Master_MasterStation_Leaf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6F207027-6C87-46CD-8E73-60DA0DBEE187}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsUserName">
+      <DTS:VariableValue
+        DTS:DataType="8">PRS\SYilmaz</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F9A5A273-0BDE-4A23-9751-DCFE46CFAD9A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsVersionName">
+      <DTS:VariableValue
+        DTS:DataType="8">VERSION_1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0F3E613B-87D5-4CDF-B800-6E00B96B110B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">TransformToMDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EDDB2D03-CB72-4C6E-90E6-4961FFFCE973}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">Transform</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{1C137A3E-F3D7-4FC9-94C1-C4D150A0D6FB}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{D83A8FDD-7B9D-4195-8508-DD81CE39D2CF}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFL - Load MDS Staging"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:Description="Gets a dataset from the natural key table and then lookups up all the attributes needed to fully represent each dimension member. The complete dataset will then be check to see if it is an insert or an update and loaded into the relevant tables."
+      DTS:DTSID="{E2E604B8-9022-4349-B755-E7702C719A59}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFL - Load MDS Staging">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:DTSID="{FE200D70-4083-445D-AEC9-555FC1F1B13E}"
+          DTS:IncludeInDebugDump="2345"
+          DTS:Namespace="User"
+          DTS:ObjectName="strTaskAction">
+          <DTS:VariableValue
+            DTS:DataType="8"
+            xml:space="preserve"></DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFL - Load MDS Staging.EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{2C22E542-25BB-4F70-9EBB-CADFA63A670E}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{6FDAAD48-0C8A-4591-833B-03B85A61FD89}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables />
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          engineThreads="5"
+          version="1">
+          <components>
+            <component
+              refId="Package\DFL - Load MDS Staging\ADO NET Station UDC"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Station UDC"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+BroadcasterUDCKey
+,BroadcasterUDCCode
+,StationID	
+,StationName	
+,UDCCode
+,UDCDescription
+,BroadcasterUDCCode + '_' + UDCUsedForPurposeDescription + '_' + UDCTimeBand as AttributeCode
+,CAST(HashBytes('SHA1', BroadcasterUDCCode + '_' + UDCUsedForPurposeDescription + '_' + UDCTimeBand) AS bigint) AS AttributeKey
+,UDCUsedForPurposeDescription	
+,replace(UDCTimeBand,'~Not Supplied','No Band') as UDCTimeBand
+
+FROM [Transform].[BroadcasterUDCMapping] with (nolock)</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."BroadcasterUDCMapping"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Connections[IDbConnection]"
+                  connectionManagerID="{AA08CF23-6D6B-4AB9-A215-4637FA1FC020}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCKey]"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[BroadcasterUDCKey]"
+                      name="BroadcasterUDCKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCCode]"
+                      length="12"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[BroadcasterUDCCode]"
+                      name="BroadcasterUDCCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[StationID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[StationID]"
+                      length="6"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[StationID]"
+                      name="StationID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[StationName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[StationName]"
+                      length="60"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[StationName]"
+                      name="StationName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCCode]"
+                      length="5"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCCode]"
+                      name="UDCCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCDescription]"
+                      length="60"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCDescription]"
+                      name="UDCDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[AttributeCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[AttributeCode]"
+                      length="314"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[AttributeCode]"
+                      name="AttributeCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[AttributeKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[AttributeKey]"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[AttributeKey]"
+                      name="AttributeKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCUsedForPurposeDescription]"
+                      length="240"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCUsedForPurposeDescription]"
+                      name="UDCUsedForPurposeDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCTimeBand]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCTimeBand]"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[UDCTimeBand]"
+                      name="UDCTimeBand"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      name="BroadcasterUDCKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      length="12"
+                      name="BroadcasterUDCCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[StationID]"
+                      dataType="wstr"
+                      length="6"
+                      name="StationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[StationName]"
+                      dataType="wstr"
+                      length="60"
+                      name="StationName" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCCode]"
+                      dataType="wstr"
+                      length="5"
+                      name="UDCCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCDescription]"
+                      dataType="wstr"
+                      length="60"
+                      name="UDCDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[AttributeCode]"
+                      dataType="wstr"
+                      length="314"
+                      name="AttributeCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[AttributeKey]"
+                      dataType="i8"
+                      name="AttributeKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      length="240"
+                      name="UDCUsedForPurposeDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].ExternalColumns[UDCTimeBand]"
+                      dataType="nText"
+                      name="UDCTimeBand" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCKey]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCKey]"
+                      name="BroadcasterUDCKey" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCCode]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[BroadcasterUDCCode]"
+                      name="BroadcasterUDCCode" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[StationID]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[StationID]"
+                      name="StationID" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[StationName]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[StationName]"
+                      name="StationName" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCCode]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCCode]"
+                      name="UDCCode" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCDescription]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCDescription]"
+                      name="UDCDescription" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[AttributeCode]"
+                      dataType="wstr"
+                      length="314"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[AttributeCode]"
+                      name="AttributeCode" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[AttributeKey]"
+                      dataType="i8"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[AttributeKey]"
+                      name="AttributeKey" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCUsedForPurposeDescription]"
+                      dataType="wstr"
+                      length="240"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCUsedForPurposeDescription]"
+                      name="UDCUsedForPurposeDescription" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCTimeBand]"
+                      dataType="nText"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[UDCTimeBand]"
+                      name="UDCTimeBand" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Matching Row Wrong Attribute"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[DeltaMessage]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output].Columns[DeltaMessage]"
+                      name="DeltaMessage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Wrong Attribute"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Wrong Attribute"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Missing Row Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[DeltaMessage]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="23"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output].Columns[DeltaMessage]"
+                      name="DeltaMessage"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Missing Station-UDC Row"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Missing Station-UDC Row"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\Lookup Attribute"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Attribute"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+[BroadcasterUDCKey]
+,BroadcasterUDCCode
+,StationID	
+,StationName	
+,UDCCode
+,UDCDescription
+,BroadcasterUDCCode + '_' + UDCUsedForPurposeDescription + '_' + UDCTimeBand as AttributeCode
+,CAST(HashBytes('SHA1', BroadcasterUDCCode + '_' + UDCUsedForPurposeDescription + '_' + UDCTimeBand) AS bigint) AS AttributeKey
+,UDCUsedForPurposeDescription	
+,UDCTimeBand
+
+FROM [Transform].[BroadcasterUDCMapping] with (nolock)</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
+[BroadcasterUDCKey]
+,BroadcasterUDCCode
+,StationID	
+,StationName	
+,UDCCode
+,UDCDescription
+,BroadcasterUDCCode + '_' + UDCUsedForPurposeDescription + '_' + UDCTimeBand as AttributeCode
+,CAST(HashBytes('SHA1', BroadcasterUDCCode + '_' + UDCUsedForPurposeDescription + '_' + UDCTimeBand) AS bigint) AS AttributeKey
+,UDCUsedForPurposeDescription	
+,UDCTimeBand
+
+FROM [Transform].[BroadcasterUDCMapping] with (nolock)) [refTable]
+where [refTable].[AttributeKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="BroadcasterUDCKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="BroadcasterUDCCode" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StationID" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="StationName" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="UDCCode" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="UDCDescription" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AttributeCode" dataType="DT_STR" length="314" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AttributeKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="UDCUsedForPurposeDescription" dataType="DT_STR" length="240" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="UDCTimeBand" dataType="DT_STR" length="60" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSAttributeKey]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Load MDS Staging\Lookup Attribute.Connections[OleDbConnection]"
+                  connectionManagerID="{E56E7FC3-6231-412C-8A59-EB1A1E0CD50E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegrationOle]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\Lookup Attribute.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup Attribute.Inputs[Lookup Input].Columns[MDSAttributeKey]"
+                      cachedDataType="i8"
+                      cachedName="MDSAttributeKey"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSAttributeKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">AttributeKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Lookup Attribute.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Match Output].Columns[UDCUsedForPurposeDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="240"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Match Output].Columns[UDCUsedForPurposeDescription]"
+                      name="UDCUsedForPurposeDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UDCUsedForPurposeDescription</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Match Output].Columns[UDCTimeBand]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copy Column"
+                      length="60"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Match Output].Columns[UDCTimeBand]"
+                      name="UDCTimeBand"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">UDCTimeBand</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Lookup Attribute.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Lookup Attribute.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\Lookup MDS Existing"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup MDS Existing"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+CAST(HashBytes('SHA1',cast([MasterStationCode_Code] as varchar(50)) + cast([Code] as varchar(50))) AS bigint) as MDSUDCMapKey
+,[MasterStationCode_Code] + '_' + [Code] as MDSUDCMapCode
+      ,[Code] as MDSUDCCode
+      ,[Name] as MDSUDCDescription
+      ,[MasterStationCode_Code] as MDSStationID
+      ,[MasterStationCode_Name] as MDSStationName
+,CAST(HashBytes('SHA1', cast([MasterStationCode_Code] as varchar(50)) + '_' + cast([Code] as varchar(50)) + '_' + cast([UsedForPurposeDesc] as varchar(50)) + '_' + cast([TimeBand] as varchar(50))) AS bigint) AS MDSAttributeKey
+,([MasterStationCode_Code] + '_' + [Code] + '_' + [UsedForPurposeDesc] + '_' + [TimeBand])  AS MDSAttributeCode
+      ,[UsedForPurposeDesc] as MDSUsedForPurposeDesc
+      ,[TimeBand] as MDSTimeBand
+     
+  FROM [MDS].[mdm].[Master_v_UDC]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT 
+CAST(HashBytes('SHA1',cast([MasterStationCode_Code] as varchar(50)) + cast([Code] as varchar(50))) AS bigint) as MDSUDCMapKey
+,[MasterStationCode_Code] + '_' + [Code] as MDSUDCMapCode
+      ,[Code] as MDSUDCCode
+      ,[Name] as MDSUDCDescription
+      ,[MasterStationCode_Code] as MDSStationID
+      ,[MasterStationCode_Name] as MDSStationName
+,CAST(HashBytes('SHA1', cast([MasterStationCode_Code] as varchar(50)) + '_' + cast([Code] as varchar(50)) + '_' + cast([UsedForPurposeDesc] as varchar(50)) + '_' + cast([TimeBand] as varchar(50))) AS bigint) AS MDSAttributeKey
+,([MasterStationCode_Code] + '_' + [Code] + '_' + [UsedForPurposeDesc] + '_' + [TimeBand])  AS MDSAttributeCode
+      ,[UsedForPurposeDesc] as MDSUsedForPurposeDesc
+      ,[TimeBand] as MDSTimeBand
+     
+  FROM [MDS].[mdm].[Master_v_UDC]) [refTable]
+where [refTable].[MDSUDCMapKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="MDSUDCMapKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSUDCMapCode" dataType="DT_WSTR" length="501" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSUDCCode" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSUDCDescription" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSStationID" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSStationName" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSAttributeKey" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSAttributeCode" dataType="DT_WSTR" length="703" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSUsedForPurposeDesc" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MDSTimeBand" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFL - Load MDS Staging\1387:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Connections[OleDbConnection]"
+                  connectionManagerID="{E56E7FC3-6231-412C-8A59-EB1A1E0CD50E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegrationOle]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Inputs[Lookup Input].Columns[BroadcasterUDCKey]"
+                      cachedDataType="i8"
+                      cachedName="BroadcasterUDCKey"
+                      lineageId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output].Columns[BroadcasterUDCKey]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">MDSUDCMapKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSUDCMapKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSUDCMapKey]"
+                      name="MDSUDCMapKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MDSUDCMapKey</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSAttributeKey]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSAttributeKey]"
+                      name="MDSAttributeKey"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MDSAttributeKey</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSUsedForPurposeDesc]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSUsedForPurposeDesc]"
+                      name="MDSUsedForPurposeDesc"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MDSUsedForPurposeDesc</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSTimeBand]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="100"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output].Columns[MDSTimeBand]"
+                      name="MDSTimeBand"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">MDSTimeBand</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Multicast.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\Multicast 1"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast 1">
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\Multicast 1.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Multicast 1.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Multicast 1.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\Records Match - No Action"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Records Match - No Action">
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\Records Match - No Action.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\Records Match - No Action.Outputs[Multicast Output 1]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\DFL - Load MDS Staging\Records Match - No Action.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFL - Load MDS Staging\RWC - Successful Row Count"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Increment successful row counter."
+              name="RWC - Successful Row Count">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::intSuccessRows</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFL - Load MDS Staging\RWC - Successful Row Count.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFL - Load MDS Staging\RWC - Successful Row Count.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFL - Load MDS Staging\RWC - Successful Row Count.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[ADO NET Source Output]"
+              endId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Inputs[Lookup Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFL - Load MDS Staging\ADO NET Station UDC.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Derived Column Output]"
+              endId="Package\DFL - Load MDS Staging\RWC - Successful Row Count.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Derived Column Output1]"
+              endId="Package\DFL - Load MDS Staging\Multicast 1.Inputs[Multicast Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Lookup Match Output]"
+              endId="Package\DFL - Load MDS Staging\Lookup Attribute.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Lookup Match Output1]"
+              endId="Package\DFL - Load MDS Staging\Records Match - No Action.Inputs[Multicast Input 1]"
+              name="Lookup Match Output"
+              startId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Lookup No Match Output]"
+              endId="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFL - Load MDS Staging\Lookup MDS Existing.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Lookup No Match Output1]"
+              endId="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFL - Load MDS Staging\Lookup Attribute.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DFL - Load MDS Staging.Paths[Row Count Output 1]"
+              endId="Package\DFL - Load MDS Staging\Multicast.Inputs[Multicast Input 1]"
+              name="Row Count Output 1"
+              startId="Package\DFL - Load MDS Staging\RWC - Successful Row Count.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{690D11CA-4504-46D9-B9EF-04A799F24ECA}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{367111C3-2C35-4D8C-9BFE-AB75807F5565}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8DFC2FEC-E6B4-476C-8259-AA1F004587AE}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{62DE33A0-FE30-423A-9F41-4AD02B4D60A8}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{304F7CA9-17DA-4668-B201-BBFDA9A29AAC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{266FFD4B-0122-492F-8DC1-987B21E6C931}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="262.75918460212,127" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="260.75918460212,556" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\DFL - Load MDS Staging"
+          TopLeft="248.75918460212,316.3294134635" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="262.75918460212,206" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="380.25918460212,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Create New  MasterStation Data"
+          ParentId="Package"
+          Size="223,38"
+          Id="77dca0ed-7409-42c0-8980-b789be424424"
+          TopLeft="248,33">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="This package loads  New MasterStation Data into MDS"
+          ParentId="Package"
+          Size="299,38"
+          Id="6e54331d-9f8d-4e28-89ef-9ea7e642884e"
+          TopLeft="222,75">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFL - Load MDS Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="204,44"
+          Id="Package\DFL - Load MDS Staging\RWC - Successful Row Count"
+          TopLeft="311.507142864928,441.217855656412" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\DFL - Load MDS Staging\ADO NET Station UDC"
+          TopLeft="123,186" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFL - Load MDS Staging\Lookup MDS Existing"
+          TopLeft="384,260" />
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[ADO NET Source Output]"
+          TopLeft="214.5,228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="258,32"
+              Start="0,0"
+              End="258,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12"
+                    Point2="0,16"
+                    Point3="4,16" />
+                  <mssgle:LineSegment
+                    End="254,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="254,16"
+                    Point2="258,16"
+                    Point3="258,20" />
+                  <mssgle:LineSegment
+                    End="258,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="285,42"
+          Id="Package\DFL - Load MDS Staging\DC - Missing Row Add Integration Metadata"
+          TopLeft="273,357" />
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Lookup No Match Output]"
+          TopLeft="444.333333333333,302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-28.8333333333333,55"
+              Start="0,0"
+              End="-28.8333333333333,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.2956326987682" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.2956326987682"
+                    Point2="0,22.2956326987682"
+                    Point3="-4,22.2956326987682" />
+                  <mssgle:LineSegment
+                    End="-24.8333333333333,22.2956326987682" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-24.8333333333333,22.2956326987682"
+                    Point2="-28.8333333333333,22.2956326987682"
+                    Point3="-28.8333333333333,26.2956326987682" />
+                  <mssgle:LineSegment
+                    End="-28.8333333333333,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-70.2230533854166,27.2956326987682,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Derived Column Output]"
+          TopLeft="414.503571432464,399">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,42.217855656412"
+              Start="0,0"
+              End="0,34.717855656412">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.717855656412" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,42"
+          Id="Package\DFL - Load MDS Staging\Multicast"
+          TopLeft="350,526" />
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Row Count Output 1]"
+          TopLeft="411.753571432464,485.217855656412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,40.782144343588"
+              Start="0,0"
+              End="0,33.282144343588">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.282144343588" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFL - Load MDS Staging\Multicast 1"
+          TopLeft="769,566" />
+        <NodeLayout
+          Size="248,42"
+          Id="Package\DFL - Load MDS Staging\DC - Matching Row Wrong Attribute"
+          TopLeft="705,450" />
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Derived Column Output1]"
+          TopLeft="831.5,492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,25.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\DFL - Load MDS Staging\Lookup Attribute"
+          TopLeft="752,376" />
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Lookup No Match Output1]"
+          TopLeft="829.75,418">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,6.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Lookup Match Output]"
+          TopLeft="500.666666666667,302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="329.833333333333,74"
+              Start="0,0"
+              End="329.833333333333,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.9977603583427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.9977603583427"
+                    Point2="0,29.9977603583427"
+                    Point3="4,29.9977603583427" />
+                  <mssgle:LineSegment
+                    End="325.833333333333,29.9977603583427" />
+                  <mssgle:CubicBezierSegment
+                    Point1="325.833333333333,29.9977603583427"
+                    Point2="329.833333333333,29.9977603583427"
+                    Point3="329.833333333333,33.9977603583427" />
+                  <mssgle:LineSegment
+                    End="329.833333333333,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="116.725279947917,34.9977603583427,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,42"
+          Id="Package\DFL - Load MDS Staging\Records Match - No Action"
+          TopLeft="1043,375" />
+        <EdgeLayout
+          Id="Package\DFL - Load MDS Staging.Paths[Lookup Match Output1]"
+          TopLeft="909,396.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="134,0"
+              Start="0,0"
+              End="126.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="126.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.05861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFL - Load MDS Staging.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\DFL - Load MDS Staging.EventHandlers[OnPostExecute]\Load MDS Insurer"
+          TopLeft="391,138" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Load MDS Staging\Lookup Attribute">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Load MDS Staging\Lookup MDS Existing">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFL - Load MDS Staging\ADO NET Station UDC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

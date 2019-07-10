@@ -1,0 +1,1833 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{DBDA8175-336A-430E-A02A-F82E278D622E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Transform MCPSLicenceType_Details"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="189"
+  DTS:VersionGUID="{69704521-1349-4ECF-8867-59577C680C02}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{FCC32D66-EEB8-490F-A12A-3BB08833D634}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{B5C6D538-90BC-419F-AE7E-BB649561C76E}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{25DE195F-BF9B-4995-85DA-08FD1DF30FD3}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">CLN2TRN</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DE5B33F2-A83F-40FF-9B52-118A0FF8F2E2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A0F1D3DA-068F-4099-A461-3CAD55329234}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B21C0E5-6D5D-4298-9580-8D3E6E8A2DE7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3FB86170-4C1B-4326-AABB-20466006D606}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EDB1E6F-DCFA-447B-ADD6-BDCF5715E4B9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{26C55E3A-1296-4D3D-8178-3625E69565AF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E0B659B9-AB30-44B8-837F-99647BEB45E9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{97CB6465-5EC6-40FD-AAEB-981629CA25A1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{288548C9-7512-466B-999C-BAFDD5AA3DDC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F31655A3-177A-4BD0-9283-90ABC36DE95A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8888DD9A-89B3-45B0-8237-74F978EEDE20}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F3647E1D-7EDE-409B-94A7-E7CA2256929B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">MCPSLicenceType</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{95E75452-B2F7-4DD4-8DBE-76A0DCF9C0EC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7C70AE5B-6AAA-4553-88D3-DD082ABE8636}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6BA1F347-FC9D-437B-94AE-36FA9BCB1FDE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D94BEAD-0FEF-437C-8226-7D0AA8CFA694}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{707E5E19-C32A-4604-BA84-FF3546A38EE7}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">CLN2TRN</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4BACD08E-BEB3-4684-9BE7-2694647EB564}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0FC13668-B080-4F0C-B4E5-0658438FE316}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">MCPSLicenceType</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AE09AB18-08A8-4628-8F6D-13860ED79577}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Transform.MCPSLicenceType</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{582A13A1-F120-422A-8F0A-C51BDBBDB7DA}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{C090B006-FA0D-4201-B841-029871E4BC96}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load MCPSLicenceType  Details"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7A441A1C-D0DD-43D1-8BC5-A5415ACDAD2E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load MCPSLicenceType  Details"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load MCPSLicenceType  Details.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{401066C0-CEB8-45C6-9985-9688727B7E98}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{76848598-3ACB-4FD1-A8C7-11DBD17CE8A7}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load MCPSLicenceType  Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{F18F0F98-D033-4FA6-962F-1D2D0DB1A640}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - MCPSLicenceType  New"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."MCPSLicenceType"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Connections[IDbConnection]"
+                  connectionManagerID="{150F7D50-F806-437E-9B20-1F7088261E6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[MCPSLicenceKey]"
+                      cachedDataType="i4"
+                      cachedName="MCPSLicenceKey"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceKey]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[MCPSLicenceCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="MCPSLicenceCode"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceCode]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[MCPSLicenceName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="MCPSLicenceName"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceName]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceName]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="date"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].Columns[NewRecordFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="NewRecordFlag"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[NewRecordFlag]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[NewRecordFlag]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceKey]"
+                      dataType="i8"
+                      name="MCPSLicenceKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="MCPSLicenceCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceName]"
+                      dataType="wstr"
+                      length="10"
+                      name="MCPSLicenceName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="500"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[NewRecordFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="NewRecordFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - MCSPLicenceType Existing"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Transform"."MCPSLicenceType"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Connections[IDbConnection]"
+                  connectionManagerID="{150F7D50-F806-437E-9B20-1F7088261E6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[MCPSLicenceKey]"
+                      cachedDataType="i4"
+                      cachedName="MCPSLicenceKey"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceKey]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceKey]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[MCPSLicenceCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="MCPSLicenceCode"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceCode]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceCode]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[MCPSLicenceName]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="MCPSLicenceName"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceName]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceName]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[Description]"
+                      cachedDataType="wstr"
+                      cachedLength="500"
+                      cachedName="Description"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[Description]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[Description]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="date"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].Columns[NewRecordFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="1"
+                      cachedName="NewRecordFlag"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[NewRecordFlag]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[NewRecordFlag]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceKey]"
+                      dataType="i8"
+                      name="MCPSLicenceKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="MCPSLicenceCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[MCPSLicenceName]"
+                      dataType="wstr"
+                      length="10"
+                      name="MCPSLicenceName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="500"
+                      name="Description" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[NewRecordFlag]"
+                      dataType="wstr"
+                      length="1"
+                      name="NewRecordFlag" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[LoadId]"
+                      dataType="i4"
+                      name="LoadId" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO Get MCPSLicenceType From Clean"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select 
+  CHECKSUM(ABBREV,NAME) as [TerritoryKey],
+  ABBREV	as [TerritoryCode]	, 
+  NAME as [TerritoryName]
+FROM [Clean].[Territory]
+Where [RejectRowYN] = 'N'</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Clean"."v_MCPSLicenceTypes"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Connections[IDbConnection]"
+                  connectionManagerID="{150F7D50-F806-437E-9B20-1F7088261E6E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[MCPSLicenceKey]"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceKey]"
+                      name="MCPSLicenceKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[MCPSLicenceCode]"
+                      length="10"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceCode]"
+                      name="MCPSLicenceCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[MCPSLicenceName]"
+                      length="10"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceName]"
+                      name="MCPSLicenceName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[Description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[Description]"
+                      length="500"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[Description]"
+                      name="Description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[MCPSLicenceKey]"
+                      dataType="i4"
+                      name="MCPSLicenceKey" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[MCPSLicenceCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="MCPSLicenceCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[MCPSLicenceName]"
+                      dataType="wstr"
+                      length="10"
+                      name="MCPSLicenceName" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].ExternalColumns[Description]"
+                      dataType="wstr"
+                      length="500"
+                      name="Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[MCPSLicenceKey]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[MCPSLicenceKey]"
+                      name="MCPSLicenceKey" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[MCPSLicenceCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[MCPSLicenceCode]"
+                      name="MCPSLicenceCode" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[MCPSLicenceName]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[MCPSLicenceName]"
+                      name="MCPSLicenceName" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[Description]"
+                      dataType="wstr"
+                      length="500"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[Description]"
+                      name="Description" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Integration Metadata For Existing"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DATE)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DATE)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[NewRecordFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output].Columns[NewRecordFlag]"
+                      name="NewRecordFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"N"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"N"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Integration Metadata For New"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DATE)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DATE)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[NewRecordFlag]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="1"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output].Columns[NewRecordFlag]"
+                      name="NewRecordFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"Y"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"Y"</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="MDS Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [mdm].[Master_v_MCPSLicenceType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [mdm].[Master_v_MCPSLicenceType]) [refTable]
+where [refTable].[Code] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MUID" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VersionName" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VersionNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Version_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VersionFlag" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Code" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ChangeTrackingMask" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Description" dataType="DT_WSTR" length="501" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EnterDateTime" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="3" codePage="0"/&gt;&lt;referenceColumn name="EnterUserName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EnterVersionNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastChgDateTime" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="3" codePage="0"/&gt;&lt;referenceColumn name="LastChgUserName" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LastChgVersionNumber" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ValidationStatus" dataType="DT_WSTR" length="250" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DFT - Load MCPSLicenceType  Details\144:invalid};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{ACB90FDF-E651-40BF-8B19-B295534DB894}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSConnectionOle]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Inputs[Lookup Input].Columns[MCPSLicenceCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="MCPSLicenceCode"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output].Columns[MCPSLicenceCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Code</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load MCPSLicenceType  Details.Paths[ADO NET Source Output]"
+              endId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Inputs[Lookup Input]"
+              name="ADO NET Source Output"
+              startId="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\DFT - Load MCPSLicenceType  Details.Paths[Derived Column Output]"
+              endId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load MCPSLicenceType  Details.Paths[Derived Column Output1]"
+              endId="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load MCPSLicenceType  Details.Paths[Lookup Match Output]"
+              endId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\DFT - Load MCPSLicenceType  Details.Paths[Lookup No Match Output]"
+              endId="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup.Outputs[Lookup No Match Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{896A9874-39FE-4C84-8D5B-115F748B8F47}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6AD0B3A1-7F89-4884-B329-A0166388F56B}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Transform Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C878995C-D3CE-485C-A6DD-63D0E769E59C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Transform Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{150F7D50-F806-437E-9B20-1F7088261E6E}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE  [Transform].[MCPSLicenceType]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D1405A22-D52B-46E1-98F8-DD51BE62AA67}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{91870F62-FF61-4248-9365-E78AA271B4EF}"
+      DTS:From="Package\DFT - Load MCPSLicenceType  Details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D7C8F192-CFD4-4AE5-96F2-48F2DF866A6F}"
+      DTS:From="Package\SQL - Truncate Transform Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load MCPSLicenceType  Details" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E9116ED9-4EFB-436D-8D33-EA5CEEE89CF1}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate Transform Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{19F02623-25F7-4A6D-9DEA-9E57089F0894}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{E909E2E4-E510-4D7A-8EA5-D985C5FA817D}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{A72A7295-C0D3-4659-A9D8-7EAD05E53266}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details"
+          TopLeft="202.25,324.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - Truncate Transform Table"
+          TopLeft="198.25,238.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="329,366.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,46.583333333333"
+              Start="0,0"
+              End="0,39.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="328.5,280.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.583333333334"
+              Start="0,0"
+              End="0,37.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.375,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.333333333333"
+              Start="0,0"
+              End="0,36.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  MCPSLicenceType Clean To Transform"
+          ParentId="Package"
+          Size="294,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="185,23">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load MCPSLicenceType  Details">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="138,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup"
+          TopLeft="417,195" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For Existing"
+          TopLeft="557,314" />
+        <NodeLayout
+          Size="257,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing"
+          TopLeft="565,433" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details\DC - Integration Metadata For New"
+          TopLeft="275,318" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean"
+          TopLeft="355,99" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New"
+          TopLeft="285,431" />
+        <EdgeLayout
+          Id="Package\DFT - Load MCPSLicenceType  Details.Paths[Lookup No Match Output]"
+          TopLeft="486,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-88.5,81"
+              Start="0,0"
+              End="-88.5,73.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.5"
+                    Point2="0,40.5"
+                    Point3="-4,40.5" />
+                  <mssgle:LineSegment
+                    End="-84.5,40.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-84.5,40.5"
+                    Point2="-88.5,40.5"
+                    Point3="-88.5,44.5" />
+                  <mssgle:LineSegment
+                    End="-88.5,73.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-100.05638671875,45.5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load MCPSLicenceType  Details.Paths[Lookup Match Output]"
+          TopLeft="507.666666666667,237">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="179.833333333333,77"
+              Start="0,0"
+              End="179.833333333333,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3295128939828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.3295128939828"
+                    Point2="0,31.3295128939828"
+                    Point3="4,31.3295128939828" />
+                  <mssgle:LineSegment
+                    End="175.833333333333,31.3295128939828" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.833333333333,31.3295128939828"
+                    Point2="179.833333333333,31.3295128939828"
+                    Point3="179.833333333333,35.3295128939828" />
+                  <mssgle:LineSegment
+                    End="179.833333333333,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="41.7252799479165,36.3295128939828,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load MCPSLicenceType  Details.Paths[Derived Column Output1]"
+          TopLeft="690.5,356">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load MCPSLicenceType  Details.Paths[Derived Column Output]"
+          TopLeft="400.75,360">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,71"
+              Start="0,0"
+              End="0,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load MCPSLicenceType  Details.Paths[ADO NET Source Output]"
+          TopLeft="486.5,141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load MCPSLicenceType  Details.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load MCPSLicenceType  Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load MCPSLicenceType  Details\MDS Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[mdm].[Master_v_MCPSLicenceType]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">1</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load MCPSLicenceType  Details\ADO - MCSPLicenceType Existing">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load MCPSLicenceType  Details\ADO Get MCPSLicenceType From Clean">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load MCPSLicenceType  Details\ADO - MCPSLicenceType  New">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,1979 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/18/2017 11:57:07 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="STU-W8-BIDEV004"
+  DTS:CreatorName="PRS\SYilmaz"
+  DTS:DTSID="{03F1CC06-7DA4-4C95-A720-914FC4156CBB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.4451.0"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="RajarLoadMDSStation"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{3C055597-7AF0-4C80-80AB-6C20E73AAAA4}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{0C2FA43D-A185-4905-8CCB-157532DDF843}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{D26C9D9A-F9FF-421B-B83F-E7C569626318}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{FC635EE0-885A-4FD6-88D3-7E5906FAFE3F}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SourceToStage</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA57EF13-EF8A-4DEA-86F9-1FAD64D0413A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B7823F10-CCB4-4659-93BA-5F978242DFA9}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{456EE220-090A-43AC-B603-BD6FDBAD689C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{70EBFDDC-925C-4966-A4E3-EC13AD08922C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0D08610C-243D-4CE1-9D68-8F26D9936A5F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6108A5DD-8A7C-40FA-9A4F-EC69B1C13E72}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5DB889C0-8879-4E81-AEC8-75EFF5615A66}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{926D3A85-B082-41C7-BEC7-C0387E53B9C3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsImportType">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B6C5C92-3843-4D47-A0AD-29652D938432}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsStagingLogFlag">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{53282A0B-4FCE-415A-A70A-8696638F0236}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intMdsStatusId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9624C980-ABF1-4AC7-BCCD-3D4E595BB29E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadID">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{94813AA1-6B83-4730-AE8D-CF6D3A787114}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9B58A4B5-1B28-4068-BA1C-448D8B57D7C5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3132F03D-28CC-4D5D-869D-F84EBC964780}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FA436895-19C8-4987-8E24-45036CCC9873}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7A57A04F-7217-4EEE-BC14-BDF8F1773B7E}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A92B7CE1-5354-4DB1-B970-175E122B5FDA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSPaymentHeaders</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20F00B34-4E64-4F5B-9984-E33F3F84EEB8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AA1A9CAF-454E-4C6C-9D83-9CE00F9ED5C1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4992FE4F-DE61-4302-B9CB-CF23A8ED52D8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strGenerateAPIMail">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{85447759-0D89-4E46-BF02-1B530149E0FD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2MDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4CBDDF45-AA4C-42E6-971E-17AAAEC7E6D7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMailHTMLBody">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D3810366-D944-4FBD-9C11-E6C213FF820C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">IFRPaymentHeader</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{539770A2-8DD1-4CCA-81CD-D7428045F3D4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsModelName">
+      <DTS:VariableValue
+        DTS:DataType="8">International Finance Reporting</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C16F0789-4533-45E5-BCDF-8273483D7938}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stg.udp_&quot; +  @[User::strMdsEntityName] + &quot;_Leaf&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsStagingStoredProc">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.udp_IFRPaymentHeader_Leaf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DEE7E381-042A-44BB-96C1-0958D02AFFC8}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;stg.&quot; +  @[User::strMdsEntityName] + &quot;_Leaf&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsStagingTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">stg.IFRPaymentHeader_Leaf</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7DD14CD7-DD1E-4F03-A9A6-31C7BDF34334}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsUserName">
+      <DTS:VariableValue
+        DTS:DataType="8">PRS\SYilmaz</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B7D89E84-60F3-42D3-A9CE-636D84B4F829}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strMdsVersionName">
+      <DTS:VariableValue
+        DTS:DataType="8">VERSION_1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F78CA36C-F829-4702-BA95-5EAB230B4D6B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">DataMartToMDS</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3B86857D-CD7C-4059-904D-4FFCCE94D9CE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">IFR</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{F57ECF43-479C-479F-9FB5-A335393FF4A9}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{323BE915-3AE8-46AD-A87F-12577C066D18}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{AC8C6C82-67D8-472F-9D64-9FF2606CE0D9}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEC - Load Data to MDS And Run Validation Rules">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Gets a dataset from the natural key table and then lookups up all the attributes needed to fully represent each dimension member. The complete dataset will then be check to see if it is an insert or an update and loaded into the relevant tables."
+          DTS:DTSID="{FA3E7489-0106-4BED-B008-B01398EA09DB}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFL - Load MDS Staging">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:DTSID="{A1953978-4528-4396-8C49-81AD55F1AE43}"
+              DTS:IncludeInDebugDump="2345"
+              DTS:Namespace="User"
+              DTS:ObjectName="strTaskAction">
+              <DTS:VariableValue
+                DTS:DataType="8"
+                xml:space="preserve"></DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:EventHandlers>
+            <DTS:EventHandler
+              DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.EventHandlers[OnPostExecute]"
+              DTS:CreationName="OnPostExecute"
+              DTS:DTSID="{FBCD7BDB-9673-46AE-9413-1D6F6AC0463E}"
+              DTS:EventID="0"
+              DTS:EventName="OnPostExecute"
+              DTS:LocaleID="-1">
+              <DTS:Variables>
+                <DTS:Variable
+                  DTS:CreationName=""
+                  DTS:Description="The propagate property of the event"
+                  DTS:DTSID="{7C96E6E7-3915-43A4-8186-3D5391B5C587}"
+                  DTS:IncludeInDebugDump="6789"
+                  DTS:Namespace="System"
+                  DTS:ObjectName="Propagate">
+                  <DTS:VariableValue
+                    DTS:DataType="11">-1</DTS:VariableValue>
+                </DTS:Variable>
+              </DTS:Variables>
+              <DTS:Executables />
+            </DTS:EventHandler>
+          </DTS:EventHandlers>
+          <DTS:ObjectData>
+            <pipeline
+              BLOBTempStoragePath=""
+              bufferTempStoragePath=""
+              engineThreads="5"
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="ADO NET Source CodaData"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+ 0 as ImportType, -- 1 Create new members only. Any updates to existing MDS data fail. 2 Create new members. Replace existing MDS data with staged data
+ 'R_' + cast(FiscalPeriod as varchar)  + '_' + cast(TId as varchar) as Name,
+1 as Status,
+FiscalPeriod,	
+CDocNum as DocNumber,
+Description,
+DocCode as [Document Code],
+ABS(DocCurrencyAmount )as CurrencyAmount,
+ExchangeRate as ExchangeRate,
+ABS(DocAmount) as Amount,
+DocCurrencyCode,
+Convert(varchar(10),cast(DocumentDate as Datetime),103) DocumentDate,
+Convert(varchar(10),cast(DocumentInputDate as Datetime),103) DocumentInputDate,
+CodaDetailsCode,
+Tid
+from [IFR].[CodaFinancialData]
+Where  DocCode like 'SINTP%'
+and CodaDetailsCode not in (select CodaDetailsCode from [IFR].[FactPaymentHeaders])</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"IFR"."v_GetPaymentHeadersForMDS"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Connections[IDbConnection]"
+                      connectionManagerID="{540CADCD-96B5-496D-AD9E-07ED9794D099}:invalid"
+                      connectionManagerRefId="{540CADCD-96B5-496D-AD9E-07ED9794D099}:invalid"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[ImportType]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[ImportType]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[ImportType]"
+                          name="ImportType"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Name]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                          length="63"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Status]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Status]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[FiscalPeriod]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[FiscalPeriod]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[FiscalPeriod]"
+                          name="FiscalPeriod"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocNumber]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[DocNumber]"
+                          length="12"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocNumber]"
+                          name="DocNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Description]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Description]"
+                          length="36"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Description]"
+                          name="Description"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Document Code]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Document Code]"
+                          length="12"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Document Code]"
+                          name="Document Code"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[PaymentAmountNet]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[PaymentAmountNet]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[PaymentAmountNet]"
+                          name="PaymentAmountNet"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[ExchangeRatePaymentSterling]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[ExchangeRatePaymentSterling]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[ExchangeRatePaymentSterling]"
+                          name="ExchangeRatePaymentSterling"
+                          precision="9"
+                          scale="5"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[SterlingAmountNet]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[SterlingAmountNet]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[SterlingAmountNet]"
+                          name="SterlingAmountNet"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[PaymentCurrencyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[PaymentCurrencyCode]"
+                          length="12"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[PaymentCurrencyCode]"
+                          name="PaymentCurrencyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[LocalAmountNet]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[LocalAmountNet]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[LocalAmountNet]"
+                          name="LocalAmountNet"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[LocalCurrencyCode]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[LocalCurrencyCode]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[LocalCurrencyCode]"
+                          name="LocalCurrencyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocumentDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[DocumentDate]"
+                          length="10"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocumentDate]"
+                          name="DocumentDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocumentInputDate]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[DocumentInputDate]"
+                          length="10"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocumentInputDate]"
+                          name="DocumentInputDate"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Country]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Country]"
+                          length="15"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Country]"
+                          name="Country"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Society]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Society]"
+                          length="15"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Society]"
+                          name="Society"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[CodaDetailsCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[CodaDetailsCode]"
+                          length="51"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[CodaDetailsCode]"
+                          name="CodaDetailsCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Tid]"
+                          dataType="i8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Tid]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Tid]"
+                          name="Tid"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[ImportType]"
+                          dataType="ui1"
+                          name="ImportType" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="63"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Status]"
+                          dataType="i4"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[FiscalPeriod]"
+                          dataType="i4"
+                          name="FiscalPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[DocNumber]"
+                          dataType="wstr"
+                          length="12"
+                          name="DocNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Description]"
+                          dataType="wstr"
+                          length="36"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Document Code]"
+                          dataType="wstr"
+                          length="12"
+                          name="Document Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[PaymentAmountNet]"
+                          dataType="cy"
+                          name="PaymentAmountNet" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[ExchangeRatePaymentSterling]"
+                          dataType="numeric"
+                          name="ExchangeRatePaymentSterling"
+                          precision="9"
+                          scale="5" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[SterlingAmountNet]"
+                          dataType="cy"
+                          name="SterlingAmountNet" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[PaymentCurrencyCode]"
+                          dataType="wstr"
+                          length="12"
+                          name="PaymentCurrencyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[LocalAmountNet]"
+                          dataType="i4"
+                          name="LocalAmountNet" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[LocalCurrencyCode]"
+                          dataType="i4"
+                          name="LocalCurrencyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[DocumentDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="DocumentDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[DocumentInputDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="DocumentInputDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Country]"
+                          dataType="wstr"
+                          length="15"
+                          name="Country" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Society]"
+                          dataType="wstr"
+                          length="15"
+                          name="Society" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[CodaDetailsCode]"
+                          dataType="wstr"
+                          length="51"
+                          name="CodaDetailsCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].ExternalColumns[Tid]"
+                          dataType="i8"
+                          name="Tid" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ImportType]"
+                          dataType="ui1"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ImportType]"
+                          name="ImportType" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Name]"
+                          dataType="wstr"
+                          length="63"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Name]"
+                          name="Name" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Status]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Status]"
+                          name="Status" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[FiscalPeriod]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[FiscalPeriod]"
+                          name="FiscalPeriod" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[DocNumber]"
+                          dataType="wstr"
+                          length="12"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[DocNumber]"
+                          name="DocNumber" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Description]"
+                          dataType="wstr"
+                          length="36"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Description]"
+                          name="Description" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Document Code]"
+                          dataType="wstr"
+                          length="12"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Document Code]"
+                          name="Document Code" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[PaymentAmountNet]"
+                          dataType="cy"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[PaymentAmountNet]"
+                          name="PaymentAmountNet" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ExchangeRatePaymentSterling]"
+                          dataType="numeric"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ExchangeRatePaymentSterling]"
+                          name="ExchangeRatePaymentSterling"
+                          precision="9"
+                          scale="5" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[SterlingAmountNet]"
+                          dataType="cy"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[SterlingAmountNet]"
+                          name="SterlingAmountNet" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[PaymentCurrencyCode]"
+                          dataType="wstr"
+                          length="12"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[PaymentCurrencyCode]"
+                          name="PaymentCurrencyCode" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[LocalAmountNet]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[LocalAmountNet]"
+                          name="LocalAmountNet" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[LocalCurrencyCode]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[LocalCurrencyCode]"
+                          name="LocalCurrencyCode" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[DocumentDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[DocumentDate]"
+                          name="DocumentDate" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[DocumentInputDate]"
+                          dataType="wstr"
+                          length="10"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[DocumentInputDate]"
+                          name="DocumentInputDate" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Country]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Country]"
+                          name="Country" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Society]"
+                          dataType="wstr"
+                          length="15"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Society]"
+                          name="Society" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[CodaDetailsCode]"
+                          dataType="wstr"
+                          length="51"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[CodaDetailsCode]"
+                          name="CodaDetailsCode" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Tid]"
+                          dataType="i8"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[Tid]"
+                          name="Tid" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Add additional column detail e.g. LoadID"
+                  name="DRC - Add Metadata"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output].Columns[BatchTag]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output].Columns[BatchTag]"
+                          name="BatchTag"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intLoadId]</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output].Columns[ImportStatus_ID]"
+                          dataType="ui1"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output].Columns[ImportStatus_ID]"
+                          name="ImportStatus_ID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">(DT_UI1)@[User::intMdsStatusId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">(DT_UI1)@[User::intMdsStatusId]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="DST - MDS Payment Header"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"stg"."IFRPaymentHeader_Leaf"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Connections[IDbConnection]"
+                      connectionManagerID="{3A0A3BA9-88CD-4FC9-84A6-FE258E5361BC}:invalid"
+                      connectionManagerRefId="{3A0A3BA9-88CD-4FC9-84A6-FE258E5361BC}:invalid"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[ImportType]"
+                          cachedDataType="ui1"
+                          cachedName="ImportType"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ImportType]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[ImportType]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Name]"
+                          cachedDataType="wstr"
+                          cachedLength="63"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Name]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Name]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Status]"
+                          cachedDataType="i4"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Status]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[FiscalPeriod]"
+                          cachedDataType="i4"
+                          cachedName="FiscalPeriod"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[FiscalPeriod]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[FiscalPeriod]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[DocNumber]"
+                          cachedDataType="wstr"
+                          cachedLength="12"
+                          cachedName="DocNumber"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[DocNumber]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocNumber]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Description]"
+                          cachedDataType="wstr"
+                          cachedLength="36"
+                          cachedName="Description"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Description]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Description]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Document Code]"
+                          cachedDataType="wstr"
+                          cachedLength="12"
+                          cachedName="Document Code"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Document Code]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Document Code]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[PaymentAmountNet]"
+                          cachedDataType="cy"
+                          cachedName="PaymentAmountNet"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[PaymentAmountNet]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[PaymentAmountNet]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[ExchangeRatePaymentSterling]"
+                          cachedDataType="numeric"
+                          cachedName="ExchangeRatePaymentSterling"
+                          cachedPrecision="9"
+                          cachedScale="5"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ExchangeRatePaymentSterling]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[ExchangeRatePaymentSterling]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[SterlingAmountNet]"
+                          cachedDataType="cy"
+                          cachedName="SterlingAmountNet"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[SterlingAmountNet]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[SterlingAmountNet]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[PaymentCurrencyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="12"
+                          cachedName="PaymentCurrencyCode"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[PaymentCurrencyCode]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[PaymentCurrencyCode]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[LocalAmountNet]"
+                          cachedDataType="i4"
+                          cachedName="LocalAmountNet"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[LocalAmountNet]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[LocalAmountNet]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[LocalCurrencyCode]"
+                          cachedDataType="i4"
+                          cachedName="LocalCurrencyCode"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[LocalCurrencyCode]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[LocalCurrencyCode]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[DocumentDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DocumentDate"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[DocumentDate]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocumentDate]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[DocumentInputDate]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DocumentInputDate"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[DocumentInputDate]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[DocumentInputDate]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Society]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Society"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Society]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Society]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[CodaDetailsCode]"
+                          cachedDataType="wstr"
+                          cachedLength="51"
+                          cachedName="CodaDetailsCode"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[CodaDetailsCode]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[CodaDetailsCode]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Tid]"
+                          cachedDataType="i8"
+                          cachedName="Tid"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Tid]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Tid]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[BatchTag]"
+                          cachedDataType="i4"
+                          cachedName="BatchTag"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[BatchTag]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output].Columns[BatchTag]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[ImportStatus_ID]"
+                          cachedDataType="ui1"
+                          cachedName="ImportStatus_ID"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ImportStatus_ID]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output].Columns[ImportStatus_ID]" />
+                        <inputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].Columns[Country]"
+                          cachedDataType="wstr"
+                          cachedLength="15"
+                          cachedName="Country"
+                          externalMetadataColumnId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Territory]"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output].Columns[Country]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ImportType]"
+                          dataType="ui1"
+                          name="ImportType" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ImportStatus_ID]"
+                          dataType="ui1"
+                          name="ImportStatus_ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Batch_ID]"
+                          dataType="i4"
+                          name="Batch_ID" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[BatchTag]"
+                          dataType="wstr"
+                          length="50"
+                          name="BatchTag" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Code]"
+                          dataType="wstr"
+                          length="250"
+                          name="Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Name]"
+                          dataType="wstr"
+                          length="250"
+                          name="Name" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[NewCode]"
+                          dataType="wstr"
+                          length="250"
+                          name="NewCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[FiscalPeriod]"
+                          dataType="numeric"
+                          name="FiscalPeriod"
+                          precision="38" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[DocNumber]"
+                          dataType="wstr"
+                          length="100"
+                          name="DocNumber" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Description]"
+                          dataType="wstr"
+                          length="100"
+                          name="Description" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Document Code]"
+                          dataType="wstr"
+                          length="100"
+                          name="Document Code" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[PaymentAmountNet]"
+                          dataType="numeric"
+                          name="PaymentAmountNet"
+                          precision="38"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[ExchangeRatePaymentSterling]"
+                          dataType="numeric"
+                          name="ExchangeRatePaymentSterling"
+                          precision="38"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[SterlingAmountNet]"
+                          dataType="numeric"
+                          name="SterlingAmountNet"
+                          precision="38"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[CodaDetailsCode]"
+                          dataType="wstr"
+                          length="100"
+                          name="CodaDetailsCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Status]"
+                          dataType="wstr"
+                          length="250"
+                          name="Status" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Tid]"
+                          dataType="wstr"
+                          length="100"
+                          name="Tid" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[PaymentCurrencyCode]"
+                          dataType="wstr"
+                          length="250"
+                          name="PaymentCurrencyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[DocumentInputDate]"
+                          dataType="wstr"
+                          length="120"
+                          name="DocumentInputDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Society]"
+                          dataType="wstr"
+                          length="250"
+                          name="Society" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[Territory]"
+                          dataType="wstr"
+                          length="250"
+                          name="Territory" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[LocalAmountNet]"
+                          dataType="numeric"
+                          name="LocalAmountNet"
+                          precision="38"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[DocumentDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="DocumentDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input].ExternalColumns[LocalCurrencyCode]"
+                          dataType="wstr"
+                          length="100"
+                          name="LocalCurrencyCode" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation;Microsoft SqlServer v9; (C) 2005 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Increment successful row counter."
+                  name="RWC - Successful Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intSuccessRows</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.Paths[ADO NET Source Output]"
+                  endId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Inputs[Derived Column Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.Paths[Derived Column Output]"
+                  endId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.Paths[Row Count Output 1]"
+                  endId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header.Inputs[ADO NET Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Uses the data in the update table to update existing data in the dimension table."
+          DTS:DTSID="{5F4DCBE7-BBC5-4AFC-ACEC-DFBA9C725CFD}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST - Run MDS Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC " + @[User::strMdsStagingStoredProc] + " '" + @[User::strMdsVersionName] + "', 0, " + (DT_STR, 25, 1252) @[User::intLoadId]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3A0A3BA9-88CD-4FC9-84A6-FE258E5361BC}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="EXEC stg.udp_IFRPaymentHeader_Leaf 'VERSION_1', 0, 0" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Validation"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Uses the data in the update table to update existing data in the dimension table."
+          DTS:DTSID="{F991E446-24F4-48F3-9C58-0AC8DD6C1A0C}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST - Run MDS Validation"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+DECLARE
+ @UserName nvarchar(50) = '" + @[User::strMdsUserName]  + "'
+,@ModelName nvarchar(50) = N'" + @[User::strMdsModelName]  + "'
+,@UserID INT
+,@ModelID INT
+,@VersionID INT
+
+--Retrieve IDs
+SET @UserID = (SELECT [ID] FROM [mdm].[tblUser] WHERE UserName = @UserName)
+SET @ModelID = (SELECT TOP(1) [Model_ID] FROM [mdm].[viw_SYSTEM_SCHEMA_VERSION] WHERE [Model_Name] = @ModelName)
+SET @VersionID = (SELECT MAX(ID) FROM [mdm].[viw_SYSTEM_SCHEMA_VERSION] WHERE [Model_ID] = @ModelID)
+
+EXEC [mdm].[udpValidateModel] @UserID, @ModelID, @VersionID, 1;
+GO"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3A0A3BA9-88CD-4FC9-84A6-FE258E5361BC}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="&#xA;DECLARE&#xA; @UserName nvarchar(50) = 'PRS\SYilmaz'&#xA;,@ModelName nvarchar(50) = N'International Finance Reporting'&#xA;,@UserID INT&#xA;,@ModelID INT&#xA;,@VersionID INT&#xA;&#xA;--Retrieve IDs&#xA;SET @UserID = (SELECT [ID] FROM [mdm].[tblUser] WHERE UserName = @UserName)&#xA;SET @ModelID = (SELECT TOP(1) [Model_ID] FROM [mdm].[viw_SYSTEM_SCHEMA_VERSION] WHERE [Model_Name] = @ModelName)&#xA;SET @VersionID = (SELECT MAX(ID) FROM [mdm].[viw_SYSTEM_SCHEMA_VERSION] WHERE [Model_ID] = @ModelID)&#xA;&#xA;EXEC [mdm].[udpValidateModel] @UserID, @ModelID, @VersionID, 1;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Truncate MDS Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="EST - Truncate MDS Staging"
+          DTS:DTSID="{191E10DC-176B-4BAD-8BCE-CCC39F3B4304}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EST - Truncate MDS Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"Truncate Table  " +  @[User::strMdsStagingTableName]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{1EEA9149-2150-4ACE-AC92-45A65C890B51}"
+              SQLTask:BypassPrepare="False"
+              SQLTask:SqlStatementSource="Truncate Table  stg.IFRPaymentHeader_Leaf" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{E41B76AF-B16E-4C40-8C41-AF0042C0CF26}"
+          DTS:From="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Truncate MDS Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{BFF4EBF1-2349-4802-9A62-ECFF12CB7D14}"
+          DTS:From="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEC - Load Data to MDS And Run Validation Rules.PrecedenceConstraints[Constraint 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{E435007B-82A3-4D35-8A72-8C0F2CB58DD9}"
+          DTS:From="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 4"
+          DTS:To="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Validation" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{E4E14052-CA90-43E3-9BA0-855E51B36501}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{73D84023-54D6-48FB-BC13-F3EFC1D59BC6}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{02C117D1-7E1E-47D9-83FF-D714DAD02C72}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AB09DBAB-9399-4ACC-8143-5C565A75BE92}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEC - Load Data to MDS And Run Validation Rules" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{3462A553-CCFA-4EC8-BA39-3FA1A7CA4A54}"
+      DTS:From="Package\SEC - Load Data to MDS And Run Validation Rules"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{2A0D8378-28C8-4BB7-A122-AF693BD21EA0}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{B0D71AB6-78FD-4B62-B1B7-D4C331E206A0}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{156E907B-0E3E-4FDB-B3AB-3E2AD784E908}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="210,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging"
+          TopLeft="61.606043487746,84.3294134635" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Staging"
+          TopLeft="67.285714392759,152.917646998765" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Run MDS Validation"
+          TopLeft="63.422534334336,224.011764714462" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\EST - Truncate MDS Staging"
+          TopLeft="60,16" />
+        <EdgeLayout
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules.PrecedenceConstraints[Constraint 2]"
+          TopLeft="166.553021743873,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.3294134635"
+              Start="0,0"
+              End="0,18.8294134635">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.8294134635" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules.PrecedenceConstraints[Constraint 3]"
+          TopLeft="164.445878940253,126.3294134635">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.588233535265"
+              Start="0,0"
+              End="0,19.088233535265">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.088233535265" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules.PrecedenceConstraints[Constraint 4]"
+          TopLeft="162.854124363548,194.917646998765">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.0941177156971"
+              Start="0,0"
+              End="0,21.5941177156971">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5941177156971" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="376,272"
+          Size="376,315"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules"
+          TopLeft="190,291" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="254,206" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="374.75,248">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="280,104" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="379.5,146">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,60"
+              Start="0,0"
+              End="-8,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-4,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,30"
+                    Point2="-8,30"
+                    Point3="-8,34" />
+                  <mssgle:LineSegment
+                    End="-8,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="262,647" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="378,606">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,41"
+              Start="0,0"
+              End="-9.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="-4,20.5" />
+                  <mssgle:LineSegment
+                    End="-5.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,20.5"
+                    Point2="-9.5,20.5"
+                    Point3="-9.5,24.5" />
+                  <mssgle:LineSegment
+                    End="-9.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header"
+          TopLeft="251,295" />
+        <NodeLayout
+          Size="204,44"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\RWC - Successful Row Count"
+          TopLeft="247.507142864928,199.217855656412" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData"
+          TopLeft="257,21" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DRC - Add Metadata"
+          TopLeft="250.507142864928,104.811903770942" />
+        <EdgeLayout
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.Paths[Derived Column Output]"
+          TopLeft="352.007142864928,146.811903770942">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.40595188547"
+              Start="0,0"
+              End="0,44.90595188547">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.90595188547" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.Paths[ADO NET Source Output]"
+          TopLeft="357.503571432464,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.811903770942"
+              Start="0,0"
+              End="0,34.311903770942">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.311903770942" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.Paths[Row Count Output 1]"
+          TopLeft="350.253571432464,243.217855656412">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.782144343588"
+              Start="0,0"
+              End="0,44.282144343588">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.282144343588" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging.EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="195,42"
+          Id="Package\DFL - Load MDS Staging.EventHandlers[OnPostExecute]\Load MDS Insurer"
+          TopLeft="391,138" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\DST - MDS Payment Header">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEC - Load Data to MDS And Run Validation Rules\DFL - Load MDS Staging\ADO NET Source CodaData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="JSPT01_PutStations_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupStation]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+
+declare @requestID int
+
+declare @requestString nvarchar(4000) = N'{"request":{
+"data":[{"StationID":"TEST1234","StationName":"BOOMERANG AFRICA","StationCategory":"Television","StationStatus":"Licenced",
+"TotalInPeriodForecast":"1",
+"GroupAdminRate":1,
+"HedgePercent":1,
+"PRAdminRate":1,
+"CommercialSampleDays":1,
+"NonCommercialSampleDays":1,
+"TotalSampleDays":1,
+"MinimumFee":1,
+"BroadcastHours":1,
+"LicenceFeeSplitPercent":1,
+"TotalWeeklyAudienceHours":1,
+"CodaCustomerCode":"TestValue1",
+"FPVStatus":"TestValue2",
+"AudioPolicyMain":"TestValue3",
+"AudioPolicyCommercial":"TestValue4",
+"UpdateComment":"TestValue5",
+"IsExcluded":false,
+"DistributionStartDate":null,
+"DistributionEndDate":null,
+"UpdatedBy":"aahmed",
+
+"SysStartTime":null,
+"SysEndTime":null,
+"IsCurrent":null,
+"CalculationPeriodStart":"0001-01-01T00:00:00",
+"CalculationPeriodEnd":"0001-01-01T00:00:00",
+"CalculationPeriodStatus":null}]
+
+,"type":"PUT","entity":"STATIONS",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D192","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+
+count(1) as InsertValid
+
+from [FPV].[CalculationGroupStation]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+  --check integer inserts
+  and [GroupAdminRate]+[HedgePercent]+[PRAdminRate]+[CommercialSampleDays]+[NonCommercialSampleDays]+[TotalSampleDays]+[MinimumFee]+[BroadcastHours]+[LicenceFeeSplitPercent]=9
+  --check string values
+  --and [CodaCustomerCode]='TestValue1'
+  and [FPVStatus]='TestValue2'
+  and [AudioPolicyMain]='TestValue3'
+  and [AudioPolicyCommercial]='TestValue4'
+  and [UpdateComment]='TestValue5'
+
+
+
+
+
+
+</value>
+  </data>
+  <data name="JSPT02_PutRevenue_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupRevenue]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":[{
+"StationID":"TEST1234",
+"StationName":"Test CHANNEL AKA",
+"CodaCustomerCode":"CAATW0000",
+"CodaCustomerDescription":"AATW Ltd",
+"AnnualMusicMinutes":"1",
+"MusicUsage":"1",
+"MusicConsumption":"1",
+"ConsumptionSplit":"1",
+"TotalRevenueApportionment":"1",
+"PercentageSplit":"1",
+"UpdatedBy":"aahmed",
+"UpdateComment":"TestValue2",
+"IsCurrent":null}]
+,"type":"PUT","entity":"REVENUE",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D192","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].[CalculationGroupRevenue]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+  --check integer inserts
+  and 
+  [AnnualMusicMinutes]
++[MusicUsage]
++[MusicConsumption]
++[ConsumptionSplit]
++[TotalRevenueApportionment]
++[PercentageSplit]=6
+  --check string values
+
+and  [UpdateComment]='TestValue2'
+
+ </value>
+  </data>
+  <data name="JSPT03_PutAudienceReach_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].CalculationGroupAudienceReach
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":
+[{
+
+"StationID":"TEST1234",
+"WeeklyReach":"1",
+"WeeklyViewingHours":"1",
+"TotalWeeklyAudienceHours":"1",
+"HoursPerListenerAverage":"1",
+"HoursPerHeadAverage":"1"}]
+,"type":"PUT","entity":"AUDIENCEREACH",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D184","WithDelete":"0"},"originator":null,"comment":null}}'
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].CalculationGroupAudienceReach
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+  --check integer inserts
+  and 
+[WeeklyReach]+
+[WeeklyViewingHours]+
+[TotalWeeklyAudienceHours]+
+[HoursPerListenerAverage]+
+[HoursPerHeadAverage]=5
+
+  --check string values
+
+  --and [Scenario]='TestValue1'
+  --and [UpdateComment]='TestValue2'
+
+ </value>
+  </data>
+  <data name="JSPT04_PutRevenueGroup_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupRevenueGroup]
+where
+RevenueGroupCode = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+
+N'{"request":{"data":[{
+"FPVStatus":"PROG",
+"RevenueGroupName":"Test RevenueGroup",
+"CodaCustomerCode":"TEST1234",
+"HedgePercent":"1",
+"EstimatedRevenue":"1",
+"EstimatedPoints":"1",
+"HedgedRevenue":"1"	,
+"SocietySplitPercent":"1",
+"SocietyRevenue":"1",
+"RingFenceValue":"1",
+"IsExcluded":null,
+"DistributionStartDate":null,
+"DistributionEndDate":null,
+"UpdatedBy":"TestValue1",
+"UpdateComment":"TestValue2",
+"SysStartTime":null,"SysEndTime":null,"IsCurrent":null,
+"CalculationPeriodStart":"0001-01-01T00:00:00",
+"CalculationPeriodEnd":"0001-01-01T00:00:00","CalculationPeriodStatus":null}]
+,"type":"PUT","entity":"REVENUEGROUPS"
+,"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D192","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].[CalculationGroupRevenueGroup]
+where
+ RevenueGroupCode = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+  --check integer inserts
+  and 
+--[HedgePercent]+
+[EstimatedRevenue]+
+--[EstimatedPoints]+
+--[HedgedRevenue]+
+[SocietySplitPercent]+
+--[SocietyRevenue]+
+[RingFenceValue]
+=3
+  --check string values
+
+  and UpdatedBy='TestValue1'
+  and [UpdateComment]='TestValue2'
+
+ </value>
+  </data>
+  <data name="JSPT05_PutMissingMinutes_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupMissingMinutes]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":[{
+"StationID":"TEST1234" ,
+"MissingMinutes":"1",
+"CarryForwardsMinutes":"1",
+"TotalMinutesToHold":"1",
+"MissingRevenue":"1",
+"CarryForwardsRevenue":"1",
+"TotalRevenueToHold":"1",
+
+"UpdatedBy":"TestValue1",
+"UpdateComment":"TestValue2",
+"SysStartTime":null,
+"SysEndTime":null,
+"IsCurrent":null,
+"CalculationPeriodStart":"0001-01-01T00:00:00",
+"CalculationPeriodEnd":"0001-01-01T00:00:00",
+"CalculationPeriodStatus":null}]
+,"type":"PUT","entity":"MISSINGMINUTES",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D184","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].[CalculationGroupMissingMinutes]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+  --check integer inserts
+  and 
+[MissingMinutes]+
+[CarryForwardsMinutes]+
+[TotalMinutesToHold]+
+[MissingRevenue]+
+[CarryForwardsRevenue]+
+[TotalRevenueToHold]=6
+  --check string values
+
+  and [UpdatedBy]='TestValue1'
+  and [UpdateComment]='TestValue2'
+
+</value>
+  </data>
+  <data name="JSPT05_PutMissingMinutes_PosttestAction.SqlScript" xml:space="preserve">
+    <value> --remove test row if exists
+delete
+from [FPV].[CalculationGroupMissingMinutes]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'</value>
+  </data>
+  <data name="JSPT04_PutRevenueGroup_PosttestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupRevenue]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'</value>
+  </data>
+  <data name="JSPT01_PutStations_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/--remove test row if exists
+delete
+from [FPV].[CalculationGroupStation]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+</value>
+  </data>
+  <data name="JSPT02_PutRevenue_PosttestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupRevenue]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'</value>
+  </data>
+  <data name="JSPT03_PutAudienceReach_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/--remove test row if exists
+delete
+from [FPV].CalculationGroupAudienceReach
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'</value>
+  </data>
+  <data name="JSPT06_PutMusicMinutes_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupMusicMinutes]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":[{
+"StationID":"TEST1234" ,
+
+
+"ProgrammeForecast":"1",
+"NonProgrammeForecast":"1",
+"CommercialForecast":"1",
+"TotalInPeriodForecast":"1",
+"LateDataForecast":"1",
+"TotalForecast":"1",
+
+"UpdatedBy":"TestValue4",
+"UpdateComment":"TestValue5",
+"IsCurrent":null}]
+,"type":"PUT","entity":"MUSICMINUTES",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D192","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].[CalculationGroupMusicMinutes]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D192'
+  --check integer inserts
+  and 
+
+
+[ProgrammeForecast]+
+[NonProgrammeForecast]+
+[CommercialForecast]+
+[TotalInPeriodForecast]+
+[LateDataForecast]+
+[TotalForecast]=6
+  --check string values even though domnt think these are used
+
+  and [UpdateComment]='TestValue5'
+
+ </value>
+  </data>
+  <data name="JSPT06_PutMusicMinutes_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/--remove test row if exists
+delete
+from [FPV].[CalculationGroupMusicMinutes]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'</value>
+  </data>
+  <data name="JSPT07_PutPublicReception_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupPublicReception]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":[{
+"StationID":"TEST1234" ,
+
+"TotalPRAllocation":"1",
+
+"UpdatedBy":"TestValue1",
+"UpdateComment":"TestValue2",
+"SysStartTime":null,
+"SysEndTime":null,
+"IsCurrent":null,
+"CalculationPeriodStart":"0001-01-01T00:00:00",
+"CalculationPeriodEnd":"0001-01-01T00:00:00",
+"CalculationPeriodStatus":null}]
+,"type":"PUT","entity":"PUBLICRECEPTION",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D184","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].[CalculationGroupPublicReception]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+  --check integer inserts
+  and 
+
+TotalPRAllocation=1
+  --check string values even though domnt think these are used
+and
+  [UpdateComment]='TestValue2'
+
+ </value>
+  </data>
+  <data name="JSPT07_PutPublicReception_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/--remove test row if exists
+delete
+from [FPV].[CalculationGroupPublicReception]
+where
+ StationID = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+</value>
+  </data>
+  <data name="JSPT08_PutUDC_TestAction.SqlScript" xml:space="preserve">
+    <value>--remove test row if exists
+delete
+from [FPV].[CalculationGroupUDC]
+where
+ StationID = 'TEST1234'
+ and  UDCCode = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":[{
+"StationID":"TEST1234" ,
+"calculationUDCCode":"TEST1234" ,
+"UDCDescription":"TestValue5" ,
+"UsedForPurposeDesc":"TestValue1" ,
+"TimeBand":"TestValue2" ,
+"PeakSplitPercent":"1",
+
+"UpdatedBy":"TestValue3",
+"UpdateComment":"TestValue4",
+"SysStartTime":null,
+"SysEndTime":null,
+"IsCurrent":null,
+"CalculationPeriodStart":"0001-01-01T00:00:00",
+"CalculationPeriodEnd":"0001-01-01T00:00:00",
+"CalculationPeriodStatus":null}]
+,"type":"PUT","entity":"UDC",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D184","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].[CalculationGroupUDC]
+where
+ StationID = 'TEST1234'
+ and  UDCCode = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'
+  --check integer inserts
+  and 
+PeakSplitPercent=1
+  --check string values even though domnt think these are used
+and
+  [UsedForPurposeDesc]='TestValue1'
+  and
+[TimeBand]='TestValue2'
+and
+[UDCDescription]='TestValue5'
+ </value>
+  </data>
+  <data name="JSPT08_PutUDC_PosttestAction.SqlScript" xml:space="preserve">
+    <value>/*
+Add SQL statements here that you want to run after 
+the test script is run.
+
+In the lower pane, you can add test conditions that verify 
+whether the results of your SQL statements match what 
+you expect.
+*/--remove test row if exists
+delete
+from [FPV].[CalculationGroupUDC]
+where
+ StationID = 'TEST1234'
+ and  UDCCode = 'TEST1234'
+  and Society = 'PRS'
+  and DistributionGroupCode = 'AV'
+  and DistributionCode = 'D184'</value>
+  </data>
+  <data name="JSPT10_PutFPVCalculation_TestAction.SqlScript" xml:space="preserve">
+    <value> 
+--remove test row if exists
+delete
+from [FPV].FPVCalculation
+where
+	StationID = 'TEST1234'
+
+declare @requestID int
+--build JSON to insert test station @ TEST1234
+declare @requestString nvarchar(4000) = 
+N'{"request":{"data":[
+{
+"StationID":"TEST1234",
+"CalculationValue":"1",
+"CalculationStatus":"Pending Approval",
+"CalculationDef":"HedgedFPVPoundsPerMin",
+"UpdatedBy":"TestValue1",
+"UpdateComment":"TestValue2"}
+]
+,"type":"PUT","entity":"FPVCALCULATIONS",
+"filters":{"Society":"PRS","DistributionGroupCode":"AV","DistributionCode":"D184","WithDelete":"0"},"originator":null,"comment":null}}'
+
+exec @requestID = [FPV_Public].[uspApplicationRequestHandler] @requestString
+
+--now test row inserted 
+select 
+count(1) as InsertValid
+from [FPV].FPVCalculation
+where
+	StationID = 'TEST1234'
+-- check integer inserts
+ and 
+[CalculationValue]
+--+[AnnualMusicMinutes]
+--+[MusicUsage]
+--+[MusicConsumption]
+--+[ConsumptionSplit]
+--+[TotalRevenueApportionment]
+--+[PercentageSplit]
+=1
+-- check string values
+and [UpdateComments]='TestValue2'</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

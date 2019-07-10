@@ -1,0 +1,1979 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/29/2014 11:36:29 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ACLJOCWIN8"
+  DTS:CreatorName="ACL\JOC"
+  DTS:DTSID="{FB40DBB2-AE47-413C-984E-2B189A0C9C71}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Staging REP_Usage_Distribution_Groups"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="203"
+  DTS:VersionGUID="{D251BC89-CA3C-4D5A-A1DB-969A706DB9B6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{1999AF04-411B-48EE-B31E-46025C0557B5}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">0</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{6256A2FD-B8FE-439B-A5A1-D2B307DA1293}"
+      DTS:ObjectName="intSourceFileId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">232559</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{98855390-DB85-4971-8C13-4B22A2EE3AE7}"
+      DTS:ObjectName="strProcessStream">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SRC2STG</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DFC789E-47E3-4747-BF48-37D89D647D7A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D405F805-502C-47BC-B285-06E09CB26F52}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{24C5B957-EF8D-4EE1-BD1E-125FC8CD72FD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{699AA2E8-4AB1-4C53-9C0F-E8276AB0AE7D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{31235692-3FD8-4E30-973A-23E3944D728A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BAF59097-820D-4C2D-92BE-07C51790D512}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D289FF6-6F75-4BF4-8FB7-3F29A6044ECE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54FE7B9F-E04F-4FBA-9F98-0FD53033EF1D}"
+      DTS:EvaluateAsExpression="True"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C9A1CF5-D0F0-422F-B486-8AAABF78B219}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSuccessRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2F1DABAE-2F1C-4DDA-866A-10BDE3E3D8C8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED4AF95C-910E-42F0-8769-61D063CC14AC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityIdProc">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E0A01E5E-5EC9-4258-BA77-FD687F737E73}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">Stage_Usage_Distribution_Groups</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E8E52FDF-AAED-46A8-8850-DA9A1053BAEF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityTypeName">
+      <DTS:VariableValue
+        DTS:DataType="8">Default</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A6E55D05-C5B1-463A-AEEB-BA4750CE2C9B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFilesToPurge">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C922DC2C-8E54-4AFE-8105-43A0FA18C393}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFormat">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3F764C68-9512-4EDA-9CBB-706BB9CB2D22}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{04C1B76C-3304-45C6-AB2F-4D24EBD82AE4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::strProcessStream]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8027C27B-E69E-4A4B-BA96-9CC6A1B03720}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSource">
+      <DTS:VariableValue
+        DTS:DataType="8">MDSI</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B0B539DC-6CC5-4F1F-AA77-98F7FF597478}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Usage_Distribution_Groups</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3D4CCABC-4F71-459C-AB2A-54BB039FE4C9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strTargetTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Staging.Usage_Distribution_Groups</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{AB71E4CD-FB8B-4F3D-8CAC-53636E5A071D}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: http://www.adatis.co.uk/"
+      DTS:DTSID="{D1449514-6ED0-4CC1-890F-3488599EFCE5}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="2" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT - Load Usage_Distribution_Group Details"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0FF2254A-1F17-4712-9116-45BDC939F352}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT - Load Usage_Distribution_Group Details"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\DFT - Load Usage_Distribution_Group Details.EventHandlers[OnError]"
+          DTS:CreationName="OnError"
+          DTS:DTSID="{1BF877BB-B519-4414-AC67-5B0658D3AF12}"
+          DTS:EventID="0"
+          DTS:EventName="OnError"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{02ED581C-8CA4-4FE4-88F5-9B181FC141B6}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\DFT - Load Usage_Distribution_Group Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: Row Throughput Task"
+              DTS:DTSID="{EA215FFC-64AE-40BD-B719-82568910D64D}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.RowThroughputTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Row Throughput Task"
+              DTS:TaskContact="Adatis: http://wwww.adatis.co.uk">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <RowThroughputProcName
+                    Type="8"
+                    Value="Audit.InsertRowThroughput" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO - Usage_Distribution_Groups"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"Staging"."Usage_Distribution_Groups"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Connections[IDbConnection]"
+                  connectionManagerID="{933360BD-CAEF-47C7-A196-9587BF3D4A36}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[MDSIntegration]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[LAST_UPDATED_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LAST_UPDATED_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[LAST_UPDATED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[SUBMITTED_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SUBMITTED_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SUBMITTED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SUBMITTED_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[NOTIONAL_VALUE_PER_POINT]"
+                      cachedDataType="numeric"
+                      cachedName="NOTIONAL_VALUE_PER_POINT"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[NOTIONAL_VALUE_PER_POINT]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[NOTIONAL_VALUE_PER_POINT]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[TARGET_DISTRIBUTION_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="TARGET_DISTRIBUTION_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[TARGET_DISTRIBUTION_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[TARGET_DISTRIBUTION_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[DC_SURR_ID]"
+                      cachedDataType="numeric"
+                      cachedName="DC_SURR_ID"
+                      cachedPrecision="12"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[DC_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[DC_SURR_ID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[SUBMISSION_REQUESTED_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SUBMISSION_REQUESTED_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SUBMISSION_REQUESTED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SUBMISSION_REQUESTED_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[PERFORMANCE_END_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PERFORMANCE_END_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_END_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERFORMANCE_END_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[ACTUAL_VALUE_PER_POINT]"
+                      cachedDataType="numeric"
+                      cachedName="ACTUAL_VALUE_PER_POINT"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[ACTUAL_VALUE_PER_POINT]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ACTUAL_VALUE_PER_POINT]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[ACTUAL_VALUE_ADDED_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ACTUAL_VALUE_ADDED_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[ACTUAL_VALUE_ADDED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ACTUAL_VALUE_ADDED_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[PERFORMANCE_START_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="PERFORMANCE_START_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_START_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERFORMANCE_START_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DEADLINE_USAGE_RECEIPT_DATE"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[DEADLINE_USAGE_RECEIPT_DATE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[PARTIALLY_SUBMITTED_FLAG]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="1"
+                      cachedName="PARTIALLY_SUBMITTED_FLAG"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[PARTIALLY_SUBMITTED_FLAG]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PARTIALLY_SUBMITTED_FLAG]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[CASE_ACCESS_THRESHOLD]"
+                      cachedDataType="numeric"
+                      cachedName="CASE_ACCESS_THRESHOLD"
+                      cachedPrecision="14"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[CASE_ACCESS_THRESHOLD]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[CASE_ACCESS_THRESHOLD]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      cachedDataType="numeric"
+                      cachedName="MECHANICAL_PM_NOTIONAL_VALUE"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_PM_NOTIONAL_VALUE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      cachedDataType="numeric"
+                      cachedName="MECHANICAL_PM_ACTUAL_VALUE"
+                      cachedPrecision="16"
+                      cachedScale="6"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_PM_ACTUAL_VALUE]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[LoadId]"
+                      cachedDataType="i4"
+                      cachedName="LoadId"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[SysStartTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysStartTime"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].Columns[SysEndTime]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="SysEndTime"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SURR_ID]"
+                      dataType="numeric"
+                      name="SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SUBMITTED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="SUBMITTED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[NOTIONAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      name="NOTIONAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[TARGET_DISTRIBUTION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="TARGET_DISTRIBUTION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[DC_SURR_ID]"
+                      dataType="numeric"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SUBMISSION_REQUESTED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="SUBMISSION_REQUESTED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[ACTUAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      name="ACTUAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[ACTUAL_VALUE_ADDED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ACTUAL_VALUE_ADDED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      dataType="dbTimeStamp"
+                      name="DEADLINE_USAGE_RECEIPT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[PARTIALLY_SUBMITTED_FLAG]"
+                      dataType="wstr"
+                      length="1"
+                      name="PARTIALLY_SUBMITTED_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[CASE_ACCESS_THRESHOLD]"
+                      dataType="numeric"
+                      name="CASE_ACCESS_THRESHOLD"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      name="MECHANICAL_PM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      name="MECHANICAL_PM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[LAST_UPDATED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[LoadID]"
+                      dataType="i4"
+                      name="LoadID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      name="SysStartTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input].ExternalColumns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      name="SysEndTime" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC - Add Integration Metadata"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[LoadId]"
+                      name="LoadId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[$Package::intParentLoadId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[$Package::intParentLoadId]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysStartTime]"
+                      name="SysStartTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[GETDATE]()</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">GETDATE()</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output].Columns[SysEndTime]"
+                      name="SysEndTime"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">NULL(DT_DBTIMESTAMP)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">NULL(DT_DBTIMESTAMP)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="REP - Usage_Distribution_Groups"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select
+  *
+from prblk.usage_distribution_groups</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Connections[OleDbConnection]"
+                  connectionManagerID="{353B4A9F-28E4-46BA-B1B6-AD161434E9DD}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[REPConnection]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SURR_ID]"
+                      name="SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[LAST_UPDATED_DATE]"
+                      name="LAST_UPDATED_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SUBMITTED_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SUBMITTED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SUBMITTED_DATE]"
+                      name="SUBMITTED_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[NOTIONAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[NOTIONAL_VALUE_PER_POINT]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[NOTIONAL_VALUE_PER_POINT]"
+                      name="NOTIONAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[TARGET_DISTRIBUTION_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[TARGET_DISTRIBUTION_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[TARGET_DISTRIBUTION_DATE]"
+                      name="TARGET_DISTRIBUTION_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[DC_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[DC_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[DC_SURR_ID]"
+                      name="DC_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SUBMISSION_REQUESTED_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SUBMISSION_REQUESTED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SUBMISSION_REQUESTED_DATE]"
+                      name="SUBMISSION_REQUESTED_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_END_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERFORMANCE_END_DATE]"
+                      name="PERFORMANCE_END_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ACTUAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ACTUAL_VALUE_PER_POINT]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ACTUAL_VALUE_PER_POINT]"
+                      name="ACTUAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ACTUAL_VALUE_ADDED_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ACTUAL_VALUE_ADDED_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ACTUAL_VALUE_ADDED_DATE]"
+                      name="ACTUAL_VALUE_ADDED_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_START_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERFORMANCE_START_DATE]"
+                      name="PERFORMANCE_START_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      name="DEADLINE_USAGE_RECEIPT_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PARTIALLY_SUBMITTED_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PARTIALLY_SUBMITTED_FLAG]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PARTIALLY_SUBMITTED_FLAG]"
+                      name="PARTIALLY_SUBMITTED_FLAG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[CASE_ACCESS_THRESHOLD]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[CASE_ACCESS_THRESHOLD]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[CASE_ACCESS_THRESHOLD]"
+                      name="CASE_ACCESS_THRESHOLD"
+                      precision="14"
+                      scale="4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[UDG_NEXT_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[UDG_NEXT_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[UDG_NEXT_SURR_ID]"
+                      name="UDG_NEXT_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ONLINE_DISTRIBUTION_REQ_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ONLINE_DISTRIBUTION_REQ_Y]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ONLINE_DISTRIBUTION_REQ_Y]"
+                      name="ONLINE_DISTRIBUTION_REQ_Y"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[LIFELINE_FILENAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[LIFELINE_FILENAME]"
+                      length="240"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[LIFELINE_FILENAME]"
+                      name="LIFELINE_FILENAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECH_M3_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECH_M3_LF_CREATED_YN]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECH_M3_LF_CREATED_YN]"
+                      name="MECH_M3_LF_CREATED_YN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_CM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_CM_NOTIONAL_VALUE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_CM_NOTIONAL_VALUE]"
+                      name="MECHANICAL_CM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      name="MECHANICAL_PM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_CM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_CM_ACTUAL_VALUE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_CM_ACTUAL_VALUE]"
+                      name="MECHANICAL_CM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      name="MECHANICAL_PM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECH_LIFELINE_FILENAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECH_LIFELINE_FILENAME]"
+                      length="240"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECH_LIFELINE_FILENAME]"
+                      name="MECH_LIFELINE_FILENAME"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECH_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECH_LF_CREATED_YN]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[MECH_LF_CREATED_YN]"
+                      name="MECH_LF_CREATED_YN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERF_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PERF_LF_CREATED_YN]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[PERF_LF_CREATED_YN]"
+                      name="PERF_LF_CREATED_YN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ICE_DEADLINE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ICE_DEADLINE_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[ICE_DEADLINE_DATE]"
+                      name="ICE_DEADLINE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SHARE_CHECK_CONTEXT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SHARE_CHECK_CONTEXT]"
+                      length="38"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[SHARE_CHECK_CONTEXT]"
+                      name="SHARE_CHECK_CONTEXT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[STAGING_DATA_DELETE_DATE]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[STAGING_DATA_DELETE_DATE]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[STAGING_DATA_DELETE_DATE]"
+                      name="STAGING_DATA_DELETE_DATE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[NOTIFIED_OF_SUBMISSION_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[NOTIFIED_OF_SUBMISSION_Y]"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[NOTIFIED_OF_SUBMISSION_Y]"
+                      name="NOTIFIED_OF_SUBMISSION_Y"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[BRO_RETRANS_OF_TP_SURR_ID]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[BRO_RETRANS_OF_TP_SURR_ID]"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[BRO_RETRANS_OF_TP_SURR_ID]"
+                      name="BRO_RETRANS_OF_TP_SURR_ID"
+                      precision="12"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[BI_DATA_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[BI_DATA_STATUS]"
+                      length="3"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].Columns[BI_DATA_STATUS]"
+                      name="BI_DATA_STATUS"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SURR_ID]"
+                      dataType="numeric"
+                      name="SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[LAST_UPDATED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_UPDATED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SUBMITTED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="SUBMITTED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[NOTIONAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      name="NOTIONAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[TARGET_DISTRIBUTION_DATE]"
+                      dataType="dbTimeStamp"
+                      name="TARGET_DISTRIBUTION_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[DC_SURR_ID]"
+                      dataType="numeric"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SUBMISSION_REQUESTED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="SUBMISSION_REQUESTED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_END_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ACTUAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      name="ACTUAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ACTUAL_VALUE_ADDED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ACTUAL_VALUE_ADDED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      name="PERFORMANCE_START_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      dataType="dbTimeStamp"
+                      name="DEADLINE_USAGE_RECEIPT_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PARTIALLY_SUBMITTED_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PARTIALLY_SUBMITTED_FLAG" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[CASE_ACCESS_THRESHOLD]"
+                      dataType="numeric"
+                      name="CASE_ACCESS_THRESHOLD"
+                      precision="14"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[UDG_NEXT_SURR_ID]"
+                      dataType="numeric"
+                      name="UDG_NEXT_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ONLINE_DISTRIBUTION_REQ_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="ONLINE_DISTRIBUTION_REQ_Y" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[LIFELINE_FILENAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="LIFELINE_FILENAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECH_M3_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="MECH_M3_LF_CREATED_YN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_CM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      name="MECHANICAL_CM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      name="MECHANICAL_PM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_CM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      name="MECHANICAL_CM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      name="MECHANICAL_PM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECH_LIFELINE_FILENAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      name="MECH_LIFELINE_FILENAME" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[MECH_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="MECH_LF_CREATED_YN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[PERF_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="PERF_LF_CREATED_YN" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[ICE_DEADLINE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="ICE_DEADLINE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[SHARE_CHECK_CONTEXT]"
+                      dataType="wstr"
+                      length="38"
+                      name="SHARE_CHECK_CONTEXT" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[STAGING_DATA_DELETE_DATE]"
+                      dataType="dbTimeStamp"
+                      name="STAGING_DATA_DELETE_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[NOTIFIED_OF_SUBMISSION_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="NOTIFIED_OF_SUBMISSION_Y" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[BRO_RETRANS_OF_TP_SURR_ID]"
+                      dataType="numeric"
+                      name="BRO_RETRANS_OF_TP_SURR_ID"
+                      precision="12" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output].ExternalColumns[BI_DATA_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      name="BI_DATA_STATUS" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SURR_ID]"
+                      name="SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SUBMITTED_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SUBMITTED_DATE]"
+                      name="SUBMITTED_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[NOTIONAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[NOTIONAL_VALUE_PER_POINT]"
+                      name="NOTIONAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[TARGET_DISTRIBUTION_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[TARGET_DISTRIBUTION_DATE]"
+                      name="TARGET_DISTRIBUTION_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[DC_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[DC_SURR_ID]"
+                      name="DC_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SUBMISSION_REQUESTED_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SUBMISSION_REQUESTED_DATE]"
+                      name="SUBMISSION_REQUESTED_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_END_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_END_DATE]"
+                      name="PERFORMANCE_END_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ACTUAL_VALUE_PER_POINT]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ACTUAL_VALUE_PER_POINT]"
+                      name="ACTUAL_VALUE_PER_POINT"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ACTUAL_VALUE_ADDED_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ACTUAL_VALUE_ADDED_DATE]"
+                      name="ACTUAL_VALUE_ADDED_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_START_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PERFORMANCE_START_DATE]"
+                      name="PERFORMANCE_START_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[DEADLINE_USAGE_RECEIPT_DATE]"
+                      name="DEADLINE_USAGE_RECEIPT_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PARTIALLY_SUBMITTED_FLAG]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PARTIALLY_SUBMITTED_FLAG]"
+                      name="PARTIALLY_SUBMITTED_FLAG" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[CASE_ACCESS_THRESHOLD]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[CASE_ACCESS_THRESHOLD]"
+                      name="CASE_ACCESS_THRESHOLD"
+                      precision="14"
+                      scale="4" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[LAST_UPDATED_DATE]"
+                      name="LAST_UPDATED_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[UDG_NEXT_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[UDG_NEXT_SURR_ID]"
+                      name="UDG_NEXT_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ONLINE_DISTRIBUTION_REQ_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ONLINE_DISTRIBUTION_REQ_Y]"
+                      name="ONLINE_DISTRIBUTION_REQ_Y" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[LIFELINE_FILENAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[LIFELINE_FILENAME]"
+                      name="LIFELINE_FILENAME" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECH_M3_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECH_M3_LF_CREATED_YN]"
+                      name="MECH_M3_LF_CREATED_YN" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_CM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_CM_NOTIONAL_VALUE]"
+                      name="MECHANICAL_CM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_PM_NOTIONAL_VALUE]"
+                      name="MECHANICAL_PM_NOTIONAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_CM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_CM_ACTUAL_VALUE]"
+                      name="MECHANICAL_CM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECHANICAL_PM_ACTUAL_VALUE]"
+                      name="MECHANICAL_PM_ACTUAL_VALUE"
+                      precision="16"
+                      scale="6" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECH_LIFELINE_FILENAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="240"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECH_LIFELINE_FILENAME]"
+                      name="MECH_LIFELINE_FILENAME" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECH_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[MECH_LF_CREATED_YN]"
+                      name="MECH_LF_CREATED_YN" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PERF_LF_CREATED_YN]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[PERF_LF_CREATED_YN]"
+                      name="PERF_LF_CREATED_YN" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ICE_DEADLINE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ICE_DEADLINE_DATE]"
+                      name="ICE_DEADLINE_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SHARE_CHECK_CONTEXT]"
+                      dataType="wstr"
+                      length="38"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[SHARE_CHECK_CONTEXT]"
+                      name="SHARE_CHECK_CONTEXT" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[STAGING_DATA_DELETE_DATE]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[STAGING_DATA_DELETE_DATE]"
+                      name="STAGING_DATA_DELETE_DATE" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[NOTIFIED_OF_SUBMISSION_Y]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[NOTIFIED_OF_SUBMISSION_Y]"
+                      name="NOTIFIED_OF_SUBMISSION_Y" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[BRO_RETRANS_OF_TP_SURR_ID]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[BRO_RETRANS_OF_TP_SURR_ID]"
+                      name="BRO_RETRANS_OF_TP_SURR_ID"
+                      precision="12" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[BI_DATA_STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="3"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[BI_DATA_STATUS]"
+                      name="BI_DATA_STATUS" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT - Load Usage_Distribution_Group Details.Paths[Derived Column Output]"
+              endId="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT - Load Usage_Distribution_Group Details.Paths[OLE DB Source Output]"
+              endId="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Obtain EntityId"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{659CD3EC-8043-43A6-96FD-D9EDE7E4F5C2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Obtain EntityId"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016 RC0; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">@[User::strEntityIdProc]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D13571EE-9BFD-4DAC-9480-FB6E0275893A}"
+          SQLTask:SqlStatementSource="EXEC Control.ObtainEntityId @SourceFileId,@EntityName,@LoadId"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::intEntityId" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@SourceFileId"
+            SQLTask:DtsVariableName="$Package::intSourceFileId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@EntityName"
+            SQLTask:DtsVariableName="User::strEntityName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="16"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="@LoadId"
+            SQLTask:DtsVariableName="User::intLoadId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="11"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Truncate Staging Table"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7BBA9B9D-4438-479F-8B1D-017CBE3261D6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Truncate Staging Table"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{933360BD-CAEF-47C7-A196-9587BF3D4A36}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [Staging].[Usage_Distribution_Groups]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{41EED6D4-1AF2-47C9-AAA9-A97C2F48E533}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment != &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SQL - Obtain EntityId" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{418B8540-D375-443E-8686-8B34BD03BADE}"
+      DTS:From="Package\DFT - Load Usage_Distribution_Group Details"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{DD78C5A1-1BAC-4D5C-BDE4-9232B54447AE}"
+      DTS:From="Package\SQL - Truncate Staging Table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT - Load Usage_Distribution_Group Details" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{E292A08D-2418-406B-9CA4-DE2D98DBADD3}"
+      DTS:From="Package\SQL - Obtain EntityId"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BAA67753-8829-4470-819B-3DAC80314BB3}"
+      DTS:EvalOp="3"
+      DTS:Expression="@strSSISProjectEnvironment == &quot;Dev&quot;"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SQL - Truncate Staging Table" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{0F057061-6BA5-4A3A-84A1-350EC3381F84}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{68B61F12-E676-43E2-86EB-55BF170CDEA7}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{AFEB2742-B77D-4568-85D1-D3188C73B23A}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="196.25,75.75" />
+        <NodeLayout
+          Size="258,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="198.25,413.5" />
+        <NodeLayout
+          Size="292,42"
+          Id="Package\DFT - Load Usage_Distribution_Group Details"
+          TopLeft="188.25,321.916666666667" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\SQL - Obtain EntityId"
+          TopLeft="203,152" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SQL - Truncate Staging Table"
+          TopLeft="198.25,238.333333333333" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="322.875,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.25"
+              Start="0,0"
+              End="0,26.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.375,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="330.75,363.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,49.583333333333"
+              Start="0,0"
+              End="0,42.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="326.25,280.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="8,41.583333333334"
+              Start="0,0"
+              End="8,34.083333333334">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.791666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.791666666667"
+                    Point2="0,20.791666666667"
+                    Point3="4,20.791666666667" />
+                  <mssgle:LineSegment
+                    End="4,20.791666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4,20.791666666667"
+                    Point2="8,20.791666666667"
+                    Point3="8,24.791666666667" />
+                  <mssgle:LineSegment
+                    End="8,34.083333333334" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="323.375,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.333333333333"
+              Start="0,0"
+              End="0,36.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="367.25,117.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,120.583333333333"
+              Start="0,0"
+              End="0,113.083333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,113.083333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,48.5416666666665,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Load  Staging data from REP to MDSIntegration DB"
+          ParentId="Package"
+          Size="338,38"
+          Id="5e402e1c-3254-453f-9b00-fd566f64cb03"
+          TopLeft="152,12">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="12"
+              Color="#FF000000"
+              Weight="Bold">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="214,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="194,157.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\DFT - Load Usage_Distribution_Group Details">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="231,42"
+          Id="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups"
+          TopLeft="328,154" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT - Load Usage_Distribution_Group Details\DC - Add Integration Metadata"
+          TopLeft="338,251" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups"
+          TopLeft="332,345" />
+        <EdgeLayout
+          Id="Package\DFT - Load Usage_Distribution_Group Details.Paths[OLE DB Source Output]"
+          TopLeft="446.75,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load Usage_Distribution_Group Details.Paths[Derived Column Output]"
+          TopLeft="450.5,293">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\DFT - Load Usage_Distribution_Group Details.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT - Load Usage_Distribution_Group Details.EventHandlers[OnError]\Adatis  Row Throughput Task"
+          TopLeft="390,97" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Usage_Distribution_Group Details\REP - Usage_Distribution_Groups">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load Usage_Distribution_Group Details\ADO - Usage_Distribution_Groups">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

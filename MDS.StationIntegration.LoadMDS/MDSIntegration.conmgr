@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="MDSIntegration"
+  DTS:DTSID="{AA08CF23-6D6B-4AB9-A215-4637FA1FC020}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strMDSIntegrationConnectionStringADO]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZI-MS-sql-D002,50501;Initial Catalog=MDSIntegration;Integrated Security=True;Pooling=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

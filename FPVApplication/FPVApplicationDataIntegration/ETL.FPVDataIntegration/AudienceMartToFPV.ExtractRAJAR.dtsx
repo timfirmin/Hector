@@ -1,0 +1,1659 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2016 9:51:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GR2-W8-POW035"
+  DTS:CreatorName="PRS\TFirmin"
+  DTS:Description="TM1 Planning File Integration File Management "
+  DTS:DTSID="{4E834F8A-4521-42AB-8CDA-430E1E90B897}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.40"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="AudienceMartToFPV ExtractRAJAR"
+  DTS:PackageType="5"
+  DTS:VersionBuild="545"
+  DTS:VersionGUID="{C34C968A-8265-4E49-891D-BD41B75E3EAC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="intLoadId"
+      DTS:ConfigurationVariable="\Package.Variables[User::intParentLoadId].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{9712936F-F776-4733-BD68-0C096A6C8032}"
+      DTS:ObjectName="intParentLoadId" />
+    <DTS:Configuration
+      DTS:ConfigurationString="strWorkingUpdateProcedure"
+      DTS:ConfigurationVariable="\Package.Variables[User::strWorkingUpdateProcedure].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{7B9C33D9-7C11-4222-A268-BA32A91B9299}"
+      DTS:ObjectName="strWorkingUpdateProcedure" />
+    <DTS:Configuration
+      DTS:ConfigurationString="strWorkingChildProcess"
+      DTS:ConfigurationVariable="\Package.Variables[User::strWorkingChildProcess].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{06930D3F-534E-42A6-A44D-54D7424BED8E}"
+      DTS:ObjectName="strWorkingChildProcess" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{6C9190EC-9A80-4C03-944E-694435A0AFA3}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">29999</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{B0A41EDC-8881-4689-B6A7-F8480FA9E4A0}"
+      DTS:ObjectName="LandingDelimiter">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">,</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{94428BD0-8095-4598-A727-A48E4D196E27}"
+      DTS:ObjectName="LandingSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BITlanding</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B2D75FE9-D3C3-4909-8635-C2294B1939BD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5BCABDA0-AF92-4272-B5CD-8D7B478EBA00}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2016CA8D-53B3-405D-8118-BBAF61344E22}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{371DE2DD-E5BB-4CF9-8021-478BF510F4BD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AEF00C0E-4EFB-4EE2-AA09-A74FC89D0092}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1373AE82-6AE9-4322-92BB-7553DB9BFF9F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{02131892-A271-41A6-BBC2-270A1C1E86C4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A5858E8A-B25B-4B3C-8760-942B64EECCC2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInvalidRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7725D144-F3FC-42A2-B07A-BB89A05BD959}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">123</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D4AD122A-0AAC-4EDD-8B30-72D2410D82D5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8675446D-0CDC-436A-89DE-CDEA2CE3FE89}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intRawFileRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{46D1EDD2-E892-4934-A5F7-ACBD8A73A610}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E80ECA59-CF69-4B97-AD40-DD7F8F61D502}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A909AB6A-949E-4093-AA5D-6A479415A9B9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="objTableName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F26A4CB8-DE42-4800-AA48-DA70D8EF3F2A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstArchiveFileSet01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1DE7BA3B-936A-40CE-8EB1-A2F8E19A833F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstDeleteFileSet01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2BC953F6-682D-44DC-99B5-1CB1CFA42EA2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstTablesLanded">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF53696B-BE54-4A9B-B180-55FB431592B7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchLandingLogTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITcontrol.LandedFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8084E719-2DD6-48E0-A69B-D1D440BAA898}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchValidForArchive">
+      <DTS:VariableValue
+        DTS:DataType="8">N</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86388C61-7BF2-4BE9-8A42-8DD24B03D694}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A3C9E717-EC05-4FB5-81EE-B556F7463270}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentTableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{35393451-4CB9-4196-8DBB-C1EB1BE34820}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITLandingFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C48FC195-0569-4C1C-8B7E-CF25760CEDAE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileMoveFrom">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\Dev\01CostDataExtract\01CostDataExtract CR2 Pd1 - 2017_to_Pd_12-2019-TM1 Prod Server2018-04-16.cma</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{314AB781-B412-4855-AF1F-8788F245E0B2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileMoveTo">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\Dev\FilesProcessed\01Cost\01CostDataExtract CR2 Pd1 - 2017_to_Pd_12-2019-TM1 Prod Server2018-04-16.cma</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9E03BF49-F66F-48EA-A58F-3821C909A3E2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFPVDestinationTable">
+      <DTS:VariableValue
+        DTS:DataType="8">staging.AudienceReachBARB</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D356065B-3FDD-499C-AFFF-43FA1294DC88}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9D76C883-2BB1-4484-B875-81511AC41AA4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strObtainFileId">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F13DF9D6-D963-47C4-A359-CD320B582950}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6E6CB5EE-ECE4-41B1-8ED1-E72DDD28FE1B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSchemaName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITlanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75C1BA88-B7B2-4D30-ADC9-FBB50D05B664}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;BEGIN&#xA;  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);&#xA;                               &#xA;END;&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourcecQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">
+BEGIN
+  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);
+                               
+END;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{549D8D4C-D195-4D66-8C7F-60DDEF589860}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strCurrentFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1C2E9417-21CA-4578-85BE-EF42DAA507D1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingChildProcess">
+      <DTS:VariableValue
+        DTS:DataType="8">AudienceMartRAJAR</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1B33DA1E-EE33-4736-8DBF-68F42D7FBFBE}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{073AE9C5-D773-4939-9220-B7DF11734F4B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileMoveAction">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7829488E-38CA-4E0F-84A2-1E9E315A92F6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6DCB532C-C597-4305-848E-B0513C8421D2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileValid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F916722-B9FD-4C95-BC58-E8F15609D348}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingProcessFlag">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{18B545C9-B24F-45B3-BE54-9A5C3AF40CE8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRawPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Temp\SouceFiles\Landing\Distribution File - PRS - 07JUL2017.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7447E9DF-6DC2-4294-A890-AA1567C75086}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFailFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\Failed\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{388F38E2-3503-465C-927B-77EE0215044D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42468951-E0F8-462F-A4DA-146E5EE21670}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9524FD9E-2CDD-4616-B6CD-C773C9B17F24}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingTable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F8B74C9F-449C-4E7A-83AC-66495CE722B7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingUpdateProcedure">
+      <DTS:VariableValue
+        DTS:DataType="8">uspMergeAudienceReachRAJAR</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{495F304C-3707-4DFB-9655-642368CBC77A}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{EB595FA3-83E8-480D-B288-39900D52B8B0}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2EDAA23E-0668-4A64-A436-B19AA705C5E6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC100 Load Audience Reach Info from RAJAR to Abacus DB">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{A20E93F3-91CE-463A-B5F5-65428C3D95A9}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT102 Extract Audience Reach">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Derived Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intLoadId]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Abacus Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"staging"."AudienceReachRAJAR"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Connections[IDbConnection]"
+                      connectionManagerID="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[AbacusADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[StationGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="250"
+                          cachedName="StationGroup"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationGroup]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[StationGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[StationId]"
+                          cachedDataType="wstr"
+                          cachedLength="200"
+                          cachedName="StationId"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationId]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[StationId]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[YearQuarter]"
+                          cachedDataType="wstr"
+                          cachedLength="26"
+                          cachedName="YearQuarter"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[YearQuarter]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[YearQuarter]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[SurveyPeriod]"
+                          cachedDataType="wstr"
+                          cachedLength="3"
+                          cachedName="SurveyPeriod"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[SurveyPeriod]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[SurveyPeriod]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[Population000s]"
+                          cachedDataType="numeric"
+                          cachedName="Population000s"
+                          cachedPrecision="18"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[Population000s]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[Population000s]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[Reach000s]"
+                          cachedDataType="numeric"
+                          cachedName="Reach000s"
+                          cachedPrecision="18"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[Reach000s]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[Reach000s]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[TotalHours000s]"
+                          cachedDataType="numeric"
+                          cachedName="TotalHours000s"
+                          cachedPrecision="18"
+                          cachedScale="6"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalHours000s]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[TotalHours000s]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationGroup]"
+                          dataType="wstr"
+                          length="250"
+                          name="StationGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[StationId]"
+                          dataType="wstr"
+                          length="200"
+                          name="StationId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[YearQuarter]"
+                          dataType="wstr"
+                          length="7"
+                          name="YearQuarter" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[SurveyPeriod]"
+                          dataType="wstr"
+                          length="3"
+                          name="SurveyPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[Population000s]"
+                          dataType="numeric"
+                          name="Population000s"
+                          precision="18"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[Reach000s]"
+                          dataType="numeric"
+                          name="Reach000s"
+                          precision="18"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[TotalHours000s]"
+                          dataType="numeric"
+                          name="TotalHours000s"
+                          precision="18"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertTimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="InsertTimeStamp" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="Audience Reach RAJAR"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT *
+  FROM [AudienceMart].[vwAbacusRAJAR]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"mdm"."Master_v_MasterStation"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Connections[IDbConnection]"
+                      connectionManagerID="{10987395-C673-440C-9C9C-927EA34B5553}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[AudienceMart]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[StationGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[StationGroup]"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[StationGroup]"
+                          name="StationGroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[StationId]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[StationId]"
+                          length="200"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[StationId]"
+                          name="StationId"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[YearQuarter]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[YearQuarter]"
+                          length="26"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[YearQuarter]"
+                          name="YearQuarter"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[SurveyPeriod]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[SurveyPeriod]"
+                          length="3"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[SurveyPeriod]"
+                          name="SurveyPeriod"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[Population000s]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[Population000s]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[Population000s]"
+                          name="Population000s"
+                          precision="18"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[Reach000s]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[Reach000s]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[Reach000s]"
+                          name="Reach000s"
+                          precision="18"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[TotalHours000s]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[TotalHours000s]"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].Columns[TotalHours000s]"
+                          name="TotalHours000s"
+                          precision="18"
+                          scale="6"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[StationGroup]"
+                          dataType="wstr"
+                          length="250"
+                          name="StationGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[StationId]"
+                          dataType="wstr"
+                          length="200"
+                          name="StationId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[YearQuarter]"
+                          dataType="wstr"
+                          length="26"
+                          name="YearQuarter" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[SurveyPeriod]"
+                          dataType="wstr"
+                          length="3"
+                          name="SurveyPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[Population000s]"
+                          dataType="numeric"
+                          name="Population000s"
+                          precision="18"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[Reach000s]"
+                          dataType="numeric"
+                          name="Reach000s"
+                          precision="18"
+                          scale="6" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output].ExternalColumns[TotalHours000s]"
+                          dataType="numeric"
+                          name="TotalHours000s"
+                          precision="18"
+                          scale="6" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[StationGroup]"
+                          dataType="wstr"
+                          length="250"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[StationGroup]"
+                          name="StationGroup" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[StationId]"
+                          dataType="wstr"
+                          length="200"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[StationId]"
+                          name="StationId" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[YearQuarter]"
+                          dataType="wstr"
+                          length="26"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[YearQuarter]"
+                          name="YearQuarter" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[SurveyPeriod]"
+                          dataType="wstr"
+                          length="3"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[SurveyPeriod]"
+                          name="SurveyPeriod" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[Population000s]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[Population000s]"
+                          name="Population000s"
+                          precision="18"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[Reach000s]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[Reach000s]"
+                          name="Reach000s"
+                          precision="18"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[TotalHours000s]"
+                          dataType="numeric"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[TotalHours000s]"
+                          name="TotalHours000s"
+                          precision="18"
+                          scale="6" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach.Paths[ADO NET Source Output]"
+                  endId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Inputs[Derived Column Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach.Paths[Derived Column Output]"
+                  endId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination.Inputs[ADO NET Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns.Outputs[Derived Column Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 105 Merge to Abacus"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{A9FC62E2-380B-4218-A2A1-47EF545F8878}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL 105 Merge to Abacus"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC staging." +  @[User::strWorkingUpdateProcedure] + " @pLoadId, @pUserName, @pInsertedRowCount OUTPUT"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="EXEC staging.uspMergeAudienceReachRAJAR @pLoadId, @pUserName, @pInsertedRowCount OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@pLoadId"
+                SQLTask:DtsVariableName="User::intParentLoadId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@pUserName"
+                SQLTask:DtsVariableName="System::UserName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="16"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="@pInsertedRowCount"
+                SQLTask:DtsVariableName="User::intInsertedRows"
+                SQLTask:ParameterDirection="Output"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 109 Update Last Run Metadata"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{D383EBDE-7EE9-4C12-9A39-5A110A7FDD86}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL 109 Update Last Run Metadata"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+  UPDATE [Config].[IntegrationControl]
+  SET
+       [LastUpdateTimeStamp] = GETDATE()
+      ,[LastUpdateInsertRowCount] =  " +  (DT_WSTR, 5) @[User::intInsertedRows]  + "
+
+ 
+, [LastUpdateLoadId] =  " +  (DT_WSTR, 10) @[User::intParentLoadId]   + "
+
+ 
+ WHERE 
+	[IntegrationName] = '"+    @[User::strWorkingChildProcess]     +"'
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="&#xA;  UPDATE [Config].[IntegrationControl]&#xA;  SET&#xA;       [LastUpdateTimeStamp] = GETDATE()&#xA;      ,[LastUpdateInsertRowCount] =  0&#xA;&#xA; &#xA;, [LastUpdateLoadId] =  4444&#xA;&#xA; &#xA; WHERE &#xA;&#x9;[IntegrationName] = 'AudienceMartRAJAR'&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL101 Delete Staging"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{347DF847-57B5-4665-8420-05DAE9A440B8}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL101 Delete Staging"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="DELETE staging.AudienceReachRAJAR" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL104 Log Throughput"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{2B74ADD8-21E2-4840-8879-F6390B682EDA}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL104 Log Throughput"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+DECLARE @ApplicationId SMALLINT = 0
+ SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = '"+  @[$Project::strApplicationCode] + "'
+
+	INSERT INTO [Audit].[RowThroughput]
+			   ( ExecutionId	
+			    ,ExecutableId	
+			    ,EnvironmentId	
+				,EntityId	
+				,LoadProcess	
+				,TaskName	
+				,ProcessStream	
+				,LoadId	
+				,ApplicationId	
+				,SourceFileName	
+				,InsertedRows	
+				,ExtractedRows
+				,UpdatedRows	
+				,DeletedRows	
+				,FailedRows	
+				,ArchivedRows	
+				,BadRows	
+			   )
+		 VALUES
+			   ( " + (DT_WSTR, 10) @[System::ServerExecutionID]  + "-- ExecutionId	
+				,-1 -- EntityId	
+			   	,-1
+				,-1
+				,'"  +  @[User::strProcessStream]  + "' --LoadProcess	
+				,'" + @[System::TaskName]  + "'	--TaskName
+				, '" + @[System::PackageName] + " Load" + "'
+				," + (DT_WSTR, 10)@[User::intParentLoadId] + "	
+				,@ApplicationId	
+				,'" +  @[User::strFPVDestinationTable]  + "' 
+				," + (DT_WSTR, 10) @[User::intInsertedRows] + "
+				,0,0,0,0,0,0
+			   )
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3E10D4EA-1229-45A5-A082-AA0D4998BDD0}"
+              SQLTask:SqlStatementSource="&#xA;DECLARE @ApplicationId SMALLINT = 0&#xA; SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = 'FPV'&#xA;&#xA;&#x9;INSERT INTO [Audit].[RowThroughput]&#xA;&#x9;&#x9;&#x9;   ( ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;    ,ExecutableId&#x9;&#xA;&#x9;&#x9;&#x9;    ,EnvironmentId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,EntityId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,TaskName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ProcessStream&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,SourceFileName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,InsertedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ExtractedRows&#xA;&#x9;&#x9;&#x9;&#x9;,UpdatedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,DeletedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,FailedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ArchivedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,BadRows&#x9;&#xA;&#x9;&#x9;&#x9;   )&#xA;&#x9;&#x9; VALUES&#xA;&#x9;&#x9;&#x9;   ( 0-- ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,-1 -- EntityId&#x9;&#xA;&#x9;&#x9;&#x9;   &#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,'SRC2STG' --LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'SQL104 Log Throughput'&#x9;--TaskName&#xA;&#x9;&#x9;&#x9;&#x9;, 'AudienceMartToFPV ExtractRAJAR Load'&#xA;&#x9;&#x9;&#x9;&#x9;,4444&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,@ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'staging.AudienceReachBARB' &#xA;&#x9;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;&#x9;,0,0,0,0,0,0&#xA;&#x9;&#x9;&#x9;   )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{DF224174-BE10-4289-B6A8-5FBA974F4153}"
+          DTS:From="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL101 Delete Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{619BF5B7-153F-414B-AABE-A4B1029F53E3}"
+          DTS:From="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL104 Log Throughput" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{41EE72CD-5115-481E-BC35-449C3FB012F4}"
+          DTS:From="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL104 Log Throughput"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 105 Merge to Abacus" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{63A3EBDD-5181-407E-8BBC-CE9A8B26067A}"
+          DTS:From="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 105 Merge to Abacus"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 109 Update Last Run Metadata" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{4236E81C-3E40-4AC7-BF2A-CB01D168B1CA}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{4963FC23-AFA4-4A8A-81A0-CA67A7D87BBF}"
+      DTS:From="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{B983CD92-48BE-4EDE-8432-A4398AC0A7A8}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{785F5962-71F7-420A-ABD6-552227A96DF4}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{302F9F0E-E3D2-4FB4-B547-1D635F1F91EB}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="382.083333333333,487.777777777778" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="378.916666666667,1197" />
+        <NodeLayout
+          Size="230,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach"
+          TopLeft="126.355555555556,115.75" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 105 Merge to Abacus"
+          TopLeft="137.355555555556,299" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL 109 Update Last Run Metadata"
+          TopLeft="118,384" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL101 Delete Staging"
+          TopLeft="126.355555555556,39.2222222222222" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\SQL104 Log Throughput"
+          TopLeft="123.022222222223,195.611111111111" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint]"
+          TopLeft="243.855555555556,81.2222222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.5277777777778"
+              Start="0,0"
+              End="0,27.0277777777778">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.0277777777778" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint 1]"
+          TopLeft="242.188888888889,157.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,37.861111111111"
+              Start="0,0"
+              End="0,30.361111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.361111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint 2]"
+          TopLeft="240.438888888889,237.611111111111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,61.388888888889"
+              Start="0,0"
+              End="0,53.888888888889">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.888888888889" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB.PrecedenceConstraints[Constraint 3]"
+          TopLeft="239.677777777778,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="strFPVStationTable"
+          ParentId="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB"
+          FontInfo="{x:Null}"
+          Size="128,40"
+          Id="30a45fb6-ea2a-4358-9efe-0609604a5b28"
+          TopLeft="45.3333333333334,167.333333333333" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="530,508"
+          Size="530,551"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB"
+          TopLeft="218.25,573.222222222222" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="482.416666666667,529.777777777778">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.4444444444439"
+              Start="0,0"
+              End="0,35.9444444444439">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.9444444444439" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="484.333333333333,1124.22222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,72.7777777777781"
+              Start="0,0"
+              End="0,65.2777777777781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.2777777777781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="  - FPV Data Integration -&#xA;Move from MDS to FPV"
+          ParentId="Package"
+          Size="231,67"
+          Id="c24ec8d9-6108-4ff3-96ee-fd4e13adeaf9"
+          TopLeft="344,355.638888888889">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="  (1300, -1,  20,  1,  0,  N'RevenueIntegrationTM1',     N'revenueintegrationtm1',        N'FPV TM1 Revenue Integration',         N'staging',    N'DistributionRevenueTM1',     N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1301, -1,  20,  1,  0,  N'DistributionRevenueCalendar',    N'distributionrevenuecalendar',   N'Distribution Revenue Calendar',        N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1302, -1,  20,  1,  0,  N'MasterStation',           N'masterstation',      N'MasterStation',            N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1303, -1,  20,  1,  0,  N'MasterDistributionGroup',        N'masterdistributiongroup',    N'Master Distribution Group',         N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1304, -1,  20,  1,  0,  N'MasterDistributionPeriod',    N'masterdistributionperiod',   N'Master Distribution Period',         N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME())"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="1205,104"
+          Id="3fd645e0-fb14-4fb5-9ec7-6155939b662f"
+          TopLeft="304.416666666667,232.666666666667" />
+        <AnnotationLayout
+          Text="       [WeeklyReachTotal52Weeks] = SUM(1+ 3MIN CONT 000)&#xA;       [WeeklyViewingHoursTotal52Weeks] = SUM([WeeklyViewingHours])&#xA;       [WeeklyReach] = [1+ 3min cont 000]&#xA;       [WeeklyViewingHours] = (SUM('WeeklyFact'[TVR])/100)*(10080/60)&#xA;       [TotalWeeklyAudienceHours] = [WeeklyReach]*[WeeklyViewingHours] &#xA;"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="425,120"
+          Id="d9b00158-bd9c-4372-93de-33f5e7eae4de"
+          TopLeft="781,594" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination"
+          TopLeft="189,242" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Add Derived Columns"
+          TopLeft="213,141" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR"
+          TopLeft="208,43" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach.Paths[Derived Column Output]"
+          TopLeft="300,183">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach.Paths[ADO NET Source Output]"
+          TopLeft="302.5,85">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\ADO NET Abacus Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Audience Reach Info from RAJAR to Abacus DB\DFT102 Extract Audience Reach\Audience Reach RAJAR">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

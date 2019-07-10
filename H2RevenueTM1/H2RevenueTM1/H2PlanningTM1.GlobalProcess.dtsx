@@ -1,0 +1,2070 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2016 9:51:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GR2-W8-POW035"
+  DTS:CreatorName="PRS\TFirmin"
+  DTS:Description="TM1 Planning File Integration Processing"
+  DTS:DTSID="{220FB959-A425-4833-B284-3790DE8DE766}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:MaxErrorCount="0"
+  DTS:ObjectName="H2PlanningTM1 GlobalProcess"
+  DTS:PackageType="5"
+  DTS:VersionBuild="486"
+  DTS:VersionGUID="{90FE0F9A-335C-48B1-B6CA-8C0ECF9B0CCA}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{E554A35C-6928-4221-B530-727134CCE6C9}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">4444</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:Description="0 = Normal Run Mode, 1 = Retry Mode"
+      DTS:DTSID="{898BE4C0-6179-4F0B-9B4D-CEEF92A70966}"
+      DTS:ObjectName="intSetRunMode">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">1</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{3E9900D8-5088-47A7-95DB-40DB05A24D2D}"
+      DTS:ObjectName="LandingDelimiter">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">,</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{A6060870-6955-4643-A8B8-5F3A44C98FD2}"
+      DTS:ObjectName="LandingSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BITlanding</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{164B1CE1-0E63-492E-8D54-49055CB74A2E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileCheckValue">
+      <DTS:VariableValue
+        DTS:DataType="5">0.</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EBA1B0D6-6E13-4E7B-B864-2DAA41E0E10F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED087A62-7DEF-45C5-AE8F-10EE797833B1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBatchFileRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E689B7AE-0343-4BD3-B3A3-8366135CCB12}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AD56CC32-8D95-4DDD-89F6-C05F3058C1D1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1AB1CCC4-8C18-4CF2-AEEE-C88EAA366B8A}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intErrorMailSent">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9823ACEA-5C05-4FCC-9AF4-5CF658F3DD86}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20CB9D2E-9E2B-4589-A8A1-8934629EBB68}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A2E1FB9F-1A60-454E-BB56-1DA54AA86E29}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2A4AB94F-4427-47DC-8F0C-7A2A58CC0365}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{361F455B-03AD-4F57-AAA8-42EBA37D5BEB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9BB8B948-FE8B-4F9B-A83D-29235A0EABC1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Package::intParentLoadId]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1327B0C6-7D75-483A-9EB6-A615C45F738E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0AE5BC01-5976-4987-A83B-E6EA7385B5C3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSSISErrorCheckMins">
+      <DTS:VariableValue
+        DTS:DataType="3">90</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8FC9969F-8AAD-4EE6-8A1C-C2C2C8B583A2}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{86BC05E1-FD9E-4E1B-B2B9-CCD6254B3AAA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="objTableName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E8741592-CA9D-41C3-B0FD-F3EEF7A2EEBD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstFilesToMove">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4208F27-E162-4D07-80E3-1B2FBCC6BA7B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstFilesToStaging">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CEEF7062-477C-405B-B128-032AA6D7FB49}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstImportFolderList">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4DF3C118-1421-4E2E-8724-D1C26C143003}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchLandingLogTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITcontrol.LandedFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B24EEEF1-6473-4064-8B1A-280F95CCF37B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{63FB73E5-0AB0-4359-8A3B-BA1CEE643B08}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentTableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6C502E2E-D13A-4BA1-AE81-C980D62B03F6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITLandingFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{48B7E291-C152-4435-AFB4-169BCAF1302F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">FilesToLanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F2ABBB86-BD9D-45F9-A20B-8929D6AB8CA2}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strObtainFileId">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BDB2B061-1DF7-4CB8-8A47-D89E986521DE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">FILE2EXT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D86CB90C-F59F-436C-AFEC-B44A8AB14654}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSchemaName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITlanding</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{568A5B06-1B23-4271-A916-C5C1CB526BBC}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strCurrentFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EE1B0BB1-F79C-4632-ACAC-41146014150F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSSISFirstFail">
+      <DTS:VariableValue
+        DTS:DataType="8">&lt;H3&gt;H2PlanningTM1&lt;br&gt;H2PlanningTM1.GlobalProcess.dtsx&lt;br&gt;&lt;br&gt;Error During SSIS ETL - Manual Investigation Required&lt;/H3&gt;</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8D3B8C62-2B3C-4286-8265-E695F43270B1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingDestinationTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITstaging.StagedDistribution</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9640EBA4-592E-4F61-BCA3-9191134F39E2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileEndPerSeq">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C91D6AF-0CD3-4665-BA52-EF28B3988837}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B77A73C7-F8A1-4D17-8234-00459FCF06C8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileMetadataSQL">
+      <DTS:VariableValue
+        DTS:DataType="8">SELECT [FileMappingSourceRow] as SelectFromRows        ,[FileMappingDestinationRow] as InsertToRows ,[FileMappingOrder] as SortOrder    FROM [BITcontrol].[FileMappings]    WHERE [FileEnvironment] = 'DEV'    AND [FileTypeName] = 'Distribution'</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CBF6CD90-DAA4-4C15-BFB3-DA426C7CB58F}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileStartPerSeq">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{77B892BE-A5C3-4BE8-B9FF-4CDCE7719D04}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileType">
+      <DTS:VariableValue
+        DTS:DataType="8">Distribution</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D1423DE2-6816-479C-9BDE-8C889701EE1D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileTypeKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4360CCA7-B429-479D-B585-7FE2D626AF9C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingLandingKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FFC1AC5A-A8CD-49D1-9DDB-74EE1A409B98}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingMoveFile">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71A630D4-ED03-44A6-83D8-385B8D91C9F1}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="replace(@[User::strWorkingMoveFile] ,&quot;c:&quot;,&quot;C:&quot;)"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingMoveFileAdjusted">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ED964F42-0F07-4715-A7A6-AAA8795AFE69}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingMoveReason">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D114CB66-8288-46BF-B123-407D8DF1CA8D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRawPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Temp\SourceFiles\Landing\Cash_PRS_04082017_018.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3C990E3F-86D6-4421-9EA8-C6D0E8E57016}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRowCheckField">
+      <DTS:VariableValue
+        DTS:DataType="8">TotalAmount</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1842843A-3BD8-4631-8978-945F915B7146}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceDestinationFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">Processed\ProcessedCashFiles\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{40551280-0F6F-4FB5-9739-46AB50596075}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[$Project::strSourceFileFolder]  +  @[User::strWorkingSourceType]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\SysTest\InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FC170317-F76C-4DBE-9E1D-9A9DB28A6E5C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolderBit">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\CashFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FAE48105-1407-4CDE-A062-5A6B6BE7B998}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{18B69066-5ADF-44EC-810A-1592753CD26E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceTable">
+      <DTS:VariableValue
+        DTS:DataType="8">Invoice_PRS_27072017_032</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EF03D6AD-E907-4E8A-9B38-E94637B50EE3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceType">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{6131C048-9790-45AC-81AF-5BA4A50FEFBA}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{0A30F424-3332-4A8D-A8B0-F5164F8CCDF2}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ100 - Assess Files at Source"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{2f42eae0-904d-4880-9da2-ac94e798e0b4}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQ100 - Assess Files at Source">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ100 - Assess Files at Source\EPT101 H2PlanningTM1 FileAssess - Assess Source Files"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{78c8871c-eb4d-4cb2-b268-0d5b7f5b6f89}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT101 H2PlanningTM1 FileAssess - Assess Source Files"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>H2PlanningTM1.FileAssess.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>$Package::intParentLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ200 - Stage Clean and Transform Files"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{7f61570b-590c-4e29-a2a5-67a80efc9087}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ200 - Stage Clean and Transform Files">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ200 - Stage Clean and Transform Files\FELC205 Loop Tables to Stage and Transform"
+          DTS:CreationName="STOCK:FOREACHLOOP"
+          DTS:Description="Foreach Loop Container"
+          DTS:DTSID="{7ea0a6a7-54ff-4cda-896b-b306472d7fb9}"
+          DTS:ExecutableType="STOCK:FOREACHLOOP"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="FELC205 Loop Tables to Stage and Transform">
+          <DTS:ForEachEnumerator
+            DTS:CreationName="Microsoft.ForEachADOEnumerator"
+            DTS:DTSID="{329351c0-ee47-4ec9-9c89-0fa7b20c91bd}"
+            DTS:ObjectName="{052AC3B3-9728-4BFC-BD7A-BC381F80952C}">
+            <DTS:ObjectData>
+              <FEEADO
+                EnumType="EnumerateRowsInFirstTable"
+                VarName="User::rstFilesToStaging" />
+            </DTS:ObjectData>
+          </DTS:ForEachEnumerator>
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SEQ200 - Stage Clean and Transform Files\FELC205 Loop Tables to Stage and Transform\EPT210 H2PlanningTM1 Stage Clean Transform"
+              DTS:CreationName="Microsoft.ExecutePackageTask"
+              DTS:Description="Execute Package Task"
+              DTS:DTSID="{1726a12f-931e-4126-b4f4-784fb91bcad5}"
+              DTS:ExecutableType="Microsoft.ExecutePackageTask"
+              DTS:FailPackageOnFailure="True"
+              DTS:FailParentOnFailure="True"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="EPT210 H2PlanningTM1 Stage Clean Transform"
+              DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <ExecutePackageTask>
+                  <UseProjectReference>True</UseProjectReference>
+                  <PackageName>H2PlanningTM1.FileStageTransform.dtsx</PackageName>
+                </ExecutePackageTask>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:ForEachVariableMappings>
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{5545632C-D5DC-48B4-8C8D-4D69C7016A2D}"
+              DTS:ObjectName="{5545632C-D5DC-48B4-8C8D-4D69C7016A2D}"
+              DTS:ValueIndex="0"
+              DTS:VariableName="User::strWorkingFileLogKey" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{4C37C642-A940-49C6-802E-BB3130FC9EF6}"
+              DTS:ObjectName="{4C37C642-A940-49C6-802E-BB3130FC9EF6}"
+              DTS:ValueIndex="1"
+              DTS:VariableName="User::strWorkingSourceTable" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{32AD4C3E-765B-45C6-A4CE-4087EA8ED315}"
+              DTS:ObjectName="{32AD4C3E-765B-45C6-A4CE-4087EA8ED315}"
+              DTS:ValueIndex="2"
+              DTS:VariableName="User::strWorkingFileType" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{3F79762E-F234-4A74-ABED-B1B8BF8A3BC6}"
+              DTS:ObjectName="{3F79762E-F234-4A74-ABED-B1B8BF8A3BC6}"
+              DTS:ValueIndex="3"
+              DTS:VariableName="User::strWorkingSourceFileId" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{64CFCA67-E4B2-456F-8BDE-7A57D2369188}"
+              DTS:ObjectName="{64CFCA67-E4B2-456F-8BDE-7A57D2369188}"
+              DTS:ValueIndex="4"
+              DTS:VariableName="User::strWorkingFileStartPerSeq" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{E5160CD6-6FB8-4F34-BD30-C65ACAB2D85E}"
+              DTS:ObjectName="{E5160CD6-6FB8-4F34-BD30-C65ACAB2D85E}"
+              DTS:ValueIndex="5"
+              DTS:VariableName="User::strWorkingFileEndPerSeq" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{774D2CD7-0517-4C97-955B-20B358C619C9}"
+              DTS:ObjectName="{774D2CD7-0517-4C97-955B-20B358C619C9}"
+              DTS:ValueIndex="8"
+              DTS:VariableName="User::strWorkingRawPath" />
+            <DTS:ForEachVariableMapping
+              DTS:CreationName=""
+              DTS:DTSID="{ABE67AD7-1051-4418-94DD-88A6D244E34C}"
+              DTS:ObjectName="{ABE67AD7-1051-4418-94DD-88A6D244E34C}"
+              DTS:ValueIndex="9"
+              DTS:VariableName="User::strWorkingFileTypeKey" />
+          </DTS:ForEachVariableMappings>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ200 - Stage Clean and Transform Files\SQL201 Get RecordSet Files To Stage"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{cc9aac5d-e26b-4a7e-af1c-db165f5f640b}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL201 Get RecordSet Files To Stage"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+SELECT 
+ [FileLogUniqueKey]
+,[FileName]
+,[DerivedFileType] as [FileType],isnull([SourceFileID],0) as [SourceFileID]
+,FileStartPeriodSeq
+,FileEndPeriodSeq
+,(FileEndPeriodSeq - FileStartPeriodSeq) + 1 as PeriodPresent
+,[LoadId],[FilePath]
+,FileTypeKey as RevenueFileTypeKey 
+  FROM [TM1Control].[ImportFileLog]
+ WHERE [LoadId] = '" +  (DT_WSTR,10)  @[User::intLoadId]  + "' and [StagingValidToLoadFlag] = 'Y'
+ ORDER BY [FileType], [FileModifiedTimeStamp]"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+              SQLTask:SqlStatementSource="&#xA;SELECT &#xA; [FileLogUniqueKey]&#xA;,[FileName]&#xA;,[DerivedFileType] as [FileType],isnull([SourceFileID],0) as [SourceFileID]&#xA;,FileStartPeriodSeq&#xA;,FileEndPeriodSeq&#xA;,(FileEndPeriodSeq - FileStartPeriodSeq) + 1 as PeriodPresent&#xA;,[LoadId],[FilePath]&#xA;,FileTypeKey as RevenueFileTypeKey &#xA;  FROM [TM1Control].[ImportFileLog]&#xA; WHERE [LoadId] = '4444' and [StagingValidToLoadFlag] = 'Y'&#xA; ORDER BY [FileType], [FileModifiedTimeStamp]"
+              SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::rstFilesToStaging" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ200 - Stage Clean and Transform Files.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{4C66B33A-5797-4565-8AD0-CE46051A317F}"
+          DTS:From="Package\SEQ200 - Stage Clean and Transform Files\SQL201 Get RecordSet Files To Stage"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ200 - Stage Clean and Transform Files\FELC205 Loop Tables to Stage and Transform" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ300 - Load DownStream Systems FDM FPV"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{3b2a958f-9047-4e06-a8e5-61afd3d151d0}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQ300 - Load DownStream Systems FDM FPV">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ300 - Load DownStream Systems FDM FPV\EPT301 H2PlanningTM1 Load FDM"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{6f7e4272-db90-4f8d-94bb-af3fa2a0fc17}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT301 H2PlanningTM1 Load FDM"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>H2PlanningTM1.FileMergeFDM.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>$Package::intParentLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ300 - Load DownStream Systems FDM FPV\EPT303 H2PlanningTM1 Load FPV"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute Package Task"
+          DTS:Disabled="True"
+          DTS:DTSID="{8465cfd9-7fdb-4b30-82af-8ce156eb2003}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT303 H2PlanningTM1 Load FPV"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>H2PlanningTM1.FileMergeHector.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>$Package::intParentLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ300 - Load DownStream Systems FDM FPV.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{AB58D81C-5D28-4DF3-B446-7E8344CA55DE}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[$Project::strSSISProjectEnvironment] == &quot;Dev&quot;"
+          DTS:From="Package\SEQ300 - Load DownStream Systems FDM FPV\EPT301 H2PlanningTM1 Load FDM"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ300 - Load DownStream Systems FDM FPV\EPT303 H2PlanningTM1 Load FPV"
+          DTS:Value="2" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ400 - End of Batch File Management"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{209ab630-9825-4b14-9555-d51b803c1faa}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQ400 - End of Batch File Management">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ400 - End of Batch File Management\EPT401 End of Batch File Management"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{5734d42a-0ccb-4d6d-95e8-feee78b17709}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:FailParentOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT401 End of Batch File Management"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>H2PlanningTM1.FileManagement.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>intParentLoadId</ParameterName>
+                <BindedVariableOrParameterName>$Package::intParentLoadId</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQ500 - End of Normal Batch Email"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{805544d8-4d59-4811-86be-cd6fa97112ff}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:FailPackageOnFailure="True"
+      DTS:FailParentOnFailure="True"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SEQ500 - End of Normal Batch Email">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQ500 - End of Normal Batch Email\SQL501 Get Batch File Row Count"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{830e9a63-a160-439d-bb34-7361813136b5}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:FailPackageOnFailure="True"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL501 Get Batch File Row Count"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"select top 1 * from
+(select 0 as CountBatchRows
+union 
+select count(*) CountBatchRows
+FROM  [TM1Control].[ImportFileLog] 
+WHERE 
+LoadId =" +  (DT_WSTR,10)  @[User::intLoadId]  + ") look
+order by 1 desc"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+              SQLTask:SqlStatementSource="select top 1 * from&#xA;(select 0 as CountBatchRows&#xA;union &#xA;select count(*) CountBatchRows&#xA;FROM  [TM1Control].[ImportFileLog] &#xA;WHERE &#xA;LoadId =4444) look&#xA;order by 1 desc"
+              SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ResultBinding
+                SQLTask:ResultName="0"
+                SQLTask:DtsVariableName="User::intBatchFileRows" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ500 - End of Normal Batch Email\SQL502 - Send Batch Summary Email"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{27e58f7e-3742-4066-9a0b-46929bdf1bec}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="2"
+          DTS:ExecValueType="3"
+          DTS:FailPackageOnFailure="True"
+          DTS:ForceExecutionResult="0"
+          DTS:ForceExecValue="True"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL502 - Send Batch Summary Email"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC  [TM1control].[SendBatchEmail001]  @recipientsSTR = '" + @[$Project::strMailRecipientList]  + "', @profilenameSTR = '" + @[$Project::strMailProfileName] +  "' , @intBatchID =" +  (DT_WSTR, 10) @[User::intLoadId]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+              SQLTask:SqlStatementSource="EXEC  [TM1control].[SendBatchEmail001]  @recipientsSTR = 'tim.firmin@prsformusic.com', @profilenameSTR = 'AZI-MS-SQL-D002 SQL Database Mail' , @intBatchID =4444" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQ500 - End of Normal Batch Email\SQL509 - Send Empty Batch Summary Email"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7253cf09-dbbf-470e-af0a-ec42dcbb4b7d}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:ExecValue="2"
+          DTS:ExecValueType="3"
+          DTS:FailPackageOnFailure="True"
+          DTS:ForceExecutionResult="0"
+          DTS:ForceExecValue="True"
+          DTS:LocaleID="-1"
+          DTS:MaxErrorCount="0"
+          DTS:ObjectName="SQL509 - Send Empty Batch Summary Email"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"EXEC [TM1control].[SendEmptyBatchEmail001] @recipientsSTR = '" + @[$Project::strMailRecipientList]  + "', @profilenameSTR = '" + @[$Project::strMailProfileName] +  "' , @intBatchID =" +  (DT_WSTR, 10) @[User::intLoadId]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+              SQLTask:SqlStatementSource="EXEC [TM1control].[SendEmptyBatchEmail001] @recipientsSTR = 'tim.firmin@prsformusic.com', @profilenameSTR = 'AZI-MS-SQL-D002 SQL Database Mail' , @intBatchID =4444" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ500 - End of Normal Batch Email.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{9223b72d-b961-4804-9b58-41ff834da6b4}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[User::intBatchFileRows] &gt; 0"
+          DTS:From="Package\SEQ500 - End of Normal Batch Email\SQL501 Get Batch File Row Count"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQ500 - End of Normal Batch Email\SQL502 - Send Batch Summary Email" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQ500 - End of Normal Batch Email.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{4EF7F1D8-B9DB-4FFA-93DB-5EC4417CF2C9}"
+          DTS:EvalOp="3"
+          DTS:Expression="@[User::intBatchFileRows] == 0"
+          DTS:From="Package\SEQ500 - End of Normal Batch Email\SQL501 Get Batch File Row Count"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQ500 - End of Normal Batch Email\SQL509 - Send Empty Batch Summary Email" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL001 Store Run Mode(s)"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{022458a9-101b-43f8-8d9c-9ddf9c67cf7e}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:ForceExecutionResult="0"
+      DTS:ForceExecValue="True"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SQL001 Store Run Mode(s)"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DELETE FROM [TM1Control].[RunMode]
+  GO
+
+  
+INSERT INTO [TM1Control].[RunMode]
+           ([RunModeValue]
+           )
+     VALUES
+           (0
+                     )
+GO
+
+UPDATE [TM1Control].[RunMode]
+SET 
+[RunModeValue] = " +  (DT_WSTR, 1) @[$Package::intSetRunMode] + " 
+,UpdateTimeStamp = getdate()
+
+GO"</DTS:PropertyExpression>
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\SQL001 Store Run Mode(s).EventHandlers[OnPostExecute]"
+          DTS:CreationName="OnPostExecute"
+          DTS:DTSID="{E9D75453-7FBA-4A71-BBAF-A244F573D817}"
+          DTS:EventID="0"
+          DTS:EventName="OnPostExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{2D5B0EDE-AEF0-44FB-8E15-18A18C040BB1}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\SQL001 Store Run Mode(s).EventHandlers[OnPostExecute]\SQL900 Load any Missing Metadata"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{15206761-0bd9-4b26-a7c4-f5fbb1639054}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL900 Load any Missing Metadata"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+ EXEC [TM1Control].[PostDeploymentMetadata]   @pLoadId = '" +  (DT_WSTR,10)  @[User::intLoadId]   + "'"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+                  SQLTask:SqlStatementSource="&#xA; EXEC [TM1Control].[PostDeploymentMetadata]   @pLoadId = '4444'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+          SQLTask:SqlStatementSource="DELETE FROM [TM1Control].[RunMode]&#xA;  GO&#xA;&#xA;  &#xA;INSERT INTO [TM1Control].[RunMode]&#xA;           ([RunModeValue]&#xA;           )&#xA;     VALUES&#xA;           (0&#xA;                     )&#xA;GO&#xA;&#xA;UPDATE [TM1Control].[RunMode]&#xA;SET &#xA;[RunModeValue] = 1 &#xA;,UpdateTimeStamp = getdate()&#xA;&#xA;GO" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8F66B25E-C62A-441F-8FEB-BA189166C15D}"
+      DTS:From="Package\SQL001 Store Run Mode(s)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQ100 - Assess Files at Source" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{801A16B9-DD7E-49EF-83EA-BBB20F49A222}"
+      DTS:From="Package\SEQ100 - Assess Files at Source"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQ200 - Stage Clean and Transform Files" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{A02EBF9C-ADEB-4737-92BA-DFD7CEAAFA92}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\SQL001 Store Run Mode(s)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{35DB60FD-17DA-4CEC-B763-E6F79C708B22}"
+      DTS:From="Package\SEQ200 - Stage Clean and Transform Files"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\SEQ300 - Load DownStream Systems FDM FPV" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{718F1137-8B8B-45BC-A6F3-7671C9471953}"
+      DTS:From="Package\SEQ300 - Load DownStream Systems FDM FPV"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\SEQ400 - End of Batch File Management" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{0BAA80B8-25AC-4943-BE3F-D6D6C1556DFA}"
+      DTS:From="Package\SEQ400 - End of Batch File Management"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SEQ500 - End of Normal Batch Email" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{6DC48E71-9FA9-48BE-8D0A-B8E1D28BF67F}"
+      DTS:From="Package\SEQ500 - End of Normal Batch Email"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{8E557DE2-4CDC-4ED4-96AA-49D4C3E1CD31}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{554385B8-036F-43C9-85CC-D04050ABB112}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found"
+          DTS:CreationName="STOCK:SEQUENCE"
+          DTS:Description="Sequence Container"
+          DTS:DTSID="{80390dd6-2935-4016-ae21-d6bdbbfb5854}"
+          DTS:ExecutableType="STOCK:SEQUENCE"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SEQ900 - Send SSIS Failure Mail If Error Row Found">
+          <DTS:Variables />
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\Adatis  Terminate Load Task"
+              DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:Description="Adatis: http://www.adatis.co.uk/"
+              DTS:DTSID="{595C0712-9D46-4774-ADF4-2B43ED7C07A9}"
+              DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Adatis  Terminate Load Task"
+              DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <InnerObject>
+                  <ConnectionName
+                    Type="8"
+                    Value="BISystemADO" />
+                  <IsEntityProcess
+                    Type="11"
+                    Value="-1" />
+                  <LoadStatusType
+                    Type="3"
+                    Value="3" />
+                  <TargetServerVersion
+                    Type="3"
+                    Value="130" />
+                </InnerObject>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL901 Get Fail SSIS Row Count"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{2d0f97a9-d327-4d3f-a715-caa8f26fb0b1}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL901 Get Fail SSIS Row Count"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+SELECT top 1 * from
+(
+	select 1 as errorhere
+	FROM [SSISDB].[internal].[operations] AS O  with (nolock)
+	INNER JOIN [SSISDB].[internal].[event_messages] AS EM  with (nolock)
+	ON o.start_time &gt; dateadd(MINUTE,-" + (DT_WSTR, 4)@[User::intSSISErrorCheckMins]  + ",getdate())  --@DateTime
+	AND EM.operation_id = O.operation_id 
+	JOIN [SSISDB].[internal].[operation_messages]  AS OM with (nolock)	ON EM.operation_id = OM.operation_id 
+	JOIN [SSISDB].[internal].[executions] AS E with (nolock) ON OM.Operation_id = E.EXECUTION_ID 
+
+	WHERE OM.Message_Type = 120 -- 120 means Error AND EM.event_name = 'OnError'
+	AND End_Time is not null
+	AND E.Folder_Name  = '" + @[$Project::strSSISDBProjectFolder]   + "'
+	AND EM.Package_Name not like '%Process%'
+	GROUP BY
+	 O.Operation_Id
+	,E.Folder_Name 
+	,E.Project_name  
+	--,EM.Package_Name  
+	,OM.message	
+	,o.start_time
+		union
+
+	select 0 as errorhere) errs
+"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{585B6D82-E14C-456B-B793-866CE0B48B07}"
+                  SQLTask:SqlStatementSource="&#xA;SELECT top 1 * from&#xA;(&#xA;&#x9;select 1 as errorhere&#xA;&#x9;FROM [SSISDB].[internal].[operations] AS O  with (nolock)&#xA;&#x9;INNER JOIN [SSISDB].[internal].[event_messages] AS EM  with (nolock)&#xA;&#x9;ON o.start_time &gt; dateadd(MINUTE,-90,getdate())  --@DateTime&#xA;&#x9;AND EM.operation_id = O.operation_id &#xA;&#x9;JOIN [SSISDB].[internal].[operation_messages]  AS OM with (nolock)&#x9;ON EM.operation_id = OM.operation_id &#xA;&#x9;JOIN [SSISDB].[internal].[executions] AS E with (nolock) ON OM.Operation_id = E.EXECUTION_ID &#xA;&#xA;&#x9;WHERE OM.Message_Type = 120 -- 120 means Error AND EM.event_name = 'OnError'&#xA;&#x9;AND End_Time is not null&#xA;&#x9;AND E.Folder_Name  = 'TM1FDM'&#xA;&#x9;AND EM.Package_Name not like '%Process%'&#xA;&#x9;GROUP BY&#xA;&#x9; O.Operation_Id&#xA;&#x9;,E.Folder_Name &#xA;&#x9;,E.Project_name  &#xA;&#x9;--,EM.Package_Name  &#xA;&#x9;,OM.message&#x9;&#xA;&#x9;,o.start_time&#xA;&#x9;&#x9;union&#xA;&#xA;&#x9;select 0 as errorhere) errs&#xA;"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::intBatchFileRows" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL902 Get Fail SSIS String"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{d16fb4d1-22a6-4d97-a95c-2a6fccec1416}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="SQL902 Get Fail SSIS String"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"
+select TOP 1 [Error_Message]
+from
+(
+SELECT TOP 1
+	1 setorder,
+	replace('&lt;H3&gt;' + E.Project_name	+ ' &lt;br&gt; '+ max(EM.Package_Name)	+ ' &lt;br&gt; ' + cast(min(CONVERT(DATETIME, O.start_time))	as varchar(50))	+ ' &lt;br&gt; ' + OM.message	+ '&lt;/H3&gt;','''','') as [Error_Message] 
+ 
+	FROM [SSISDB].[internal].[operations] AS O with (nolock) 
+	INNER JOIN [SSISDB].[internal].[event_messages] AS EM 
+with (nolock)	ON o.start_time &gt;= dateadd(MINUTE,-" + (DT_WSTR, 4)@[User::intSSISErrorCheckMins]  + "	,getdate()) 
+	AND EM.operation_id = O.operation_id 
+	JOIN [SSISDB].[internal].[operation_messages] AS OM with (nolock)	ON EM.operation_id = OM.operation_id 
+	JOIN [SSISDB].[internal].[executions] AS E with (nolock) ON OM.Operation_id = E.EXECUTION_ID 
+
+	WHERE OM.Message_Type = 120 -- 120 means Error AND EM.event_name = 'OnError'
+	AND End_Time is not null
+	AND E.Folder_Name  = '" + @[$Project::strSSISDBProjectFolder] + "'
+	AND EM.Package_Name not like '%Process%'
+	GROUP BY
+	 O.Operation_Id
+	,E.Folder_Name 
+	,E.Project_name  
+	--,EM.Package_Name  
+	,OM.message	
+	,o.start_time
+	order by 	o.start_time desc
+	UNION
+	SELECT 2 setorder, '&lt;H3&gt;H2PlanningTM1&lt;br&gt;H2PlanningTM1.GlobalProcess.dtsx&lt;br&gt;&lt;br&gt;Error During SSIS ETL - Manual Investigation Required&lt;/H3&gt;' as [Error_Message] 
+) xx
+order by 1
+"</DTS:PropertyExpression>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{585B6D82-E14C-456B-B793-866CE0B48B07}"
+                  SQLTask:SqlStatementSource="&#xA;select TOP 1 [Error_Message]&#xA;from&#xA;(&#xA;SELECT TOP 1&#xA;&#x9;1 setorder,&#xA;&#x9;replace('&lt;H3&gt;' + E.Project_name&#x9;+ ' &lt;br&gt; '+ max(EM.Package_Name)&#x9;+ ' &lt;br&gt; ' + cast(min(CONVERT(DATETIME, O.start_time))&#x9;as varchar(50))&#x9;+ ' &lt;br&gt; ' + OM.message&#x9;+ '&lt;/H3&gt;','''','') as [Error_Message] &#xA; &#xA;&#x9;FROM [SSISDB].[internal].[operations] AS O with (nolock) &#xA;&#x9;INNER JOIN [SSISDB].[internal].[event_messages] AS EM &#xA;with (nolock)&#x9;ON o.start_time &gt;= dateadd(MINUTE,-90&#x9;,getdate()) &#xA;&#x9;AND EM.operation_id = O.operation_id &#xA;&#x9;JOIN [SSISDB].[internal].[operation_messages] AS OM with (nolock)&#x9;ON EM.operation_id = OM.operation_id &#xA;&#x9;JOIN [SSISDB].[internal].[executions] AS E with (nolock) ON OM.Operation_id = E.EXECUTION_ID &#xA;&#xA;&#x9;WHERE OM.Message_Type = 120 -- 120 means Error AND EM.event_name = 'OnError'&#xA;&#x9;AND End_Time is not null&#xA;&#x9;AND E.Folder_Name  = 'TM1FDM'&#xA;&#x9;AND EM.Package_Name not like '%Process%'&#xA;&#x9;GROUP BY&#xA;&#x9; O.Operation_Id&#xA;&#x9;,E.Folder_Name &#xA;&#x9;,E.Project_name  &#xA;&#x9;--,EM.Package_Name  &#xA;&#x9;,OM.message&#x9;&#xA;&#x9;,o.start_time&#xA;&#x9;order by &#x9;o.start_time desc&#xA;&#x9;UNION&#xA;&#x9;SELECT 2 setorder, '&lt;H3&gt;H2PlanningTM1&lt;br&gt;H2PlanningTM1.GlobalProcess.dtsx&lt;br&gt;&lt;br&gt;Error During SSIS ETL - Manual Investigation Required&lt;/H3&gt;' as [Error_Message] &#xA;) xx&#xA;order by 1&#xA;"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::strSSISFirstFail" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL903 - Send Fail Batch Summary Email"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{bd5c2836-f1be-4559-ad44-2b7923392bbf}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:ExecValue="2"
+              DTS:ExecValueType="3"
+              DTS:FailPackageOnFailure="True"
+              DTS:ForceExecutionResult="0"
+              DTS:ForceExecValue="True"
+              DTS:LocaleID="-1"
+              DTS:MaxErrorCount="0"
+              DTS:ObjectName="SQL903 - Send Fail Batch Summary Email"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:PropertyExpression
+                DTS:Name="SqlStatementSource">"EXEC  [TM1control].[SendFirstFailEmail001]  @recipientsSTR = '" + @[$Project::strMailRecipientListSupport]  + "', @profilenameSTR = '" + @[$Project::strMailProfileName] +  "' , @htmlIN = '"+  @[User::strSSISFirstFail] +"', @intBatchID =" +  (DT_WSTR, 10) @[User::intLoadId]</DTS:PropertyExpression>
+              <DTS:EventHandlers>
+                <DTS:EventHandler
+                  DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL903 - Send Fail Batch Summary Email.EventHandlers[OnError]"
+                  DTS:CreationName="OnError"
+                  DTS:DTSID="{a09aac4d-8c2b-41ba-a9ea-78efd5771b82}"
+                  DTS:EventID="0"
+                  DTS:EventName="OnError"
+                  DTS:LocaleID="-1">
+                  <DTS:Variables>
+                    <DTS:Variable
+                      DTS:CreationName=""
+                      DTS:Description="The propagate property of the event"
+                      DTS:DTSID="{fcc1087c-c422-45d7-b5b3-a9d33f3896f9}"
+                      DTS:IncludeInDebugDump="6789"
+                      DTS:Namespace="System"
+                      DTS:ObjectName="Propagate">
+                      <DTS:VariableValue
+                        DTS:DataType="11">-1</DTS:VariableValue>
+                    </DTS:Variable>
+                  </DTS:Variables>
+                  <DTS:Executables />
+                </DTS:EventHandler>
+              </DTS:EventHandlers>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+                  SQLTask:SqlStatementSource="EXEC  [TM1control].[SendFirstFailEmail001]  @recipientsSTR = 'tim.firmin@prsformusic.com', @profilenameSTR = 'AZI-MS-SQL-D002 SQL Database Mail' , @htmlIN = '&lt;H3&gt;H2PlanningTM1&lt;br&gt;H2PlanningTM1.GlobalProcess.dtsx&lt;br&gt;&lt;br&gt;Error During SSIS ETL - Manual Investigation Required&lt;/H3&gt;', @intBatchID =4444" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+            <DTS:Executable
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL904 - Sent Mail Flag Set 1"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:DelayValidation="True"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{24e4ca5a-a27a-4947-bed5-498ab54af46d}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:ExecValue="2"
+              DTS:ExecValueType="3"
+              DTS:FailPackageOnFailure="True"
+              DTS:ForceExecutionResult="0"
+              DTS:ForceExecValue="True"
+              DTS:LocaleID="-1"
+              DTS:MaxErrorCount="0"
+              DTS:ObjectName="SQL904 - Sent Mail Flag Set 1"
+              DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+              <DTS:Variables />
+              <DTS:EventHandlers>
+                <DTS:EventHandler
+                  DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL904 - Sent Mail Flag Set 1.EventHandlers[OnError]"
+                  DTS:CreationName="OnError"
+                  DTS:DTSID="{896efd7d-6aca-4f03-ae04-0c00b26e5654}"
+                  DTS:EventID="0"
+                  DTS:EventName="OnError"
+                  DTS:LocaleID="-1">
+                  <DTS:Variables>
+                    <DTS:Variable
+                      DTS:CreationName=""
+                      DTS:Description="The propagate property of the event"
+                      DTS:DTSID="{66b23907-6eb6-46de-9a2e-22cfb3fb95de}"
+                      DTS:IncludeInDebugDump="6789"
+                      DTS:Namespace="System"
+                      DTS:ObjectName="Propagate">
+                      <DTS:VariableValue
+                        DTS:DataType="11">-1</DTS:VariableValue>
+                    </DTS:Variable>
+                  </DTS:Variables>
+                  <DTS:Executables />
+                </DTS:EventHandler>
+              </DTS:EventHandlers>
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{E7C9DCC3-42C9-4E2C-8AD0-E9863A825BC0}"
+                  SQLTask:SqlStatementSource="SELECT 1 as intErrorMailSent"
+                  SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+                  <SQLTask:ResultBinding
+                    SQLTask:ResultName="0"
+                    SQLTask:DtsVariableName="User::intErrorMailSent" />
+                </SQLTask:SqlTaskData>
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+          <DTS:PrecedenceConstraints>
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint]"
+              DTS:CreationName=""
+              DTS:DTSID="{7a8dce0b-ec94-4703-aac7-b9ede50c8f3c}"
+              DTS:EvalOp="3"
+              DTS:Expression="@[User::intErrorMailSent]==0"
+              DTS:From="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL901 Get Fail SSIS Row Count"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint"
+              DTS:To="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL902 Get Fail SSIS String" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint 1]"
+              DTS:CreationName=""
+              DTS:DTSID="{6d468531-67c1-42a5-9049-aae372484916}"
+              DTS:From="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL902 Get Fail SSIS String"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 1"
+              DTS:To="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL903 - Send Fail Batch Summary Email" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint 2]"
+              DTS:CreationName=""
+              DTS:DTSID="{C173CB3B-EFE8-4968-83FE-D2F80C635B52}"
+              DTS:From="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL903 - Send Fail Batch Summary Email"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 2"
+              DTS:To="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL904 - Sent Mail Flag Set 1" />
+            <DTS:PrecedenceConstraint
+              DTS:refId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint 3]"
+              DTS:CreationName=""
+              DTS:DTSID="{4DFAE9B3-64B8-4CE5-AC2D-9D937EAB5236}"
+              DTS:From="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL904 - Sent Mail Flag Set 1"
+              DTS:LogicalAnd="True"
+              DTS:ObjectName="Constraint 3"
+              DTS:To="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\Adatis  Terminate Load Task" />
+          </DTS:PrecedenceConstraints>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="64" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="893,392" />
+        <NodeLayout
+          Size="213,47"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="881,2159.5" />
+        <NodeLayout
+          Size="343,42"
+          Id="Package\SEQ100 - Assess Files at Source\EPT101 H2PlanningTM1 FileAssess - Assess Source Files"
+          TopLeft="31,28.4444444444445" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="412,125"
+          Size="412,168"
+          Id="Package\SEQ100 - Assess Files at Source"
+          TopLeft="783.777777777776,618.103174603177" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\SEQ200 - Stage Clean and Transform Files\FELC205 Loop Tables to Stage and Transform\EPT210 H2PlanningTM1 Stage Clean Transform"
+          TopLeft="45.7777777777766,22.8174603174602" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="389,120"
+          Size="389,163"
+          Id="Package\SEQ200 - Stage Clean and Transform Files\FELC205 Loop Tables to Stage and Transform"
+          TopLeft="38.8333333333333,101.150793650794" />
+        <NodeLayout
+          Size="255,42"
+          Id="Package\SEQ200 - Stage Clean and Transform Files\SQL201 Get RecordSet Files To Stage"
+          TopLeft="99,16" />
+        <EdgeLayout
+          Id="Package\SEQ200 - Stage Clean and Transform Files.PrecedenceConstraints[Constraint]"
+          TopLeft="229.916666666667,58">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.1507936507935"
+              Start="0,0"
+              End="0,35.6507936507935">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6507936507935" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="462,328"
+          Size="462,371"
+          Id="Package\SEQ200 - Stage Clean and Transform Files"
+          TopLeft="764.777777777777,851.547619047621" />
+        <NodeLayout
+          Size="242,42"
+          Id="Package\SEQ300 - Load DownStream Systems FDM FPV\EPT301 H2PlanningTM1 Load FDM"
+          TopLeft="31,28.4444444444445" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\SEQ300 - Load DownStream Systems FDM FPV\EPT303 H2PlanningTM1 Load FPV"
+          TopLeft="31,130.444444444445" />
+        <EdgeLayout
+          Id="Package\SEQ300 - Load DownStream Systems FDM FPV.PrecedenceConstraints[Constraint]"
+          TopLeft="151,70.4444444444445">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-33.9655859375,18.25,67.931171875,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Export to Hector 2 / FPV App Turned Off fo PRD Currently"
+          ParentId="Package\SEQ300 - Load DownStream Systems FDM FPV"
+          FontInfo="{assembly:Null}"
+          Size="334,40"
+          Id="6b7bf2e0-c58d-4d0e-8c25-5a20a4c04bec"
+          TopLeft="42,97" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="412,227"
+          Size="412,270"
+          Id="Package\SEQ300 - Load DownStream Systems FDM FPV"
+          TopLeft="782,1284" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\SEQ400 - End of Batch File Management\EPT401 End of Batch File Management"
+          TopLeft="31,28.4444444444445" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="412,114"
+          Size="412,157"
+          Id="Package\SEQ400 - End of Batch File Management"
+          TopLeft="788.11111111111,1625.33333333333" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\SEQ500 - End of Normal Batch Email\SQL501 Get Batch File Row Count"
+          TopLeft="81,29" />
+        <NodeLayout
+          Size="256,42"
+          Id="Package\SEQ500 - End of Normal Batch Email\SQL502 - Send Batch Summary Email"
+          TopLeft="79,104.916666666667" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\SEQ500 - End of Normal Batch Email\SQL509 - Send Empty Batch Summary Email"
+          TopLeft="363.920634920634,67.6428571428573" />
+        <EdgeLayout
+          Id="Package\SEQ500 - End of Normal Batch Email.PrecedenceConstraints[Constraint]"
+          TopLeft="203.75,71">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.916666666667"
+              Start="0,0"
+              End="0,26.416666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.416666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.2083333333335,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQ500 - End of Normal Batch Email.PrecedenceConstraints[Constraint 1]"
+          TopLeft="320,50">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="43.9206349206338,38.6428571428573"
+              Start="0,0"
+              End="36.4206349206338,38.6428571428573">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="17.9603174603169,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="17.9603174603169,0"
+                    Point2="21.9603174603169,0"
+                    Point3="21.9603174603169,4" />
+                  <mssgle:LineSegment
+                    End="21.9603174603169,34.6428571428573" />
+                  <mssgle:CubicBezierSegment
+                    Point1="21.9603174603169,34.6428571428573"
+                    Point2="21.9603174603169,38.6428571428573"
+                    Point3="25.9603174603169,38.6428571428573" />
+                  <mssgle:LineSegment
+                    End="36.4206349206338,38.6428571428573" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="13.9603174603169,-22,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="661,202"
+          Size="661,245"
+          Id="Package\SEQ500 - End of Normal Batch Email"
+          TopLeft="666.206349206348,1853.42857142857" />
+        <NodeLayout
+          Size="207,42"
+          Id="Package\SQL001 Store Run Mode(s)"
+          TopLeft="886.444444444444,481.59523809524" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="989.86111111111,523.59523809524">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.507936507937"
+              Start="0,0"
+              End="0,87.007936507937">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.007936507937" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="992.777777777776,786.103174603177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.4444444444441"
+              Start="0,0"
+              End="0,57.9444444444441">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.9444444444441" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="991.222222222222,434">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.59523809524"
+              Start="0,0"
+              End="0,40.09523809524">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.09523809524" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="991.888888888888,1222.54761904762">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.4523809523789"
+              Start="0,0"
+              End="0,53.9523809523789">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.9523809523789" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="991.055555555555,1554">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.3333333333335"
+              Start="0,0"
+              End="0,63.8333333333335">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.8333333333335" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="995.408730158729,1782.33333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.0952380952415"
+              Start="0,0"
+              End="0,63.5952380952415">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.5952380952415" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="996.706349206348,2098.42857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.20634920634825,61.0714285714284"
+              Start="0,0"
+              End="-9.20634920634825,53.5714285714284">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5357142857142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5357142857142"
+                    Point2="0,30.5357142857142"
+                    Point3="-4,30.5357142857142" />
+                  <mssgle:LineSegment
+                    End="-5.20634920634825,30.5357142857142" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.20634920634825,30.5357142857142"
+                    Point2="-9.20634920634825,30.5357142857142"
+                    Point3="-9.20634920634825,34.5357142857142" />
+                  <mssgle:LineSegment
+                    End="-9.20634920634825,53.5714285714284" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="-TM1 Planning File Integration Processing-&#xA;            Parent Control Package"
+          ParentId="Package"
+          Size="366,67"
+          Id="b21bc39b-4b54-4943-b9e0-945644773b2c"
+          TopLeft="815.555555555555,302.103174603176">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="Store Run Mode from Package Variable @intSetRunMode"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="334,40"
+          Id="287ab1eb-c492-4814-98d7-7381298c0257"
+          TopLeft="803.444444444444,567.373015873018" />
+        <AnnotationLayout
+          Text="Loop Variable Mapping&#xA;&#xA;FileLogUniqueKey --0 strWorkingFileLogKey&#xA;FileName  --1 strWorkingSourceTable&#xA;FileType  --2 strWorkingFileType&#xA;SourceFileID  --3 strWorkingSourceFileId&#xA;FileStartPeriodSeq --4 strWorkingFileStartPerSeq&#xA;FileEndPeriodSeq --5 strWorkingFileEndPerSeq"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="286,152"
+          Id="0aa74f47-a00d-4985-826f-c65f0de2a8db"
+          TopLeft="1330,900" />
+        <AnnotationLayout
+          Text="On Failure Email Sent to Support"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="202,40"
+          Id="699487f5-d6fe-4d78-8e61-d36362ae9ef7"
+          TopLeft="908.571428571429,2111.42857142857" />
+        <AnnotationLayout
+          Text="On Execute Assess Control Metadata"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="223,40"
+          Id="53bf4994-6e10-4130-b738-c1dc83fc0202"
+          TopLeft="874,454" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\Adatis  Terminate Load Task"
+          TopLeft="143,337" />
+        <NodeLayout
+          Size="284,42"
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL901 Get Fail SSIS Row Count"
+          TopLeft="111.460317460318,50.5714285714284" />
+        <NodeLayout
+          Size="284,42"
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL902 Get Fail SSIS String"
+          TopLeft="111.460317460318,127" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL903 - Send Fail Batch Summary Email"
+          TopLeft="111.460317460318,197.916666666667" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL904 - Sent Mail Flag Set 1"
+          TopLeft="145,267" />
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint]"
+          TopLeft="253.460317460318,92.5714285714284">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.4285714285716"
+              Start="0,0"
+              End="0,26.9285714285716">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.9285714285716" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,5.46428571428581,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint 1]"
+          TopLeft="251.210317460318,169">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28.916666666667"
+              Start="0,0"
+              End="0,21.416666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.416666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint 2]"
+          TopLeft="251.730158730159,239.916666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.083333333333"
+              Start="0,0"
+              End="0,19.583333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.583333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found.PrecedenceConstraints[Constraint 3]"
+          TopLeft="252,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="@[User::intBatchFileRows] &gt; 0 &amp;&amp; @[User::intErrorMailSent]==0"
+          ParentId="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found"
+          FontInfo="{x:Null}"
+          Size="369,NaN"
+          Id="67b275e0-73aa-404a-b84d-b88ee7733a63"
+          TopLeft="277,95" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="651,434"
+          Size="651,477"
+          Id="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found"
+          TopLeft="119,102" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL903 - Send Fail Batch Summary Email.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="348,42"
+          Id="{76912d81-0694-4676-8e6b-6ed6f988c9b6}"
+          TopLeft="212,150" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]\SEQ900 - Send SSIS Failure Mail If Error Row Found\SQL904 - Sent Mail Flag Set 1.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="348,42"
+          Id="{76912d81-0694-4676-8e6b-6ed6f988c9b6}"
+          TopLeft="212,150" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <DtsEventHandler
+    design-time-name="Package\SQL001 Store Run Mode(s).EventHandlers[OnPostExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="246,42"
+          Id="Package\SQL001 Store Run Mode(s).EventHandlers[OnPostExecute]\SQL900 Load any Missing Metadata"
+          TopLeft="146,192" />
+        <AnnotationLayout
+          Text="Ensure Metadata Present and Correct"
+          ParentId="Package\SQL001 Store Run Mode(s).EventHandlers[OnPostExecute]"
+          FontInfo="{x:Null}"
+          Size="226,NaN"
+          Id="fc9cacb6-fbb7-4a35-a0fa-06be5ecee4bd"
+          TopLeft="131,62" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

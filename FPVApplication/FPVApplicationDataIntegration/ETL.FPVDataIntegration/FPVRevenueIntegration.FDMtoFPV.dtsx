@@ -1,0 +1,2730 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2016 9:51:06 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="GR2-W8-POW035"
+  DTS:CreatorName="PRS\TFirmin"
+  DTS:Description="TM1 Planning File Integration File Management "
+  DTS:DTSID="{417CCD20-9CD8-40A4-AE57-BB404C653FC6}"
+  DTS:EnableConfig="True"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="13.0.2150.2"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="FPVRevenueIntegration FDMtoFPV"
+  DTS:PackageType="5"
+  DTS:VersionBuild="503"
+  DTS:VersionGUID="{26FFAAD1-A3C6-4159-AB91-47B9994D141E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Configurations>
+    <DTS:Configuration
+      DTS:ConfigurationString="intLoadId"
+      DTS:ConfigurationVariable="\Package.Variables[User::intParentLoadId].Properties[Value]"
+      DTS:CreationName=""
+      DTS:DTSID="{82566C56-717C-4C2F-ABDC-EB4F109B3CC1}"
+      DTS:ObjectName="intParentLoadId" />
+  </DTS:Configurations>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{1530D40D-E058-430C-A1C9-4F14745F4D8D}"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">29999</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{D48C8F42-457E-4FFD-9D5C-BD3E227C735D}"
+      DTS:ObjectName="LandingDelimiter">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">,</DTS:Property>
+    </DTS:PackageParameter>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{979E330E-AFF8-46A0-8B47-5EE8D0B8093A}"
+      DTS:ObjectName="LandingSchemaName">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">BITlanding</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{53A8A811-B0F3-4478-8494-C17F30C7EB01}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intBadRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F6669853-7A74-4F2D-B7B6-188FA1685834}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intDeletedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E79D1A15-5720-4B83-BBDE-476CB240DF46}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intEntityId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{15CB6EC4-936E-4075-9B36-97479FD2771F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intExtractedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E9202A2D-2EB2-441D-8E43-58E3E4731D79}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFailRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D9653CFE-3A02-4978-9991-CAED18448FFA}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intFileId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3DC7030B-362A-4BC9-BEAF-79736A73E1D6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInsertedRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F32801B8-7940-46D7-B562-10F90F42E492}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intInvalidRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3A231E31-D4A6-4851-A81F-CDF9570F49CF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">123</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF7CCB2E-EA33-4B01-89AE-2246173D3A26}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="intParentLoadId">
+      <DTS:VariableValue
+        DTS:DataType="3">4444</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CA3AFB8E-2167-43BC-AE6F-E2D8FD707A9C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intRawFileRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C7983850-0BC5-48CB-8A16-4A9824293084}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intSourceRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{57A252C6-99F4-4B8B-8FD1-1E7541F16F82}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="intUpdateRows">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7BA09CEF-AF4C-4113-9A78-4AE51C125DB6}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="objTableName">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BD87441C-B47C-4D0A-8D3F-CC2A64C151DD}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstArchiveFileSet01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4D87F275-5AA4-4786-A15F-C7D28E4F307D}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstDeleteFileSet01">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9C7F7B0E-1DCC-4A83-AA47-C0071E37E8D3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="rstTablesLanded">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3EB5B363-357B-4573-9A45-70972F431651}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchLandingLogTable">
+      <DTS:VariableValue
+        DTS:DataType="8">BITcontrol.LandedFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E1AF43FF-A8E6-4D82-92C3-B88EED666E2C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strBatchValidForArchive">
+      <DTS:VariableValue
+        DTS:DataType="8">N</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7C064F51-5299-4EC1-8D80-21F89DC255C1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentFileName">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2495CB0F-A8AA-4790-8487-17B5C2325C88}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strCurrentTableName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D816C435-DAF6-400F-98EB-7F7F8D0C9EAE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strEntityName">
+      <DTS:VariableValue
+        DTS:DataType="8">BITLandingFiles</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{3BEFD069-57A5-4BF1-A121-DCD1D1A8F89B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileMoveFrom">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\Dev\01CostDataExtract\01CostDataExtract CR2 Pd1 - 2017_to_Pd_12-2019-TM1 Prod Server2018-04-16.cma</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E33C765-6756-45D7-8B19-1CBDD75B0672}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFileMoveTo">
+      <DTS:VariableValue
+        DTS:DataType="8">\\ONP-MS-FSS-DV01\Data\Proj\Hector2\Dev\FilesProcessed\01Cost\01CostDataExtract CR2 Pd1 - 2017_to_Pd_12-2019-TM1 Prod Server2018-04-16.cma</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{24191E9E-221B-471E-A68E-41E625CB08FC}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFPVRevenueTable">
+      <DTS:VariableValue
+        DTS:DataType="8">staging.DistributionPlanningRevenue</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C88DE00A-C7DD-4444-911F-1CE7C158B3DF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strFPVScenarioTable">
+      <DTS:VariableValue
+        DTS:DataType="8">staging.MasterPlanningScenario</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D28020AC-9C76-4EEA-ADD8-E819C4F59931}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strLoadProcessShortName">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C69C5A76-1594-4E97-B077-B756FF8648E4}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strObtainFileId">
+      <DTS:VariableValue
+        DTS:DataType="8">EXEC Control.[ProcessSourceFile] @SourceFile, @SourceFileType, @LoadId, @ApplicationCode, @SourceFileId OUT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{282253DF-F8FB-43D4-B771-822257B585E9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strProcessStream">
+      <DTS:VariableValue
+        DTS:DataType="8">SRC2STG</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{505AE544-A482-43CD-A6F5-1740700021DA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSchemaName">
+      <DTS:VariableValue
+        DTS:DataType="8">staging</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A8DC5744-BE04-4504-8A80-5C61BD786378}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="&quot;&#xA;BEGIN&#xA;  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);&#xA;                               &#xA;END;&#xA;&quot;"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourcecQuery">
+      <DTS:VariableValue
+        DTS:DataType="8">
+BEGIN
+  dx_extract_utility.extract_data_file ('DX_MEMBER_STATEMENTS', '1901011', NULL, ? , ? , ?);
+                               
+END;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{44C2BB44-DDB7-4457-9827-BF09EA1D5677}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::strCurrentFileName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strSourceFile">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\File.dmp</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6096FD79-C71F-43F6-B1D0-7D3A46BEFC45}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileLogKey">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{42DF3E87-9218-4AAF-A4F4-745305389AE1}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileMoveAction">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D677A3E9-153E-40F7-AB2E-9467C60B31AB}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileType">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{19011CAB-2C92-4BDE-A4A0-5FCF330372E5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingFileValid">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DCDE69A2-3969-454B-AC4C-13C95056F882}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingProcessFlag">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{C4150364-1F46-4D9E-8D04-20DB71865D10}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingRawPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Temp\SouceFiles\Landing\Distribution File - PRS - 07JUL2017.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B720880C-7AE8-4393-B4D2-AD2D4EB3A918}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFailFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\Failed\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FC9C8192-A94C-4C4E-9527-925E8320C3EA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileFolder">
+      <DTS:VariableValue
+        DTS:DataType="8">InProcess\DistributionFiles\In\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0A371B37-16B2-42F5-9B11-22BB50C4AC16}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingSourceFileId">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10F7BF70-9976-47B3-A7A3-DBC8103DF22D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="strWorkingTable">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Initiate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Initiate Load Task"
+      DTS:DTSID="{F2295F11-4938-45E2-8D63-29704AB24604}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.NewLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Initiate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Adatis  Terminate Load Task"
+      DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:Description="Adatis: Terminate Load Task"
+      DTS:DTSID="{508903A1-B7BA-4EE7-8B54-E40611D49988}"
+      DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=13.14.2.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Adatis  Terminate Load Task"
+      DTS:TaskContact="Adatis: http://www.adatis.co.uk/"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <InnerObject>
+          <ConnectionName
+            Type="8"
+            Value="BISystemADO" />
+          <IsEntityProcess
+            Type="11"
+            Value="-1" />
+          <LoadStatusType
+            Type="3"
+            Value="1" />
+          <TargetServerVersion
+            Type="3"
+            Value="130" />
+        </InnerObject>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC100 Load Revenue from FDM to FPV Staging"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{A87BD642-4046-4789-80D8-12B6E54DDEA6}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC100 Load Revenue from FDM to FPV Staging">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{879FCE62-3831-4E7A-AE63-7501E9121FBD}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT110 Move FDM to FPV Staging"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="[ADO NET Revenue Destination].[TableOrViewName]">@[User::strFPVRevenueTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Derived Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input].Columns[ParentLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[InsertLoadId]"
+                          name="ParentLoadId"
+                          truncationRowDisposition="FailComponent"
+                          usageType="readWrite">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[ISNULL](@[User::intParentLoadId]) ? 99999 : @[User::intParentLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">ISNULL(@[User::intParentLoadId]) ? 99999 : @[User::intParentLoadId]</property>
+                          </properties>
+                        </inputColumn>
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intLoadId]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Revenue Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">staging.DistributionPlanningRevenue</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Connections[IDbConnection]"
+                      connectionManagerID="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[FPVApplicationADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[CompanyCode]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="CompanyCode"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[CompanyCode]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[CompanyCode]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[AccountCodeEL1]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountCodeEL1"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL1]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountCodeEL1]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[AccountDescrEL1]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountDescrEL1"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL1]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountDescrEL1]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[AccountCodeEL2]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountCodeEL2"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL2]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountCodeEL2]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[AccountDescrEL2]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="AccountDescrEL2"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL2]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountDescrEL2]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[PlanningScenario]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningScenario"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningScenario]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningScenario]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[PlanningPeriod]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningPeriod"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriod]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningPeriod]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[PlanningYear]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningYear"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningYear]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningYear]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[PlanningFilePeriodSeq]"
+                          cachedDataType="i4"
+                          cachedName="PlanningFilePeriodSeq"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningFilePeriodSeq]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningFilePeriodSeq]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[PlanningPeriodFirstDay]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="PlanningPeriodFirstDay"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriodFirstDay]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningPeriodFirstDay]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[TM1CategoryOnlineBroadcast]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="TM1CategoryOnlineBroadcast"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1CategoryOnlineBroadcast]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[TM1BroadcastGroup]"
+                          cachedDataType="wstr"
+                          cachedLength="150"
+                          cachedName="TM1BroadcastGroup"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1BroadcastGroup]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1BroadcastGroup]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[ValueGBP]"
+                          cachedDataType="cy"
+                          cachedName="ValueGBP"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValueGBP]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[ValueGBP]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[TM1PlanningFileLogKey]"
+                          cachedDataType="i4"
+                          cachedName="TM1PlanningFileLogKey"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1PlanningFileLogKey]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]" />
+                        <inputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[InsertLoadId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1BaseRevenueKey]"
+                          dataType="i4"
+                          name="TM1BaseRevenueKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[CompanyCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="CompanyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL1]"
+                          dataType="wstr"
+                          length="50"
+                          name="AccountCodeEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL1]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountCodeEL2]"
+                          dataType="wstr"
+                          length="50"
+                          name="AccountCodeEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[AccountDescrEL2]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningScenario" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriod]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningYear" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          name="PlanningFilePeriodSeq" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp"
+                          name="PlanningPeriodFirstDay" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1CategoryOnlineBroadcast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1BroadcastGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[ValueGBP]"
+                          dataType="numeric"
+                          name="ValueGBP"
+                          precision="19"
+                          scale="255" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          name="TM1PlanningFileLogKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertTimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="InsertTimeStamp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Count Bad Rows">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intBadRows</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Dummy Stop"
+                  componentClassID="Microsoft.Multicast"
+                  contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+                  name="Dummy Stop">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Dummy Stop.Inputs[Multicast Input 1]"
+                      name="Multicast Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Dummy Stop.Outputs[Multicast Output 1]"
+                      dangling="true"
+                      deleteOutputOnPathDetached="true"
+                      name="Multicast Output 1"
+                      synchronousInputId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Dummy Stop.Inputs[Multicast Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="FDM Source Revenue Data"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"TM1reporting"."DistributionRevenueOutput"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Connections[IDbConnection]"
+                      connectionManagerID="{E11559AE-20A0-485D-9901-0BE95F02A4BC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[FinanceDataMartADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[CompanyCode]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[CompanyCode]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[CompanyCode]"
+                          name="CompanyCode"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountCodeEL1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL1]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountCodeEL1]"
+                          name="AccountCodeEL1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountDescrEL1]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL1]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountDescrEL1]"
+                          name="AccountDescrEL1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountCodeEL2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL2]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountCodeEL2]"
+                          name="AccountCodeEL2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountDescrEL2]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL2]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[AccountDescrEL2]"
+                          name="AccountDescrEL2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningScenario]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningScenario]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningScenario]"
+                          name="PlanningScenario"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningPeriod]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriod]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningPeriod]"
+                          name="PlanningPeriod"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningYear]"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningYear]"
+                          name="PlanningYear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningFilePeriodSeq]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningFilePeriodSeq]"
+                          name="PlanningFilePeriodSeq"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriodFirstDay]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[PlanningPeriodFirstDay]"
+                          name="PlanningPeriodFirstDay"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1CategoryOnlineBroadcast]"
+                          name="TM1CategoryOnlineBroadcast"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[TM1BroadcastGroup]"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1BroadcastGroup]"
+                          name="TM1BroadcastGroup"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[ValueGBP]"
+                          dataType="cy"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[ValueGBP]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[ValueGBP]"
+                          name="ValueGBP"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[TM1PlanningFileLogKey]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[TM1PlanningFileLogKey]"
+                          name="TM1PlanningFileLogKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[CompanyCode]"
+                          dataType="wstr"
+                          length="50"
+                          name="CompanyCode" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL1]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountCodeEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL1]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL1" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountCodeEL2]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountCodeEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[AccountDescrEL2]"
+                          dataType="wstr"
+                          length="150"
+                          name="AccountDescrEL2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningScenario" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriod]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningPeriod" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningYear" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          name="PlanningFilePeriodSeq" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp2"
+                          name="PlanningPeriodFirstDay"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1CategoryOnlineBroadcast" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          length="150"
+                          name="TM1BroadcastGroup" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[ValueGBP]"
+                          dataType="cy"
+                          name="ValueGBP" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          name="TM1PlanningFileLogKey" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[CompanyCode]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[CompanyCode]"
+                          name="CompanyCode" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL1]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL1]"
+                          name="AccountCodeEL1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL1]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL1]"
+                          name="AccountDescrEL1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL2]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountCodeEL2]"
+                          name="AccountCodeEL2" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL2]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[AccountDescrEL2]"
+                          name="AccountDescrEL2" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningScenario]"
+                          name="PlanningScenario" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningPeriod]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningPeriod]"
+                          name="PlanningPeriod" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningYear]"
+                          name="PlanningYear" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningFilePeriodSeq]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningFilePeriodSeq]"
+                          name="PlanningFilePeriodSeq" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningPeriodFirstDay]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[PlanningPeriodFirstDay]"
+                          name="PlanningPeriodFirstDay"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[TM1CategoryOnlineBroadcast]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[TM1CategoryOnlineBroadcast]"
+                          name="TM1CategoryOnlineBroadcast" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[TM1BroadcastGroup]"
+                          dataType="wstr"
+                          length="150"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[TM1BroadcastGroup]"
+                          name="TM1BroadcastGroup" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[ValueGBP]"
+                          dataType="cy"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[ValueGBP]"
+                          name="ValueGBP" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[TM1PlanningFileLogKey]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[TM1PlanningFileLogKey]"
+                          name="TM1PlanningFileLogKey" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[InsertLoadId]"
+                          name="InsertLoadId" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intInsertedRows</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[ADO NET Destination Error Output]"
+                  endId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows.Inputs[Row Count Input 1]"
+                  name="ADO NET Destination Error Output"
+                  startId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Outputs[ADO NET Destination Error Output]" />
+                <path
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[ADO NET Source Output]"
+                  endId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[Derived Column Output]"
+                  endId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[Row Count Output 1]"
+                  endId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination.Inputs[ADO NET Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count.Outputs[Row Count Output 1]" />
+                <path
+                  refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[Row Count Output 11]"
+                  endId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Dummy Stop.Inputs[Multicast Input 1]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\SQL105 Prepare FPV Destination Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{AB1A9D0E-266C-4FBE-B808-314A359EB65E}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL105 Prepare FPV Destination Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"DELETE FROM " + @[User::strFPVRevenueTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="DELETE FROM staging.DistributionPlanningRevenue" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC100 Load Revenue from FDM to FPV Staging\SQL115 Log Throughput for staging DistributionPlanningRevenue"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{9a6fc130-872e-464b-8cbb-b143d3c73ca1}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL115 Log Throughput for staging DistributionPlanningRevenue"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+DECLARE @ApplicationId SMALLINT = 0
+ SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = '"+  @[$Project::strApplicationCode] + "'
+
+	INSERT INTO [Audit].[RowThroughput]
+			   ( ExecutionId	
+			    ,ExecutableId	
+			    ,EnvironmentId	
+				,EntityId	
+				,LoadProcess	
+				,TaskName	
+				,ProcessStream	
+				,LoadId	
+				,ApplicationId	
+				,SourceFileName	
+				,InsertedRows	
+				,ExtractedRows
+				,UpdatedRows	
+				,DeletedRows	
+				,FailedRows	
+				,ArchivedRows	
+				,BadRows	
+			   )
+		 VALUES
+			   ( " + (DT_WSTR, 10) @[System::ServerExecutionID]  + "-- ExecutionId	
+				,-1 -- EntityId	
+			   	,-1
+				,-1
+				,'"  +  @[User::strProcessStream]  + "' --LoadProcess	
+				,'" + @[System::TaskName]  + "'	--TaskName
+				, '" + @[System::PackageName] + " Load" + "'
+				," + (DT_WSTR, 10)@[User::intParentLoadId] + "	
+				,@ApplicationId	
+				,'" +  @[User::strFPVRevenueTable]  + "' 
+				," + (DT_WSTR, 10) @[User::intInsertedRows] + "
+				,0,0,0,0,0,0
+			   )
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3E10D4EA-1229-45A5-A082-AA0D4998BDD0}"
+              SQLTask:SqlStatementSource="&#xA;DECLARE @ApplicationId SMALLINT = 0&#xA; SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = 'FPV'&#xA;&#xA;&#x9;INSERT INTO [Audit].[RowThroughput]&#xA;&#x9;&#x9;&#x9;   ( ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;    ,ExecutableId&#x9;&#xA;&#x9;&#x9;&#x9;    ,EnvironmentId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,EntityId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,TaskName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ProcessStream&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,SourceFileName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,InsertedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ExtractedRows&#xA;&#x9;&#x9;&#x9;&#x9;,UpdatedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,DeletedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,FailedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ArchivedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,BadRows&#x9;&#xA;&#x9;&#x9;&#x9;   )&#xA;&#x9;&#x9; VALUES&#xA;&#x9;&#x9;&#x9;   ( 0-- ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,-1 -- EntityId&#x9;&#xA;&#x9;&#x9;&#x9;   &#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,'SRC2STG' --LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'SQL115 Log Throughput for staging DistributionPlanningRevenue'&#x9;--TaskName&#xA;&#x9;&#x9;&#x9;&#x9;, 'FPVRevenueIntegration FDMtoFPV Load'&#xA;&#x9;&#x9;&#x9;&#x9;,4444&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,@ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'staging.DistributionPlanningRevenue' &#xA;&#x9;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;&#x9;,0,0,0,0,0,0&#xA;&#x9;&#x9;&#x9;   )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Revenue from FDM to FPV Staging.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{ACCEFE5A-BAEB-432F-B0A1-2624E4369645}"
+          DTS:From="Package\SEQC100 Load Revenue from FDM to FPV Staging\SQL105 Prepare FPV Destination Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC100 Load Revenue from FDM to FPV Staging.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{02CCF768-487F-49A2-A710-918E44074173}"
+          DTS:From="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC100 Load Revenue from FDM to FPV Staging\SQL115 Log Throughput for staging DistributionPlanningRevenue" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SEQC200 Load Scenario from FDM to FPV Staging"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{b0ee92a5-bc16-40e6-b70b-70e563845da3}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:MaxErrorCount="0"
+      DTS:ObjectName="SEQC200 Load Scenario from FDM to FPV Staging">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{cfedfa0f-97f6-405b-81b9-b8de0e197276}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="DFT210 Move FDM to FPV Staging"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="[ADO NET Scenario Destination].[TableOrViewName]">@[User::strFPVScenarioTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add Derived Columns"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]"
+                          name="InsertLoadId"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">@[User::intLoadId]</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">@[User::intLoadId]</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+                  description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+                  name="ADO NET Scenario Destination"
+                  usesDispositions="true"
+                  version="2">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="The Destination database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">staging.MasterPlanningScenario</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                      expressionType="Notify"
+                      name="BatchSize">0</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                      expressionType="Notify"
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                      expressionType="Notify"
+                      name="UseBulkInsertWhenPossible">true</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Connections[IDbConnection]"
+                      connectionManagerID="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[FPVApplicationADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input]"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="ADO NET Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].Columns[PlanningYear]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningYear"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningYear]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[PlanningYear]" />
+                        <inputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].Columns[PlanningScenario]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="PlanningScenario"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningScenario]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[PlanningScenario]" />
+                        <inputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].Columns[ScenarioFirstArrivedDate]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="ScenarioFirstArrivedDate"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[ScenarioFirstArrivedDate]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioFirstArrivedDate]" />
+                        <inputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].Columns[ScenarioExpectedSignOffDate]"
+                          cachedDataType="dbTimeStamp2"
+                          cachedName="ScenarioExpectedSignOffDate"
+                          cachedScale="2"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[ScenarioExpectedSignOffDate]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioExpectedSignOffDate]" />
+                        <inputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].Columns[ScenarioLatestForYearFlag]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="ScenarioLatestForYearFlag"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[ScenarioLatestForYearFlag]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioLatestForYearFlag]" />
+                        <inputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].Columns[InsertLoadId]"
+                          cachedDataType="i4"
+                          cachedName="InsertLoadId"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output].Columns[InsertLoadId]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningYear" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningScenario" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[ScenarioFirstArrivedDate]"
+                          dataType="dbTimeStamp"
+                          name="ScenarioFirstArrivedDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[ScenarioExpectedSignOffDate]"
+                          dataType="dbTimeStamp"
+                          name="ScenarioExpectedSignOffDate" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[ScenarioLatestForYearFlag]"
+                          dataType="wstr"
+                          length="1"
+                          name="ScenarioLatestForYearFlag" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertLoadId]"
+                          dataType="i4"
+                          name="InsertLoadId" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input].ExternalColumns[InsertTimeStamp]"
+                          dataType="dbTimeStamp"
+                          name="InsertTimeStamp" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Outputs[ADO NET Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="ADO NET Destination Error Output"
+                      synchronousInputId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+                  name="FDM Source Scenarios Data"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the SQL statement used by the component to extract data."
+                      expressionType="Notify"
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [TM1reporting].[ScenarioSummary]</property>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">30</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                      name="AllowImplicitStringConversion">true</property>
+                    <property
+                      dataType="System.String"
+                      description="The Source database table name."
+                      expressionType="Notify"
+                      name="TableOrViewName"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"TM1reporting"."ScenarioSummary"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specify the mode to retrieve external column information"
+                      name="AccessMode"
+                      typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Connections[IDbConnection]"
+                      connectionManagerID="{E11559AE-20A0-485D-9901-0BE95F02A4BC}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[FinanceDataMartADO]"
+                      description="Managed connection manager"
+                      name="IDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output]"
+                      name="ADO NET Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[PlanningYear]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningYear]"
+                          length="50"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[PlanningYear]"
+                          name="PlanningYear"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[PlanningScenario]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningScenario]"
+                          length="50"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[PlanningScenario]"
+                          name="PlanningScenario"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioFirstArrivedDate]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[ScenarioFirstArrivedDate]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioFirstArrivedDate]"
+                          name="ScenarioFirstArrivedDate"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioExpectedSignOffDate]"
+                          dataType="dbTimeStamp2"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[ScenarioExpectedSignOffDate]"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioExpectedSignOffDate]"
+                          name="ScenarioExpectedSignOffDate"
+                          scale="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioLatestForYearFlag]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[ScenarioLatestForYearFlag]"
+                          length="1"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].Columns[ScenarioLatestForYearFlag]"
+                          name="ScenarioLatestForYearFlag"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningYear" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          name="PlanningScenario" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[ScenarioFirstArrivedDate]"
+                          dataType="dbTimeStamp2"
+                          name="ScenarioFirstArrivedDate"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[ScenarioExpectedSignOffDate]"
+                          dataType="dbTimeStamp2"
+                          name="ScenarioExpectedSignOffDate"
+                          scale="2" />
+                        <externalMetadataColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output].ExternalColumns[ScenarioLatestForYearFlag]"
+                          dataType="wstr"
+                          length="1"
+                          name="ScenarioLatestForYearFlag" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output]"
+                      isErrorOut="true"
+                      name="ADO NET Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[PlanningYear]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[PlanningYear]"
+                          name="PlanningYear" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[PlanningScenario]"
+                          dataType="wstr"
+                          length="50"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[PlanningScenario]"
+                          name="PlanningScenario" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ScenarioFirstArrivedDate]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ScenarioFirstArrivedDate]"
+                          name="ScenarioFirstArrivedDate"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ScenarioExpectedSignOffDate]"
+                          dataType="dbTimeStamp2"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ScenarioExpectedSignOffDate]"
+                          name="ScenarioExpectedSignOffDate"
+                          scale="2" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ScenarioLatestForYearFlag]"
+                          dataType="wstr"
+                          length="1"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ScenarioLatestForYearFlag]"
+                          name="ScenarioLatestForYearFlag" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count"
+                  componentClassID="Microsoft.RowCount"
+                  contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+                  name="Row Count">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable to hold the row count."
+                      name="VariableName">User::intInsertedRows</property>
+                  </properties>
+                  <inputs>
+                    <input
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count.Inputs[Row Count Input 1]"
+                      hasSideEffects="true"
+                      name="Row Count Input 1">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count.Outputs[Row Count Output 1]"
+                      name="Row Count Output 1"
+                      synchronousInputId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count.Inputs[Row Count Input 1]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging.Paths[ADO NET Source Output]"
+                  endId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Inputs[Derived Column Input]"
+                  name="ADO NET Source Output"
+                  startId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data.Outputs[ADO NET Source Output]" />
+                <path
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging.Paths[Derived Column Output]"
+                  endId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count.Inputs[Row Count Input 1]"
+                  name="Derived Column Output"
+                  startId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging.Paths[Row Count Output 1]"
+                  endId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination.Inputs[ADO NET Destination Input]"
+                  name="Row Count Output 1"
+                  startId="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count.Outputs[Row Count Output 1]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\SQL205 Prepare FPV Destination Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{f917ef8b-2f5b-4536-be98-852b8e2e7967}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL205 Prepare FPV Destination Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"DELETE FROM " + @[User::strFPVScenarioTable]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{5B0E9C56-72A3-4FF9-9FBA-3ECCCBE8001D}"
+              SQLTask:SqlStatementSource="DELETE FROM staging.MasterPlanningScenario" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\SEQC200 Load Scenario from FDM to FPV Staging\SQL225 Log Throughput for staging MasterPlanningScenario"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{3db3a6b7-5c9d-411e-a69a-cc9e20a9b093}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="SQL225 Log Throughput for staging MasterPlanningScenario"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"
+DECLARE @ApplicationId SMALLINT = 0
+ SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = '"+  @[$Project::strApplicationCode] + "'
+
+	INSERT INTO [Audit].[RowThroughput]
+			   ( ExecutionId	
+			    ,ExecutableId	
+			    ,EnvironmentId	
+				,EntityId	
+				,LoadProcess	
+				,TaskName	
+				,ProcessStream	
+				,LoadId	
+				,ApplicationId	
+				,SourceFileName	
+				,InsertedRows	
+				,ExtractedRows
+				,UpdatedRows	  
+				,DeletedRows	
+				,FailedRows	
+				,ArchivedRows	
+				,BadRows	
+			   )
+		 VALUES
+			   ( " + (DT_WSTR, 10) @[System::ServerExecutionID]  + "-- ExecutionId	
+				,-1 -- EntityId	
+			   	,-1
+				,-1
+				,'"  +  @[User::strProcessStream]  + "' --LoadProcess	
+				,'" + @[System::TaskName]  + "'	--TaskName
+				, '" + @[System::PackageName] + " Load" + "'
+				," + (DT_WSTR, 10)@[User::intParentLoadId] + "	
+				,@ApplicationId	
+				,'" + @[User::strFPVScenarioTable] + "' 
+				," + (DT_WSTR, 10) @[User::intInsertedRows] + "
+				,0,0,0,0,0,0
+			   )
+"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{3E10D4EA-1229-45A5-A082-AA0D4998BDD0}"
+              SQLTask:SqlStatementSource="&#xA;DECLARE @ApplicationId SMALLINT = 0&#xA; SELECT TOP 1 @ApplicationId = [ApplicationId] FROM [Control].[Application] where [Code] = 'FPV'&#xA;&#xA;&#x9;INSERT INTO [Audit].[RowThroughput]&#xA;&#x9;&#x9;&#x9;   ( ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;    ,ExecutableId&#x9;&#xA;&#x9;&#x9;&#x9;    ,EnvironmentId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,EntityId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,TaskName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ProcessStream&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,LoadId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,SourceFileName&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,InsertedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ExtractedRows&#xA;&#x9;&#x9;&#x9;&#x9;,UpdatedRows&#x9;  &#xA;&#x9;&#x9;&#x9;&#x9;,DeletedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,FailedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,ArchivedRows&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,BadRows&#x9;&#xA;&#x9;&#x9;&#x9;   )&#xA;&#x9;&#x9; VALUES&#xA;&#x9;&#x9;&#x9;   ( 0-- ExecutionId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,-1 -- EntityId&#x9;&#xA;&#x9;&#x9;&#x9;   &#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,-1&#xA;&#x9;&#x9;&#x9;&#x9;,'SRC2STG' --LoadProcess&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'SQL225 Log Throughput for staging MasterPlanningScenario'&#x9;--TaskName&#xA;&#x9;&#x9;&#x9;&#x9;, 'FPVRevenueIntegration FDMtoFPV Load'&#xA;&#x9;&#x9;&#x9;&#x9;,4444&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,@ApplicationId&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;,'staging.MasterPlanningScenario' &#xA;&#x9;&#x9;&#x9;&#x9;,0&#xA;&#x9;&#x9;&#x9;&#x9;,0,0,0,0,0,0&#xA;&#x9;&#x9;&#x9;   )&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC200 Load Scenario from FDM to FPV Staging.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{7a48fe8c-4223-49d1-bbb3-d281a15c8c7b}"
+          DTS:From="Package\SEQC200 Load Scenario from FDM to FPV Staging\SQL205 Prepare FPV Destination Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\SEQC200 Load Scenario from FDM to FPV Staging.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{91881EA2-8458-4DD9-88C7-F24FDE325B5C}"
+          DTS:From="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\SEQC200 Load Scenario from FDM to FPV Staging\SQL225 Log Throughput for staging MasterPlanningScenario" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{16BF016F-9CB3-4F58-AB30-E01F6F80F8D3}"
+      DTS:From="Package\Adatis  Initiate Load Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\SEQC100 Load Revenue from FDM to FPV Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{79DF90F6-9ED6-43F9-B8FC-98B0E0B2FE93}"
+      DTS:From="Package\SEQC100 Load Revenue from FDM to FPV Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\SEQC200 Load Scenario from FDM to FPV Staging" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{071171BD-1792-484C-89AF-926F760AD71F}"
+      DTS:From="Package\SEQC200 Load Scenario from FDM to FPV Staging"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Adatis  Terminate Load Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{3F0DE202-FBA5-45BC-9D1C-FCBFB6AD6460}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{E99FC10C-4E07-4AEC-9F90-9B29388BE0BC}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          DTS:CreationName="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:Description="Adatis: http://www.adatis.co.uk/"
+          DTS:DTSID="{3DE0AC05-E222-4FDB-B1D5-84F858B31AE8}"
+          DTS:ExecutableType="Adatis.SSIS.Tasks.EndLoadTask, Adatis.SSIS.Tasks, Version=11.11.1.1, Culture=neutral, PublicKeyToken=04585361e566dae2"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Adatis  Terminate Load Task"
+          DTS:TaskContact="Adatis: http://www.adatis.co.uk/">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <InnerObject>
+              <ConnectionName
+                Type="8"
+                Value="BISystemADO" />
+              <IsEntityProcess
+                Type="11"
+                Value="-1" />
+              <LoadStatusType
+                Type="3"
+                Value="3" />
+              <TargetServerVersion
+                Type="3"
+                Value="130" />
+            </InnerObject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Adatis  Initiate Load Task"
+          TopLeft="326.5,450" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Adatis  Terminate Load Task"
+          TopLeft="323.166666666667,1406" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging"
+          TopLeft="139.555555555556,130.722222222222" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\SQL105 Prepare FPV Destination Table"
+          TopLeft="132.5,45" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\SQL115 Log Throughput for staging DistributionPlanningRevenue"
+          TopLeft="121.5,227.722222222222" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging.PrecedenceConstraints[Constraint]"
+          TopLeft="261.527777777778,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.722222222222"
+              Start="0,0"
+              End="0,36.222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging.PrecedenceConstraints[Constraint 1]"
+          TopLeft="261.027777777778,172.722222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,54.9999999999999"
+              Start="0,0"
+              End="0,47.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="&quot;TM1reporting&quot;.&quot;DistributionRevenueOutput&quot; required on FDM Prod"
+          ParentId="Package\SEQC100 Load Revenue from FDM to FPV Staging"
+          FontInfo="{x:Null}"
+          Size="391,40"
+          Id="5df2cad8-6267-4364-8793-0028a212e998"
+          TopLeft="50,8" />
+        <AnnotationLayout
+          Text="@[User::strFPVRevenueTable]"
+          ParentId="Package\SEQC100 Load Revenue from FDM to FPV Staging"
+          FontInfo="{x:Null}"
+          Size="184,40"
+          Id="61a801f6-c11e-491d-8c4f-a4238631bae4"
+          TopLeft="56.6666666666667,97.6666666666667" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="530,330"
+          Size="530,373"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging"
+          TopLeft="159.5,581" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging"
+          TopLeft="139.555555555556,130.722222222222" />
+        <NodeLayout
+          Size="261,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\SQL205 Prepare FPV Destination Table"
+          TopLeft="132.5,45" />
+        <NodeLayout
+          Size="302,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\SQL225 Log Throughput for staging MasterPlanningScenario"
+          TopLeft="112.666666666667,212" />
+        <EdgeLayout
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging.PrecedenceConstraints[Constraint]"
+          TopLeft="261.527777777778,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43.722222222222"
+              Start="0,0"
+              End="0,36.222222222222">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.222222222222" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging.PrecedenceConstraints[Constraint 1]"
+          TopLeft="261.861111111111,172.722222222222">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,39.2777777777782"
+              Start="0,0"
+              End="0,31.7777777777782">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7777777777782" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="&quot;TM1reporting&quot;.&quot;ScenarioSummary&quot; required on FDM Prod"
+          ParentId="Package\SEQC200 Load Scenario from FDM to FPV Staging"
+          FontInfo="{x:Null}"
+          Size="340,40"
+          Id="af0d09e8-90a7-4a15-abea-9a1d28fde9a6"
+          TopLeft="85,5" />
+        <AnnotationLayout
+          Text="strFPVScenarioTable"
+          ParentId="Package\SEQC200 Load Scenario from FDM to FPV Staging"
+          FontInfo="{x:Null}"
+          Size="136,40"
+          Id="957e637d-23cd-4f5d-9c29-ff9d487aedc6"
+          TopLeft="40.6666666666667,86.5555555555557" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="530,309"
+          Size="530,352"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging"
+          TopLeft="166.166666666666,1009.66666666667" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="425.25,492">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,89"
+              Start="0,0"
+              End="0,81.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,81.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="427.833333333333,954">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55.6666666666702"
+              Start="0,0"
+              End="0,48.1666666666702">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.1666666666702" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="430.416666666667,1361.66666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,44.3333333333269"
+              Start="0,0"
+              End="0,36.8333333333269">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8333333333269" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="  - FPV Revenue Integration -&#xA;Move from FDM to FPV Staging"
+          ParentId="Package"
+          Size="277,67"
+          Id="c24ec8d9-6108-4ff3-96ee-fd4e13adeaf9"
+          TopLeft="285.25,316.75">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="18"
+              Color="#FF000000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+        <AnnotationLayout
+          Text="  (1300, -1,  20,  1,  0,  N'RevenueIntegrationTM1',     N'revenueintegrationtm1',        N'FPV TM1 Revenue Integration',         N'staging',    N'DistributionRevenueTM1',     N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1301, -1,  20,  1,  0,  N'DistributionRevenueCalendar',    N'distributionrevenuecalendar',   N'Distribution Revenue Calendar',        N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1302, -1,  20,  1,  0,  N'MasterStation',           N'masterstation',      N'MasterStation',            N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1303, -1,  20,  1,  0,  N'MasterDistributionGroup',        N'masterdistributiongroup',    N'Master Distribution Group',         N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME()),&#xA;  (1304, -1,  20,  1,  0,  N'MasterDistributionPeriod',    N'masterdistributionperiod',   N'Master Distribution Period',         N'FPV',     N'DistributionRevenueCalendar',    N'tim.firmin@prsformusic.com', SYSDATETIME())"
+          ParentId="Package"
+          FontInfo="{x:Null}"
+          Size="1205,104"
+          Id="326f305b-8d2e-4f5e-8cc6-2c2d476665a0"
+          TopLeft="102.833333333333,163.666666666663" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="213,42"
+          Id="Package.EventHandlers[OnError]\Adatis  Terminate Load Task"
+          TopLeft="NaN,NaN" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination"
+          TopLeft="236,389" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data"
+          TopLeft="242,117" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Dummy Stop"
+          TopLeft="611,295" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Count Bad Rows"
+          TopLeft="606,389" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Add Derived Columns"
+          TopLeft="258,207" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\Row Count"
+          TopLeft="282,292" />
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[Row Count Output 11]"
+          TopLeft="682.5,389">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,-52"
+              Start="0,0"
+              End="0,-44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[Row Count Output 1]"
+          TopLeft="347.25,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[Derived Column Output]"
+          TopLeft="347.5,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[ADO NET Source Output]"
+          TopLeft="346.25,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging.Paths[ADO NET Destination Error Output]"
+          TopLeft="459,410">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="147,0"
+              Start="0,0"
+              End="139.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="139.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.46445312500002,5,154.42890625,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\ADO NET Revenue Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC100 Load Revenue from FDM to FPV Staging\DFT110 Move FDM to FPV Staging\FDM Source Revenue Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="130,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Row Count"
+          TopLeft="282,292" />
+        <NodeLayout
+          Size="223,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination"
+          TopLeft="236,389" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\Add Derived Columns"
+          TopLeft="258,207" />
+        <NodeLayout
+          Size="209,42"
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data"
+          TopLeft="242,117" />
+        <EdgeLayout
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging.Paths[Row Count Output 1]"
+          TopLeft="347.25,334">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,55"
+              Start="0,0"
+              End="0,47.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,47.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging.Paths[Derived Column Output]"
+          TopLeft="347.5,249">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging.Paths[ADO NET Source Output]"
+          TopLeft="347.25,159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\ADO NET Scenario Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\SEQC200 Load Scenario from FDM to FPV Staging\DFT210 Move FDM to FPV Staging\FDM Source Scenarios Data">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

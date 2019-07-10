@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BITStageADOnet"
+  DTS:DTSID="{4D7F4355-C7F0-46FB-990E-F4D36B4C1721}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strFinanceStageADONETConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZI-MS-sql-D002,50501;Initial Catalog=FinanceStage;Integrated Security=True;Connect Timeout=0;Application Name=SSIS-{4D7F4355-C7F0-46FB-990E-F4D36B4C1721}BITStageADOnet;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

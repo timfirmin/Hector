@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="BITDataMartADOnet"
+  DTS:DTSID="{3348D4BA-0D70-44D9-AFF7-B5F87B402452}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::strFinanceDataMartADONETConnectionString]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=AZI-MS-sql-D002,50501;Initial Catalog=FinanceDataMart;Integrated Security=True;Connect Timeout=0;Application Name=SSIS-{3348D4BA-0D70-44D9-AFF7-B5F87B402452}BITDataMartADOnet;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

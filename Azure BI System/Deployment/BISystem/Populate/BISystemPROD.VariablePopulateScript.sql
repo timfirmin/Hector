@@ -1,0 +1,1 @@
+INSERT INTO [Config].[Variable]( [VariableId] ,[Name] ,[Value] ,[Type] ) VALUES (1, 'SSISEnvironment', 'PROD', 'Environment Variable')

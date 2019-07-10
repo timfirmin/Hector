@@ -1,0 +1,2 @@
+﻿--CREATE USER [PRSBIDevValidation] WITHOUT LOGIN;
+
