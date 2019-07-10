@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>NotificationServiceDB</DataSourceReference>
+      <CommandText>SELECT n.[notificationID]
+ ,n.[templateID]
+ ,t.[templateName]
+ ,t.[category][templateCategory]
+ ,n.[recipientList]
+ ,n.[notificationSubject]
+ ,n.[notificationBody]
+,n.[profileName]
+ ,n.[reportLink]
+ ,n.[processSysTime]
+ ,n.[Processed]
+ ,n.[Priority]
+FROM [notification].[vNotification] n
+JOIN [notification].[template] t on t.templateID=t.templateID</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="notificationID">
+        <DataField>notificationID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="templateID">
+        <DataField>templateID</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="templateName">
+        <DataField>templateName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="templateCategory">
+        <DataField>templateCategory</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="recipientList">
+        <DataField>recipientList</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="notificationSubject">
+        <DataField>notificationSubject</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="notificationBody">
+        <DataField>notificationBody</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="profileName">
+        <DataField>profileName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="reportLink">
+        <DataField>reportLink</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="processSysTime">
+        <DataField>processSysTime</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Processed">
+        <DataField>Processed</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Priority">
+        <DataField>Priority</DataField>
+        <rd:TypeName>System.Int64</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
